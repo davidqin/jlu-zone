@@ -3,19 +3,19 @@
   %head
     %title= t('logo')
     %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "content-type" }
-    = stylesheet_link_tag    "application"
+    /= stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
     .navbar
       .navbar-inner
         .container-fluid
-          %a.brand= wiki_logo
+          /%a.brand= wiki_logo
           .pull-right
-            = user_navigation
+            /= user_navigation
           .pull-left
-            = wiki_tabs_navigation    
-          = wiki_search
+            /= wiki_tabs_navigation    
+          /= wiki_search
     .container-fluid
       .row-fluid
         .span2
@@ -23,8 +23,8 @@
             #functions
         .span8
           .content
-            = content_notice
+            /= content_notice
             = yield
     %hr
     %footer.footer
-      = footer
+      /= footer
