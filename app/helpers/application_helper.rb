@@ -2,21 +2,21 @@ module ApplicationHelper
 	
 	def footer
 		html_contents do |contents|
-			contents << contents_tag :p do |content|
+			contents << contents_tag(:p) do |content|
 				content << "Powered by "
 				content << content_tag(:a, itext("logo"), :href => "www.jluwiki.com")
 			end
-			contents << contents_tag :p do |items|
+			contents << contents_tag(:p) do |items|
 				items << "Designed and Development By "
 				items << content_tag(:a, "1", :href => "a")
 				items << content_tag(:a, "2", :href => "b")
 				items << content_tag(:a, "3", :href => "c")
 				items << content_tag(:a, "4", :href => "d")
 			end
-			contents << contents_tag :p do |item|
-				item << "本站的全部文字在 "
-				item << content_tag(:a, "知识共享 署名-相同方式共享 3.0协议", :href => "http://creativecommons.org/licenses/by/3.0/")
-				item << " 之条款下提供"
+			contents << contents_tag(:p) do |item|
+				item << itext("copyright_front")
+				item << content_tag(:a, itext("copyright_link"), :href => "http://creativecommons.org/licenses/by/3.0/")
+				item << itext("copyright_behind")
 			end
 			contents << footer_function
 		end

@@ -1,6 +1,9 @@
 cn:
   logo:                    "JLU Wiki"
   to_top:                  回到顶部
+  copyright_front:         本站的全部文字在
+  copyright_link:          " 知识共享 署名-相同方式共享 3.0协议 "
+  copyright_behind:        之条款下提供
   all:                     全部
   current:                 当前
   add:                     添加
