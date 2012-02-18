@@ -36,8 +36,4 @@ module ApplicationHelper
 			self.html_contents(&block)
 		end
 	end
-
-	def itext(id, *args)
-		I18n.t(id, *args)
-	end
 end
