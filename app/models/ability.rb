@@ -2,6 +2,11 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    
+    user ||= User.new # 防止用户未登录
+
+    can :manage, :all # 可以管理所有资源
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
