@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string  :account,                 :limit => 64,  :null => false
       t.integer :reputation,           :default => 1000
       t.integer :gender,               :default => 0
+      t.integer :level,                :default => 0
       t.string  :nickname
       t.string  :campus
       t.string  :department
