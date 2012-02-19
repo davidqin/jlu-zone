@@ -1,5 +1,5 @@
 david:
-  name: david
+  account: david
   hashed_password: <%= User.encrypt_password('123456') %>  
   nickname: David
   campus: qianweinanqu
@@ -13,7 +13,7 @@ david:
   idiograph: test
 
 mario:
-  name: mario
+  account: mario
   hashed_password: <%= User.encrypt_password('123456') %>  
   nickname: Mario
   campus: qianweinanqu
@@ -27,7 +27,7 @@ mario:
   idiograph: test
 
 kevin:
-  name: kevin
+  account: kevin
   hashed_password: <%= User.encrypt_password('123456') %>  
   nickname: Kevin
   campus: qianweinanqu
@@ -40,8 +40,8 @@ kevin:
   email: kevin@gmail.com
   idiograph: test
 
-david:
-  name: frank
+frank:
+  account: frank
   hashed_password: <%= User.encrypt_password('123456') %>  
   nickname: Frank
   campus: qianweinanqu

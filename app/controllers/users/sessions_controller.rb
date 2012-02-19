@@ -4,7 +4,7 @@ class Users::SessionsController < ApplicationController
   
   def create
     hashed_password = User.encrypt_password(params[:user][:password])
-    user = User.find_by_name_and_hashed_password(params[:user][:name], hashed_password)
+    user = User.find_by_account_and_hashed_password(params[:user][:account], hashed_password)
     if user == nil
       flash[:login] = itext('user.login_fail')
       redirect_to login_path

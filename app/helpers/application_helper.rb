@@ -96,5 +96,12 @@ module ApplicationHelper
 	def current_model_type
 		self.controller_name.singularize.to_s
 	end
+
+	def wiki_logo
+		content_tag :a, :href => "/", :class => :brand do
+			itext('logo')
+		end
+	end
+	
 	ActionView::Base.default_form_builder = Wiki::FormBuilder
 end
