@@ -63,7 +63,7 @@ frank:
   idiograph: test
 
 nevermore:
-  name: Nevermore
+  account: Nevermore
   hashed_password: <%= User.encrypt_password('123456') %>  
   nickname: nevermore
   campus: qianweinanqu
