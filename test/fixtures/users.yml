@@ -1,0 +1,55 @@
+david:
+  name: david
+  hashed_password: <%= User.encrypt_password('123456') %>  
+  nickname: David
+  campus: qianweinanqu
+  department: software
+  major: male
+  grade: '2010'
+  renren: david@gmail.com
+  qq: '123456'
+  email: david
+  email: david@gmail.com
+  idiograph: test
+
+mario:
+  name: mario
+  hashed_password: <%= User.encrypt_password('123456') %>  
+  nickname: Mario
+  campus: qianweinanqu
+  department: software
+  major: male
+  grade: '2010'
+  renren: mario@gmail.com
+  qq: '234567'
+  email: mario
+  email: mario@gmail.com
+  idiograph: test
+
+kevin:
+  name: kevin
+  hashed_password: <%= User.encrypt_password('123456') %>  
+  nickname: Kevin
+  campus: qianweinanqu
+  department: software
+  major: male
+  grade: '2010'
+  renren: kevin@gmail.com
+  qq: '345678'
+  email: kevin
+  email: kevin@gmail.com
+  idiograph: test
+
+david:
+  name: frank
+  hashed_password: <%= User.encrypt_password('123456') %>  
+  nickname: Frank
+  campus: qianweinanqu
+  department: software
+  major: male
+  grade: '2010'
+  renren: frank@gmail.com
+  qq: '456789'
+  email: frank
+  email: frank@gmail.com
+  idiograph: test

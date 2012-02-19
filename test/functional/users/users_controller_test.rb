@@ -23,6 +23,27 @@ class Users::UsersControllerTest < ActionController::TestCase
     #assert_equal session[:user_id], new_user.id , "Session user id is different with register user id"    
   end
 
+  test "register successfully wiht every field" do
+    user = {
+      :nickname   => 'test',
+      :campus     => 'test',
+      :department => 'test',
+      :major      => 'test',
+      :grade      => 'test',
+      :renren     => 'test',
+      :qq         => 'test',
+      :email      => 'test',
+      :idiograph  => 'test'
+    }
+    assert_difference('User.count') do
+      post :create, :user => @roshan.merge(user)
+    end
+    assert_redirected_to :root
+    assert new_user = User.find_by_name(@roshan[:name]), "Register user did not save"
+    #login is still empty
+    #assert_equal session[:user_id], new_user.id , "Session user id is different with register user id"    
+  end
+
   test "register failed, name is empty" do
     assert_registration_failed :name => ''
   end
