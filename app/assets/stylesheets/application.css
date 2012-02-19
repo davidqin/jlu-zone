@@ -15,3 +15,7 @@
 .page-header{
 	padding-top: 40px;
 }
+
+#login{
+	cursor: pointer;
+}

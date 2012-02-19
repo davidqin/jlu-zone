@@ -4,7 +4,9 @@
     %title= itext('logo')
     %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "content-type" }
     = stylesheet_link_tag    "application"
+    = stylesheet_link_tag    "colorbox"
     = javascript_include_tag "application"
+    = javascript_include_tag "colorbox"
     = csrf_meta_tags
   %body
     .navbar.navbar-fixed-top
@@ -12,7 +14,7 @@
         .container-fluid
           = wiki_logo
           .pull-right
-            /= user_navigation
+            = user_navigation
           .pull-left
             /= wiki_tabs_navigation    
           /= wiki_search
