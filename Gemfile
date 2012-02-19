@@ -8,6 +8,7 @@ gem "will_paginate",            '3.0.3'
 
 gem 'twitter-bootstrap-rails',  :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 
+gem 'cancan', '~>1.6.7'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

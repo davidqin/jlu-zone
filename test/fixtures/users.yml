@@ -4,6 +4,7 @@ david:
   nickname: David
   campus: qianweinanqu
   department: software
+  level: 3
   major: male
   grade: '2010'
   renren: david@gmail.com
@@ -18,6 +19,7 @@ mario:
   nickname: Mario
   campus: qianweinanqu
   department: software
+  level: 3
   major: male
   grade: '2010'
   renren: mario@gmail.com
@@ -34,13 +36,14 @@ kevin:
   department: software
   major: male
   grade: '2010'
+  level: 2
   renren: kevin@gmail.com
   qq: '345678'
   email: kevin
   email: kevin@gmail.com
   idiograph: test
 
-david:
+frank:
   name: frank
   hashed_password: <%= User.encrypt_password('123456') %>  
   nickname: Frank
@@ -48,8 +51,24 @@ david:
   department: software
   major: male
   grade: '2010'
+  level: 1
   renren: frank@gmail.com
   qq: '456789'
   email: frank
   email: frank@gmail.com
+  idiograph: test
+
+roshan:
+  name: roshan
+  hashed_password: <%= User.encrypt_password('123456') %>  
+  nickname: Roshan
+  campus: qianweinanqu
+  department: software
+  major: male
+  grade: '2010'
+  level: 0
+  renren: roshan@gmail.com
+  qq: '456789'
+  email: roshan
+  email: roshan@gmail.com
   idiograph: test
