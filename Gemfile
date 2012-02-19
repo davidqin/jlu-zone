@@ -1,4 +1,5 @@
-source 'http://ruby.taobao.org'
+#source 'http://ruby.taobao.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.2.1'
 
@@ -30,6 +31,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+gem 'showbuilder',               '0.0.3'
 
 group :deployment do
   gem 'mysql',                  '2.8.1'

@@ -3,28 +3,22 @@
   %head
     %title= itext('logo')
     %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "content-type" }
-    /= stylesheet_link_tag    "application"
+    = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    .navbar
+    .navbar.navbar-fixed-top
       .navbar-inner
         .container-fluid
-          /%a.brand= wiki_logo
+          %a.brand= itext('logo')
           .pull-right
             /= user_navigation
           .pull-left
             /= wiki_tabs_navigation    
           /= wiki_search
-    .container-fluid
-      .row-fluid
-        .span2
-          .well.sidebar-nav
-            #functions
-        .span8
-          .content
-            /= content_notice
-            = yield
-    %hr
-    %footer.footer
-      /= footer
+    .container
+      /= content_notice
+      = yield
+      %hr
+      %footer.footer
+        /= footer

@@ -1,0 +1,10 @@
+= content_header(itext("login"))
+= login_notice
+.row#login
+  = form_for :user, :url => login_path, :html => { :class => "form-horizontal" } do |form|
+    .control-group
+      = form.input_email_field_append :email
+      = form.input_password_field :password
+      /= form.input_password_field_login :password
+      .login_button
+        = form_button itext('login'), :class => "btn-success"
