@@ -8,12 +8,12 @@ class Users::UsersControllerTest < ActionController::TestCase
       :password_confirmation => '123456'}
   end
   
-  test "register page" do
+  test "new page" do
     get :new
     assert_response :success
   end
 
-  test "register successfully" do
+  test "create successfully" do
     assert_difference('User.count') do
       post :create, :user => @roshan
     end
@@ -23,7 +23,7 @@ class Users::UsersControllerTest < ActionController::TestCase
     #assert_equal session[:user_id], new_user.id , "Session user id is different with register user id"    
   end
 
-  test "register successfully wiht every field" do
+  test "create successfully wiht every field" do
     user = {
       :nickname   => 'test',
       :campus     => 'test',
@@ -44,24 +44,24 @@ class Users::UsersControllerTest < ActionController::TestCase
     #assert_equal session[:user_id], new_user.id , "Session user id is different with register user id"    
   end
 
-  test "register failed, account is empty" do
+  test "create failed, account is empty" do
     assert_registration_failed :account => ''
   end
 
-  test "register failed, password is empty" do
+  test "create failed, password is empty" do
     assert_registration_failed :password => '', :password_confirmation => ''
     assert_registration_failed :password => ''
     assert_registration_failed :password_confirmation => ''
   end
 
-  test "register failed, password length is wrong" do
+  test "create failed, password length is wrong" do
     shor_password = '012'
     assert_registration_failed :password => shor_password, :password_confirmation => shor_password
     long_password = '0123456789012345678901234567890123456789'
     assert_registration_failed :password => long_password, :password_confirmation => long_password
   end
 
-  test "register failed, password not match confirmation" do
+  test "create failed, password not match confirmation" do
     assert_registration_failed :password => '12345678', :password_confirmation => '123456789'
   end
 
