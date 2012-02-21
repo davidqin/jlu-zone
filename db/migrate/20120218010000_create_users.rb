@@ -2,7 +2,7 @@ class CreateUsers < ActiveRecord::Migration
   def self.up
     create_table :users, :force => true do |t|
       t.string  :hashed_password,      :limit => 64,  :null => false
-      t.string  :account,                 :limit => 64,  :null => false
+      t.string  :account,              :limit => 64,  :null => false
       t.integer :reputation,           :default => 1000
       t.integer :gender,               :default => 0
       t.integer :level,                :default => 0
