@@ -1,8 +1,5 @@
 class ApplicationController < ActionController::Base
-  attr_accessor :current_user
-
-  helper_method :current_user
-
+  protect_from_forgery
   rescue_from CanCan::AccessDenied do |exception|
     render "/permission_error"
   end

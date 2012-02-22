@@ -9,18 +9,20 @@
     = javascript_include_tag "colorbox"
     = csrf_meta_tags
   %body
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container-fluid
-          = wiki_logo
-          .pull-right
-            = user_navigation
-          .pull-left
-            /= wiki_tabs_navigation    
-          /= wiki_search
-    .container
-      /= content_notice
-      = yield
-      %hr
-      %footer.footer
-        /= footer
+  = yield
+  /.navbar.navbar-fixed-top
+  /     .navbar-inner
+  /       .container-fluid
+  /         = wiki_logo
+  /         .pull-right
+  /           = user_navigation
+  /         .pull-left
+  /           /= wiki_tabs_navigation    
+  /         /= wiki_search
+  /   .container
+  /     /= content_notice
+  /     
+  /     %hr
+  /     %footer.footer
+  /       /= footer
+ 

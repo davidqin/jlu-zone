@@ -1,6 +1,5 @@
 david:
-  account: david
-  hashed_password: <%= User.encrypt_password('123456') %>  
+  email: david@gmail.com
   nickname: David
   campus: qianweinanqu
   department: software
@@ -10,13 +9,10 @@ david:
   grade: '2010'
   renren: david@gmail.com
   qq: '123456'
-  email: david
-  email: david@gmail.com
   idiograph: test
 
 mario:
-  account: mario
-  hashed_password: <%= User.encrypt_password('123456') %>  
+  email: mario@gmail.com
   nickname: Mario
   campus: qianweinanqu
   department: software
@@ -26,13 +22,10 @@ mario:
   grade: '2010'
   renren: mario@gmail.com
   qq: '234567'
-  email: mario
-  email: mario@gmail.com
   idiograph: test
 
 kevin:
-  account: kevin
-  hashed_password: <%= User.encrypt_password('123456') %>  
+  email: kevin@gmail.com
   nickname: Kevin
   campus: qianweinanqu
   department: software
@@ -42,13 +35,10 @@ kevin:
   level: 2
   renren: kevin@gmail.com
   qq: '345678'
-  email: kevin
-  email: kevin@gmail.com
   idiograph: test
 
 frank:
-  account: frank
-  hashed_password: <%= User.encrypt_password('123456') %>  
+  email: frank@gmail.com
   nickname: Frank
   campus: qianweinanqu
   department: software
@@ -58,13 +48,10 @@ frank:
   level: 1
   renren: frank@gmail.com
   qq: '456789'
-  email: frank
-  email: frank@gmail.com
   idiograph: test
 
 nevermore:
-  account: Nevermore
-  hashed_password: <%= User.encrypt_password('123456') %>  
+  email: nevermore@gmail.com
   nickname: nevermore
   campus: qianweinanqu
   department: software
@@ -74,6 +61,4 @@ nevermore:
   level: 0
   renren: nevermore@gmail.com
   qq: '456789'
-  email: nevermore
-  email: nevermore@gmail.com
   idiograph: test

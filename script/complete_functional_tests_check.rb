@@ -2,7 +2,7 @@ $LOAD_PATH << '/home/david/Documents/wiki/test'
 
 Contorller_root_folder  = 'app/controllers'
 Test_root_folder        = 'test/functional/'
-Ignore_controller_names = ['application_controller']
+Ignore_controller_names = ['application_controller', 'users/users_controller']
 
 #add fo format: Ignore_action_names << ['payments/purchase_payings_controller',    'create']
 Ignore_action_names     = []
