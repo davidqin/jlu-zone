@@ -4,7 +4,9 @@ gem 'rails', '3.2.1'
 
 gem 'haml-rails',               '0.3.4'
 
-gem "will_paginate",            '3.0.3'
+gem "will_paginate", :git => "https://github.com/p7r/will_paginate.git", :branch => "rails3"
+
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 gem "devise"
 
@@ -33,8 +35,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
-gem 'showbuilder',               '0.0.3'
 
 group :deployment do
   gem 'mysql',                  '2.8.1'
