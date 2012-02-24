@@ -1,4 +1,4 @@
-# RailsAdmin config file. Generated on February 23, 2012 22:20
+# RailsAdmin config file. Generated on February 24, 2012 21:28
 # See github.com/sferik/rails_admin for more informations
 
 RailsAdmin.config do |config|
@@ -8,13 +8,13 @@ RailsAdmin.config do |config|
   # I18n.default_locale = :de
 
   config.current_user_method { current_user } # auto-generated
-  
+  config.authorize_with :cancan
   # If you want to track changes on your models:
   # config.audit_with :history, User
-  
+
   # Or with a PaperTrail: (you need to install it first)
   # config.audit_with :paper_trail, User
-  
+
   # Set the admin name here (optional second array element will appear in a beautiful RailsAdmin red ©)
   config.main_app_name = ['Wiki', 'Admin']
   # or for a dynamic name:
@@ -27,14 +27,14 @@ RailsAdmin.config do |config|
 
   #  ==> Global list view settings
   # Number of default rows per-page:
-   config.default_items_per_page = 10
+  # config.default_items_per_page = 20
 
   #  ==> Included models
   # Add all excluded models here:
-  # config.excluded_models = [Entry, User]
+  # config.excluded_models = [User]
 
   # Add models here if you want to go 'whitelist mode':
-  # config.included_models = [Entry, User]
+  # config.included_models = [User]
 
   # Application wide tried label methods for models' instances
   # config.label_methods << :description # Default is [:name, :title]
@@ -79,29 +79,29 @@ RailsAdmin.config do |config|
 
   # All fields marked as 'hidden' won't be shown anywhere in the rails_admin unless you mark them as visible. (visible(true))
 
-  # config.model Entry do
+   config.model Entry do
   #   # Found associations:
   #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :name, :string 
-  #     configure :fonder_id, :integer 
-  #     configure :number, :string 
-  #     configure :appreciation, :integer 
-  #     configure :objection, :integer 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime   #   # Sections:
-  #   list do; end
-  #   export do; end
-  #   show do; end
-  #   edit do; end
-  #   create do; end
-  #   update do; end
-  # end
-  # config.model User do
+       configure :id, :integer 
+       configure :name, :string 
+       configure :fonder_id, :integer 
+       configure :number, :string 
+       configure :appreciation, :integer 
+       configure :objection, :integer 
+       configure :created_at, :datetime 
+       configure :updated_at, :datetime   #   # Sections:
+     list do; end
+     export do; end
+     show do; end
+     edit do; end
+     create do; end
+     update do; end
+   end
+   config.model User do
   #   # Found associations:
-  #     configure :entries, :has_many_association   #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :email, :string 
+  #   # Found columns:
+       configure :id, :integer 
+       configure :email, :string 
   #     configure :password, :password         # Hidden 
   #     configure :password_confirmation, :password         # Hidden 
   #     configure :reset_password_token, :string         # Hidden 
@@ -112,24 +112,13 @@ RailsAdmin.config do |config|
   #     configure :last_sign_in_at, :datetime 
   #     configure :current_sign_in_ip, :string 
   #     configure :last_sign_in_ip, :string 
-  #     configure :reputation, :integer 
-  #     configure :gender, :integer 
-  #     configure :level, :integer 
-  #     configure :nickname, :string 
-  #     configure :campus, :string 
-  #     configure :department, :string 
-  #     configure :major, :string 
-  #     configure :grade, :string 
-  #     configure :renren, :string 
-  #     configure :qq, :string 
-  #     configure :idiograph, :string 
   #     configure :created_at, :datetime 
   #     configure :updated_at, :datetime   #   # Sections:
-  #   list do; end
-  #   export do; end
-  #   show do; end
-  #   edit do; end
-  #   create do; end
-  #   update do; end
-  # end
+     list do; end
+     export do; end
+     show do; end
+     edit do; end
+     create do; end
+     update do; end
+   end
 end

@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Wiki::Application.config.secret_token = '20cac5c6c8bb84dfd327c4b0dcf56478066d82d7c7f6d69e1722404436df51e05a3942346b09ad17e8a447092854edc9d5593c2d3cef59921989366380f063d3'
+Wiki::Application.config.secret_token = '27bf560f61cf1ae5ea3b6a0a07c778d3aeb7e6f1adc214ab9532e320be3cbab07e7ce058096a5d465ceb5f2d2329592a735b3afa4d24b4348ae362a3e3ae7841'

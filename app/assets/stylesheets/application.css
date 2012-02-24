@@ -10,12 +10,4 @@
  *
  *= require_self
  *= require_tree .
- *= require bootstrap_and_overrides
 */
-.page-header{
-	padding-top: 40px;
-}
-
-#login{
-	cursor: pointer;
-}

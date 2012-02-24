@@ -35,7 +35,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       ## Token authenticatable
       # t.string :authentication_token
-
       t.integer :reputation,           :default => 1000
       t.integer :gender,               :default => 0
       t.integer :level,                :default => 0
