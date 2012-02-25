@@ -11,4 +11,52 @@
  *= require_self
  *= require bootstrap_and_overrides
  *= require_tree .
-*/
+ */
+
+ #portrait_top_bar{
+ 	width: 16px;
+ 	height: 16px;
+ 	border: 1px solid #999;
+ 	padding: 0;
+ 	background: #EEE;
+ 	line-height: 24px;
+ 	vertical-align: middle;
+ 	margin: -3px 0 0 6px;
+ 	float: none;
+ 	display: inline;
+ }
+ #account_tab_button{
+ 	position: relative;
+ }
+ #account_tab{
+ 	position: absolute;
+ 	display: none;
+ 	z-index: 50;
+ }
+
+ #account_tab.dropdown-menu{
+ 	min-width: 250px;
+ 	_width: 250px;
+ }
+ #account_tab.dropdown-menu a{
+ 	width: 100px;
+ }
+
+ #account_tab_button:hover{
+ 	background-color: #ffffff;
+ }
+
+ #account_tab_button:hover > a{
+ 	text-shadow: 0 0px 0;
+ 	color: #000000;
+ }
+
+ #login_top_button{
+ 	cursor: pointer;
+ }
+
+ #popup_tab_portrait{
+ 	width: 64px;
+ 	height: 64px;
+ 	padding: 5% 0 0 5%;
+ }
