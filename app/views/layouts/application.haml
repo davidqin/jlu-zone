@@ -1,0 +1,30 @@
+!!! Strict
+%html
+  %head
+    %title= itext('logo')
+    %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "content-type" }
+    %meta{ :name => :viewport, :content => "width=device-width, initial-scale=1.0" }
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          = navigation_for_device
+          = wiki_logo
+          .nav-collapse
+            = user_navigation
+    /         = company_tabs_navigation             
+    /         = company_search
+    /         
+    / .container-fluid
+    /   .row-fluid
+    /     .span2.functions
+    /       = render_functions_for_current_controller
+    /       = render_functions_for_current_action
+    /     .span10
+    /       .content
+    /         = content_notice
+    = yield
+    /   = footer

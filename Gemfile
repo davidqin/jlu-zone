@@ -1,10 +1,12 @@
 source 'http://ruby.taobao.org'
 
+gem 'haml'
 gem 'rails', '3.2.1'
 gem 'sqlite3'
 gem 'cancan'
 gem 'devise'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'twitter-bootstrap-rails',  :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 
 group :assets do

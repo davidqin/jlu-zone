@@ -1,0 +1,7 @@
+cn:
+  logo: "JLU Wiki"
+  register: 注册
+  login: 登录
+  welcome: "您好，%{name}"
+  edit_profile: 编辑我的个人资料
+  logout: 登出
