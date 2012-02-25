@@ -2,8 +2,8 @@ class CreateVersions < ActiveRecord::Migration
   def self.up
     create_table :versions, :force => true do |t|
       t.references :entry
-      t.string     :name,       :limit => 64,  :null => false
-      t.string     :number,     :null  => false
+      t.string     :editor,       :limit => 64,  :null => false
+      t.string     :number,       :null  => false
       t.text       :content
       t.timestamps
     end

@@ -78,18 +78,38 @@ RailsAdmin.config do |config|
   # Your model's configuration, to help you get started:
 
   # All fields marked as 'hidden' won't be shown anywhere in the rails_admin unless you mark them as visible. (visible(true))
+  config.model Version do
+      configure :entry_id,  :integer
+      configure :editor_id, :integer
+      configure :number,    :string
+      configure :content,   :text
+     export do; end
+     show do; end
+     edit do; end
+     create do; end
+     update do; end
+   end  
 
-   config.model Entry do
-  #   # Found associations:
-  #   # Found columns:
+  config.model Category do
        configure :id, :integer 
        configure :name, :string 
-       configure :fonder_id, :integer 
-       configure :number, :string 
+       configure :number, :string
+     export do; end
+     show do; end
+     edit do; end
+     create do; end
+     update do; end
+   end
+
+   config.model Entry do
+       configure :id,           :integer 
+       configure :name,         :string 
+       configure :fonder_id,    :integer 
+       configure :number,       :string 
        configure :appreciation, :integer 
-       configure :objection, :integer 
-       configure :created_at, :datetime 
-       configure :updated_at, :datetime   #   # Sections:
+       configure :objection,    :integer 
+       configure :created_at,   :datetime 
+       configure :updated_at,   :datetime   #   # Sections:
      list do; end
      export do; end
      show do; end
@@ -97,9 +117,8 @@ RailsAdmin.config do |config|
      create do; end
      update do; end
    end
+
    config.model User do
-  #   # Found associations:
-  #   # Found columns:
        configure :id, :integer 
        configure :email, :string 
   #     configure :password, :password         # Hidden 
@@ -109,11 +128,11 @@ RailsAdmin.config do |config|
   #     configure :remember_created_at, :datetime 
   #     configure :sign_in_count, :integer 
   #     configure :current_sign_in_at, :datetime 
-  #     configure :last_sign_in_at, :datetime 
-  #     configure :current_sign_in_ip, :string 
-  #     configure :last_sign_in_ip, :string 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime   #   # Sections:
+       configure :last_sign_in_at, :datetime 
+       configure :current_sign_in_ip, :string 
+       configure :last_sign_in_ip, :string 
+       configure :created_at, :datetime 
+       configure :updated_at, :datetime   #   # Sections:
      list do; end
      export do; end
      show do; end
