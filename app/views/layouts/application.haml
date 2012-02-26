@@ -7,7 +7,7 @@
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
-  %body
+  %body#top
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
@@ -15,6 +15,7 @@
           = wiki_logo
           .nav-collapse
             = user_navigation
+    = back_to_top
     /         = company_tabs_navigation             
     /         = company_search
     /         

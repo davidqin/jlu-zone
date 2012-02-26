@@ -10,6 +10,15 @@ module ApplicationHelper
 		"http://www.gravatar.com/avatar/#{gravatar_id}" 
 	end
 
+	def back_to_top
+		content_tag :p, :id => "back-to-top" do
+			contents_tag :a, :href => "#top" do |contents|
+				contents << content_tag(:span)
+				contents << itext("back_to_top")
+			end
+		end
+	end
+
 	def user_navigation
 		contents_tag :ul, :class => "nav pull-right" do |contents|
 			contents << content_tag(:li, '', :class => "divider-vertical")
@@ -25,7 +34,7 @@ module ApplicationHelper
 				end
 			else
 				contents << content_tag(:li, content_tag(:a, itext("register"), :href => new_user_registration_path))
-				contents << content_tag(:li, content_tag(:a, itext("login"), :login_url => new_user_session_path), :id => :login_top_button)
+				contents << content_tag(:li, content_tag(:a, itext("login"), :login_url => login_dialog_path, :id => :login_top_button))
 			end
 		end    
 	end
