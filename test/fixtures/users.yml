@@ -1,5 +1,6 @@
 david:
   email: david@gmail.com
+  encrypted_password: $2a$10$l88MILY5zzQ8Ns3hQxaYQO4xa8mJo.mDcRnNEm63FaXMcZQ7pILbe
   nickname: David
   campus: qianweinanqu
   department: software
@@ -13,6 +14,7 @@ david:
 
 mario:
   email: mario@gmail.com
+  encrypted_password: $2a$10$l88MILY5zzQ8Ns3hQxaYQO4xa8mJo.mDcRnNEm63FaXMcZQ7pILbe
   nickname: Mario
   campus: qianweinanqu
   department: software
@@ -26,6 +28,7 @@ mario:
 
 kevin:
   email: kevin@gmail.com
+  encrypted_password: $2a$10$l88MILY5zzQ8Ns3hQxaYQO4xa8mJo.mDcRnNEm63FaXMcZQ7pILbe
   nickname: Kevin
   campus: qianweinanqu
   department: software
@@ -39,6 +42,7 @@ kevin:
 
 frank:
   email: frank@gmail.com
+  encrypted_password: $2a$10$l88MILY5zzQ8Ns3hQxaYQO4xa8mJo.mDcRnNEm63FaXMcZQ7pILbe
   nickname: Frank
   campus: qianweinanqu
   department: software
@@ -52,6 +56,7 @@ frank:
 
 nevermore:
   email: nevermore@gmail.com
+  encrypted_password: $2a$10$l88MILY5zzQ8Ns3hQxaYQO4xa8mJo.mDcRnNEm63FaXMcZQ7pILbe
   nickname: nevermore
   campus: qianweinanqu
   department: software

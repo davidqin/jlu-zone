@@ -1,0 +1,11 @@
+dota_version_one:
+  entry: entry_dota
+  editor: david
+  number: 2011
+  content: I'm the first version
+
+dota_version_two:
+  entry: entry_dota
+  editor: mario
+  number: 2012
+  content: I'm the second version

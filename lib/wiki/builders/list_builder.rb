@@ -1,8 +1,10 @@
-class Wiki::Builders::ListBuilder < ActionView::Base
+class Wiki::Builders::ListBuilder
   include Wiki::Builders::ShowColumns
+  include Wiki::Builders::TemplateMethods
+  include Wiki::Builders::ShowText
   
   class Column
-    attr_accessor :methods
+    attr_accessor :method
     attr_accessor :build_body_column_method
     attr_accessor :build_header_column_method
   end
@@ -43,10 +45,8 @@ class Wiki::Builders::ListBuilder < ActionView::Base
       column.build_header_column_method.call(column)
     else
       self.content_tag(:th) do 
-        if column.methods
-          methods = Array.wrap(column.methods)
-          methods = filter_method_option(methods)
-          text_id = methods.join('.')
+        if column.method
+          text_id = column.method
           self.show_current_itext(text_id)
         end
       end
@@ -106,36 +106,5 @@ class Wiki::Builders::ListBuilder < ActionView::Base
 
   def show_current_itext_base
     @text_group || self.controller_name.to_s.singularize
-  end
-
-  def html_text
-    contents = []
-    yield contents
-    contents.join(' ').html_safe
-  end
-  
-  def contents_tag(tag_name, options = {}, &block)
-    self.content_tag tag_name, options do
-      self.html_text(&block)
-    end
-  end
-
-  def show_current_itext(text_id, *args)
-    case text_id
-    when Array
-      text_id = text_id.join('.')
-    end
-
-    if self.show_current_itext_base
-      current_text_id = "#{self.show_current_itext_base}.#{text_id}" 
-    else
-      current_text_id = text_id
-    end
-
-    self.show_itext(current_text_id, *args)      
-  end
-
-  def show_itext(id, *args)
-    I18n.t(id, *args)
   end
 end

@@ -1,77 +1,52 @@
 module Wiki::Builders::ShowColumns
-  #   item.show_string_column         :fonder
-  def show_string_column(*methods)
-    self.show_method_column(methods) do |value|
+
+  def string_column(method)
+    self.column_without_link(method)
+  end
+
+  def link_string_column(method, link = nil)
+    self.column_with_link(method, link)
+  end
+
+  def text_column(method)
+    self.column_without_link(method) do |value|
       self.safe_html_string(value)
     end
   end
 
-  def show_method_column(methods, &block)
-    self.show_column(methods) do |model|
-      self.content_tag(:td, :class => find_option_form_methods(methods, :class)) do
-        method_value = self.call_object_methods(model, methods)
-        if block
-          content = block.call(method_value)
-        else
-          content = method_value
-        end
+  def column_without_link(method, &block)
+    self.column(method) do |model|
+      self.content_tag(:td, :class => "") do
+        value   = model.send(method)
+        content = value
+        content = block.call(value)  if block
         content.to_s
       end
     end
   end
 
-  def find_option_form_methods(methods, key)
-    last_item = methods.last
-    if last_item.is_a? Hash
-      return last_item[key]
-    else
-      return nil
-    end          
-  end
-
-  def call_object_methods(object, methods)    
-    unless object
-      return
-    end
-
-    methods = Array.wrap(methods)
-    if methods.count == 0
-      return
-    end
-
-    first_method = methods.first
-    unless first_method
-      return
-    end
-
-    unless object.respond_to?(first_method)
-      return
-    end
-
-    method_result = object.send(first_method)
-    if methods.count <= 1
-      return method_result
-    else
-      remaining_methods = methods.clone
-      remaining_methods.shift
-      return call_object_methods(method_result, remaining_methods)
+  def column_with_link(method, link, &block)
+    self.column(method, link) do |model|
+      self.content_tag(:td, :class => "") do
+        value        = model.send(method)
+        content_name = value
+        content_name = block.call(value)  if block
+        if link && model.respond_to?(link)
+          content_link = model.send(link)
+        else
+          content_link = link || model
+        end
+        link_to content_name, content_link if content_link
+      end
     end
   end
 
-  def show_column(methods = nil, build_header_column_method = nil, &build_body_column_method)
+  def column(method = nil, link = nil, build_header_column_method = nil, &build_body_column_method)
     column = Wiki::Builders::ListBuilder::Column.new
-    column.methods = methods
+    column.method = method
     column.build_header_column_method = build_header_column_method
     column.build_body_column_method   = build_body_column_method
     self.columns << column
-  end
-
-  def filter_method_option(methods)
-    if methods.last.is_a? Hash
-      methods[0..-2]
-    else
-      methods
-    end
   end
 
   def safe_html_string(text)
@@ -80,5 +55,5 @@ module Wiki::Builders::ShowColumns
     else
       text.to_s
     end
-  end
+  end 
 end

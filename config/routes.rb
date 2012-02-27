@@ -6,6 +6,11 @@ Wiki::Application.routes.draw do
 
   root :to => 'wiki#index'
 
+  resources :users, :only => [:show]
+  resources :entries
+  resources :categories
+  resources :versions
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

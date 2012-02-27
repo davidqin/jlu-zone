@@ -55,7 +55,10 @@ module ApplicationHelper
 			contents << content_tag(:span, '', :class => "icon-bar")
 		end
 	end
+end
 
+
+class ActionView::Base
 	def html_contents
 		contents = []
 		yield contents
