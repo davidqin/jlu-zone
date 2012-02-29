@@ -1,20 +1,17 @@
+<div class="span3">
+<div class = "well sidebar-nav">
+<ul class ="nav nav-list">
 <h1>这是主页</h1>
-
 <h2>登录</h2>
-<%if !user_signed_in?%>
-  <%= form_for :user ,:url => {:controller => "devise/sessions",:action => "create"} do |f| %>
-    <div><%= f.label :email %><br />
-    <%= f.email_field :email %></div>
-    <div><%= f.label :password %><br />
-    <%= f.password_field :password %></div>
-    <div><%= f.submit "Sign up" %></div>
-  <% end %>
-<%else%>
-  <%= link_to "退出登录", destroy_user_session_path, :method => :delete%>
-<%end%>
+</ul>
+</div></div>
+
+<div class="span9">
+<div class="hero-unit">
+
 <h2>搜索</h2>
 <h2>最新词条</h2>
-
+</div>
 <%= show_list @newest_entries, :entry do |list| %>
   <% list.link_string_column :name%>
   <% list.link_string_column :fonder_name, :fonder%>
@@ -22,11 +19,5 @@
   <% list.string_column      :history_versions_size%>
 <% end %>
 
-<h2>热门词条</h2>
-<%= show_model_form @entry do |entry| %>
-  <% entry.show_text_input :name%>  
-<% end %>
 
-<h2>最新词条</h2>
-<h2>最近留言</h2>
-<h2>wiki达人</h2>
+</div>
