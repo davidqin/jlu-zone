@@ -16,13 +16,10 @@
           .nav-collapse
             = user_navigation
     .container
-      %ul.breadcrumb.menu.clearfix
-        %li.first
-          ="AAAAAA"
-        %li
-          ="BBBBBB"
-        %li.last
-          ="CCCCCC"
       .row
-        =yield  
-    
+        .span12
+          %ul.breadcrumb
+        .span9
+          =yield
+        .span3
+          =render "/side_bar"
