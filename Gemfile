@@ -10,6 +10,10 @@ gem 'twitter-bootstrap-rails',  :git => 'http://github.com/seyhunak/twitter-boot
 
 gem 'acts_as_tree'
 
+#markdown
+gem "redcarpet", "~> 2.0.0"
+gem 'hpricot', '~> 0.8.5'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
