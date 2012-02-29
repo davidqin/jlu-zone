@@ -1,0 +1,78 @@
+category_education:
+  name: 教学
+  number: education
+
+category_courses:
+  name: 课程
+  number: courses
+  parent: category_education
+
+category_teacher:
+  name: 教师
+  number: teacher
+  parent: category_education
+
+#教学领域：
+#  1课程-课程类别-具体课程（数学系-高等数学）
+#    {1.名称 2.方向 3相关课程 4优秀参考资料 5权威人士}
+#  2教师 -学院-教师-课程（软件学院—王爱民—c++程序设计）
+#    {1.名称 2.研究方向  3主讲课程 4出版图书}
+
+category_association:
+  name: 社团
+  number: association
+
+
+#社团领域：
+#  1所属学院-具体社团（软件学院-黑客艺术联盟）
+#    {1名称  2活动宗旨 3精品活动}
+
+category_entertainment:
+  name: 休闲娱乐
+  number: entertainment
+
+category_cinema:
+  name: 电影院
+  number: cinema
+  parent: category_entertainment
+
+category_internet_bar:
+  name: 网吧
+  number: internet_bar
+  parent: category_entertainment
+
+category_billiards:
+  name: 台球
+  number: billiards
+  parent: category_entertainment
+
+category_ktv:
+  name: 歌厅
+  number: Ktv
+  parent: category_entertainment
+
+#休闲娱乐：
+#  1.看电影 -影院 （电影-新天地影城）
+#	 2上网-网吧（网吧-英图us）
+#	 3台球-台球厅 （台球-鹰派是台球会所)
+#  5 -歌厅（唱歌-钱柜量贩式歌厅）
+#    {1名称 2地址 3消费价格}
+
+category_diet:
+  name: 饮食
+  number: diet
+
+category_cinema:
+  name: 食堂
+  number: cinema
+  parent: category_diet
+
+category_mess:
+  name: 周边饭馆
+  number: mess
+  parent: category_diet
+
+#餐饮：
+#  1学校食堂 -食堂名称—窗口名称-特色美食（新食堂-豆腐坊-包子）
+#  2周边饭馆-饭店名称-特色菜（饭馆-尚品川菜-锅包肉）
+#    {1名称 2特色菜 3价格}

@@ -8,6 +8,7 @@ gem 'devise'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'twitter-bootstrap-rails',  :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 
+gem 'acts_as_tree'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

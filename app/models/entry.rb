@@ -2,6 +2,7 @@ class Entry < ActiveRecord::Base
 
   has_many   :versions
   belongs_to :fonder, :class_name => "User"
+  belongs_to :category
 
   validates  :name, :presence => {:message => "can't be empty"}
   

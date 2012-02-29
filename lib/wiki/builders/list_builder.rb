@@ -23,7 +23,7 @@ class Wiki::Builders::ListBuilder
     block.call(self)        
     self.table_options ||= {}
     self.table_options[:class] ||= ""
-    self.table_options[:class] += " table table-condensed"
+    self.table_options[:class] += " table table-striped"
     contents_tag(:table, self.table_options) do |contents|
       contents << self.build_header
       contents << self.build_body(models)
