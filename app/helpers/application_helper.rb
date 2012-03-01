@@ -72,11 +72,24 @@ module ApplicationHelper
         :fenced_code_blocks => true,
         :no_intra_emphasis => true,
         :hard_wrap => true,
-        :strikethrough =>true
-      }
+        :strikethrough =>true}
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,options)
     markdown.render(h(text)).html_safe
   end
+
+  def show_base_categories
+  	return unless @base_categories
+  	contents_tag :ul, :class => "pull-right" do |contents|
+  		@base_categories.each do |base_category|
+  			contents << content_tag(:li, base_category.name.to_s)
+  		end
+  	end   
+  end
+
+  def show_catelogs
+  	"wiki"
+  end
+
 end
 
 

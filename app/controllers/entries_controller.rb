@@ -1,7 +1,10 @@
 class EntriesController < ApplicationController
+  
   before_filter :find_current_category
 
   attr_accessor :current_category
+  
+  helper_method :current_category
 
   def index
     @entries = current_category.entries.all
@@ -20,9 +23,21 @@ class EntriesController < ApplicationController
   end
 
   def create
+    @entry = current_category.entries.create_entry(current_user, params)
+    if @bill.save
+      #redirect_to_as_create_success [current_company, @bill]
+    else
+      #render_as_create_fail "bills/bills/new"
+    end
   end
   
   def update
+    @entry = current_category.entries.find(params[:id])
+    if @entry.update_entry(params)
+     # redirect_to_as_update_success [current_company, @bill]
+    else
+      #render_as_update_fail "bills/bills/edit"
+    end
   end
 
   def destroy

@@ -1,0 +1,25 @@
+<%= form_for([current_category, @entry],:html => {:class => "form-horizontal"}) do%>
+<fieldset>
+<legend>New</legend>
+<div class="control-group">
+<label class="control-label" for="focusedInput" name="entry[name]">title</label>
+<div class="controls">
+<input class="input-xlarge focused" id="focusedInput" type="text">
+</div>
+</div>
+
+
+<div class="control-group">
+<label class="control-label" for="textarea">content</label>
+<div class="controls">
+<textarea name="entry[content]" class="text required long" id="textarea" rows="20" columns="30"></textarea>
+</div>
+</div>
+
+
+<div class="form-actions">
+<button type="submit" class="btn btn-primary">create</button>
+<button class="btn">Cancel</button>
+</div>
+</fieldset>
+<% end %>
