@@ -13,6 +13,10 @@
  *= require_tree .
  */
 
+ body{
+ 	background: none !important;
+ }
+
  #portrait_top_bar{
  	width: 16px;
  	height: 16px;
