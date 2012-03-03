@@ -14,6 +14,8 @@ gem 'acts_as_tree'
 gem "redcarpet", "~> 2.0.0"
 gem 'hpricot', '~> 0.8.5'
 
+gem 'pry',            '0.9.8.2'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'

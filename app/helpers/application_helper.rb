@@ -86,10 +86,6 @@ module ApplicationHelper
   	end   
   end
 
-  def show_catelogs
-  	"wiki"
-  end
-
 end
 
 

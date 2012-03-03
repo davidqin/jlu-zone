@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  
+  before_filter :authenticate_user!
   before_filter :find_current_category
 
   attr_accessor :current_category
@@ -23,20 +23,20 @@ class EntriesController < ApplicationController
   end
 
   def create
-    @entry = current_category.entries.create_entry(current_user, params)
-    if @bill.save
-      #redirect_to_as_create_success [current_company, @bill]
+    @entry = current_category.entries.create_entry(model_params, current_user)
+    if @entry.save
+      redirect_to_as_create_success [current_category, @entry]
     else
-      #render_as_create_fail "bills/bills/new"
+      render_as_create_fail "entries/new"
     end
   end
   
-  def update
+    def update
     @entry = current_category.entries.find(params[:id])
-    if @entry.update_entry(params)
-     # redirect_to_as_update_success [current_company, @bill]
+    if @entry.update_entry(model_params, current_user)
+      redirect_to_as_update_success [current_category, @entry]
     else
-      #render_as_update_fail "bills/bills/edit"
+      render_as_update_fail "entries/edit"
     end
   end
 
