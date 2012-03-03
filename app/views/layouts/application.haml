@@ -8,6 +8,7 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
+    = back_to_top
     .navbar
       .navbar-inner
         .container
@@ -25,3 +26,4 @@
           =yield
         .span3
           =render "/side_bar"
+    = login_dialog

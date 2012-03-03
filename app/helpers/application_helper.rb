@@ -1,6 +1,19 @@
 require "digest/md5"
 
 module ApplicationHelper
+
+	def resource_name
+		:user
+	end
+	
+	def resource
+		@resource ||= User.new
+	end
+	
+	def devise_mapping
+		@devise_mapping ||= Devise.mappings[:user]
+	end
+
 	def wiki_logo
 		content_tag(:a, itext('logo'), :href => "/", :class => :brand)
 	end
@@ -15,6 +28,21 @@ module ApplicationHelper
 			contents_tag :a, :href => "#top" do |contents|
 				contents << content_tag(:span)
 				contents << itext("back_to_top")
+			end
+		end
+	end
+
+	def login_dialog
+		content_tag :div, :class => :to_hide do
+			contents_tag :div, :id => :login_dialog_hided do |contents|
+				contents << content_tag(:h2, itext("login"), :class => "page-header")
+				contents << show_model_form(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-horizontal" }) do |form|
+					html_contents do |item|
+						item << form.show_email_input(:email)
+						item << form.show_password_input(:password)
+						item << content_tag(:button, itext("login"), :class => "btn btn-success", :type => :submit, "data-loading-text" => itext("loging"))
+					end
+				end
 			end
 		end
 	end
@@ -34,7 +62,7 @@ module ApplicationHelper
 				end
 			else
 				contents << content_tag(:li, content_tag(:a, itext("register"), :href => new_user_registration_path))
-				contents << content_tag(:li, content_tag(:a, itext("login"), :login_url => login_dialog_path, :id => :login_top_button))
+				contents << content_tag(:li, content_tag(:a, itext("login"), :id => :login_top_button))
 			end
 		end    
 	end
@@ -66,39 +94,39 @@ module ApplicationHelper
 	end
 
 	def markdown(text)
-    options = {   
-        :autolink => true, 
-        :space_after_headers => true,
-        :fenced_code_blocks => true,
-        :no_intra_emphasis => true,
-        :hard_wrap => true,
-        :strikethrough =>true}
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,options)
-    markdown.render(h(text)).html_safe
-  end
+		options = {   
+			:autolink => true, 
+			:space_after_headers => true,
+			:fenced_code_blocks => true,
+			:no_intra_emphasis => true,
+			:hard_wrap => true,
+			:strikethrough =>true}
+			markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,options)
+			markdown.render(h(text)).html_safe
+		end
 
-  def show_base_categories
-  	return unless @base_categories
-  	contents_tag :ul, :class => "pull-right" do |contents|
-  		@base_categories.each do |base_category|
-  			contents << content_tag(:li, base_category.name.to_s)
-  		end
-  	end   
-  end
+		def show_base_categories
+			return unless @base_categories
+			contents_tag :ul, :class => "pull-right" do |contents|
+				@base_categories.each do |base_category|
+					contents << content_tag(:li, base_category.name.to_s)
+				end
+			end   
+		end
 
-end
-
-
-class ActionView::Base
-	def html_contents
-		contents = []
-		yield contents
-		contents.join(' ').html_safe
 	end
 
-	def contents_tag(tag_name, options = {}, &block)
-		self.content_tag tag_name, options do
-			self.html_contents(&block)
+
+	class ActionView::Base
+		def html_contents
+			contents = []
+			yield contents
+			contents.join(' ').html_safe
+		end
+
+		def contents_tag(tag_name, options = {}, &block)
+			self.content_tag tag_name, options do
+				self.html_contents(&block)
+			end
 		end
 	end
-end
