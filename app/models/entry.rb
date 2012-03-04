@@ -35,7 +35,7 @@ class Entry < ActiveRecord::Base
   end
 
   def last_editor
-    self.versions.order(:number).last.editor
+    self.versions.order(:created_at).last.editor
   end
 
   def history_versions_size
@@ -46,7 +46,7 @@ class Entry < ActiveRecord::Base
     self.fonder.nickname
   end
 
-  def fonder_path
-    self.fonder.to_param
+  def link_to_category_entry
+    [self.category, self]
   end
 end

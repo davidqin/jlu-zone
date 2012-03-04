@@ -7,3 +7,6 @@ cn:
   logout: 登出
   no_record: 暂无记录
   back_to_top: 返回顶部
+
+  users_statistics: "会员: %{users}人"
+  entries_statistics: "词条: %{entries}词"
