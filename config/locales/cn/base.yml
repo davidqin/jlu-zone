@@ -9,3 +9,5 @@ cn:
   no_record: 暂无记录
   back_to_top: 返回顶部
   fogot_password: 忘记密码了？
+  users_statistics: "会员: %{users}人"
+  entries_statistics: "词条: %{entries}词"
