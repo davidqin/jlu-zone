@@ -1,9 +1,9 @@
 dota_version_one:
   entry: entry_dota
   editor: david
-  content: I'm the first version
+  content: I'm the second version
 
 dota_version_two:
   entry: entry_dota
   editor: mario
-  content: I'm the second version
+  content: I'm the 3th version

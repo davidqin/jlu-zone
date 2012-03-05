@@ -6,17 +6,19 @@ Wiki::Application.routes.draw do
     get "/login_dialog", :to => "devise/sessions#login_dialog"
   end
 
+  resources :categories
+  resources :versions
 
   root :to => 'wiki#index'
 
   resources :users, :only => [:show]
   
   scope :path => ':category_number', :as => :category do
-    resources :entries
+    get "/"    => "entries#index", :as => :entries
   end
 
-  resources :categories
-  resources :versions
+  resources :entries, :except => [:index]
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
