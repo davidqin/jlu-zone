@@ -1,8 +1,8 @@
 <div class="well">
-<%= show_list @entries do |entry|%>
-<% entry.link_string_column :name, :link_to_category_entry  %>
-<% entry.link_string_column :fonder_name, :fonder           %>
-<% entry.link_string_column :last_editor_name, :last_editor %>
-<% entry.string_column      :history_versions_size          %>
-<% end %>
+  <%= show_list @entries do |entry|%>
+  <% entry.link_string_column :name                                           %>
+  <% entry.link_string_column :fonder_name,          :fonder                  %>
+  <% entry.link_string_column :last_editor_name,     :last_editor             %>
+  <% entry.string_column      :history_versions_size                          %>
+  <% end %>
 </div>

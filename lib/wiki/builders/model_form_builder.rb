@@ -4,7 +4,7 @@ class Wiki::Builders::ModelFormBuilder < ActionView::Helpers::FormBuilder
   def show_text_input(method, options = {})
     options ||={}
     html_options = options[:html] || {}
-    input_options = options[:input_options] || {}
+    input_options = options[:input_options] || {:class => "input-xlarge focused", :id => "focusedInput"}
     self.show_method_input(method, html_options) do
       self.text_field(method, input_options)
     end
@@ -41,7 +41,8 @@ class Wiki::Builders::ModelFormBuilder < ActionView::Helpers::FormBuilder
     if object.errors.count > 0 and object.errors[method].count > 0
       div_options = " error"
     end
-
+    
+    self.label(method, label_text, :class => "control-label")
     self.contents_tag :div, :class => "control-group #{div_options}" do |contents|          
       contents << self.label(method, label_text, :class => "control-label")
       contents << self.content_tag(:div, :class => 'controls') do
