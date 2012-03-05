@@ -1,0 +1,6 @@
+cn:
+  user:
+    email: 邮箱
+    password: 密码
+    remember_me: 记住我
+    remember_me_detail: 记住我

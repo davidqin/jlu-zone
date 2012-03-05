@@ -8,8 +8,6 @@ module FormHelper
   #
 
   def show_model_form(models, options ={}, &block)
-    puts models
-    puts options.size
     models = Array.wrap(models)
     options.merge!(:builder => Wiki::Builders::ModelFormBuilder)
     self.form_for(models, options) do |form|

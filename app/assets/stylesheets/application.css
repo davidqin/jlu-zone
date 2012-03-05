@@ -9,12 +9,26 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require bootstrap_and_overrides
+ *= require bootstrap
  *= require_tree .
  */
 
+ html {
+ 	width: 100%;
+ 	height: 100%;
+ 	background:#eee url('bg.png') bottom left repeat;
+ }
+
  body{
  	background: none !important;
+ }
+
+ #page{
+ 	padding-top: 65px;
+ }
+
+ .to_hide{
+ 	display: none;
  }
 
  #portrait_top_bar{
@@ -103,3 +117,13 @@
  #back-to-top a:hover span{
  	background:#979797 url(./arrow-up.png) no-repeat center center;
  }
+
+ /* Fixed subnav on scroll*/
+ .subnav-fixed {
+ 	position: fixed;
+ 	top: 40px;
+ 	left: 0;
+ 	right: 0;
+ 	z-index: 1020; /* 10 less than .navbar-fixed to prevent any overlap */
+ }
+}

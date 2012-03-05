@@ -4,7 +4,8 @@
     $("#login_top_button").click(
       function(){
         $(this).colorbox({
-          href: login_url
+          inline: true,
+          href: "#login_dialog_hided"
         });
       }
       );
