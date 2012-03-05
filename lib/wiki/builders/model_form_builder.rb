@@ -29,7 +29,7 @@ class Wiki::Builders::ModelFormBuilder < ActionView::Helpers::FormBuilder
     self.show_method_input(method) do
       contents_tag(:label, :class => :checkbox) do |contents|
         contents << self.check_box(method, options)
-        contents << self.content_tag(:span, self.controller_itext("#{method}_detail"))
+        contents << self.content_tag(:span, self.show_current_itext("#{method}_detail"))
       end
     end
   end

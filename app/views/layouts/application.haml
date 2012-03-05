@@ -7,22 +7,23 @@
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
-  %body
+  %body{"data-spy" => "scroll", "data-target" => ".subnav", "data-offset" => "50"}
     = back_to_top
-    .navbar
+    .navbar.navbar-fixed-top
       .navbar-inner
         .container
           = navigation_for_device
           = wiki_logo
           .nav-collapse
             = user_navigation
-    .container
+    .container#page
+      .subnav
+        %ul.breadcrumb
+          = entry_catalog_list_navigation(@navigation_category)
+          //= show_base_categories      
       .row
-        .span12
-          %ul.breadcrumb
-            = entry_catalog_list_navigation(@navigation_category)
-            = show_base_categories
         .span9
+          = content_notice
           =yield
         .span3
           =render "/side_bar"

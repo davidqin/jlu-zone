@@ -23,6 +23,10 @@
  	background: none !important;
  }
 
+ #page{
+ 	padding-top: 65px;
+ }
+
  .to_hide{
  	display: none;
  }
@@ -113,3 +117,13 @@
  #back-to-top a:hover span{
  	background:#979797 url(./arrow-up.png) no-repeat center center;
  }
+
+ /* Fixed subnav on scroll*/
+ .subnav-fixed {
+ 	position: fixed;
+ 	top: 40px;
+ 	left: 0;
+ 	right: 0;
+ 	z-index: 1020; /* 10 less than .navbar-fixed to prevent any overlap */
+ }
+}

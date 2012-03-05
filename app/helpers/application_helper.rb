@@ -14,6 +14,19 @@ module ApplicationHelper
 		@devise_mapping ||= Devise.mappings[:user]
 	end
 
+	def content_notice
+		return unless flash[:notice] || flash[:alert]
+		contents_tag :div, :class => "alert alert-info smartnotice" do |contents|
+			contents << content_tag(:a, '&times'.html_safe, :class => "close", :href => "#", "data-dismiss" => "alert")
+			if flash[:notice]
+				contents << content_tag(:strong, flash[:notice])
+			end
+			if flash[:alert]
+				contents << content_tag(:strong, flash[:alert])
+			end
+		end
+	end
+
 	def wiki_logo
 		content_tag(:a, itext('logo'), :href => "/", :class => :brand)
 	end
@@ -36,13 +49,17 @@ module ApplicationHelper
 		content_tag :div, :class => :to_hide do
 			contents_tag :div, :id => :login_dialog_hided do |contents|
 				contents << content_tag(:h2, itext("login"), :class => "page-header")
+				contents << content_notice
 				contents << show_model_form(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-horizontal" }) do |form|
 					html_contents do |item|
 						item << form.show_email_input(:email)
 						item << form.show_password_input(:password)
+						item << form.show_check_box_input(:remember_me)
 						item << content_tag(:button, itext("login"), :class => "btn btn-success", :type => :submit, "data-loading-text" => itext("loging"))
 					end
 				end
+				contents << content_tag(:a, itext('register'), :href => new_user_registration_path)
+				contents << content_tag(:a, itext('fogot_password'), :href => new_password_path(resource_name))
 			end
 		end
 	end
