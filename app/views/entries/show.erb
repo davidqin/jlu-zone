@@ -1,4 +1,9 @@
-<div class="well">
-<%= @entry.name%>
-<%= markdown(@entry.versions.last.content)%>
+<div class="well" id="entry_show">
+  <div class="info">
+    <%= show_entry_info @entry%>
+  </div>
+
+  <h1 class="title"><%= @entry.name%></h1>
+  <%= markdown(@entry.versions.last.content)%>
+  
 </div>

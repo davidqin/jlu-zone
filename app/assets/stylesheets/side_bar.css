@@ -1,0 +1,9 @@
+.nav.nav-list h2 {
+  font-size: 13px;
+  line-height: 100%;
+  color: #999;
+  text-align: center;
+  border-bottom: 1px solid #DDD;
+  margin: 0 -10px 10px -10px;
+  padding-bottom: 8px;
+}

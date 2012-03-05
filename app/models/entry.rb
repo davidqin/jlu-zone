@@ -4,7 +4,7 @@ class Entry < ActiveRecord::Base
   attr_accessor :new_version_content
   attr_accessor :new_version_editor
 
-  has_many   :versions
+  has_many   :versions, :order => "created_at", :dependent => :destroy
 
   belongs_to :fonder, :class_name => "User"
   belongs_to :category

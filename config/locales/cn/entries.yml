@@ -6,3 +6,5 @@ cn:
     last_editor_name: 最后修改
 
     root_catalog: Wiki
+
+    entry_info: "版本 %{versions}， 最后更新于 %{gap}前" 
