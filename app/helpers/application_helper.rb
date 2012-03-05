@@ -65,29 +65,43 @@ module ApplicationHelper
 	end
 
 
-		def show_base_categories
-			return unless @base_categories
-			contents_tag :ul, :class => "pull-right" do |contents|
-				@base_categories.each do |base_category|
-					contents << content_tag(:li, base_category.name.to_s)
-				end
-			end   
-		end
+	def show_base_categories
+		return unless @base_categories
+		contents_tag :ul, :class => "pull-right" do |contents|
+			@base_categories.each do |base_category|
+				contents << content_tag(:li, base_category.name.to_s)
+			end
+		end   
+	end
 
-		def category_dropdown
-			return unless @base_categories
-			contents_tag :ul, :class => "pull-right", :id => :jMenu do |contents|
-				contents << contents_tag(:li) do |lis|
-					lis << content_tag(:a, itext('category'), :class => :fNiv)
-					lis << contents_tag(:ul) do |items|
-						items << content_tag(:li, '', :class => :arrow)
-						@base_categories.each do |base_category|
-							items << content_tag(:li, content_tag(:a, base_category.name.to_s))
-						end
+	def category_dropdown
+		contents_tag :ul, :class => "pull-right", :id => :jMenu do |contents|
+			contents << contents_tag(:li) do |lis|
+				lis << content_tag(:a, itext('category'), :class => :fNiv)
+				lis << generate_category_tree
+			end
+		end
+	end
+
+	def generate_category_tree(base_category = nil)
+		if base_category 
+			categories = base_category.children
+		else
+			categories = @base_categories
+		end
+		contents_tag :ul, :class => "pull-right", :id => :jMenu do |contents|
+			categories.each do |category|
+				if category.children.size != 0
+					contents << contents_tag(:li) do |children| 
+						children << content_tag(:a, category.name.to_s)
+						children << generate_category_tree(category) 
 					end
+				else
+					contents << content_tag(:li, content_tag(:a, category.name.to_s))
 				end
 			end
 		end
+	end
 
 	def user_navigation
 		contents_tag :ul, :class => "nav pull-right" do |contents|
