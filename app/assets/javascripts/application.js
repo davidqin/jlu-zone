@@ -57,10 +57,14 @@ Application = {
         $nav.removeClass('subnav-fixed')
       }
     }
+  },
+  initcategorydropmenu: function(){
+    $("#category").jMenu();
   }
 }
 
 $(function(){
   Application.initBackToTopButton();
   Application.initSubnav();
+  Application.initcategorydropmenu();
 });

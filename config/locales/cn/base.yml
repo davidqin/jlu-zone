@@ -11,3 +11,4 @@ cn:
   fogot_password: 忘记密码了？
   users_statistics: "会员: %{users}人"
   entries_statistics: "词条: %{entries}词"
+  category: 分类目录

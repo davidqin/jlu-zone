@@ -21,7 +21,8 @@
       .subnav
         %ul.breadcrumb
           = entry_catalog_list_navigation(@navigation_category)
-          //= show_base_categories      
+          /= show_base_categories
+          = category_dropdown      
       .row
         .span9
           = content_notice

@@ -64,6 +64,31 @@ module ApplicationHelper
 		end
 	end
 
+
+		def show_base_categories
+			return unless @base_categories
+			contents_tag :ul, :class => "pull-right" do |contents|
+				@base_categories.each do |base_category|
+					contents << content_tag(:li, base_category.name.to_s)
+				end
+			end   
+		end
+
+		def category_dropdown
+			return unless @base_categories
+			contents_tag :ul, :class => "pull-right", :id => :jMenu do |contents|
+				contents << contents_tag(:li) do |lis|
+					lis << content_tag(:a, itext('category'), :class => :fNiv)
+					lis << contents_tag(:ul) do |items|
+						items << content_tag(:li, '', :class => :arrow)
+						@base_categories.each do |base_category|
+							items << content_tag(:li, content_tag(:a, base_category.name.to_s))
+						end
+					end
+				end
+			end
+		end
+
 	def user_navigation
 		contents_tag :ul, :class => "nav pull-right" do |contents|
 			contents << content_tag(:li, '', :class => "divider-vertical")
@@ -121,16 +146,6 @@ module ApplicationHelper
 			markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,options)
 			markdown.render(h(text)).html_safe
 		end
-
-		def show_base_categories
-			return unless @base_categories
-			contents_tag :ul, :class => "pull-right" do |contents|
-				@base_categories.each do |base_category|
-					contents << content_tag(:li, base_category.name.to_s)
-				end
-			end   
-		end
-
 	end
 
 
@@ -147,3 +162,4 @@ module ApplicationHelper
 			end
 		end
 	end
+
