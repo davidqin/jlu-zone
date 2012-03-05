@@ -13,17 +13,14 @@ class Entry < ActiveRecord::Base
 
   def self.create_entry(params, user)
     entry        = self.new
-    entry.name   = params[:name]
     entry.fonder = user
-    entry.new_version_content = params[:content]
     return entry
   end
 
   def update_entry(params, user)
     self.new_version_editor   = user
-    self.new_version_content  = params[:content]
-    self.update_attribute(:name, params[:name])
-    self.update_attribute(:updated_at, Time.now)
+    self.new_version_content  = self.content
+    self.update_attributes(params)
   end
   
   def last_editor_name

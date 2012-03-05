@@ -1,6 +1,6 @@
 class EntriesController < ApplicationController
   before_filter :authenticate_user!,    :except => [:show, :index]
-  before_filter :find_current_category, :only   => [:show, :index]
+  before_filter :find_current_category, :only   => [:index]
 
   attr_accessor :current_category
   

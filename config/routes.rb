@@ -11,12 +11,11 @@ Wiki::Application.routes.draw do
 
   root :to => 'wiki#index'
 
-  resources :entries, :except => [:show, :index]
+  resources :entries, :except => [:index]
 
   resources :users, :only => [:show]
   
   scope :path => ':category_number', :as => :category do
-    get "/:id" => "entries#show",  :as => :entry
     get "/"    => "entries#index", :as => :entries
   end
 
