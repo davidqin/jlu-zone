@@ -1,31 +1,10 @@
-<%= form_for([current_category, @entry],:html => {:class => "form-horizontal"}) do%>
-
 <legend>New</legend>
-<div class="control-group">
-<label class="control-label" for="focusedInput">title</label>
-<div class="controls">
-<input class="input-xlarge focused" id="focusedInput" type="text" name="entry[name]">
-</div>
-</div>
-
-
-<div class="control-group">
-<label class="control-label" for="textarea">content</label>
-<div class="controls">
-<textarea name="entry[content]" class="text required long" id="textarea" rows="20" columns="30"></textarea>
-</div>
-</div>
-
-
-<div class="form-actions">
-<button type="submit" class="btn btn-primary">create</button>
-<button class="btn">Cancel</button>
-</div>
-
+<%= show_model_form @entry, :html => {:class => "form-horizontal"} do |form|%>
+  <% html_contents do |item| %>
+    <% item << form.show_text_input(:name) %>
+    <% item << form.show_category_field(:category) %>
+    <% item << form.show_textarea_input(:content) %>
+    <% item << content_tag(:button, itext("login"), :class => "btn btn-success", :type => :submit, "data-loading-text" => itext("loging")) %>
+  <% end %>
 <% end %>
 
-<%= show_model_form @entry, :html => {:class => "form-horizontal"} do |item|%>
-<% item.show_text_input :name %>
-<% item.show_text_input :content %>
-<% item.show_text_input :name %>
-<% end %>

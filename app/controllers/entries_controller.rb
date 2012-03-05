@@ -11,7 +11,7 @@ class EntriesController < ApplicationController
   end
 
   def show
-    @entry = current_category.entries.find(params[:id])
+    @entry = Entry.find(params[:id])
   end
 
   def edit

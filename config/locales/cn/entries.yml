@@ -1,6 +1,9 @@
 cn:
   entry:
     name: 词条名称
+    content: 内容
+    category: 分类
+    
     fonder_name: 创建者
     history_versions_size: 历史版本数量
     last_editor_name: 最后修改
@@ -8,3 +11,5 @@ cn:
     root_catalog: Wiki
 
     entry_info: "版本 %{versions}， 最后更新于 %{gap}前" 
+
+

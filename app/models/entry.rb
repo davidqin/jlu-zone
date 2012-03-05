@@ -1,5 +1,6 @@
 class Entry < ActiveRecord::Base
   include Wiki::Models::CreateVersion
+  include Wiki::Models::IdNumberExchange::CategoryNumberIdExchange
   
   attr_accessor :new_version_content
   attr_accessor :new_version_editor
@@ -12,14 +13,14 @@ class Entry < ActiveRecord::Base
   validates  :name, :presence => {:message => "can't be empty"}
 
   def self.create_entry(params, user)
-    entry        = self.new
+    entry        = self.new(params)
     entry.fonder = user
     return entry
   end
 
   def update_entry(params, user)
-    self.new_version_editor   = user
-    self.new_version_content  = self.content
+    self.new_version_editor  = user
+    self.new_version_content = self.content
     self.update_attributes(params)
   end
   
@@ -36,7 +37,7 @@ class Entry < ActiveRecord::Base
   end
 
   def history_versions_size
-    self.versions.size
+    self.versions.size + 1
   end
   
   def fonder_name
