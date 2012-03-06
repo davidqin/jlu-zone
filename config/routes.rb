@@ -12,7 +12,7 @@ Wiki::Application.routes.draw do
   resources :users, :only => [:show]
   
   scope :path => ':category_number', :as => :category do
-    get "/"    => "entries#index", :as => :entries
+    get "/entries"   => "entries#index", :as => :entries
   end
 
   resources :entries, :except => [:index]
