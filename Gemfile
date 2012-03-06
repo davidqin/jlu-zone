@@ -16,6 +16,15 @@ gem 'hpricot', '~> 0.8.5'
 
 gem 'pry',            '0.9.8.2'
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'spork'
+  gem 'guard-rspec'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  #gem 'rb-fsevent'
+end
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
