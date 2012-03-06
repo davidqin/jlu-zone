@@ -2,9 +2,7 @@ Wiki::Application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  devise_for :users do
-    get "/login_dialog", :to => "devise/sessions#login_dialog"
-  end
+  devise_for :users
 
   resources :categories
   resources :versions
