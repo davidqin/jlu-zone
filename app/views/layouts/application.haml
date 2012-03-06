@@ -19,10 +19,9 @@
             = user_navigation
     .container#page
       .subnav
+        = category_dropdown
         %ul.breadcrumb
-          = entry_catalog_list_navigation(@navigation_category)
-          /= show_base_categories
-          = category_dropdown      
+          = entry_catalog_list_navigation(@navigation_category)            
       .row
         .span9
           = content_notice
