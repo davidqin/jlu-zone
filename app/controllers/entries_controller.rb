@@ -27,21 +27,24 @@ class EntriesController < ApplicationController
     if @entry.save
       redirect_to_as_create_success [current_category, @entry]
     else
-      render_as_create_fail "entries/new"
+      render_as_create_fail :new
     end
   end
   
-    def update
+  def update
     @entry = Entry.find(params[:id])
     if @entry.update_entry(model_params, current_user)
       redirect_to_as_update_success [current_category, @entry]
     else
-      render_as_update_fail "entries/edit"
+      render_as_update_fail :edit
     end
   end
 
   def destroy
-    Entry.find(params[:id]).destroy
+    entry = Entry.find(params[:id])
+    category = entry.category
+    entry.destroy
+    redirect_to_as_destroy_success category_entries_path(category)
   end
 
   protected

@@ -21,7 +21,8 @@ group :development, :test do
   gem 'spork'
   gem 'guard-rspec'
   gem 'capybara'
-  gem 'factory_girl_rails'
+  gem "factory_girl_rails", :require => false
+  gem "database_cleaner"
   #gem 'rb-fsevent'
 end
 

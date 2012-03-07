@@ -10,7 +10,10 @@ class Entry < ActiveRecord::Base
   belongs_to :fonder, :class_name => "User"
   belongs_to :category
 
-  validates  :name, :presence => {:message => "can't be empty"}
+  validates_presence_of   :name, :message => "can't be empty"
+  validates_uniqueness_of :name, :message => "can't be unique" 
+
+  validates_presence_of   :content, :message => "can't be empty"
 
   def self.create_entry(params, user)
     entry        = self.new(params)

@@ -10,12 +10,11 @@ Wiki::Application.routes.draw do
   root :to => 'wiki#index'
 
   resources :users, :only => [:show]
+  resources :entries, :except => [:index]
   
   scope :path => ':category_number', :as => :category do
     get "/entries"   => "entries#index", :as => :entries
   end
-
-  resources :entries, :except => [:index]
 
 
   # The priority is based upon order of creation:
