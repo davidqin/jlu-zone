@@ -1,0 +1,11 @@
+#user_menu .info {
+  padding: 0 10px 10px 10px;
+  border-bottom: 1px solid #DDD;
+  margin: 0 -10px;
+  margin-bottom: 20px;
+}
+.popup_tab_portrait {
+  width: 64px;
+  height: 64px;
+  padding: 5% 0 0 5%;
+}

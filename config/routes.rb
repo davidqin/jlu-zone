@@ -9,7 +9,9 @@ Wiki::Application.routes.draw do
 
   root :to => 'wiki#index'
 
+  get "/users/menu" => "users#menu", :as => :users_menu
   resources :users, :only => [:show, :index]
+
   resources :entries, :except => [:index]
   
   scope :path => ':category_number', :as => :category do

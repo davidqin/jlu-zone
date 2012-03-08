@@ -31,7 +31,7 @@ module ApplicationHelper
 		content_tag(:a, itext('logo'), :href => "/", :class => :brand)
 	end
 
-	def gravatar(email)   
+	def gravatar(email)
 		gravatar_id = Digest::MD5.hexdigest(email.downcase)   
 		"http://www.gravatar.com/avatar/#{gravatar_id}" 
 	end
@@ -143,7 +143,7 @@ module ApplicationHelper
 	def modules_navigation
 		contents_tag :ul, :class => 'nav' do |contents|
 			contents << content_tag(:li, content_tag(:a, itext("navigation.wiki"), :href => '/'))
-			contents << content_tag(:li, content_tag(:a, itext("navigation.users"), :href => users_path))
+			contents << content_tag(:li, content_tag(:a, itext("navigation.users"), :href => users_menu_path))
 		end
 	end
 
