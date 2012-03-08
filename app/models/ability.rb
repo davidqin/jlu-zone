@@ -11,6 +11,7 @@ class Ability
       case user.level
       when 0,1,2
         can    :read,              [Entry, Category, User, Version]
+        can    :update,             Entry
         can    :create,            [Entry, Version]
       when 3
         can :manage, :all
