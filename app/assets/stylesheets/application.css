@@ -31,6 +31,10 @@
  	display: none;
  }
 
+ #login_button{
+ 	margin-left: 80%;
+ }
+
  #portrait_top_bar{
  	width: 16px;
  	height: 16px;

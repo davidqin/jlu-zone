@@ -2,8 +2,9 @@ Wiki::Application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  devise_for :users do
-    get "/login_dialog", :to => "devise/sessions#login_dialog"
+  devise_for :users, :controllers => { :sessions => "sessions" } do
+    get "/login_dialog", :to => "sessions#new"
+    post "/create_dialog", :to => "sessions#create"
   end
 
   resources :categories
