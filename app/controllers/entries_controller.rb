@@ -1,4 +1,5 @@
 class EntriesController < ApplicationController
+  load_and_authorize_resource
   before_filter :authenticate_user!,    :except => [:show, :index]
   before_filter :find_current_category, :only   => [:index]
 
@@ -8,18 +9,24 @@ class EntriesController < ApplicationController
 
   def index
     @entries = current_category.entries.all
+    drop_breadcrumb(current_category.name)
   end
 
   def show
     @entry = Entry.find(params[:id])
+    drop_breadcrumb(@entry.category.name,category_entries_path(@entry.category))
+    drop_breadcrumb(@entry.name)
   end
 
   def edit
     @entry = Entry.find(params[:id])
+    drop_breadcrumb(@entry.category.name,category_entries_path(@entry.category))
+    drop_breadcrumb(itext('entry.edit', :entry => @entry.name))
   end
 
   def new
     @entry = Entry.new
+    drop_breadcrumb(itext('entry.new'))
   end
 
   def create
@@ -52,6 +59,7 @@ class EntriesController < ApplicationController
   def find_current_category
     return nil unless params[:category_number]
     self.current_category = Category.find_by_number(params[:category_number])
+    self.catalog_type = :entry_category
     unless self.current_category
       raise "Can not find a Category with the number #{params[:category_number]}"
     end

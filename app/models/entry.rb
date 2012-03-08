@@ -36,7 +36,11 @@ class Entry < ActiveRecord::Base
   end
 
   def last_editor
-    self.versions.order(:created_at).last.editor
+    if self.versions.size != 0
+      return self.versions.first.editor
+    else
+      return self.fonder
+    end
   end
 
   def history_versions_size

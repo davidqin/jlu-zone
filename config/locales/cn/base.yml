@@ -1,4 +1,8 @@
 cn:
+  navigation:
+    users: 会员
+    wiki: Wiki
+
   logo: "JLU Wiki"
   register: 注册
   login: 登录

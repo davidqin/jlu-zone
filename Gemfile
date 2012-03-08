@@ -10,6 +10,8 @@ gem 'twitter-bootstrap-rails', '2.0.2'
 
 gem 'acts_as_tree'
 
+gem 'bootstrap_helper'
+
 #markdown
 gem "redcarpet", "~> 2.0.0"
 gem 'hpricot', '~> 0.8.5'
