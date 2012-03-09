@@ -90,7 +90,7 @@ RailsAdmin.config do |config|
      update do; end
    end  
 
-  config.model Category do
+  config.model EntryCategory do
        configure :id, :integer 
        configure :name, :string 
        configure :number, :string

@@ -1,6 +1,6 @@
 class Entry < ActiveRecord::Base
   include Wiki::Models::CreateVersion
-  include Wiki::Models::IdNumberExchange::CategoryNumberIdExchange
+  include Wiki::Models::IdNumberExchange::EntryCategoryNumberIdExchange
   
   attr_accessor :new_version_content
   attr_accessor :new_version_editor
@@ -8,7 +8,7 @@ class Entry < ActiveRecord::Base
   has_many   :versions, :order => "created_at", :dependent => :destroy
 
   belongs_to :fonder, :class_name => "User"
-  belongs_to :category
+  belongs_to :category, :class_name => "EntryCategory"
 
   validates_presence_of   :name, :message => "can't be empty"
   validates_uniqueness_of :name, :message => "can't be unique" 

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Entry do
 
-  let(:category) { Factory(:category) }
+  let(:category) { Factory(:entry_category) }
   let(:entry) { Factory(:entry, :category_number => category.number) }
   describe 'Validates' do
     it 'should fail saving without a name' do

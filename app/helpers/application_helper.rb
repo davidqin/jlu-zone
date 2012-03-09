@@ -77,7 +77,7 @@ module ApplicationHelper
 		if base_category 
 			categories = base_category.children
 		else
-			categories = Category.find(:all, :conditions => "parent_id is null")
+			categories = EntryCategory.find(:all, :conditions => "parent_id is null")
 		end
 		contents_tag :ul, :id => :jMenu do |contents|
 			contents << content_tag(:li, '', :class => :arrow)

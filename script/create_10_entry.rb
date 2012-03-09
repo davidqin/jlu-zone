@@ -1,5 +1,5 @@
 user = User.find_by_nickname("david")
-categories = Category.all
+categories = EntryCategory.all
 categories.each do |category|
   category.entries.destroy_all
   for i in 1..10 do
