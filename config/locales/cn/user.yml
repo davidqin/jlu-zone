@@ -4,3 +4,7 @@ cn:
     password: 密码
     remember_me: 记住我
     remember_me_detail: 记住我
+
+    menu: 用户目录
+    active_users_info: 活跃用户
+    new_users_info: 最新加入的用户

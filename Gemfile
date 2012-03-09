@@ -10,11 +10,23 @@ gem 'twitter-bootstrap-rails', '2.0.2'
 
 gem 'acts_as_tree'
 
+gem 'bootstrap_helper'
+
 #markdown
 gem "redcarpet", "~> 2.0.0"
 gem 'hpricot', '~> 0.8.5'
 
 gem 'pry',            '0.9.8.2'
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'spork'
+  gem 'guard-rspec'
+  gem 'capybara'
+  gem "factory_girl_rails", :require => false
+  gem "database_cleaner"
+  #gem 'rb-fsevent'
+end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -25,4 +37,3 @@ group :assets do
 end
 
 gem 'jquery-rails'
-

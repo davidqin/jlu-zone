@@ -2,23 +2,24 @@ Wiki::Application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  devise_for :users, :controllers => { :sessions => "sessions" } do
+  devise_for :users do
     get "/login_dialog", :to => "sessions#new"
-    post "/create_dialog", :to => "sessions#create"
   end
+
 
   resources :categories
   resources :versions
 
   root :to => 'wiki#index'
 
-  resources :users, :only => [:show]
-  
-  scope :path => ':category_number', :as => :category do
-    get "/"    => "entries#index", :as => :entries
-  end
+  get "/users/menu" => "users#menu", :as => :users_menu
+  resources :users, :only => [:show, :index]
 
   resources :entries, :except => [:index]
+  
+  scope :path => ':category_number', :as => :category do
+    get "/entries"   => "entries#index", :as => :entries
+  end
 
 
   # The priority is based upon order of creation:

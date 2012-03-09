@@ -16,15 +16,14 @@
           = navigation_for_device
           = wiki_logo
           .nav-collapse
-            = user_navigation
-    .container#page
-      .subnav
-        = category_dropdown
-        %ul.breadcrumb
-          = entry_catalog_list_navigation(@navigation_category)            
+            = modules_navigation
+            = user_functional_bar
+    .container
+      = category_dropdown
+      = render_breadcrumb
       .row
         .span9
-          = content_notice
+          = notice_message
           =yield
         .span3
           =render "/side_bar"

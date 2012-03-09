@@ -28,7 +28,7 @@ cn:
       confirmed: '您的帐号已经激活，请登录.'
     registrations:
       signed_up: '您的帐号已注册成功，如无意外，您将地收到一封确认邮件.'
-      inactive_signed_up: '您的帐号已注册成功，但由于%{reason}我们无法让您登录.'
+      signed_up_but_inactive: '您的帐号已注册成功，但由于%{reason}我们无法让您登录.'
       updated: '帐号资料更新成功.'
       destroyed: '再见！您的帐户已成功注销。我们希望很快可以再见到您.'
     unlocks:

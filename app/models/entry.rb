@@ -10,7 +10,10 @@ class Entry < ActiveRecord::Base
   belongs_to :fonder, :class_name => "User"
   belongs_to :category
 
-  validates  :name, :presence => {:message => "can't be empty"}
+  validates_presence_of   :name, :message => "can't be empty"
+  validates_uniqueness_of :name, :message => "can't be unique" 
+
+  validates_presence_of   :content, :message => "can't be empty"
 
   def self.create_entry(params, user)
     entry        = self.new(params)
@@ -33,7 +36,11 @@ class Entry < ActiveRecord::Base
   end
 
   def last_editor
-    self.versions.order(:created_at).last.editor
+    if self.versions.size != 0
+      return self.versions.first.editor
+    else
+      return self.fonder
+    end
   end
 
   def history_versions_size

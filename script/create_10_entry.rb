@@ -1,15 +1,13 @@
-$user = User.find_by_nickname("David")
+user = User.find_by_nickname("david")
 categories = Category.all
 categories.each do |category|
   category.entries.destroy_all
   for i in 1..10 do
-    entry = category.entries.new
+    entry = Entry.new
+    entry.category_number = category.number
+    entry.fonder = user
     entry.name   = "Entry #{i} for #{category.number}"
-    entry.fonder = $user
-    entry.save
-    version = entry.versions.new
-    version.editor  = $user
-    version.content = "
+    entry.content = "
 # 如何快速正确的安装 Ruby, Rails 运行环境 
 对于新入门的开发者，如何安装 Ruby, Ruby Gems 和 Rails 的运行环境可能会是个问题，本页主要介绍如何用一条靠谱的路子快速安装 Ruby 开发环境。
 此安装方法同样适用于产品环境！
@@ -89,6 +87,6 @@ $ rails -v
 Rails 3.1.1
 ```
     "
-    version.save
+    entry.save
   end
 end

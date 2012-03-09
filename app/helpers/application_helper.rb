@@ -31,7 +31,7 @@ module ApplicationHelper
 		content_tag(:a, itext('logo'), :href => "/", :class => :brand)
 	end
 
-	def gravatar(email)   
+	def gravatar(email)
 		gravatar_id = Digest::MD5.hexdigest(email.downcase)   
 		"http://www.gravatar.com/avatar/#{gravatar_id}" 
 	end
@@ -58,7 +58,7 @@ module ApplicationHelper
 		if base_category 
 			categories = base_category.children
 		else
-			categories = @base_categories
+			categories = Category.find(:all, :conditions => "parent_id is null")
 		end
 		contents_tag :ul, :id => :jMenu do |contents|
 			contents << content_tag(:li, '', :class => :arrow)
@@ -75,7 +75,7 @@ module ApplicationHelper
 		end
 	end
 
-	def user_navigation
+	def user_functional_bar
 		contents_tag :ul, :class => "nav pull-right" do |contents|
 			contents << content_tag(:li, '', :class => "divider-vertical")
 			if current_user
@@ -121,6 +121,13 @@ module ApplicationHelper
 		end
 	end
 
+	def modules_navigation
+		contents_tag :ul, :class => 'nav' do |contents|
+			contents << content_tag(:li, content_tag(:a, itext("navigation.wiki"), :href => '/'))
+			contents << content_tag(:li, content_tag(:a, itext("navigation.users"), :href => users_menu_path))
+		end
+	end
+
 	def markdown(text)
 		options = {   
 			:autolink => true, 
@@ -148,4 +155,3 @@ module ApplicationHelper
 			end
 		end
 	end
-

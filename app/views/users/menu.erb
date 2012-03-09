@@ -1,0 +1,21 @@
+<div class="well" id="user_menu">
+  <div class="info">
+    <%= show_active_users_info%>
+  </div>
+  <div class="row">
+    <% @users.each do |user| %>
+    <%= show_user(user)%>
+    <% end %>
+  </div>
+</div>
+
+<div class="well" id="user_menu">
+  <div class="info">
+    <%= show_new_users_info%>
+  </div>
+  <div class="row">
+    <% @users.each do |user| %>
+    <%= show_user(user)%>
+    <% end %>
+  </div>
+</div>
