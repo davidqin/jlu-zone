@@ -20,7 +20,7 @@ class Wiki::Builders::ModelFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   def show_category_field(method, options = {})
-    category_names = Category.all.collect do |category|
+    category_names = EntryCategory.all.collect do |category|
       [category.name, category.number]
     end
     options = {}

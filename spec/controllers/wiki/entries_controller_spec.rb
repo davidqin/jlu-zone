@@ -1,7 +1,7 @@
 require "spec_helper"
 
-describe EntriesController do
-  let(:category) { Factory :category }
+describe Wiki::EntriesController do
+  let(:category) { Factory :entry_category }
   let(:entry) { Factory :entry , :category_number => category.number}
   let(:user) { Factory :user }
 

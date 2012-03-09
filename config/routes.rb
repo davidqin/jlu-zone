@@ -8,17 +8,16 @@ Wiki::Application.routes.draw do
 
 
   resources :categories
-  resources :versions
 
-  root :to => 'wiki#index'
+  root :to => 'home#index'
 
-  get "/users/menu" => "users#menu", :as => :users_menu
-  resources :users, :only => [:show, :index]
+  get "/users/menu" => "users/users#menu", :as => :users_menu
+  resources :users,   :only => [:show, :index], :controller => 'users/users'
 
-  resources :entries, :except => [:index]
+  resources :entries, :except => [:index],      :controller => 'wiki/entries'
   
   scope :path => ':category_number', :as => :category do
-    get "/entries"   => "entries#index", :as => :entries
+    get "/entries"   => "wiki/entries#index", :as => :entries
   end
 
 

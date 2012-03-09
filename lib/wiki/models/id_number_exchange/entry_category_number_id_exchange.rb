@@ -1,7 +1,6 @@
-module Wiki::Models::IdNumberExchange::CategoryNumberIdExchange
+module Wiki::Models::IdNumberExchange::EntryCategoryNumberIdExchange
   
   def self.included(base)
-    base.belongs_to :category
     base.before_save :change_category_nubmer_to_id
     base.after_find :change_category_id_to_nubmer
   end
@@ -13,7 +12,7 @@ module Wiki::Models::IdNumberExchange::CategoryNumberIdExchange
   end
 
   def change_category_nubmer_to_id
-    category = Category.find_by_number(self.category_number)
+    category = EntryCategory.find_by_number(self.category_number)
     self.category_id = category.id
   end
 end

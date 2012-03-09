@@ -1,8 +1,10 @@
-class EntriesController < ApplicationController
+class Wiki::EntriesController < ApplicationController
   
   before_filter :authenticate_user!,    :except => [:show, :index]
   load_and_authorize_resource
   before_filter :find_current_category, :only   => [:index]
+
+  include Wiki::Controllers::Sidebar::WikiSidebar
 
   attr_accessor :current_category
   
@@ -59,9 +61,9 @@ class EntriesController < ApplicationController
 
   def find_current_category
     return nil unless params[:category_number]
-    self.current_category = Category.find_by_number(params[:category_number])
+    self.current_category = EntryCategory.find_by_number(params[:category_number])
     unless self.current_category
-      raise "Can not find a Category with the number #{params[:category_number]}"
+      raise "Can not find a EntryCategory with the number #{params[:category_number]}"
     end
   end
 end

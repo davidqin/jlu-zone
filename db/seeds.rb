@@ -36,17 +36,17 @@ nevermore = User.create(
 
 ## Generate categories
 
-category_education     = Category.create(name: 'education',     number: 'education')
-category_courses       = Category.create(name: 'courses',       number: 'courses',      parent: category_education)
-category_teacher       = Category.create(name: 'teacher',       number: 'teacher',      parent: category_education)
-category_association   = Category.create(name: 'association',   number: 'association')
-category_entertainment = Category.create(name: 'entertainment', number: 'entertainment')
-category_cinema        = Category.create(name: 'cinema',        number: 'cinema',       parent: category_entertainment)
-category_internet_bar  = Category.create(name: 'internet_bar',  number: 'internet_bar', parent: category_entertainment)
-category_billiards     = Category.create(name: 'billiards',     number: 'billiards',    parent: category_entertainment)
-category_ktv           = Category.create(name: 'ktv',           number: 'ktv',          parent: category_entertainment)
-category_diet          = Category.create(name: 'diet',          number: 'diet')
-category_mess          = Category.create(name: 'mess',          number: 'mess',         parent: category_diet)
+category_education     = EntryCategory.create(name: 'education',     number: 'education')
+category_courses       = EntryCategory.create(name: 'courses',       number: 'courses',      parent: category_education)
+category_teacher       = EntryCategory.create(name: 'teacher',       number: 'teacher',      parent: category_education)
+category_association   = EntryCategory.create(name: 'association',   number: 'association')
+category_entertainment = EntryCategory.create(name: 'entertainment', number: 'entertainment')
+category_cinema        = EntryCategory.create(name: 'cinema',        number: 'cinema',       parent: category_entertainment)
+category_internet_bar  = EntryCategory.create(name: 'internet_bar',  number: 'internet_bar', parent: category_entertainment)
+category_billiards     = EntryCategory.create(name: 'billiards',     number: 'billiards',    parent: category_entertainment)
+category_ktv           = EntryCategory.create(name: 'ktv',           number: 'ktv',          parent: category_entertainment)
+category_diet          = EntryCategory.create(name: 'diet',          number: 'diet')
+category_mess          = EntryCategory.create(name: 'mess',          number: 'mess',         parent: category_diet)
 
 ## Generate entries
 

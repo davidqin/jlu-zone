@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   include Wiki::Controllers::ActionResult
+  include Wiki::Controllers::Sidebar::CommonSidebar
 
   protected
 
