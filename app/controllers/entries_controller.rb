@@ -1,6 +1,7 @@
 class EntriesController < ApplicationController
-  #load_and_authorize_resource
+  
   before_filter :authenticate_user!,    :except => [:show, :index]
+  load_and_authorize_resource
   before_filter :find_current_category, :only   => [:index]
 
   attr_accessor :current_category
@@ -59,7 +60,6 @@ class EntriesController < ApplicationController
   def find_current_category
     return nil unless params[:category_number]
     self.current_category = Category.find_by_number(params[:category_number])
-    self.catalog_type = :entry_category
     unless self.current_category
       raise "Can not find a Category with the number #{params[:category_number]}"
     end

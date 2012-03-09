@@ -106,10 +106,19 @@ describe EntriesController do
       response.should_not be_success
     end
 
-    it "should destroy entry if it is well" do
+    it "should not destroy entry if it is user" do
       sign_in user
       delete :destroy, :id => entry.id
       category = entry.category.number
+      response.should_not be_success
+      response.should redirect_to(:root)
+    end
+    
+    it "should not destroy entry if it is admin" do
+      admin = Factory(:user, :level => 3)
+      sign_in admin
+      category = entry.category.number
+      delete :destroy, :id => entry.id
       response.should redirect_to(category_entries_path(category))
     end
   end

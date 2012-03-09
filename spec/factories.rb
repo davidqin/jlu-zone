@@ -2,7 +2,6 @@ Factory.define :user do |f|
   f.sequence(:email) { |n| "user#{n}@example.com" }
   f.sequence(:nickname) { |n| "user#{n}" }
   f.password "123456"
-  f.level 0
   f.password_confirmation { |u| u.password }
 end
 

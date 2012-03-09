@@ -18,10 +18,9 @@
           .nav-collapse
             = modules_navigation
             = user_functional_bar
-    .container#page
-      .subnav
-        = category_dropdown
-        = render_breadcrumb
+    .container
+      = category_dropdown
+      = render_breadcrumb
       .row
         .span9
           = notice_message
