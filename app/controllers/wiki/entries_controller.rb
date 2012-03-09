@@ -4,6 +4,8 @@ class Wiki::EntriesController < ApplicationController
   load_and_authorize_resource
   before_filter :find_current_category, :only   => [:index]
 
+  include Wiki::Controllers::Sidebar::WikiSidebar
+
   attr_accessor :current_category
   
   helper_method :current_category

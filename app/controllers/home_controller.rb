@@ -1,4 +1,5 @@
-class WikiController < ApplicationController
+class HomeController < ApplicationController
+  include Wiki::Controllers::Sidebar::HomeSidebar
   def index
     @entry = Entry.new
 

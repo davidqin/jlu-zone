@@ -1,4 +1,5 @@
 class Users::UsersController < ApplicationController
+  include Wiki::Controllers::Sidebar::UserSidebar
   def menu
     @users = User.all
     drop_breadcrumb(itext("user.menu"))

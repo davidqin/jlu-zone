@@ -5,9 +5,8 @@ Wiki::Application.routes.draw do
   devise_for :users
 
   resources :categories
-  resources :versions
 
-  root :to => 'wiki#index'
+  root :to => 'home#index'
 
   get "/users/menu" => "users/users#menu", :as => :users_menu
   resources :users,   :only => [:show, :index], :controller => 'users/users'
