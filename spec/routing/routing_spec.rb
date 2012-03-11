@@ -8,7 +8,7 @@ end
 
 describe "entry routing" do
   it "routes to entry #index" do
-    get("/ktv/entries").should route_to("wiki/entries#index", :category_number => "ktv")
+    get("category/ktv").should route_to("wiki/entries#index", :category_number => "ktv")
   end
 
   it "routes to entry #edit" do
