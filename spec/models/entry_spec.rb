@@ -9,6 +9,7 @@ describe Entry do
       entry                 = Entry.new
       entry.name            = ""
       entry.fonder          = Factory(:user)
+      entry.last_editor     = Factory(:user)
       entry.category_number = category.number
       entry.save.should     == false
     end
@@ -20,8 +21,8 @@ describe Entry do
   end
 
   describe 'create' do
-    it 'should have no version after a entry created' do
-      entry.versions.should == []
+    it 'should have a version after a entry created' do
+      entry.versions.length.should == 1
     end
   end
 
@@ -30,14 +31,10 @@ describe Entry do
       new_content = "example"
       old_content = entry.content
 
-      entry.new_version_editor  = Factory :user
-      entry.new_version_content = old_content
-
       entry.update_attribute(:content, new_content)
       
-      entry.versions.should_not           == []
-      entry.content.should                == new_content
-      entry.versions.first.content.should == old_content
+      entry.content.should                     == new_content
+      entry.versions.last.reify.content.should == old_content
     end
   end
 end

@@ -67,6 +67,14 @@ describe Wiki::EntriesController do
       post :create, :entry => params
       response.should render_template(:new)
     end
+
+#    it "should create new entry if all is well" do
+#      sign_in user
+#      params = Factory.attributes_for(:entry, :category_number => category.number)
+#      params[:fonder_id] = user.id
+#      post :create, :entry => params, :last_editor_id => user.id
+#      response.should be_success
+#    end
   end
 
 
@@ -79,7 +87,11 @@ describe Wiki::EntriesController do
 
     it "should update entry if all is well" do
       sign_in user
+
       params = Factory.attributes_for(:entry, :category_number => category.number)
+      params[:fonder_id] = user.id
+      params[:last_editor_id] = user.id
+      
       entry  = user.entries.create!(params)
       params[:name] = "new title"
       params[:content] = "new_content"
@@ -92,6 +104,8 @@ describe Wiki::EntriesController do
     it "should not update page if content is not present" do
       sign_in user
       params = Factory.attributes_for(:entry, :category_number => category.number)
+      params[:fonder_id] = user.id
+      params[:last_editor_id] = user.id
       entry  = user.entries.create!(params)
       params[:name] = "new title"
       params[:content] = ""
@@ -114,7 +128,7 @@ describe Wiki::EntriesController do
       response.should redirect_to(:root)
     end
     
-    it "should not destroy entry if it is admin" do
+    it "should destroy entry if it is admin" do
       admin = Factory(:user, :level => 3)
       sign_in admin
       category = entry.category.number
