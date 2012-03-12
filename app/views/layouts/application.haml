@@ -21,7 +21,17 @@
     .container
       /= category_dropdown
       = render_breadcrumb
+<<<<<<< HEAD
       = render_main
       = render "/foot"
     = login_dialog
+=======
+      .row
+        .span9
+          = notice_message
+          =yield
+        .span3
+          = render_controller_sidebar
+      =render "/foot"
+>>>>>>> c3bee740fe691ca1068a5ed67c4ca70ff2be386d
 

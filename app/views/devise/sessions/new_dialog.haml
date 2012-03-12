@@ -1,0 +1,8 @@
+%h2.page-header
+  = itext('login')
+= content_notice
+= show_model_form(User.new, :url => create_dialog_path, :html => { :class => "form-horizontal"}) do |form|
+  = form.show_email_input(:email)
+  = form.show_password_input(:password)
+  = form.show_check_box_input(:remember_me)
+  = content_tag(:button, itext("login"), :class => "btn btn-success", :id => :login_button, :type => :button, "data-loading-text" => itext("loging"), :url => create_dialog_path)
