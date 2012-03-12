@@ -68,13 +68,14 @@ describe Wiki::EntriesController do
       response.should render_template(:new)
     end
 
-#    it "should create new entry if all is well" do
-#      sign_in user
-#      params = Factory.attributes_for(:entry, :category_number => category.number)
-#      params[:fonder_id] = user.id
-#      post :create, :entry => params, :last_editor_id => user.id
-#      response.should be_success
-#    end
+    it "should create new entry if all is well" do
+      sign_in user
+      params = Factory.attributes_for(:entry, :category_number => category.number)
+      post :create, :entry => params
+      entry = Entry.find_by_name(params[:name])
+      response.should redirect_to entry_path(entry)
+      
+    end
   end
 
 
@@ -89,9 +90,7 @@ describe Wiki::EntriesController do
       sign_in user
 
       params = Factory.attributes_for(:entry, :category_number => category.number)
-      params[:fonder_id] = user.id
       params[:last_editor_id] = user.id
-      
       entry  = user.entries.create!(params)
       params[:name] = "new title"
       params[:content] = "new_content"

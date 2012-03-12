@@ -12,24 +12,30 @@ class Wiki::EntriesController < ApplicationController
 
   def index
     @entries = current_category.entries.all
+    drop_breadcrumb(itext("navigation.wiki"), wiki_path)
     drop_breadcrumb(current_category.name)
   end
 
   def show
     @entry = Entry.find(params[:id])
+    do_not_use_sidebar
+    drop_breadcrumb(itext("navigation.wiki"), wiki_path)
     drop_breadcrumb(@entry.category.name,category_entries_path(@entry.category))
     drop_breadcrumb(@entry.name)
   end
 
   def edit
     @entry = Entry.find(params[:id])
+    do_not_use_sidebar
+    drop_breadcrumb(itext("navigation.wiki"), wiki_path)
     drop_breadcrumb(@entry.category.name,category_entries_path(@entry.category))
-    drop_breadcrumb(itext('entry.edit', :entry => @entry.name))
+    drop_breadcrumb(itext('entry.drop_breadcrumb_edit', :entry => @entry.name))
   end
 
   def new
     @entry = Entry.new
-    drop_breadcrumb(itext('entry.new'))
+    drop_breadcrumb(itext("navigation.wiki"), wiki_path)
+    drop_breadcrumb(itext('entry.drop_breadcrumb_new'))
   end
 
   def create
@@ -57,7 +63,7 @@ class Wiki::EntriesController < ApplicationController
     redirect_to_as_destroy_success category_entries_path(category)
   end
 
-  protected
+  private
 
   def find_current_category
     return nil unless params[:category_number]

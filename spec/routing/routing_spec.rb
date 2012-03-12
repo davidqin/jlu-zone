@@ -8,25 +8,25 @@ end
 
 describe "entry routing" do
   it "routes to entry #index" do
-    get("category/ktv").should route_to("wiki/entries#index", :category_number => "ktv")
+    get("wiki/category/ktv").should route_to("wiki/entries#index", :category_number => "ktv")
   end
 
   it "routes to entry #edit" do
-    get("/entries/1/edit").should route_to("wiki/entries#edit", :id => "1")
+    get("wiki/entries/1/edit").should route_to("wiki/entries#edit", :id => "1")
   end
 
   it "routes to entry #show" do
-    get("/entries/1").should route_to("wiki/entries#show", :id => "1")
+    get("wiki/entries/1").should route_to("wiki/entries#show", :id => "1")
   end
 
   it "routes to entry #create" do
-    post("/entries").should route_to("wiki/entries#create")
+    post("wiki/entries").should route_to("wiki/entries#create")
   end
 end
 
 describe "user routing" do
   it "routes to user #menu" do
-    get("/users/menu").should route_to("users/users#menu")
+    get("users/menu").should route_to("users/users#menu")
   end
 
   it "routes to entry #show" do

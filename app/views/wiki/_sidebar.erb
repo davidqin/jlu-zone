@@ -1,35 +1,7 @@
 <div class="well">
-  <a class="btn btn-success" href="<%= new_entry_path%>">创建词条</a>
-  <a class="btn btn-success" href="#">编辑本词条</a>
+  <%= render_entry_categories%>
 </div>
 
 <div class="well">
-  <ul class="nav nav-list">
-    <h2>置顶话题</h2>
-    <li><a href="#">frank是个RMB玩家</a></li>
-    <li><a href="#">Mario：个人网站搭建服务</a></li>
-    <li><a href="#">吉大将禁止教师上课点名</a></li>
-  </ul>
-</div>
-
-
-<div class="well">
-  <ul class="nav nav-list">
-    <h2>活动通知</h2>
-    <li><a href="#">5月23日电竞协会举办比赛</a></li>
-    <li><a href="#">软件学院才艺比赛</a></li>
-    <li><a href="#">小个篮球赛3V3</a></li>
-    <li class="nav-header">最近结束</li>
-    <li><a href="#">六院联合寝室文化节</a></li>
-    <li><a href="#">DOTA友谊赛</a></li>
-    <li><a href="#">轮滑协会巡回演出</a></li>
-  </ul>
-</div>
-
-<div class="well">
-  <ul class="nav nav-list">
-    <h2>信息统计</h2>
-    <li><%= users_statistics%></li>
-    <li><%= entries_statistics%></li>
-  </ul>
+  <%= render_info_statistics%>
 </div>

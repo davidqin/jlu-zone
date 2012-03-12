@@ -35,10 +35,6 @@ Application = {
         return false;
       });
     });
-  },
-
-  initcategorydropmenu: function(){
-    $("#category").jMenu();
   }
 }
 

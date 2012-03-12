@@ -21,12 +21,7 @@
     .container
       /= category_dropdown
       = render_breadcrumb
-      .row
-        .span9
-          = notice_message
-          =yield
-        .span3
-          = render_controller_sidebar
-      =render "/foot"
+      = render_main
+      = render "/foot"
     = login_dialog
 

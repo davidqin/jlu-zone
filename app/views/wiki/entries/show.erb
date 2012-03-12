@@ -1,7 +1,5 @@
 <div class="well" id="entry_show">
-  <div class="info">
-    <%= show_entry_info @entry%>
-  </div>
+  <%= show_entry_functional_bar @entry%>
 
   <h1 class="title"><%= @entry.name%></h1>
   <%= markdown(@entry.content)%>

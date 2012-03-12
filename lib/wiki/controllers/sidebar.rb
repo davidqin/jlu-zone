@@ -5,6 +5,20 @@ module Wiki
         def self.included(base)
           base.helper_method :controller_sidebar_path
           base.helper_method :action_sidebar_path
+          base.helper_method :use_sidebar?
+        end
+        
+        def use_sidebar
+          @use_sidebar = true
+        end
+
+        def do_not_use_sidebar
+          @use_sidebar = false
+        end
+
+        def use_sidebar?
+          return true if @use_sidebar == nil
+          return @use_sidebar
         end
 
         def controller_sidebar_path

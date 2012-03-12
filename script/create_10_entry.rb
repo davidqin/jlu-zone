@@ -6,6 +6,7 @@ categories.each do |category|
     entry = Entry.new
     entry.category_number = category.number
     entry.fonder = user
+    entry.last_editor = user
     entry.name   = "Entry #{i} for #{category.number}"
     entry.content = "
 # 如何快速正确的安装 Ruby, Rails 运行环境 

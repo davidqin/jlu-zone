@@ -6,6 +6,14 @@ module ApplicationHelper
 		:user
 	end
 	
+	def render_main
+		if self.controller.use_sidebar?
+			render "/body_main_content/with_side_bar"
+		else
+			render "/body_main_content/without_side_bar"
+		end
+	end
+
 	def resource
 		@resource ||= User.new
 	end
@@ -65,7 +73,7 @@ module ApplicationHelper
 	end
 
 	def category_dropdown
-		contents_tag :ul, :class => "pull-left", :id => :jMenu do |contents|
+		contents_tag :ul, :class => "pull-left" do |contents|
 			contents << contents_tag(:li) do |lis|
 				lis << content_tag(:a, itext('category'), :class => :fNiv)				
 				lis << generate_category_tree
@@ -79,7 +87,7 @@ module ApplicationHelper
 		else
 			categories = EntryCategory.find(:all, :conditions => "parent_id is null")
 		end
-		contents_tag :ul, :id => :jMenu do |contents|
+		contents_tag :ul do |contents|
 			contents << content_tag(:li, '', :class => :arrow)
 			categories.each do |category|
 				if category.children.size != 0
@@ -142,7 +150,7 @@ module ApplicationHelper
 
 	def modules_navigation
 		contents_tag :ul, :class => 'nav' do |contents|
-			contents << content_tag(:li, content_tag(:a, itext("navigation.wiki"), :href => '/'))
+			contents << content_tag(:li, content_tag(:a, itext("navigation.wiki"), :href => wiki_path))
 			contents << content_tag(:li, content_tag(:a, itext("navigation.users"), :href => users_menu_path))
 		end
 	end

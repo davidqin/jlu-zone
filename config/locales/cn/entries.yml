@@ -8,9 +8,10 @@ cn:
     history_versions_size: 历史版本数量
     last_editor_name: 最后修改
 
-    entry_info: "版本 %{versions}， 最后更新于 %{gap}前" 
+    entry_info: "版本 %{versions}， 最后更新于 %{gap}" 
 
-    new: 创建词条
-    edit: "修改 %{entry} 词条"
+    drop_breadcrumb_new: 创建词条
+    drop_breadcrumb_edit: "修改 %{entry} 词条"
 
-
+    edit: 编辑
+    list_versions: 查看历史版本
