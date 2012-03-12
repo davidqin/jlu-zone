@@ -35,10 +35,19 @@ Application = {
         return false;
       });
     });
+  },
+  initWikiCategoryList: function(){
+    $('#category_list').kwicks({  
+      max : 230,  
+      spacing : 5  
+    });
+    $('#category_list li').click(function(){
+      window.open($(this).attr("url"), "_self");
+    })    
   }
 }
 
 $(function(){
   Application.initBackToTopButton();
-  Application.initcategorydropmenu();
+  Application.initWikiCategoryList();
 });

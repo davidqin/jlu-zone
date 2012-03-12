@@ -53,6 +53,17 @@ module ApplicationHelper
 		end
 	end
 
+	def category_list
+		categories = EntryCategory.find(:all, :conditions => "parent_id is null")
+		num = 0
+		contents_tag :ul, :id => :category_list do |contents|
+			categories.each do |category|
+				num += 1
+				contents << content_tag(:li, '', :id => "category_#{num}", :url => category_entries_path(category))
+			end
+		end
+	end
+
 	def category_dropdown
 		contents_tag :ul, :class => "pull-left" do |contents|
 			contents << contents_tag(:li) do |lis|
