@@ -11,7 +11,7 @@ Wiki::Application.routes.draw do
 
   root :to => 'home#index'
 
-  get "/users/menu" => "users/users#menu", :as => :users_menu
+  get "/users" => "users/users#menu", :as => :users
   
   resources :users,   :only => [:show, :index], :controller => 'users/users'
 

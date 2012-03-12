@@ -1,8 +1,12 @@
 module UserHelper
   def show_user(user)
-    contents_tag(:div, :class => "span4") do |contents|
-      contents << show_user_gravatar(user.email)
-      contents << show_user_info(user)
+    content_tag(:li) do
+      contents_tag(:a, :href => user_path(user)) do |contents|
+        contents << tag(:img, :alt => '', :src => gravatar(user.email))
+        contents << content_tag(:strong, show_user_post_num)
+        contents << content_tag(:em, user.nickname)
+        contents << user.email
+      end
     end
   end
 
@@ -10,6 +14,10 @@ module UserHelper
     content_tag(:div, :class => "span1") do
       tag(:img, :alt => '', :src => gravatar(email), :class => "portrait_top_bar")
     end
+  end
+
+  def show_user_post_num
+    1
   end
 
   def show_user_info(user)

@@ -143,7 +143,7 @@ module ApplicationHelper
 	def modules_navigation
 		contents_tag :ul, :class => 'nav' do |contents|
 			contents << content_tag(:li, content_tag(:a, itext("navigation.wiki"), :href => wiki_path))
-			contents << content_tag(:li, content_tag(:a, itext("navigation.users"), :href => users_menu_path))
+			contents << content_tag(:li, content_tag(:a, itext("navigation.users"), :href => users_path))
 		end
 	end
 
