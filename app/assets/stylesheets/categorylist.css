@@ -8,6 +8,7 @@
 	position: relative;
 	margin: 0;
 	padding: 0;
+	cursor: pointer;
 }
 #category_list li{
 	/* these are required, but the values are up to you (must be pixel) */
