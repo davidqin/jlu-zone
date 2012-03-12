@@ -4,8 +4,8 @@
 RailsAdmin.config do |config|
 
   # If your default_local is different from :en, uncomment the following 2 lines and set your default locale here:
-  # require 'i18n'
-  # I18n.default_locale = :de
+  require 'i18n'
+  I18n.default_locale = :cn
 
   config.current_user_method { current_user } # auto-generated
   config.authorize_with :cancan
@@ -78,17 +78,6 @@ RailsAdmin.config do |config|
   # Your model's configuration, to help you get started:
 
   # All fields marked as 'hidden' won't be shown anywhere in the rails_admin unless you mark them as visible. (visible(true))
-  config.model Version do
-      configure :entry_id,  :integer
-      configure :editor_id, :integer
-      configure :number,    :string
-      configure :content,   :text
-     export do; end
-     show do; end
-     edit do; end
-     create do; end
-     update do; end
-   end  
 
   config.model EntryCategory do
        configure :id, :integer 
@@ -105,6 +94,7 @@ RailsAdmin.config do |config|
        configure :id,           :integer 
        configure :name,         :string 
        configure :fonder_id,    :integer 
+       configure :last_editor_id,    :integer 
        configure :number,       :string 
        configure :appreciation, :integer 
        configure :objection,    :integer 

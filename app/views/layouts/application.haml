@@ -19,7 +19,7 @@
             = modules_navigation
             = user_functional_bar
     .container
-      = category_dropdown
+      /= category_dropdown
       = render_breadcrumb
       .row
         .span9
@@ -27,6 +27,5 @@
           =yield
         .span3
           = render_controller_sidebar
-    .container
       =render "/foot"
 

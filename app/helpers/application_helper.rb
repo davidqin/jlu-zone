@@ -141,6 +141,17 @@ module ApplicationHelper
 		end
 	end
 
+	module BootstrapHelper
+		module Breadcrumb
+			module InstanceMethods
+				protected
+				def set_breadcrumbs
+					@breadcrumbs = [(content_tag(:a, content_tag(:i, '', :class => "icon-home").html_safe+"Home", :href => "/")).html_safe]
+				end
+			end
+		end
+	end
+
 
 	class ActionView::Base
 		def html_contents

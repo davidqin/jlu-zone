@@ -3,6 +3,7 @@ class CreateEntries < ActiveRecord::Migration
     create_table :entries, :force => true do |t|
       t.string      :name,         :limit   => 64,   :null => false
       t.references  :fonder,       :null    => false
+      t.references  :last_editor,  :null    => false
       t.references  :category,     :null    => false
       t.text        :content
       #t.string      :number,       :null    => false

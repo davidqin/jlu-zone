@@ -12,14 +12,12 @@ Wiki::Application.routes.draw do
   root :to => 'home#index'
 
   get "/users/menu" => "users/users#menu", :as => :users_menu
+  
   resources :users,   :only => [:show, :index], :controller => 'users/users'
 
   resources :entries, :except => [:index],      :controller => 'wiki/entries'
   
-  scope :path => ':category_number', :as => :category do
-    get "/entries"   => "wiki/entries#index", :as => :entries
-  end
-
+  get 'category/:category_number' => "wiki/entries#index", :as => :category_entries
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

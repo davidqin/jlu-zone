@@ -6,6 +6,9 @@ gem 'sqlite3'
 gem 'cancan'
 gem 'devise'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+
+gem 'paper_trail', '~> 2'
+
 gem 'twitter-bootstrap-rails', '2.0.2'
 
 gem 'acts_as_tree'
