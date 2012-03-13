@@ -1,15 +1,17 @@
 module EntryHelper
   def show_entry_functional_bar(entry)
-    contents_tag :div, :class => "info" do |contents|
+    contents_tag :div, :class => "info page-header" do |contents|
       contents << show_entry_info(entry)
-      contents << show_entry_tools_bar(entry)
+      contents << contents_tag(:div, :class => "pull-right") do |items|
+        items << show_entry_tools_bar(entry)
+      end
     end
   end
 
   def show_entry_info(entry)
     #gap = (Time.now - entry.updated_at)
-    #content_tag(:abbr, "", options.merge(:title => time.iso8601))
-    itext("entry.entry_info", :versions => entry.history_versions_size, :gap => entry.updated_at.strftime("%Y-%m-%d"))
+    #content_tag(:abbr, "", options.merge(:title => time.iso8601))    
+    content_tag(:h1, entry.name) + itext("entry.entry_info", :versions => entry.history_versions_size, :gap => entry.updated_at.strftime("%Y-%m-%d"))
   end
 
   def show_entry_contributors(entry)
