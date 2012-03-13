@@ -26,7 +26,7 @@ end
 
 describe "user routing" do
   it "routes to user #menu" do
-    get("users/menu").should route_to("users/users#menu")
+    get("users/").should route_to("users/users#menu")
   end
 
   it "routes to entry #show" do

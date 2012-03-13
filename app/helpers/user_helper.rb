@@ -1,6 +1,6 @@
 module UserHelper
-  def show_user(user)
-    content_tag(:li) do
+  def show_user_tag(user)
+    content_tag(:li, :class => "span3") do
       contents_tag(:a, :href => user_path(user)) do |contents|
         contents << tag(:img, :alt => '', :src => gravatar(user.email))
         contents << content_tag(:strong, show_user_post_num)
