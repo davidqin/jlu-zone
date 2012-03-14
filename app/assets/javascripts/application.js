@@ -50,4 +50,10 @@ Application = {
 $(function(){
   Application.initBackToTopButton();
   Application.initWikiCategoryList();
+  var jiathis_config={
+    data_track_clickback:true,
+    sm:"email,copy,fav,print,qzone,tsina,tqq,renren,kaixin001,tsohu,t163,douban,xiaoyou",
+    summary:"",
+    hideMore:false
+  }
 });

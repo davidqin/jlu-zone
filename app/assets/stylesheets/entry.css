@@ -1,12 +1,18 @@
-/*#entry_show .info {
-  text-align: right;
-  padding: 0 10px 10px 10px;
+#entry_show .info {
+	padding-bottom: 5px;
+	margin-bottom: 10px;
   border-bottom: 1px solid #DDD;
-  margin: 0 -10px;
-  margin-bottom: 20px;
 }
 
-#entry_show .title {
+.entry_bar{
+	margin-top: -15px;
+}
+
+#version_info{
+	color: #999
+}
+
+/*#entry_show .title {
   padding: 0 10px 10px 10px;
 }
 

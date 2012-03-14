@@ -19,8 +19,12 @@
  	background:#eee url('bg.png') bottom left repeat;
  }
 
+ .well{
+ 	background-color: #FFF !important;
+ }
+
  body{
-  padding-top: 50px;
+ 	padding-top: 50px;
  	background: none !important;
  }
 
@@ -127,4 +131,9 @@
  	right: 0;
  	z-index: 1020; /* 10 less than .navbar-fixed to prevent any overlap */
  }
-}
+
+
+ .share_bar{
+ 	margin-top: -10px;
+ 	margin-right: -5px;
+ }

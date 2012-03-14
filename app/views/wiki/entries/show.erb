@@ -1,8 +1,8 @@
 <div class="well" id="entry_show">
   <%= show_entry_functional_bar @entry%>
-
-  <h1 class="title"><%= @entry.name%></h1>
-  <%= markdown(@entry.content)%>
+  <%= show_entry_inner_category %>
+  <%= show_entry(@entry) %>
   <%= show_entry_contributors @entry%>
   
 </div>
+<%= javascript_include_tag "http://v2.jiathis.com/code/jia.js?uid=1562818" %>
