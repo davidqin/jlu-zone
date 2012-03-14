@@ -53,47 +53,6 @@ module ApplicationHelper
 		end
 	end
 
-	def category_list
-		categories = EntryCategory.find(:all, :conditions => "parent_id is null")
-		num = 0
-		contents_tag :ul, :id => :category_list do |contents|
-			categories.each do |category|
-				num += 1
-				contents << content_tag(:li, '', :id => "category_#{num}", :url => category_entries_path(category))
-			end
-		end
-	end
-
-	def category_dropdown
-		contents_tag :ul, :class => "pull-left" do |contents|
-			contents << contents_tag(:li) do |lis|
-				lis << content_tag(:a, itext('category'), :class => :fNiv)				
-				lis << generate_category_tree
-			end
-		end
-	end
-
-	def generate_category_tree(base_category = nil)
-		if base_category 
-			categories = base_category.children
-		else
-			categories = EntryCategory.find(:all, :conditions => "parent_id is null")
-		end
-		contents_tag :ul do |contents|
-			contents << content_tag(:li, '', :class => :arrow)
-			categories.each do |category|
-				if category.children.size != 0
-					contents << contents_tag(:li) do |children| 
-						children << content_tag(:a, category.name.to_s, :href => category_entries_path(category))
-						children << generate_category_tree(category) 
-					end
-				else
-					contents << content_tag(:li, content_tag(:a, category.name.to_s, :href => category_entries_path(category)))
-				end
-			end
-		end
-	end
-
 	def user_functional_bar
 		contents_tag :ul, :class => "nav pull-right" do |contents|
 			contents << content_tag(:li, '', :class => "divider-vertical")

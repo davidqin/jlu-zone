@@ -1,3 +1,11 @@
+.side_bar {
+min-height: 20px;
+padding: 17px 10px 17px 10px;
+margin-bottom: 20px;
+background-color: whiteSmoke;
+-webkit-border-radius: 4px;
+}
+
 .nav.nav-list h2 {
   font-size: 13px;
   line-height: 100%;

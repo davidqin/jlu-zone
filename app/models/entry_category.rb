@@ -1,5 +1,4 @@
 class EntryCategory < ActiveRecord::Base
-  acts_as_tree
   has_many :entries, :foreign_key => "category_id"
 
   def to_param

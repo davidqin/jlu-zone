@@ -24,6 +24,13 @@
  	background: none !important;
  }
 
+ 
+code {
+padding: 3px 4px;
+color: #D14;
+background-color: #F7F7F9;
+}
+
  .to_hide{
  	display: none;
  }

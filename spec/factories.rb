@@ -8,7 +8,6 @@ end
 
 Factory.define :entry_category do |f|
   f.sequence(:name) { |n| "category #{n}" }
-  f.parent nil
   f.sequence(:number) { |n| "category number#{n}" }
 end
 

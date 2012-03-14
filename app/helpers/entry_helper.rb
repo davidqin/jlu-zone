@@ -42,10 +42,10 @@ module EntryHelper
   def render_entry_categories
     categories = EntryCategory.all
     
-    body = contents_tag :ul, :class => "nav nav-list" do |contents|
+    body = contents_tag :div, :class => "nav nav-list" do |contents|
         contents << content_tag(:h2, itext("entry.category"))
       categories.each do |category|
-        contents << content_tag(:li,content_tag(:a, category.name, :href => category_entries_path(category)))
+        contents << content_tag(:a, category.name, :href => category_entries_path(category), :class => "each_category")
       end
     end
   end

@@ -1,3 +1,5 @@
+# coding: utf-8
+
 ## Generate users with different level
 david = User.create( 
   nickname: 'david',
@@ -36,17 +38,15 @@ nevermore = User.create(
 
 ## Generate categories
 
-category_education     = EntryCategory.create(name: 'education',     number: 'education')
-category_courses       = EntryCategory.create(name: 'courses',       number: 'courses',      parent: category_education)
-category_teacher       = EntryCategory.create(name: 'teacher',       number: 'teacher',      parent: category_education)
-category_association   = EntryCategory.create(name: 'association',   number: 'association')
-category_entertainment = EntryCategory.create(name: 'entertainment', number: 'entertainment')
-category_cinema        = EntryCategory.create(name: 'cinema',        number: 'cinema',       parent: category_entertainment)
-category_internet_bar  = EntryCategory.create(name: 'internet_bar',  number: 'internet_bar', parent: category_entertainment)
-category_billiards     = EntryCategory.create(name: 'billiards',     number: 'billiards',    parent: category_entertainment)
-category_ktv           = EntryCategory.create(name: 'ktv',           number: 'ktv',          parent: category_entertainment)
-category_diet          = EntryCategory.create(name: 'diet',          number: 'diet')
-category_mess          = EntryCategory.create(name: 'mess',          number: 'mess',         parent: category_diet)
+category_education     = EntryCategory.create(name: '教学', number: 'education')
+category_courses       = EntryCategory.create(name: '选修课', number: 'courses')
+category_teacher       = EntryCategory.create(name: '老师', number: 'teacher')
+category_association   = EntryCategory.create(name: '社团', number: 'association')
+category_cinema        = EntryCategory.create(name: '电影院', number: 'cinema')
+category_internet_bar  = EntryCategory.create(name: '网吧', number: 'internet_bar')
+category_billiards     = EntryCategory.create(name: '台球厅', number: 'billiards')
+category_ktv           = EntryCategory.create(name: 'KTV', number: 'ktv')
+category_mess          = EntryCategory.create(name: '食堂', number: 'mess')
 
 ## Generate entries
 
@@ -54,5 +54,5 @@ entry_dota = Entry.create(
   name: "dota",
   fonder: david,
   last_editor: david,
-  category_number: category_entertainment.number,
+  category_number: category_courses.number,
   content: "I\'m the 3th version")

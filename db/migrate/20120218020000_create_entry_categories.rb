@@ -2,7 +2,6 @@ class CreateEntryCategories < ActiveRecord::Migration
   def self.up
     create_table :entry_categories, :force => true do |t|
       t.string     :name,       :limit => 64,  :null => false
-      t.references :parent
       t.string     :number,     :null  => false#url show  0.0.0.0:3000/entertainment
       t.timestamps
     end
