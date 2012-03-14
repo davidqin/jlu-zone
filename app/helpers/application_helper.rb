@@ -119,6 +119,20 @@ module ApplicationHelper
 		end
 	end
 
+	def share_button
+		contents_tag(:div, :id => :ckepop) do |contents|
+			contents << content_tag(:span, itext("share_to"), :class => :jiathis_txt)
+			contents << content_tag(:a, '', :class => :jiathis_button_qzone)
+			contents << content_tag(:a, '', :class => :jiathis_button_tsina)
+			contents << content_tag(:a, '', :class => :jiathis_button_tqq)
+			contents << content_tag(:a, '', :class => :jiathis_button_renren)
+			contents << content_tag(:a, '', :class => :jiathis_button_fb)
+			contents << content_tag(:a, '', :class => :jiathis_button_twitter)
+			contents << content_tag(:a, '', :class => "jiathis jiathis_txt jiathis_separator jtico jtico_jiathis", :href => "http://www.jiathis.com/share?uid=1562818", :target =>"_blank")
+			contents << content_tag(:a, '', :class => :jiathis_counter_style)
+		end
+	end
+
 	module BootstrapHelper
 		module Breadcrumb
 			module InstanceMethods

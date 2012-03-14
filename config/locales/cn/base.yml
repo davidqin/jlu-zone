@@ -16,6 +16,7 @@ cn:
   users_statistics: "会员: %{users}人"
   entries_statistics: "词条: %{entries}词"
   category: 分类目录
+  share_to: 分享到：
 
   info_statistics: 信息统计
 
