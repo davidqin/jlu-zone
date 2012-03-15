@@ -1,10 +1,9 @@
-<legend>New</legend>
 <%= show_model_form @entry, :html => {:class => "form-horizontal"} do |form|%>
-  <% html_contents do |item| %>
-    <% item << form.show_text_input(:name) %>
-    <% item << form.show_category_field(:category) %>
-    <% item << form.show_textarea_input(:content) %>
-    <% item << content_tag(:button, itext("login"), :class => "btn btn-success", :type => :submit, "data-loading-text" => itext("loging")) %>
-  <% end %>
+  <%= form.show_text_input(:name) %>
+  <%= form.show_category_field(:category) %>
+  <%= render "entry_editor_tools_bar"%>
+  <div></div>
+  <%= form.show_textarea_input(:content, :input_options => {:style => "width: 580px; height: 600px;"}) %>
+  <%= content_tag(:button, itext("submit"), :class => "btn btn-success", :type => :submit) %>
 <% end %>
 

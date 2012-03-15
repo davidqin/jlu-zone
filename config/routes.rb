@@ -17,6 +17,8 @@ Wiki::Application.routes.draw do
 
   scope :path => 'wiki' do
     resources :entries, :except => [:index],      :controller => 'wiki/entries'
+
+    post "entry/preview" => 'wiki/entries#preview', :as => :entry_preview
     
     get 'category/:category_number' => "wiki/entries#index", :as => :category_entries
 

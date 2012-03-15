@@ -13,6 +13,7 @@ cn:
     drop_breadcrumb_new: 创建词条
     drop_breadcrumb_edit: "修改 %{entry} 词条"
 
-    edit: 编辑
+    new: 新建词条
+    edit: 编辑词条
     contributor: "贡献者: "
     list_versions: 查看历史版本

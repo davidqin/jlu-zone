@@ -63,6 +63,13 @@ class Wiki::EntriesController < ApplicationController
     redirect_to_as_destroy_success category_entries_path(category)
   end
 
+  def preview
+    @content = params[:content]
+    respond_to do |format|  
+      format.json { render 'preview', :layout => false }  
+    end
+  end
+
   private
 
   def find_current_category

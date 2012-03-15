@@ -27,7 +27,7 @@ module EntryHelper
     end
   end
 
-  def show_entry_inner_category
+  def show_entry_inner_catalog
   end
 
   def show_entry_contributors(entry)
@@ -66,5 +66,13 @@ module EntryHelper
         contents << content_tag(:a, category.name, :href => category_entries_path(category), :class => "each_category")
       end
     end
+  end
+
+  def show_entry_new_header
+    content_tag :h3, itext("entry.new")
+  end
+
+  def show_entry_edit_header
+    content_tag :h3, itext("entry.edit")
   end
 end
