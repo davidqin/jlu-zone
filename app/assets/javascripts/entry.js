@@ -20,7 +20,8 @@ Entry = {
     $('#entry_content').after(preview_box);
     preview_box.hide();
 
-    $("#edit_model").click(function(){
+    $("#edit_model").click(function(event){
+      event.preventDefault();
       $('#entry_content').show()
       preview_box.hide()
       $('#preview_model').removeClass("active")
@@ -28,16 +29,18 @@ Entry = {
 
     });
     
-    $("#preview_model").click(function(){
+    $("#preview_model").click(function(event){
+      event.preventDefault();
       $('#entry_content').hide()
       preview_box.show()
       preview_box.text("Loading...")
-      
-      contents = {
-        content: $('#entry_content').text()
-      }
 
-      $.post("/wiki/entry/preview",contents,function(data){
+      function get_contents(){
+        return contents = {
+          content: $('#entry_content').val()
+        } 
+      }
+      $.post("/wiki/entry/preview",get_contents(),function(data){
         $("#preview").html(data.content)
       })
 

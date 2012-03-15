@@ -15,5 +15,7 @@ cn:
 
     new: 新建词条
     edit: 编辑词条
+    edit_model: 编辑
+    preview_model: 预览
     contributor: "贡献者: "
     list_versions: 查看历史版本
