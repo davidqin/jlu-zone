@@ -34,6 +34,7 @@ class Wiki::EntriesController < ApplicationController
 
   def new
     @entry = Entry.new
+    do_not_use_sidebar
     drop_breadcrumb(itext("navigation.wiki"), wiki_path)
     drop_breadcrumb(itext('entry.drop_breadcrumb_new'))
   end

@@ -1,8 +1,8 @@
 <div class="well">
-  <%= show_list @entries do |entry|%>
-  <% entry.link_string_column :name                                           %>
-  <% entry.link_string_column :fonder_name,          :fonder                  %>
-  <% entry.link_string_column :last_editor_name,     :last_editor             %>
-  <% entry.string_column      :history_versions_size                          %>
-  <% end %>
+  <h3><%= itext("entry.index", :category => current_category.name)%></h3>
+  <ul class="nav nav-pills nav-stacked">
+    <% @entries.each do |entry|%>
+      <li><a href=<%= entry_path entry%>><%= entry.name %></a></li>
+    <% end %>
+  </ul>
 </div>
