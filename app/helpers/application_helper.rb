@@ -84,6 +84,9 @@ module ApplicationHelper
 						lis << content_tag(:li, content_tag(:span, current_user.nickname))
 						lis << content_tag(:li, content_tag(:span, current_user.email))
 						lis << content_tag(:li, content_tag(:a, itext("edit_profile"), :href => edit_user_registration_path))
+						if current_user.level == 3
+							lis << content_tag(:li, content_tag(:a, itext("admin_panel"), :href => rails_admin_path))
+						end
 						lis << content_tag(:li, content_tag(:a, itext("logout"), :href => destroy_user_session_path, "data-method" => :delete))				
 					end
 				end

@@ -26,7 +26,6 @@ Entry = {
       preview_box.hide()
       $('#preview_model').removeClass("active")
       $('#edit_model').addClass("active")
-
     });
     
     $("#preview_model").click(function(event){
