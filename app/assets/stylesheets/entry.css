@@ -27,10 +27,11 @@
 
 #preview{
   margin-top: 0px;
+  margin-bottom: 9px;
   border: 1px solid #CCC;
-  width: 580px; 
+  width: 580px;
   padding: 4px;
-  min-height: 400px;
+  min-height: 220px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -38,18 +39,6 @@
 
 #entry_edit_toolbar{
   margin-bottom: 0;
-}
-
-#entry_list li{
-  width:200px;
-  padding:10px;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
-
-#entry_list li:hover{
-  background-color: #DDD;
 }
 
 .jumbotron.subhead > h1{
@@ -66,15 +55,3 @@
   border-top: 1px solid #DDD;
   margin: 10px 0px 0px 0px;
 }
-
-#contributors{line-height:18px;text-align:left;overflow:hidden;_zoom:1}
-#contributors li{width:200px;float:left;*margin-right:-1px}
-#contributors a,#contributors a:hover{background-color:#f2f2f2;background-image:-webkit-linear-gradient(#f8f8f8,#f2f2f2);background-image:-moz-linear-gradient(#f8f8f8,#f2f2f2);background-image:linear-gradient(#f8f8f8,#f2f2f2)}
-#contributors a{position:relative;display:block;height:36px;margin:4px;padding:4px 4px 4px 44px;color:#999;overflow:hidden;border:#ccc 1px solid;border-radius:2px;box-shadow:#eee 0 0 2px}
-#contributors img,#contributors em{-webkit-transition:all .2s ease-out;-moz-transition:all .2s ease-out;transition:all .2s ease-out}
-#contributors img{width:36px;height:36px;float:left;margin:0 8px 0 -40px;border-radius:2px}
-#contributors em{color:#666;font-style:normal;margin-right:10px}
-#contributors a:hover{border-color:#bbb;box-shadow:#ccc 0 0 2px;background-color:#fff;background-image:none}
-#contributors a:hover em{color:#EE8B17;font:bold 12px/36px microsoft yahei}
-#contributors > li:first-child{width:50px;}
-#contributors a:hover img{opacity:.6;}
