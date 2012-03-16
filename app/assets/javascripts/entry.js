@@ -1,6 +1,12 @@
 Entry = {
   initEntryCategoryContent: function(){
+    var count = 1;
     $("#show_entry h2").each(function(){
+        class_name = 'section ' + 'section_'+count
+        $(this).addClass(class_name)
+        alert($("#show_entry h2:gt(0):lt(2) *").text());
+        count++;
+
         // alert($(this).html());
     });
     // var categories = $("#show_entry h2").html();
