@@ -3,7 +3,7 @@ cn:
     name: 词条名称
     content: 内容
     category: 分类
-    
+
     fonder_name: 创建者
     history_versions_size: 历史版本数量
     last_editor_name: 最后修改

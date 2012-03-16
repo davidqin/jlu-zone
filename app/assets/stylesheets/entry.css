@@ -27,10 +27,11 @@ border-radius: 3px;
 
 #preview {
 margin-top: 0px;
+margin-bottom: 9px;
 border: 1px solid #CCC;
 width: 580px; 
 padding: 4px;
-min-height: 400px;
+min-height: 200px;
 -webkit-border-radius: 3px;
 -moz-border-radius: 3px;
 border-radius: 3px;

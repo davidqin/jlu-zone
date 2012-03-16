@@ -3,9 +3,11 @@ cn:
     users: 会员
     wiki: Wiki
 
+  submit: 提交
+   
   logo: "JLU-Zone"
   register: 注册
-  login: 登录
+  login: 登录  
   loging: 登录中...
   welcome: "您好，%{name}"
   edit_profile: 编辑我的个人资料
