@@ -2,7 +2,6 @@
   <%= form.show_text_input(:name) %>
   <%= form.show_category_field(:category) %>
   <%= render "entry_editor_tools_bar"%>
-  <div></div>
   <%= form.show_textarea_input(:content, :input_options => {:style => "width: 580px; height: 600px;"}) %>
   <%= content_tag(:button, itext("submit"), :class => "btn btn-success", :type => :submit) %>
 <% end %>

@@ -29,10 +29,13 @@ border-radius: 3px;
 margin-top: 0px;
 border: 1px solid #CCC;
 width: 580px; 
-height: 600px;
 padding: 4px;
 min-height: 400px;
 -webkit-border-radius: 3px;
 -moz-border-radius: 3px;
 border-radius: 3px;
+}
+
+#entry_edit_toolbar{
+  margin-bottom: 0;
 }
