@@ -25,6 +25,8 @@ Wiki::Application.routes.draw do
     get '/' => "wiki/wiki#index", :as => :wiki
   end
 
+  resources :replies
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

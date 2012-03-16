@@ -6,6 +6,7 @@ class Entry < ActiveRecord::Base
   belongs_to :fonder,      :class_name => "User"
   belongs_to :last_editor, :class_name => "User"
   belongs_to :category,    :class_name => "EntryCategory"
+  has_many   :replies,     :as => :resource
 
   validates_presence_of   :name, :message => "can't be empty"
   validates_uniqueness_of :name, :message => "can't be unique" 
