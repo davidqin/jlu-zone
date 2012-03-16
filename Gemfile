@@ -7,6 +7,8 @@ gem 'cancan'
 gem 'devise'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
+gem 'simple_form', :git => "git://github.com/plataformatec/simple_form.git"
+
 gem 'paper_trail', '~> 2'
 
 gem 'twitter-bootstrap-rails', '2.0.2'

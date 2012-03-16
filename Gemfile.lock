@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/plataformatec/simple_form.git
+  revision: 5fc9c8c0c1c701c9e0c683495d06036f2ff1579a
+  specs:
+    simple_form (2.0.2.dev)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
+
+GIT
   remote: git://github.com/sferik/rails_admin.git
   revision: 1180245282635e9bd18c4a01ce45bd9db9ad48c4
   specs:
@@ -238,6 +246,7 @@ DEPENDENCIES
   redcarpet (~> 2.0.0)
   rspec-rails
   sass-rails (~> 3.2.3)
+  simple_form!
   spork
   sqlite3
   therubyracer
