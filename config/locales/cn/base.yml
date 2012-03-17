@@ -27,3 +27,6 @@ cn:
   create_success: 创建成功
   update_fail: 修改失败了
   update_success: 修改成功
+
+  edit_model: 编辑
+  preview_model: 预览
