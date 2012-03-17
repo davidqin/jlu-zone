@@ -1,29 +1,11 @@
 Entry = {
   initEntryCategoryContent: function(){
-    var count = 1;
-    // $("#show_entry h2").each(function(){
-    //     class_name = 'section ' + 'section_'+count
-    //     $(this).addClass(class_name);
-    //     // alert($('h2.class_name:gt(0):lt(1) h3,p,pre,img').text());
-    //     // .wrapAll('<div></div>');
-    //     count++;
-    //     // alert($(this).html());
-    // });
-    $("h2").each(function(){
-      class_name = 'section section_'+count 
-      $(this).nextUntil("h2").andSelf().wrapAll("<div></div>"); 
-      count++;
-    }); 
-    // $('h3,p,pre,img').wrapAll('<div></div>');
-    // var categories = $("#show_entry h2").html();
-    // count = categories.length;
-    // for(i=0;i< count;i++){
-    //   var one = categories[i];
-    //   alert(one);
-    // }
-    // // alert(categories.length);
-
-    // // alert(categories[0]);
+    var navLabels = new Array;
+    $("#entry_show h2").each(function(){
+      navLabels.push($(this).text());
+      $(this).nextUntil("h2").andSelf().wrapAll("<div class=\"section\"></div>");
+    });
+    $('#entry_show').pageScroller({ navigation: navLabels,scrollOffset: 50 });
   },  
 
   textarea_previes_exchange:function(){
@@ -63,6 +45,6 @@ Entry = {
 }
 
 $(function(){
-  //Entry.initEntryCategoryContent();  
+  Entry.initEntryCategoryContent();  
   Entry.textarea_previes_exchange();
 });
