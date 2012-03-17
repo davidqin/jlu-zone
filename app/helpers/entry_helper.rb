@@ -30,22 +30,6 @@ module EntryHelper
   def show_entry_inner_catalog
   end
 
-  # def show_entry_contributors(entry)
-  #   contributors = []
-  #   entry.versions.each do |version|
-  #     contributors << version.reify.last_editor if version.reify
-  #   end
-  #   contributors << entry.last_editor
-  #   contributors.uniq!
-  #   contents_tag(:div, :id => "contributors") do |contents|
-  #     contents << itext("entry.contributor")
-  #     contributors.each do |contributor|
-  #       contents << tag(:img, :alt => '', :src => gravatar(contributor.email), :id => "portrait_top_bar")
-  #       contents << content_tag(:a, contributor.nickname, :href => user_path(contributor))
-  #     end
-  #   end
-  # end
-
   def show_entry_contributors(entry)
     contributors = []
     entry.versions.each do |version|
@@ -53,20 +37,14 @@ module EntryHelper
     end
     contributors << entry.last_editor
     contributors.uniq!
-    contents_tag(:ul, :id => "contributors") do |contents|
-      contents << content_tag(:li, itext("entry.contributor"))
+    contents_tag(:div, :id => "contributors") do |contents|
+      contents << itext("entry.contributor")
       contributors.each do |contributor|
-        contents << content_tag(:li) do
-          contents_tag(:a, :href => user_path(contributor)) do |items|
-            items << tag(:img, :alt => '', :src => gravatar(contributor.email), :id => "portrait_top_bar")
-            items << content_tag(:em, contributor.nickname)
-            items << contributor.email
-          end
-        end
+        contents << tag(:img, :alt => '', :src => gravatar(contributor.email), :id => "portrait_top_bar")
+        contents << content_tag(:a, contributor.nickname, :href => user_path(contributor))
       end
     end
   end
-
 
   def show_entry_tools_bar(entry)
     html_contents do |contents|

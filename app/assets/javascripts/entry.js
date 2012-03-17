@@ -24,7 +24,7 @@ Entry = {
     // // alert(categories.length);
 
     // // alert(categories[0]);
-  },
+  },  
 
   textarea_previes_exchange:function(){
     preview_box = $(document.createElement("div")).attr("id", "preview");
@@ -34,7 +34,7 @@ Entry = {
 
     $("#edit_model").click(function(event){
       event.preventDefault();
-      $('textarea').show()
+      $('.markItUpContainer').show()
       preview_box.hide()
       $('#preview_model').removeClass("active")
       $('#edit_model').addClass("active")
@@ -42,7 +42,7 @@ Entry = {
     
     $("#preview_model").click(function(event){
       event.preventDefault();
-      $('textarea').hide()
+      $('.markItUpContainer').hide()
       preview_box.show()
       preview_box.text("Loading...")
 
@@ -63,6 +63,6 @@ Entry = {
 }
 
 $(function(){
-  Entry.initEntryCategoryContent();
+  //Entry.initEntryCategoryContent();  
   Entry.textarea_previes_exchange();
 });

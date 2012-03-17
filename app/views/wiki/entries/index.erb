@@ -1,9 +1,9 @@
 <div class="well">
   <h3><%= itext("entry.index", :category => current_category.name)%></h3>
-  <ul id="entry_list">
+  <ul class="nav nav-pills nav-stacked">
     <% @entries.each do |entry|%>
       <li><a href=<%= entry_path entry%>><%= entry.name %></a></li>
     <% end %>
   </ul>
-  <%= will_paginate @entries %>
+  <%= will_paginate @entries, :class => ""%>
 </div>

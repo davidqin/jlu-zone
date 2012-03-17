@@ -11,7 +11,7 @@ class Wiki::EntriesController < ApplicationController
   helper_method :current_category
 
   def index
-    @entries = current_category.entries.all.paginate(:page => params[:page], :per_page => 1)
+    @entries = current_category.entries.all.paginate(:page => params[:page], :per_page => 10)
     drop_breadcrumb(itext("navigation.wiki"), wiki_path)
     drop_breadcrumb(current_category.name)
   end
