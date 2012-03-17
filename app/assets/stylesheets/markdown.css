@@ -20,33 +20,24 @@
 .markItUp .markItUpButton7 a {
 	background-image:url(/assets/markdown/bold.png);
 }
+
 .markItUp .markItUpButton8 a {
-	background-image:url(/assets/markdown/italic.png);
+	background-image:url(/assets/markdown/list-bullet.png);
 }
 
 .markItUp .markItUpButton9 a {
-	background-image:url(/assets/markdown/list-bullet.png);
-}
-.markItUp .markItUpButton10 a {
-	background-image:url(/assets/markdown/list-numeric.png);
+	background-image:url(/assets/markdown/separator.png); 
 }
 
-.markItUp .markItUpButton11 a {
+.markItUp .markItUpButton10 a {
 	background-image:url(/assets/markdown/picture.png); 
 }
-.markItUp .markItUpButton12 a {
+.markItUp .markItUpButton11 a {
 	background-image:url(/assets/markdown/link.png);
 }
 
-.markItUp .markItUpButton13 a	{
-	background-image:url(/assets/markdown/quotes.png);
-}
-.markItUp .markItUpButton14 a	{
+.markItUp .markItUpButton12 a	{
 	background-image:url(/assets/markdown/code.png);
-}
-
-.markItUp .preview a {
-	background-image:url(/assets/markdown/preview.png);
 }
 
 .markItUp * {

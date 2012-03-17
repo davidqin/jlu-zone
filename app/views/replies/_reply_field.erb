@@ -5,8 +5,8 @@
       <img src=<%= gravatar(current_user.email)%> style="width:120px;height:120px;">
     </div>
     <div class="span8">
-      <%= simple_form_for @entry.replies.new do |f| %>
-        <%= render "entry_editor_tools_bar"%>
+      <%= simple_form_for @resource.replies.new do |f| %>
+        <%= render "/edit_models_bar/edit_models_bar"%>
         <%= f.input :content, :label => false, :input_html => { :style => 'width: 580px; height: 200px;' }%>
         <%= f.submit itext("submit") %>
       <% end %>
