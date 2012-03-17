@@ -1,14 +1,20 @@
 Entry = {
   initEntryCategoryContent: function(){
     var count = 1;
-    $("#show_entry h2").each(function(){
-        class_name = 'section ' + 'section_'+count
-        $(this).addClass(class_name)
-        alert($("#show_entry h2:gt(0):lt(2) *").text());
-        count++;
-
-        // alert($(this).html());
-    });
+    // $("#show_entry h2").each(function(){
+    //     class_name = 'section ' + 'section_'+count
+    //     $(this).addClass(class_name);
+    //     // alert($('h2.class_name:gt(0):lt(1) h3,p,pre,img').text());
+    //     // .wrapAll('<div></div>');
+    //     count++;
+    //     // alert($(this).html());
+    // });
+    $("h2").each(function(){
+      class_name = 'section section_'+count 
+      $(this).nextUntil("h2").andSelf().wrapAll("<div></div>"); 
+      count++;
+    }); 
+    // $('h3,p,pre,img').wrapAll('<div></div>');
     // var categories = $("#show_entry h2").html();
     // count = categories.length;
     // for(i=0;i< count;i++){
