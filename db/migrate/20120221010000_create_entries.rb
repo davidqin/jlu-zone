@@ -6,6 +6,7 @@ class CreateEntries < ActiveRecord::Migration
       t.references  :last_editor,  :null    => false
       t.references  :category,     :null    => false
       t.text        :content
+      t.boolean     :catalog,      :null    => false, :default => false
       #t.string      :number,       :null    => false
       t.integer     :appreciation, :default => 0
       t.integer     :objection,    :default => 0

@@ -1,5 +1,9 @@
 Entry = {
   initEntryCategoryContent: function(){
+    $("#with_catalog").hide();
+    if ($("#with_catalog").size() == 0){
+      return;
+    }
     var navLabels = new Array;
     $("#entry_show h2").each(function(){
       navLabels.push($(this).text());

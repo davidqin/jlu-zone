@@ -14,7 +14,8 @@
   </div>
   <% else %>
   <div class='span12'>
-    denglu
+    <%= itext("reply.need_login_in")%>
+    <a href=<%= new_user_session_path%>><%= itext("login")%></a>
   </div>
   <% end %>
 </div>

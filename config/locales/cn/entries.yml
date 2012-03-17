@@ -1,6 +1,8 @@
 cn:
   entry:
     name: 词条名称
+    catalog: 目录
+    catalog_detail: 添加目录
     content: 内容
     category: 分类
     view_entry: 浏览词条

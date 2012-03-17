@@ -4,6 +4,7 @@
   <%= show_entry(@entry) %>
   <%= show_entry_contributors @entry%>
   <% @resource = @entry %>
+  <%= content_tag :i, "", :id => "with_catalog" if @entry.catalog%>
 </div>
 <%= render "/replies/replies" %>
 <%= render "/replies/reply_field" %>
