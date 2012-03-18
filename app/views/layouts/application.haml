@@ -5,21 +5,10 @@
     %meta{ :content => "text/html; charset=UTF-8", "http-equiv" => "content-type" }
     %meta{ :name => :viewport, :content => "width=device-width, initial-scale=1.0" }
     = stylesheet_link_tag    "application"
-    = stylesheet_link_tag    "entry"
-    = stylesheet_link_tag    "markdown"
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body{"data-spy" => "scroll", "data-target" => ".subnav", "data-offset" => "50"}
-    = back_to_top
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          = navigation_for_device
-          = wiki_logo
-          .nav-collapse
-            = modules_navigation
-            = user_functional_bar
-    .container
-      = render_breadcrumb
-      = render_main
-      = render "/foot"
+    = render :partial => 'layouts/topbar'
+    = render_main
+    = render :partial => 'layouts/foot'
+  
