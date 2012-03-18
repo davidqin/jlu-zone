@@ -6,11 +6,12 @@ module SideBarHelper
   end
 
   def render_info_statistics
-    contents_tag :ul, :class => "nav nav-list" do |contents|
-      contents << content_tag(:h2, itext("info_statistics"))
+    header = content_tag(:header, itext("info_statistics"))
+    body = contents_tag :ul, :class => "nav nav-list" do |contents|
       contents << content_tag(:li, users_statistics)
       contents << content_tag(:li, entries_statistics)        
     end
+    header + body
   end
 
   private

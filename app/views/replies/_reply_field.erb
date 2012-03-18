@@ -1,11 +1,11 @@
-<div class="well">
+<section class="box">
   <%if current_user%>
     <div class="row">
       <div class="span2">
         <img src=<%= gravatar(current_user.email)%> style="width:120px;height:120px;">
       </div>
       <div class="span8">
-        <%= simple_form_for @resource.replies.new do |f| %>
+        <%= simple_form_for @resource.replies.new, :url => replies_path(:resource_id => @resource.id, :resource_type => @resource.model_type) do |f| %>
           <%= render "/edit_models_bar/edit_models_bar"%>
           <%= f.input :content, :label => false, :input_html => { :style => 'width: 810px; height: 200px;' }%>
           <%= f.submit itext("submit") %>
@@ -15,4 +15,4 @@
   <% else %>
     <%= need_login_in_field%>
   <% end %>
-</div>
+</section>

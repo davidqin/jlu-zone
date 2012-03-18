@@ -1,25 +1,21 @@
-<div class="well" id="user_menu">
-  <div class="info">
+<section class="box" id="user_menu">
+  <header>
     <%= show_active_users_info%>
-  </div>
-  <div class="row">
-    <ul class = "users-list">
+  </header> 
+  <ul class="users-list">
     <% @users.each do |user| %>
     <%= show_user_tag(user)%>
     <% end %>
   </ul>
-  </div>
-</div>
+</section>
 
-<div class="well" id="user_menu">
-  <div class="info">
+<section class="box" id="user_menu">
+  <header>
     <%= show_new_users_info%>
-  </div>
-  <div class="row">
+  </header>
     <ul class = "users-list">
     <% @users.each do |user| %>
     <%= show_user_tag(user)%>
     <% end %>
   </ul>
-  </div>
-</div>
+</section>

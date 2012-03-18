@@ -1,4 +1,4 @@
-<div class="well">
+<section class="box">
   <h3><%= itext("entry.index", :category => current_category.name)%></h3>
   <ul class="nav nav-pills nav-stacked">
     <% @entries.each do |entry|%>
@@ -6,4 +6,4 @@
     <% end %>
   </ul>
   <%= will_paginate @entries, :class => ""%>
-</div>
+</section>

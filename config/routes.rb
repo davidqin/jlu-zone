@@ -19,5 +19,5 @@ Wiki::Application.routes.draw do
     post "entry/preview"             => 'wiki/entries#preview'
   end
 
-  resources :replies,  :only => [:create, :edit, :update]
+  resources :replies,  :only => [:create, :edit, :update], :controller => 'replies/replies'
 end

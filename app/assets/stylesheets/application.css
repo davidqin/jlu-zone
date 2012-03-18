@@ -16,8 +16,9 @@
  html {
  	width: 100%;
  	height: 100%;
- 	background:#eee url('bg.png') bottom left repeat;
+ 	background-color: #EEE;
  }
+
 
  .well{
  	background-color: #FFF !important;

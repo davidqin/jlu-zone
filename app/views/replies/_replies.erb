@@ -1,3 +1,33 @@
-<div class="well">
-<%= @resource.name%>
+<% if @resource.replies.size != 0 %>
+<section class="box no-padding" id="replies">
+<table class="item-list">
+<tbody>
+<% @resource.replies.each do |reply|%>
+<tr class="reply">
+<td class="avatar">
+  <%= reply_editor_avatar reply%>
+</td>
+<td>
+<article>
+<header class="clearbox">
+<div class="left">
+<a href=<%= user_path reply.replier%>><%= reply.replier.nickname%></a>
 </div>
+<div class="right">
+<%= "00.00.00"%>
+<a href="#new_reply" class="at" data-user-name="Rei">@</a>
+</div>
+</header>
+<%= markdown(reply.content)%>
+</article>
+</td>
+</tr>
+<% end %>
+</tbody>
+</table>
+</section>
+<% else %>
+<section class="box" id="replies">
+<%= itext("reply.no_replies")%>
+</section>
+<% end %>
