@@ -1,0 +1,19 @@
+<tr class="reply">
+<td class="avatar">
+  <%= reply_editor_avatar reply%>
+</td>
+<td>
+<article>
+<header class="clearbox">
+<div class="left">
+<a href=<%= user_path reply.replier%>><%= reply.replier.nickname%></a>
+</div>  
+<div class="right">
+<%= "00.00.00"%>
+<a href="#new_reply" class="at" data-user-name="Rei">@</a>
+</div>
+</header>
+<%= markdown(reply.content)%>
+</article>
+</td>
+</tr>

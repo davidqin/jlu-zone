@@ -25,7 +25,13 @@ module UserHelper
   def need_login_in_field
     content_tag :div, :class => "span12" do
       (itext("reply.need_login_in") + link_to(itext("login"), new_user_session_path)).html_safe
-    end      
+    end
+  end
+
+  def no_replies
+    content_tag :div, :class => "span12" do
+      itext("reply.no_replies")
+    end
   end
 
   def resource_name

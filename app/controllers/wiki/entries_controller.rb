@@ -21,7 +21,7 @@ class Wiki::EntriesController < ApplicationController
     do_not_use_sidebar
     drop_breadcrumb(itext("navigation.wiki"), wiki_path)
     drop_breadcrumb(@entry.category.name,category_entries_path(@entry.category))
-    drop_breadcrumb(itext("entry.view_entry"))
+    drop_breadcrumb(itext("entry.drop_breadcrumb_view", :entry => @entry.name))
   end
 
   def edit
