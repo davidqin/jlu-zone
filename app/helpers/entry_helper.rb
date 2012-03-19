@@ -6,7 +6,7 @@ module EntryHelper
   end
 
   def show_entry_info(entry)
-    content_tag(:small, itext("entry.entry_info", :versions => entry.history_versions_size, :gap => entry.updated_at.strftime("%Y-%m-%d")), :id => :version_info)
+    content_tag(:small, itext("entry.entry_info", :versions => entry.history_versions_size, :gap => time_ago(entry.updated_at)), :id => :version_info)
   end
 
   def show_entry_tools_bar(entry)

@@ -23,6 +23,8 @@ gem 'hpricot', '~> 0.8.5'
 
 gem 'pry',            '0.9.8.2'
 
+gem "rails-i18n",               '0.5.1'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'spork'

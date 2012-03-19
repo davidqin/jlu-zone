@@ -18,12 +18,21 @@ class Replies::RepliesController < ApplicationController
   end
 
   def edit
-
+    @reply    = Reply.find(params[:id])
+    @resource = @reply.resource
+    do_not_use_sidebar
+    render "replies/edit"
   end
 
   def update
-
+    @reply = Reply.find(params[:id])
+    if @reply.update_attributes(params[:reply])
+      redirect_to_as_update_success @reply.resource
+    else
+      render_as_update_fail :edit
+    end
   end
+
   private
 
 end

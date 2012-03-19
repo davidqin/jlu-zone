@@ -51,6 +51,10 @@ module ApplicationHelper
 			contents << content_tag(:a, '', :class => :jiathis_counter_style)
 		end
 	end
+
+	def time_ago(time)
+		itext("time_ago", :time => time_ago_in_words(time))
+	end
 end
 
 module BootstrapHelper

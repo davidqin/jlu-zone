@@ -1,4 +1,4 @@
-cn:
+zh-CN:
   navigation:
     users: 会员
     wiki: Wiki
@@ -22,6 +22,7 @@ cn:
   share_to: 分享到：
 
   info_statistics: 信息统计
+  time_ago: '%{time}前'
 
   create_fail: 创建失败了
   create_success: 创建成功
