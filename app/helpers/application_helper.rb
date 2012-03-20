@@ -26,7 +26,7 @@ module ApplicationHelper
 			end
 		end
 	end
-	
+
 	def markdown(text)
 		markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
 		:autolink => true, 

@@ -1,17 +1,3 @@
-#entry_show .info {
-	padding-bottom: 5px;
-	margin-bottom: 10px;
-  border-bottom: 1px solid #DDD;
-}
-
-.entry_bar{
-	margin-top: -15px;
-}
-
-#version_info{
-	color: #999
-}
-
 .each_category{
   display: inline-block;
   margin-right: 3px;
@@ -37,12 +23,19 @@
   border-radius: 3px;
 }
 
-.jumbotron.subhead > h1{
-  width:80%;
-  padding:10px;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
+#show_entry header{
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #DDD;
+  font-weight: bold;
+}
+
+#entry_toolbar{
+  margin-top: -10px;
+}
+
+#entry_info{
+  color:#999;
 }
 
 #contributors{

@@ -29,123 +29,121 @@
  	background: none !important;
  }
 
- 
-code {
-padding: 3px 4px;
-color: #D14;
-background-color: #F7F7F9;
+ .box {
+  background-color: white;
+  padding: 10px;
+  margin: 0 0 20px 0;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
 }
 
- .to_hide{
- 	display: none;
- }
+.to_hide{
+  display: none;
+}
 
- #login_button{
- 	margin-left: 80%;
- }
+#login_button{
+  margin-left: 80%;
+}
 
- #portrait_top_bar{
- 	width: 16px;
- 	height: 16px;
- 	border: 1px solid #999;
- 	padding: 0;
- 	background: #EEE;
- 	line-height: 24px;
- 	vertical-align: middle;
- 	margin: -3px 0 0 6px;
- 	float: none;
- 	display: inline;
- }
- #account_tab_button{
- 	position: relative;
- }
- #account_tab{
- 	position: absolute;
- 	display: none;
- 	z-index: 50;
- }
+#portrait_top_bar{
+  width: 16px;
+  height: 16px;
+  border: 1px solid #999;
+  padding: 0;
+  background: #EEE;
+  line-height: 24px;
+  vertical-align: middle;
+  margin: -3px 0 0 6px;
+  float: none;
+  display: inline;
+}
+#account_tab_button{
+  position: relative;
+}
+#account_tab{
+  position: absolute;
+  display: none;
+  z-index: 50;
+}
 
- #account_tab.dropdown-menu{
- 	min-width: 250px;
- 	_width: 250px;
- }
- #account_tab.dropdown-menu a{
- 	width: 100px;
- }
+#account_tab.dropdown-menu{
+  min-width: 250px;
+  _width: 250px;
+}
+#account_tab.dropdown-menu a{
+  width: 100px;
+}
 
- #account_tab_button:hover{
- 	background-color: #ffffff;
- }
+#account_tab_button:hover{
+  background-color: #ffffff;
+}
 
- #account_tab_button:hover > a{
- 	text-shadow: 0 0px 0;
- 	color: #000000;
- }
+#account_tab_button:hover > a{
+  text-shadow: 0 0px 0;
+  color: #000000;
+}
 
- #login_top_button{
- 	cursor: pointer;
- }
+#login_top_button{
+  cursor: pointer;
+}
 
- #popup_tab_portrait{
- 	width: 64px;
- 	height: 64px;
- 	padding: 5% 0 0 5%;
- }
+#popup_tab_portrait{
+  width: 64px;
+  height: 64px;
+  padding: 5% 0 0 5%;
+}
 
- p#back-to-top{
- 	position:fixed;
- 	bottom:100px;
- 	left:80px;
- }
- p#back-to-top a{
- 	text-align:center;
- 	text-decoration:none;
- 	color:#d1d1d1;
- 	display:block;
- 	width:80px;
+p#back-to-top{
+  position:fixed;
+  bottom:100px;
+  left:80px;
+}
+p#back-to-top a{
+  text-align:center;
+  text-decoration:none;
+  color:#d1d1d1;
+  display:block;
+  width:80px;
 
- 	/*使用CSS3中的transition属性给跳转链接中的文字添加渐变效果*/
+  /*使用CSS3中的transition属性给跳转链接中的文字添加渐变效果*/
 
- 	-moz-transition:color 1s;
- 	-webkit-transition:color 1s;
- 	-o-transition:color 1s;
- }
- p#back-to-top a:hover{
- 	color:#979797;
- }
- p#back-to-top a span{
- 	background:#d1d1d1 url(./arrow-up.png) no-repeat center center;
- 	border-radius:6px;
- 	display:block;
- 	height:80px;
- 	width:80px;
- 	margin-bottom:5px;
+  -moz-transition:color 1s;
+  -webkit-transition:color 1s;
+  -o-transition:color 1s;
+}
+p#back-to-top a:hover{
+  color:#979797;
+}
+p#back-to-top a span{
+  background:#d1d1d1 url(./arrow-up.png) no-repeat center center;
+  border-radius:6px;
+  display:block;
+  height:80px;
+  width:80px;
+  margin-bottom:5px;
 
- 	/*使用CSS3中的transition属性给<span>标签背景颜色添加渐变效果*/
+  /*使用CSS3中的transition属性给<span>标签背景颜色添加渐变效果*/
 
- 	-moz-transition:background 1s;
- 	-webkit-transition:background 1s;
- 	-o-transition:background 1s;
- }
- #back-to-top a:hover span{
- 	background:#979797 url(./arrow-up.png) no-repeat center center;
- }
+  -moz-transition:background 1s;
+  -webkit-transition:background 1s;
+  -o-transition:background 1s;
+}
+#back-to-top a:hover span{
+  background:#979797 url(./arrow-up.png) no-repeat center center;
+}
 
- /* Fixed subnav on scroll*/
- .subnav-fixed {
- 	position: fixed;
- 	top: 40px;
- 	left: 0;
- 	right: 0;
- 	z-index: 1020; /* 10 less than .navbar-fixed to prevent any overlap */
- }
-
-
- .share_bar{
- 	margin-top: -10px;
- 	margin-right: -5px;
- }
- 
+/* Fixed subnav on scroll*/
+.subnav-fixed {
+  position: fixed;
+  top: 40px;
+  left: 0;
+  right: 0;
+  z-index: 1020; /* 10 less than .navbar-fixed to prevent any overlap */
+}
 #edit_models_bar{
   margin-bottom: 0;
 }
