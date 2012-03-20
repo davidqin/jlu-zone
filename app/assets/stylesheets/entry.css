@@ -44,3 +44,43 @@
   border-top: 1px solid #DDD;
   margin: 10px 0px 0px 0px;
 }
+
+#replies .reply {
+  border-top: 1px solid #DDD;
+  padding: 8px 10px;
+  margin: 0 -10px;
+}
+
+#replies .reply .face {
+  padding-right: 8px;
+  width: 48px;
+  margin-left: 0;
+}
+
+#replies .reply .reply_infos {
+  padding-left: 58px;
+}
+
+#replies .reply .reply_info {
+  margin-top: 4px;
+  color: #999;
+  height: 20px;
+}
+
+#replies .reply .reply_info .name {
+  float: left;
+}
+
+#replies .reply .reply_info .time {
+  float: right;
+  text-align: right;
+}
+
+#replies .reply .reply_body {
+  line-height: 180%;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+#replies .reply .reply_body p{
+  margin-bottom: 10px;}

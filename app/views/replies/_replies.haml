@@ -1,0 +1,8 @@
+- if @resource.replies.size != 0
+  .box.no-padding#replies
+    - @resource.replies.each do |reply|
+      = render :partial => "replies/reply", :locals => {:reply => reply}
+- else
+  .box.no-padding#replies
+    #id.no-reply
+      = no_replies
