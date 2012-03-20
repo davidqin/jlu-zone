@@ -13,13 +13,11 @@ namespace :db do
 end
 
 desc "make db with bundle"
-namespace :db do
-  task :init_with_bundle do
-    system "bundle install"
-    Rake::Task["db:drop"].invoke
-    Rake::Task["db:migrate"].invoke
-    Rake::Task["db:seed"].invoke
-    puts "###########init complete, now opening server##########"
-    system "rails s"
-  end
+task :init do
+  system "bundle install"
+  Rake::Task["db:drop"].invoke
+  Rake::Task["db:migrate"].invoke
+  Rake::Task["db:seed"].invoke
+  puts "###########init complete, now opening server##########"
+  system "rails s"
 end

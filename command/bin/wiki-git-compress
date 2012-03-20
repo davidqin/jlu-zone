@@ -1,0 +1,82 @@
+#!/usr/bin/env ruby1.8
+# Compress git new commits
+
+def execute_shell(command)
+  `#{command}`
+end
+
+def get_new_commits_count
+  #git status
+  status = execute_shell("git status")
+  #status = "Your branch is ahead of 'origin master' by 1 commit."
+  commit_summary_match = status.match(/Your branch is ahead of \'origin\/master\' by \d{1,} commit./)
+  unless commit_summary_match
+    return 0
+  end
+
+  commit_summary_string = commit_summary_match[0]
+
+  commit_count_match = commit_summary_string.match(/\d{1,}/)
+  unless commit_count_match
+    raise "not found commit count"
+  end
+  
+  commit_count_string = commit_count_match[0]
+  commit_count = commit_count_string.to_i
+  return commit_count
+end
+
+def get_last_server_commit_id(new_commits_count)
+  log_string = execute_shell("git log")
+  logs = log_string.split("\n")
+  commits = logs.reject{|log| !log.match(/^commit/) }
+  last_server_commit = commits[new_commits_count]
+  last_server_commit_id = last_server_commit.sub(/^commit /, '')
+  last_server_commit_id
+end
+
+def get_last_commit_message
+  log = execute_shell("git log")
+  commit_count = 0
+  message = []
+  log.each_line do |line|
+    commit_count += 1 if /^commit/ =~ line
+    break if commit_count >= 2
+    next if /^commit/ =~ line
+    next if /^Author/ =~ line
+    next if /^Date/ =~ line
+    message << line
+  end
+  message.compact.join(' ').strip
+end
+
+def compress_git_commits_from(commit_id)
+  last_commit_message = get_last_commit_message
+  commit_message = ARGV.first || last_commit_message || "Compress git commits."
+  
+  execute_shell("git reset #{commit_id}")
+  execute_shell("git add . ")
+  execute_shell("git commit -am \"#{commit_message}\"")
+end
+
+def compress_new_git_commits
+  new_commits_count = get_new_commits_count
+  if new_commits_count == 0
+    puts "There isn't any new commits need compress."
+    return
+  end
+  
+  last_server_commit_id = get_last_server_commit_id(new_commits_count)
+
+  compress_git_commits_from(last_server_commit_id)
+  
+  puts "Compress #{new_commits_count} commits."
+  puts execute_shell("git status")
+  
+  rescue Exception => e
+  puts "Compress new git commits failed, since #{e}."
+end
+
+compress_new_git_commits
+
+
