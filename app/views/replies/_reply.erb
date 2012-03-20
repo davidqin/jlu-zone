@@ -6,7 +6,7 @@
 <article>
 <header class="clearbox">
 <div class="left">
-<a href=<%= user_path reply.replier%>><%= reply.replier.nickname%></a>
+<%= link_to reply.replier.nickname, user_path(reply.replier) %>
 </div>  
 <div class="right">
 <%= time_ago reply.created_at %>
