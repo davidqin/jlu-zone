@@ -3,6 +3,7 @@ class MarkDown
   def self.format(text)
     text = self.formater.render(text)
     self.link_mention_user(text)
+    self.link_mention_floor(text)
     return text
   rescue => e
     puts "Markdown.format failed. Because: #{e}!"

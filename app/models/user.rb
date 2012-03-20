@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
 
   has_many :entries, :foreign_key => 'fonder_id'
   has_many :replies, :foreign_key => 'user_id'
+
+  def to_param
+    self.nickname.to_s
+  end
 end
