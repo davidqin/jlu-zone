@@ -1,0 +1,14 @@
+.box#show_entry{ :catalog => @entry.catalog ? "true" : "false"}
+  .pull-right
+    = share_button
+  %header
+    %h1=@entry.name
+    #entry_toolbar.pull-right
+      = show_entry_tools_bar(@ntry)
+    #entry_info
+      = show_entry_version_info(@entry)
+  = markdown(@entry.content)
+  - @resource = @entry
+= render "/replies/replies"
+= render "/replies/reply_field"
+= javascript_include_tag "http://v2.jiathis.com/code/jia.js?uid=1562818"
