@@ -11,9 +11,9 @@
 <div class="right">
 <%= time_ago reply.created_at %>
 <% if can? :update, reply %>
-<%= itext("reply.floor", :floor => 1)%>
 <%= link_to content_tag(:i, "", :class => "icon-edit"), edit_reply_path(reply)%>
 <% end %>
+<%= itext("reply.floor", :floor => reply.floor_num)%>
 <a href="#new_reply" class="at" data-user-name="Rei"><i class="icon-pencil"></i></a>
 </div>
 </header>

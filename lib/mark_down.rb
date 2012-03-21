@@ -10,6 +10,11 @@ class MarkDown
     return text
   end
 
+  def self.find_association_users(text)
+    users = text.scan(self.find_user_regexp)
+    users.collect {|user| user[1]}
+  end
+
   private
 
   def self.formater
@@ -31,7 +36,11 @@ class MarkDown
   # convert '@user' to link
   # match any user even not exist.
   def self.link_mention_user(text)
-    text.gsub!(/(^|[^a-zA-Z0-9_!#\$%&*@＠])@([a-zA-Z0-9_]{1,20})/io) { 
+    text.gsub!(self.find_user_regexp) { 
     %(#{$1}<a href="/users/#{$2}" class="at_user" title="@#{$2}"><i>@</i>#{$2}</a>)}
+  end
+
+  def self.find_user_regexp
+    /(^|[^a-zA-Z0-9_!#\$%&*@＠])@([a-zA-Z0-9_]{1,20})/io
   end
 end

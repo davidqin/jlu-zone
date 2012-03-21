@@ -8,6 +8,7 @@ class CreateEntries < ActiveRecord::Migration
       t.text        :content
       t.boolean     :catalog,      :null    => false, :default => false
       #t.string      :number,       :null    => false
+      t.integer     :replies_num,  :null => 0, :default => 0
       t.integer     :appreciation, :default => 0
       t.integer     :objection,    :default => 0
       t.timestamps

@@ -1,7 +1,7 @@
 class Entry < ActiveRecord::Base
   include Wiki::Models::IdNumberExchange::EntryCategoryNumberIdExchange
 
-  has_paper_trail
+  has_paper_trail :skip => [:replies_num]
   
   belongs_to :fonder,      :class_name => "User"
   belongs_to :last_editor, :class_name => "User"
