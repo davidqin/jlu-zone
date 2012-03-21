@@ -7,6 +7,8 @@ class Reply < ActiveRecord::Base
   
   attr_accessible :content, :user_id
 
+  validates_presence_of :content, :message => "can't be empty"
+
   private
 
   def set_floor_number_and_update_entry

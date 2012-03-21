@@ -1,0 +1,16 @@
+- if @resource.replies.size != 0
+  .box#replies
+    #reply_total
+      = t("until")
+      = time_ago(@resource.created_at)
+      = itext("reply.received", :count => @resource.replies_num)
+    - @resource.replies.each do |reply|
+      = render :partial => "replies/reply", :locals => {:reply => reply}
+- else
+  .box#replies
+    #reply_total
+      = t("until")
+      = time_ago(@resource.created_at)
+      = itext("reply.received", :count => @resource.replies_num)
+    #no-reply
+      = itext("reply.no_replies")

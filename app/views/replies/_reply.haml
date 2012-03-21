@@ -1,0 +1,16 @@
+.reply
+  .pull-left.face
+    = reply_editor_avatar reply
+  .reply_infos
+    .reply_info
+      %span.name
+        = link_to reply.replier.nickname, user_path(reply.replier)
+      %span.time
+        = time_ago reply.created_at
+        - if can? :update, reply
+          = link_to content_tag(:i, "", :class => "icon-edit"), edit_reply_path(reply)
+        = itext("reply.floor", :floor => reply.floor_num)
+        %a{:href => "#new_reply", :class => "at", "data-user-name" => "Rei"}
+          %i.icon-pencil
+  .reply_body
+    = markdown(reply.content)

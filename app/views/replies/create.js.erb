@@ -1,5 +1,5 @@
 (function(){
   $('#no-reply').hide();
   var tr_template = '<%= escape_javascript(render :partial => 'replies/reply', :object => @reply) %>';
-  $(tr_template).hide().appendTo($('#replies table > tbody')).fadeIn('slow');
+  $(tr_template).hide().appendTo($('#replies')).fadeIn('slow');
 })();
