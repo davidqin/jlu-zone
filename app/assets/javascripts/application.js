@@ -35,9 +35,19 @@ Application = {
         return false;
       });
     });
+  },
+  initHelpModal: function(){
+    $("body").bind("keydown", "m", function(el){
+      $('#markdown_help_tip_modal').modal({
+        keyboard: true,
+        backdrop: true,
+        show: true
+      });
+    })
   }
 }
 
 $(function(){
   Application.initBackToTopButton();
+  Application.initHelpModal();
 });

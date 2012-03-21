@@ -31,3 +31,11 @@ at 和 #floor 的跳转问题
 被at的用户的通知问题
 
 tags
+
+Add Activity
+
+Add Community
+
+############David############
+在Entry数据库里加一个字段，用来存放有多少个Reply
+验证回复不能为空

@@ -28,12 +28,6 @@ module UserHelper
     end
   end
 
-  def no_replies
-    content_tag :div, :class => "span12" do
-      itext("reply.no_replies")
-    end
-  end
-
   def resource_name
     :user
   end

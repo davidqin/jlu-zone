@@ -1,6 +1,6 @@
 <section class="box">
   <h3><%= itext("entry.index", :category => current_category.name)%></h3>
-  <ul class="nav nav-pills nav-stacked">
+  <ul>
     <% @entries.each do |entry|%>
       <li><a href=<%= entry_path entry%>><%= entry.name %></a></li>
     <% end %>

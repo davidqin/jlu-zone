@@ -8,6 +8,7 @@
       %span.time
         = time_ago reply.created_at
         - if can? :update, reply
+          = itext("reply.floor", :floor => 1)
           = link_to content_tag(:i, "", :class => "icon-edit"), edit_reply_path(reply)
         %a{:href => "#new_reply", :class => "at", "data-user-name" => "Rei"}
           %i.icon-pencil

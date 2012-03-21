@@ -8,6 +8,7 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body{"data-spy" => "scroll", "data-target" => ".subnav", "data-offset" => "50"}
+    = back_to_top
     = render :partial => 'layouts/topbar'
     = render_main
     = render :partial => 'layouts/foot'

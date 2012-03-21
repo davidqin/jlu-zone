@@ -1,8 +1,12 @@
 - if @resource.replies.size != 0
-  .box.no-padding#replies
+  .box#replies
+    #reply_total
+      = t("until")
+      = time_ago(@resource.created_at)
+      = itext("reply.received", :count => 8)
     - @resource.replies.each do |reply|
       = render :partial => "replies/reply", :locals => {:reply => reply}
 - else
-  .box.no-padding#replies
-    #id.no-reply
-      = no_replies
+  .box#replies
+    #no-reply
+      = itext("reply.no_replies")
