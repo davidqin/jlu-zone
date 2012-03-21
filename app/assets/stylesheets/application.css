@@ -12,19 +12,23 @@
  *= require bootstrap
  *= require_tree .
  */
- .well{
- 	background-color: #FFF !important;
- }
+ html{
+  width: 100%;
+  height: 100%;
+}
+.well{
+  background-color: #FFF !important;
+}
 
- body{
+body{
   padding-top: 48px;
   background: #fff url("bg.gif"); 
   color: #666; 
   font: 0.75em/1.5 "Arial", "Helvetica", sans-serif; 
- }
- code{ background:none;
- }
- .box {
+}
+code{ background:none;
+}
+.box{
   background-color: white;
   padding: 10px;
   margin: 0 0 20px 0;
