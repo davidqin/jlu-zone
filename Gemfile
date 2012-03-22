@@ -17,6 +17,8 @@ gem 'acts_as_tree'
 
 gem 'bootstrap_helper'
 
+gem 'acts-as-taggable-on', '~> 2.2.2'
+
 #markdown
 gem "redcarpet", "~> 2.0.0"
 gem 'hpricot', '~> 0.8.5'

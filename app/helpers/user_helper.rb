@@ -10,6 +10,10 @@ module UserHelper
     end
   end
 
+  def unread_count
+    current_user.notices.find(:all, :conditions => ['read = ?', false]).size 
+  end
+
   def show_user_number(user)
     user.id
   end

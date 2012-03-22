@@ -13,6 +13,5 @@ class CreateReplies < ActiveRecord::Migration
 
   def self.down
     remove_index :replies, [:resource_type, :resource_id]
-    drop_table :versions
   end
 end

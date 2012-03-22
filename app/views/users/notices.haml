@@ -1,0 +1,11 @@
+.box
+  - @notices.each do |notice|
+    = notice.from_user.nickname
+    "at"
+    = notice.notice_resource.id
+    "zhong"
+    = "call you"
+
+/#resource_list notice from_user
+/                        to_user
+/                        notice_resource  may_be [Reply, Entry, and so on..]

@@ -13,4 +13,10 @@ class Users::UsersController < ApplicationController
     drop_breadcrumb(@user.nickname)
     render "/users/show"    
   end
+
+  def notices
+    user = User.find_by_nickname(params[:id])
+    @notices = user.notices
+    render "/users/notices"
+  end
 end

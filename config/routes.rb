@@ -9,7 +9,9 @@ Wiki::Application.routes.draw do
   root :to => 'home#index'
 
   get "/users" => "users/users#menu", :as => :users
+
   resources :users,   :only => [:show, :index], :controller => 'users/users'
+  get "/users/:id/notices" => 'users/users#notices', :as => :user_notices
 
   scope :path => 'wiki' do
     get  '/'                         => "wiki/wiki#index",     :as => :wiki
