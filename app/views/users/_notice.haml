@@ -1,19 +1,22 @@
-%div{:id => "notice_#{notice.id}"}
-  - if (notice.read == false)
-    %span.new.label.label-info= "New"
-  .face.pull-left= show_user_portrait(notice.from_user)
-  .from_name
-    = notice.from_user.nickname
-  .resource_title
-    = "在"
-    = notice.notice_resource.resource.name
-    = "中"
-  = "提及你"
+%div{:id => "notice_#{notice.id}", :class => :notice}
+  .headimg.pull-left= show_user_portrait(notice.from_user)
+  .pull-right
+    - if (notice.read == false)
+      %span.new.label.label-info= "New"
+    .notice_delete
+      %a{:href => notice_destroy_path(notice), :class => "label delete_notice", "data-method" => "delete", "data-remote" => "true"}
+        = "删除"
+    .notice_one_read
+      %a{:href => mark_one_notices_read_path(notice), :class => "label one_read_notice", "data-method" => "put", "data-remote" => "true"}
+        = "标记为已读"
+  .notice_infos
+    .notice_info
+      %span.from_name
+        = from_user(notice)
+      = "在"
+      %span.resource_title
+        = notice.notice_resource.resource.name
+      = "中"
+      = "提及你："
   .notice_content
     = markdown(notice.notice_resource.content)
-  .notice_delete
-    %a{:href => notice_destroy_path(notice), :class => "label delete_notice", "data-method" => "delete", "data-remote" => "true"}
-      = "删除"
-  .notice_one_read
-    %a{:href => mark_one_notices_read_path(notice), :class => "label one_read_notice", "data-method" => "put", "data-remote" => "true"}
-      = "标记为已读"

@@ -14,6 +14,12 @@ module UserHelper
     current_user.notices.find(:all, :conditions => ['read = ?', false]).size 
   end
 
+  def from_user(notice)
+    content_tag :a, :href => user_path(notice.from_user) do
+      notice.from_user.nickname
+    end
+  end
+
   def show_user_portrait(user)
     tag(:img, :alt => '', :src => gravatar(user.email))
   end

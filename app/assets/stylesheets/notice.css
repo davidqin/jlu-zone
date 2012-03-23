@@ -1,0 +1,43 @@
+.notice{
+	border-top: 1px solid #DDD;
+	padding: 8px 10px;
+	height: 75px;
+}
+
+#notices .tools{
+	padding-bottom: 10px;
+}
+
+.notice_infos{
+	padding-left: 90px;
+}
+
+.notice_info{
+	margin-top: 4px;
+	color: #999;
+	height: 30px;
+}
+
+#notices .headimg{
+	padding-right: 8px;
+	width: 72px;
+	margin-left: 0;
+}
+
+#notices .notice_content{
+	padding-left: 100px;
+	line-height: 180%;
+	font-size: 14px;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+}
+
+#notices .notice_content p{
+	margin-bottom: 10px;
+}
+
+.from_name a{
+	color: #666;
+	font-weight: bold;
+	text-decoration: underline;
+}

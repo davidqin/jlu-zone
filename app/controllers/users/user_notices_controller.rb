@@ -20,7 +20,7 @@ class Users::UserNoticesController < ApplicationController
   end
 
   def mark_one_read
-    @notice = current_user.notice.find(params[:id])
+    @notice = current_user.notices.find(params[:id])
     @notice.read = true
     @notice.save!
     respond_with do |format|
