@@ -12,8 +12,8 @@ class MarkDown
 
   def self.find_association_users(text)
     users = text.scan(self.find_user_regexp)
-    users.collect {|user| user[1]}
-    users.uniq!
+    users.collect! {|user| user[1]}
+    users.uniq 
   end
 
   private

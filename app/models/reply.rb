@@ -22,12 +22,12 @@ class Reply < ActiveRecord::Base
   end
 
   def give_the_users_messages
+    users_names_array = []
     users_names_array = MarkDown.find_association_users(self.content)
     users = []
     users_names_array.each do |name|
       users << User.find_by_nickname(name)
     end
-    
     users.each do |user|
       notice = self.user_notices.new
       notice.to_user   = user

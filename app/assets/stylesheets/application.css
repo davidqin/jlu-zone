@@ -26,7 +26,9 @@ body{
   color: #666; 
   font: 0.75em/1.5 "Arial", "Helvetica", sans-serif; 
 }
-code{ background:none;
+
+code{
+  background:none;
 }
 .box{
   background-color: white;
@@ -105,6 +107,7 @@ p#back-to-top{
   bottom:100px;
   left:80px;
 }
+
 p#back-to-top a{
   text-align:center;
   text-decoration:none;
@@ -140,7 +143,7 @@ p#back-to-top a span{
 }
 
 /* Fixed subnav on scroll*/
-.subnav-fixed {
+.subnav-fixed{
   position: fixed;
   top: 40px;
   left: 0;
@@ -149,4 +152,28 @@ p#back-to-top a span{
 }
 #edit_models_bar{
   margin-bottom: 0;
+}
+
+.notifications a{
+  font-weight: bold;
+  margin-left: -5px;
+  margin-right: -5px;
+  padding: 0px;
+}
+
+.notifications:hover{
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.notifications a .count{
+  background-color: #666;
+  padding: 2px 6px;
+  border-radius: 2px;
+  color: #999;
+  -moz-border-radius: 2px;
+}
+
+.notifications.unread a .count{
+  background-color: #C43C35;
+  color: white;
 }

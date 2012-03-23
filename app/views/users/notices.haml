@@ -1,10 +1,10 @@
-.box
+.box#notices
+  .tools
+    %a{:href => mark_all_notices_read_path, :class => :btn, "data-disable-with" => "标记所有为已读...", "data-method" => :put, "data-remote" => :true}
+      = "标记所有为已读"
+    %h1.pull-right="Notices"
   - @notices.each do |notice|
-    = notice.from_user.nickname
-    "at"
-    = notice.notice_resource.id
-    "zhong"
-    = "call you"
+    = render :partial => "users/notice", :locals => {:notice => notice}
 
 /#resource_list notice from_user
 /                        to_user

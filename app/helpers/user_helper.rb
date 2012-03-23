@@ -2,7 +2,7 @@ module UserHelper
   def show_user_tag(user)
     content_tag(:li, :class => "span3") do
       contents_tag(:a, :href => user_path(user)) do |contents|
-        contents << tag(:img, :alt => '', :src => gravatar(user.email))
+        contents << show_user_portrait
         contents << content_tag(:strong, show_user_number(user))
         contents << content_tag(:em, user.nickname)
         contents << user.email
@@ -12,6 +12,10 @@ module UserHelper
 
   def unread_count
     current_user.notices.find(:all, :conditions => ['read = ?', false]).size 
+  end
+
+  def show_user_portrait(user)
+    tag(:img, :alt => '', :src => gravatar(user.email))
   end
 
   def show_user_number(user)

@@ -1,0 +1,13 @@
+$('#' + "notice_<%= @notice.id %>").fadeOut('normal', function(){
+  $(this).remove();
+});
+
+if ("<%= @notice.read%>" == "false"){
+  var count = $('.notifications').find('.count').text();
+  $('.notifications').find('.count').text(count - 1);
+  if ((count-1) == 0){
+    $('.notifications').removeClass('unread');
+  }
+}
+
+

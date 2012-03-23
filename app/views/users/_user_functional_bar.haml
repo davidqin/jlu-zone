@@ -1,8 +1,7 @@
 %ul.nav.pull-right
   %li.divider-vertical
   - if current_user
-    %li
-      = link_to content_tag(:span, unread_count), user_notices_path(current_user), :class => :notices
+    = notifications
     %li#account_tab_button.dropdown
       %a
         = itext("welcome", :name => current_user.nickname)

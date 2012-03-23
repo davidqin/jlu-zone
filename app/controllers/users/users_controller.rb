@@ -1,5 +1,7 @@
 class Users::UsersController < ApplicationController
   include Wiki::Controllers::Sidebar::UserSidebar
+  before_filter :set_menu_active
+
   def menu
     @users = User.all
     do_not_use_sidebar
@@ -14,9 +16,9 @@ class Users::UsersController < ApplicationController
     render "/users/show"    
   end
 
-  def notices
-    user = User.find_by_nickname(params[:id])
-    @notices = user.notices
-    render "/users/notices"
+  protected
+
+  def set_menu_active
+    @current = @current = ['/users']
   end
 end
