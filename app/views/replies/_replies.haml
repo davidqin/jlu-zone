@@ -1,5 +1,5 @@
 .box#replies
-  = render :partial => "replies/replies_status", :locals => {:resource => @resource}
+  = render :partial => "replies/replies_status"
   - if @resource.replies.size == 0
     #no-reply
       = itext("reply.no_replies")
