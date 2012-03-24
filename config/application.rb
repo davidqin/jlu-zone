@@ -9,6 +9,8 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+SITE_NAME = "JLU Zone"
+
 module Wiki
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -61,5 +63,7 @@ module Wiki
     config.generators do |g|
       g.template_engine :haml
     end
+
+    WillPaginate::ViewHelpers.pagination_options[:renderer] = 'BootstrapHelper::PaginateRenderer'
   end
 end

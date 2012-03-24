@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <%=render_page_title %>
+    <meta http-equiv='Content-Type' content='text/html' />
+    <meta charset='utf-8' />
+    <meta content='width=device-width; initial-scale=1.0;' name='viewport' />
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <%= render_body_tag %>
+    <%= render :partial => 'layouts/topbar' %>
+    <%= render_main %>
+    <%= render :partial => 'layouts/foot' %>
+  </body>
+</html>

@@ -15,7 +15,7 @@ gem 'twitter-bootstrap-rails', '2.0.2'
 
 gem 'acts_as_tree'
 
-gem 'bootstrap_helper'
+gem 'bootstrap_helper', :git => "git://github.com/xdite/bootstrap-helper.git"
 
 gem 'acts-as-taggable-on', '~> 2.2.2'
 

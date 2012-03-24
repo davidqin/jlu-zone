@@ -5,6 +5,7 @@ class Wiki::WikiController < ApplicationController
   
   def index
     drop_breadcrumb(itext("navigation.wiki"), wiki_path)
+    @page_title = "Wiki"
     render "/wiki/index"
   end
 end

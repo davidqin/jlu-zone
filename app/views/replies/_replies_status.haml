@@ -1,0 +1,7 @@
+#reply_total
+  = t("until")
+  = time_ago(resource.created_at)
+  - if resource.replies.size != 0
+    = itext("reply.received", :count => resource.replies_num)
+  - else
+    = itext("reply.received", :count => resource.replies_num)

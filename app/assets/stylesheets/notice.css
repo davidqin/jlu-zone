@@ -67,3 +67,9 @@
 #notices .one_read_notice:hover{
 	background-color: #468847
 }
+
+#notices .pagination{
+	border-top: 1px solid #DDD;
+	padding-top: 5px;
+	margin-bottom: -5px;
+}
