@@ -8,13 +8,14 @@ Wiki::Application.routes.draw do
 
   root :to => 'home#index'
 
-  get "/users" => "users/users#menu", :as => :users
+  get "/users/menu" => "users/users#menu", :as => :users
 
-  resources :users,   :only => [:show, :index], :controller => 'users/users'
-  get "/users/:id/notices" => 'users/user_notices#index', :as => :user_notices
+  resources :users,  :only => [:show, :index],            :controller => 'users/users'
+  get "/users/:id/notices" => 'users/user_notices#index',         :as => :user_notices
   put "/users/:id/notices" => 'users/user_notices#mark_all_read', :as => :mark_all_notices_read
   put "/users/:id/notices" => 'users/user_notices#mark_one_read', :as => :mark_one_notices_read
-  delete "/notices/:id" => 'users/user_notices#destroy', :as => :notice_destroy
+  delete "/notices/:id"    => 'users/user_notices#destroy',       :as => :notice_destroy
+
 
   scope :path => 'wiki' do
     get  '/'                         => "wiki/wiki#index",     :as => :wiki

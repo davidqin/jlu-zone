@@ -1,6 +1,7 @@
 class Users::UsersController < ApplicationController
   include Wiki::Controllers::Sidebar::UserSidebar
-  before_filter :set_menu_active
+  include Wiki::Controllers::TabsHighLight::Base
+  include Wiki::Controllers::TabsHighLight::Users
 
   def menu
     @users = User.all
@@ -14,11 +15,5 @@ class Users::UsersController < ApplicationController
     drop_breadcrumb(itext("user.menu"),users_path)
     drop_breadcrumb(@user.nickname)
     render "/users/show"    
-  end
-
-  protected
-
-  def set_menu_active
-    @current = @current = ['/users']
   end
 end

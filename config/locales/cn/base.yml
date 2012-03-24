@@ -1,7 +1,9 @@
 zh-CN:
   navigation:
-    users: 会员
+    community: 社区
     wiki: Wiki
+    vote: 投票
+    users: 会员
 
   submit: 提交
   until: 截止

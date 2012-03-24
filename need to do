@@ -1,3 +1,5 @@
+#notices页面，已经标记为已读的不显示“标记为已读”按钮
+
 评论form  id和type可改
 
 ajax提交
