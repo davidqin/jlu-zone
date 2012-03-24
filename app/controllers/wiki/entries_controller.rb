@@ -1,10 +1,12 @@
 class Wiki::EntriesController < ApplicationController
+  include Wiki::Controllers::Sidebar::WikiSidebar
+  include Wiki::Controllers::TabsHighLight::Base
+  include Wiki::Controllers::TabsHighLight::Wiki
   
   before_filter :authenticate_user!,    :except => [:show, :index]
   load_and_authorize_resource
   before_filter :find_current_category, :only   => [:index]
 
-  include Wiki::Controllers::Sidebar::WikiSidebar
 
   attr_accessor :current_category
   
