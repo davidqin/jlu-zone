@@ -1,19 +1,14 @@
 %div{:id => "notice_#{notice.id}", :class => :notice}
   .headimg.pull-left= show_user_portrait(notice.from_user)
   .pull-right
-    - if (notice.read == false)
-      %span.new.label.label-info= "New"
+    = new_notice?(notice)
     .notice_delete
       %a{:href => notice_destroy_path(notice), :class => "label delete_notice", "data-method" => "delete", "data-remote" => "true"}
         = "删除"
     - if (notice.read == false)
-      .notice_one_read
-        %a{:href => mark_one_notices_read_path(notice), :class => "label one_read_notice", "data-method" => "put", "data-remote" => "true"}
-          = "标记为已读"
+      = mark_one_read_button(notice)
     - else
-      .notice_one_unread
-        %a{:href => mark_one_notices_unread_path(notice), :class => "label one_unread_notice", "data-method" => "put", "data-remote" => "true"}
-          = "标记为未读"
+      = mark_one_unread_button(notice)
   .notice_infos
     .notice_info
       %span.from_name

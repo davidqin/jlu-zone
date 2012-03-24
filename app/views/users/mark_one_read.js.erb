@@ -1,8 +1,10 @@
-$('#' + "notice_<%= @notice.id %>" + ' span.new').fadeOut('fast', function(){
+$('#' + "notice_<%= @notice.id %>" + ' span.new_notice').fadeOut('fast', function(){
 	$(this).remove();
 });;
 
-var count = $('.notifications').find('.count').text();
+$('#' + "notice_<%= @notice.id %>" + ' .pull-right .notice_one_read').replaceWith("<%= escape_javascript(mark_one_unread_button(@notice))%>");
+
+var count = parseInt($('.notifications').find('.count').text());
 $('.notifications').find('.count').text(count - 1);
 if ((count-1) == 0){
 	$('.notifications').removeClass('unread');

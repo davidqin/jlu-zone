@@ -26,7 +26,7 @@ class MarkDown
     :fenced_code_blocks => true,
     :no_intra_emphasis => true, 
     :hard_wrap => true, 
-    :strikethrough =>true)
+    :strikethrough => true)
   end
 
   def self.link_mention_floor(text)

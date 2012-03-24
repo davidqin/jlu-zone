@@ -1,3 +1,5 @@
 zh-CN:
   notice:
-    # someone: "%{name} 在"
+    mark_one_read: 标记为已读
+    mark_one_unread: 标记为未读
+    notice_center: 消息中心

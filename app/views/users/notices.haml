@@ -5,7 +5,7 @@
     %h1.pull-right="Notices"
   - @notices.each do |notice|
     = render :partial => "users/notice", :locals => {:notice => notice}
-
+  = will_paginate(@notices)
 /#resource_list notice from_user
 /                        to_user
 /                        notice_resource  may_be [Reply, Entry, and so on..]

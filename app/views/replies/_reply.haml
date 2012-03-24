@@ -12,5 +12,5 @@
           = link_to content_tag(:i, "", :class => "icon-edit"), edit_reply_path(reply)
         %a{:href => "#new_reply", :class => "at", "data-user-name" => "Rei"}
           %i.icon-pencil
-  .reply_body
-    = markdown(reply.content)
+    .reply_body
+      = markdown(reply.content)

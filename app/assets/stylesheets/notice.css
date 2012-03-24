@@ -45,3 +45,25 @@
 	font-weight: bold;
 	text-decoration: underline;
 }
+
+.notice_content .at_user{
+	color: #333;
+	font-weight: bold;
+}
+
+#notices .pull-right a:hover{
+	text-decoration:none;
+	color: #FFF;
+}
+
+#notices .delete_notice:hover{
+	background-color: #B94A48;
+}
+
+#notices .one_unread_notice:hover{
+	background-color: #468847
+}
+
+#notices .one_read_notice:hover{
+	background-color: #468847
+}

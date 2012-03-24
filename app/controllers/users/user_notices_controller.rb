@@ -1,11 +1,13 @@
 class Users::UserNoticesController < ApplicationController
-  include Wiki::Controllers::TabsHighLight::Base
-  include Wiki::Controllers::TabsHighLight::Users
+
+  before_filter :authenticate_user!
+
   respond_to :html, :js, :only => [:destroy, :mark_all_as_read]
 
   def index
     user = User.find_by_nickname(params[:id])
-    @notices = user.notices
+    @notices = user.notices.all.paginate(:page => params[:page], :per_page => 2)
+    drop_breadcrumb(itext("notice.notice_center"), user_notices_path)
     render "/users/notices"
   end
 

@@ -1,7 +1,10 @@
-$('#' + "notice_<%= @notice.id %>" + ' span.new').fadeIn('fast', function(){
-	$(this).appendTo($('#' + "notice_<%= @notice.id %>" + '.pull-left'));
-});;
+$('#' + "notice_<%= @notice.id %>" + ' .pull-right .notice_one_unread').replaceWith("<%= escape_javascript(mark_one_read_button(@notice))%>");
 
-var count = $('.notifications').find('.count').text();
+var count = parseInt($('.notifications').find('.count').text());
+
+if(count == 0){
+  $('.notifications').addClass('unread');
+}
 $('.notifications').find('.count').text(count + 1);
-$('.notifications').addClass('unread');
+
+$("<%= escape_javascript(new_notice?(@notice))%>").prependTo('#' + "notice_<%= @notice.id %>" + ' .pull-right').fadeIn('fast');
