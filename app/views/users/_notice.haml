@@ -6,17 +6,22 @@
     .notice_delete
       %a{:href => notice_destroy_path(notice), :class => "label delete_notice", "data-method" => "delete", "data-remote" => "true"}
         = "删除"
-    .notice_one_read
-      %a{:href => mark_one_notices_read_path(notice), :class => "label one_read_notice", "data-method" => "put", "data-remote" => "true"}
-        = "标记为已读"
+    - if (notice.read == false)
+      .notice_one_read
+        %a{:href => mark_one_notices_read_path(notice), :class => "label one_read_notice", "data-method" => "put", "data-remote" => "true"}
+          = "标记为已读"
+    - else
+      .notice_one_unread
+        %a{:href => mark_one_notices_unread_path(notice), :class => "label one_unread_notice", "data-method" => "put", "data-remote" => "true"}
+          = "标记为未读"
   .notice_infos
     .notice_info
       %span.from_name
         = from_user(notice)
       = "在"
       %span.resource_title
-        = notice.notice_resource.resource.name
-      = "中"
-      = "提及你："
+        %a{:href => entry_path(notice.notice_resource.resource)}
+          = notice.notice_resource.resource.name
+      = "中提及你："
   .notice_content
     = markdown(notice.notice_resource.content)

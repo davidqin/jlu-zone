@@ -28,12 +28,16 @@
 	padding-left: 100px;
 	line-height: 180%;
 	font-size: 14px;
-	text-overflow: ellipsis;
-	word-wrap: break-word;
+
 }
 
 #notices .notice_content p{
-	margin-bottom: 10px;
+	padding-top: 8px;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+	overflow:hidden;
+	white-space:nowrap;
+	width: 80%;
 }
 
 .from_name a{

@@ -1,0 +1,7 @@
+$('#' + "notice_<%= @notice.id %>" + ' span.new').fadeIn('fast', function(){
+	$(this).appendTo($('#' + "notice_<%= @notice.id %>" + '.pull-left'));
+});;
+
+var count = $('.notifications').find('.count').text();
+$('.notifications').find('.count').text(count + 1);
+$('.notifications').addClass('unread');

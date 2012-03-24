@@ -29,6 +29,16 @@ class Users::UserNoticesController < ApplicationController
     end
   end
 
+  def mark_one_unread
+    @notice = current_user.notices.find(params[:id])
+    @notice.read = false
+    @notice.save!
+    respond_with do |format|
+      format.html { redirect_referrer_or_default user_notices_path }
+      format.js { render "users/mark_one_unread",:layout => false }
+    end
+  end
+
   def mark_all_read
     current_user.notices.update_all("read = 'true'", ['read = ?', false])
     respond_with do |format|
