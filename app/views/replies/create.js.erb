@@ -4,6 +4,4 @@
   $(tr_template).hide().appendTo($('#replies')).fadeIn('slow');
 })();
 
-// alert("<%=escape_javascript (render :partial => "replies/replies_status", :locals => { :resource => @resource }) %>");
-
-// $("#reply_total").replaceWith("<%=escape_javascript (render :partial => "replies/replies_status", :locals => { :resource => @resource }) %>");
+$("#reply_total").replaceWith("<%=escape_javascript (render :partial => "replies/replies_status") %>");
