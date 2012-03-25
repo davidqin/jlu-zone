@@ -23,8 +23,16 @@ Wiki::Application.routes.draw do
 
     resources :entries, :except => [:index],      :controller => 'wiki/entries'
     get  'category/:category_number' => "wiki/entries#index",  :as => :category_entries
-    post "entry/preview"             => 'wiki/entries#preview'
   end
 
   resources :replies,  :only => [:create, :edit, :update], :controller => 'replies/replies'
+
+  scope :path => 'community' do
+    get  '/'  => "community/community#index",     :as => :community
+
+    resources :topics, :controller => "community/topics"
+  end
+
+
+
 end

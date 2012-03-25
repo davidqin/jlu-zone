@@ -5,9 +5,13 @@
         %img{:src => gravatar(current_user.email), :style => "width:120px;height:120px;"}
       .span8
         = simple_form_for @resource.replies.new, :url => replies_path(:resource_id => @resource.id, :resource_type => @resource.model_type), :remote => true do |f|
-          = render "/edit_models_bar/edit_models_bar"
-          = f.input :content, :label => false, :input_html => { :style => 'width: 810px; height: 200px;' }
-          = f.submit itext("submit")
+          .control-group
+            #editor-button-bar
+            .text-content-area
+              = f.input :content, :label => false, :input_html => { :id => "editor-input" }
+            #editor-preview
+          .control-group
+            = content_tag(:button, itext("submit"), :class => "btn btn-success", :type => :submit) 
         =render "/replies/edit_help"
   - else
     = need_login_in_field

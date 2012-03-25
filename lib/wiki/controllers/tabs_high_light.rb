@@ -22,6 +22,12 @@ module Wiki
           @current = ['/users/menu']
         end
       end
+
+      module Community
+        def set_menu_active
+          @current = ['/community']
+        end
+      end
     end
   end
 end

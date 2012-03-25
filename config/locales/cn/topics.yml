@@ -1,0 +1,7 @@
+zh-CN:
+  topic:
+    new: 创建话题
+    edit: 修改话题
+    drop_breadcrumb_new: 创建话题
+    drop_breadcrumb_view: "浏览 %{topic} 话题"
+    drop_breadcrumb_edit: "修改 %{topic} 话题"

@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :nickname, :level
 
   has_many :entries, :foreign_key => 'fonder_id'
+  has_many :topics,  :foreign_key => 'fonder_id'
   has_many :replies, :foreign_key => 'user_id'
   has_many :notices, :foreign_key => 'to_user_id', :class_name => "UserNotice"
 

@@ -1,16 +1,15 @@
-<%= form_for @entry, :html => {:class => "form-horizontal"} do |form|%>
+<%= form_for @topic, :html => {:class => "form-horizontal"} do |form|%>
   <div class="control-group">
     <%= form.text_field :name %>
   </div>
   <div class="control-group">
-    <%= form.select :category_number , EntryCategory::CATEGORY_NAMES %>
-  </div>
-  <div class="control-group">
-    <%= form.check_box :catalog %>
+    <div class="text-content-area">
+      <%= form.text_field :tag_string, :data => {:suggest => Tag.suggest_tags} %>
+    </div>  
   </div>
   <div class="control-group">
     <div id="editor-button-bar"></div>
-    <div class="text-content-area">
+    <div class="text-content-area">    
       <%= form.text_area :content, :id => 'editor-input', :rows => 10, :style => "height: 370px;"%>
     </div>
     <div id="editor-preview"></div>
