@@ -1,0 +1,12 @@
+.box#show_entry
+  .pull-right
+    = share_button
+  %header
+    %h1=@topic.name
+    #entry_info
+      = show_topic_info(@topic)
+  = markdown(@topic.content)
+  - @resource = @topic
+= render "/replies/replies"
+= render "/replies/reply_field"
+= javascript_include_tag "http://v2.jiathis.com/code/jia.js?uid=1562818"

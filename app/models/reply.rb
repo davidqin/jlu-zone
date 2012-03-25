@@ -26,7 +26,8 @@ class Reply < ActiveRecord::Base
     users_names_array = MarkDown.find_association_users(self.content)
     users = []
     users_names_array.each do |name|
-      users << User.find_by_nickname(name)
+      user = User.find_by_nickname(name)
+      users << user if user
     end
     users.each do |user|
       notice = self.user_notices.new

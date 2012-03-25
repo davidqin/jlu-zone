@@ -16,7 +16,6 @@ class Ability
         can :update,  Reply do |reply|
           reply.user_id == user.id
         end
-        can :preview, Entry
       when 3
         can :manage, :all
       end

@@ -40,12 +40,4 @@ module EntryHelper
     end
     header + body
   end
-
-  def show_entry_new_header
-    content_tag :h3, itext("entry.new")
-  end
-
-  def show_entry_edit_header
-    content_tag :h3, itext("entry.edit")
-  end
 end

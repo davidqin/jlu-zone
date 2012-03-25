@@ -1,0 +1,9 @@
+<section class="box">
+  <h3><%= "应该放点啥呢"%></h3>
+  <ul>
+    <% @topics.each do |topic|%>
+      <li><a href=<%= topic_path topic%>><%= topic.name %></a></li>
+    <% end %>
+  </ul>
+  <%= will_paginate @topics, :class => ""%>
+</section>

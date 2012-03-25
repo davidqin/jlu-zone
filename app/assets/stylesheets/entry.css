@@ -11,18 +11,6 @@
   border-radius: 3px;
 }
 
-#preview{
-  margin-top: 0px;
-  margin-bottom: 5px;
-  border: 1px solid #CCC;
-  width: 810px;
-  padding: 4px;
-  min-height: 224px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-}
-
 #show_entry header{
   margin-bottom: 10px;
   padding-bottom: 10px;

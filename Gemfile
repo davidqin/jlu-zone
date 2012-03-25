@@ -21,6 +21,7 @@ gem 'acts-as-taggable-on', '~> 2.2.2'
 
 #markdown
 gem "redcarpet", "~> 2.0.0"
+gem "wmd-rails"
 gem 'hpricot', '~> 0.8.5'
 
 gem 'pry',            '0.9.8.2'

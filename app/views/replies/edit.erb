@@ -6,7 +6,6 @@
       </div>
       <div class="span8">
         <%= simple_form_for @reply, :url => reply_path(@reply, :resource_id => @resource.id, :resource_type => @resource.model_type) do |f| %>
-          <%= render "/edit_models_bar/edit_models_bar"%>
           <%= f.input :content, :label => false, :input_html => { :style => 'width: 810px; height: 200px;' }%>
           <%= f.submit itext("submit") %>
         <% end %>
