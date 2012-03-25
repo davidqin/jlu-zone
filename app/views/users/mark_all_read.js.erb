@@ -1,4 +1,6 @@
 $('.notifications').removeClass('unread').find('.count').text('0');
-$('#notices span.new_notice').fadeOut('fast', function(){
+$('.notice .pull-right span.new_notice').fadeOut('fast', function(){
   $(this).remove();
 });
+
+// $('.notice .pull-right .notice_one_read').replaceWith("<%= escape_javascript(mark_one_unread_button(@notice))%>");
