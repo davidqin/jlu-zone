@@ -5,7 +5,7 @@ $('#' + "notice_<%= @notice.id %>" + ' span.new_notice').fadeOut('fast', functio
 $('#' + "notice_<%= @notice.id %>" + ' .pull-right .notice_one_read').replaceWith("<%= escape_javascript(mark_one_unread_button(@notice))%>");
 
 var count = parseInt($('.notifications').find('.count').text());
-$('.notifications').find('.count').text(count - 1);
+if (count > 0){$('.notifications').find('.count').text(count - 1);}
 if ((count-1) == 0){
 	$('.notifications').removeClass('unread');
 }
