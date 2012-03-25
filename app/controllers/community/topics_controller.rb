@@ -22,7 +22,6 @@ class Community::TopicsController < ApplicationController
     drop_breadcrumb(itext("topic.drop_breadcrumb_edit", :topic => @topic.name))
   end
   def create
-    binding.pry
     @topic = current_user.topics.new(model_params)
     if @topic.save
       redirect_to_as_create_success @topic
