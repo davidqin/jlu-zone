@@ -1,12 +1,12 @@
 class Reply < ActiveRecord::Base
 
-  belongs_to :resource, :polymorphic => true
-  belongs_to :replier,  :class_name => "User", :foreign_key => "user_id"
-
   has_many   :user_notices, :as => :notice_resource
+  belongs_to :resource,     :polymorphic => true
+  belongs_to :replier,      :class_name  => "User", :foreign_key => "user_id"
 
-  before_create :set_floor_number_and_update_entry#need to refactor
-  after_create :give_the_users_messages
+
+  before_create :set_floor_number_and_update_entry #need to refactor
+  after_create  :give_the_users_messages
   
   attr_accessible :content, :user_id
 

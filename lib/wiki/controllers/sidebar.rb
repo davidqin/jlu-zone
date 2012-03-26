@@ -53,6 +53,12 @@ module Wiki
           ''
         end
       end
+
+      module CommunitySidebar
+        def sidebar_folder
+          'community'
+        end
+      end
     end
   end
 end

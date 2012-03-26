@@ -4,7 +4,8 @@ class CreateTopics < ActiveRecord::Migration
       t.string      :name,         :limit   => 64,   :null => false
       t.references  :fonder,       :null    => false
       t.text        :content
-      t.integer     :replies_num,  :null => 0, :default => 0
+      t.integer     :replies_num,  :null => false, :default => 0
+      t.integer     :read_times,   :null => false, :default => 0
       t.timestamps
     end
     add_index :topics, :fonder_id, :name => :index_find_topic_by_fonder_id
