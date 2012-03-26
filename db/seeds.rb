@@ -58,14 +58,16 @@ entry_dota = Entry.create(
   content: "I\'m the 3th version")
 
 ## Generate tag categories
-
+category_notice        = TagCategory.create(name: '公告')
 category_development   = TagCategory.create(name: '开发')
 category_entertainment = TagCategory.create(name: '娱乐')
 category_manage        = TagCategory.create(name: '站务')
 
 ## Generate tags
+Tag.create(name: '活动通知',       tag_category: category_notice) #Hard Tag
+
 Tag.create(name: 'Ruby',          tag_category: category_development)
-Tag.create(name: 'Ruby on Rails', tag_category: category_development)
+Tag.create(name: 'Ruby-on-Rails', tag_category: category_development)
 Tag.create(name: 'RubyGems',      tag_category: category_development)
 Tag.create(name: 'MongoDB',       tag_category: category_development)
 Tag.create(name: 'Redis',         tag_category: category_development)

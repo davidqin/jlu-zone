@@ -1,4 +1,5 @@
 class Community::CommunityController < ApplicationController
+  include Wiki::Controllers::Sidebar::CommunitySidebar
   include Wiki::Controllers::TabsHighLight::Base
   include Wiki::Controllers::TabsHighLight::Community
   def index

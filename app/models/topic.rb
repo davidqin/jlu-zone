@@ -2,7 +2,6 @@ class Topic < ActiveRecord::Base
   belongs_to :fonder,      :class_name => "User"
   has_many   :replies,     :as => :resource
   has_and_belongs_to_many :tags
-
   
   validates_presence_of   :name, :message => "can't be empty"
   validates_uniqueness_of :name, :message => "can't be unique" 
@@ -11,7 +10,9 @@ class Topic < ActiveRecord::Base
 
   def one_read
     self.read_times += 1
+    self.record_timestamps = false
     self.save
+    self.record_timestamps = true
   end
   
   def tag_string=(string)
