@@ -1,6 +1,10 @@
 class Community::TopicsController < ApplicationController
   include Wiki::Controllers::TabsHighLight::Base
   include Wiki::Controllers::TabsHighLight::Community
+
+  before_filter :authenticate_user!,    :except => [:show, :index]
+  load_and_authorize_resource
+  
   def new
     @topic = Topic.new
     do_not_use_sidebar
@@ -10,7 +14,7 @@ class Community::TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    do_not_use_sidebar
+    @topic.one_read
     drop_breadcrumb(itext("navigation.community"), community_path)
     drop_breadcrumb(itext("topic.drop_breadcrumb_view", :topic => @topic.name))
   end
@@ -21,6 +25,7 @@ class Community::TopicsController < ApplicationController
     drop_breadcrumb(itext("navigation.community"), community_path)
     drop_breadcrumb(itext("topic.drop_breadcrumb_edit", :topic => @topic.name))
   end
+  
   def create
     @topic = current_user.topics.new(model_params)
     if @topic.save
@@ -37,6 +42,11 @@ class Community::TopicsController < ApplicationController
     else
       render_as_update_fail :edit
     end
+  end
+
+  def destroy
+    Topic.find(params[:id]).destroy    
+    redirect_to_as_destroy_success "/community"
   end
 end
   

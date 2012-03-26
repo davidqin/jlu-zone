@@ -56,3 +56,28 @@ entry_dota = Entry.create(
   last_editor: david,
   category_number: category_courses.number,
   content: "I\'m the 3th version")
+
+## Generate tag categories
+
+category_development   = TagCategory.create(name: '开发')
+category_entertainment = TagCategory.create(name: '娱乐')
+category_manage        = TagCategory.create(name: '站务')
+
+## Generate tags
+Tag.create(name: 'Ruby',          tag_category: category_development)
+Tag.create(name: 'Ruby on Rails', tag_category: category_development)
+Tag.create(name: 'RubyGems',      tag_category: category_development)
+Tag.create(name: 'MongoDB',       tag_category: category_development)
+Tag.create(name: 'Redis',         tag_category: category_development)
+Tag.create(name: 'Python',        tag_category: category_development)
+Tag.create(name: 'JavaScript',    tag_category: category_development)
+Tag.create(name: 'jQuery',        tag_category: category_development)
+
+Tag.create(name: 'ACG',           tag_category: category_entertainment)
+Tag.create(name: 'One',           tag_category: category_entertainment)
+Tag.create(name: 'Piece',         tag_category: category_entertainment)
+Tag.create(name: '进击的巨人',     tag_category: category_entertainment)
+Tag.create(name: 'PS3',           tag_category: category_entertainment)
+
+Tag.create(name: '综合',           tag_category: category_manage)
+Tag.create(name: '功能特性',       tag_category: category_manage)

@@ -15,8 +15,7 @@
         = from_user(notice)
       = "在"
       %span.resource_title
-        %a{:href => entry_path(notice.notice_resource.resource)}
-          = notice.notice_resource.resource.name
+        = link_to notice.notice_resource.resource.name, notice.notice_resource.resource
       = "中提及你："
   .notice_content
     = markdown(notice.notice_resource.content)

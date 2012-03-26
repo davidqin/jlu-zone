@@ -9,6 +9,6 @@ class CreateTagsTopicsJoinTable < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table:tags_topics
+    drop_table :tags_topics
   end
 end

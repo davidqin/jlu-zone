@@ -91,17 +91,14 @@ Rails 3.1.1
     entry.save
   end
 end
-Tag.destroy_all
-for i in 1..10 do
-  tag = Tag.new
-  tag.name = "tag_标签_#{i}"
-  tag.save
-end
 user = User.find_by_nickname("david")
+tags = Tag.all
 for i in 1..20 do
   topic = user.topics.new
   topic.name = "Topic_#{i}"
-  topic.content = "响应 @zw963 主席的号召，本帖传教Vim，愿造福Vim新人
+  topic.tags << tags[i % 10]
+  topic.content = "
+响应 @zw963 主席的号召，本帖传教Vim，愿造福Vim新人
 
 原是为Q群群友而作，现公之于众
 

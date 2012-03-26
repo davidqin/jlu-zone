@@ -13,9 +13,14 @@ module ApplicationHelper
 		content_tag(:a, itext('logo'), :href => "/", :class => :brand)
 	end
 
-	def gravatar(email)
+	def gravatar(email, size = nil)
 		gravatar_id = Digest::MD5.hexdigest(email.downcase)   
-		"http://www.gravatar.com/avatar/#{gravatar_id}" 
+		base_url = "http://www.gravatar.com/avatar/#{gravatar_id}" 
+		if size
+			base_url + "?r=G&s=#{size}" 
+		else
+			base_url
+		end
 	end
 
 	def back_to_top

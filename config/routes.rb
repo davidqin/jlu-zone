@@ -32,7 +32,4 @@ Wiki::Application.routes.draw do
 
     resources :topics, :controller => "community/topics"
   end
-
-
-
 end
