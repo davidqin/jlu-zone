@@ -8,6 +8,7 @@
     #entry_info
       = show_entry_version_info(@entry)
   = markdown(@entry.content)
+  = show_entry_contributors(@entry)
   - @resource = @entry
 = render "/replies/replies"
 = render "/replies/reply_field"
