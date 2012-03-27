@@ -6,4 +6,8 @@ class Tag < ActiveRecord::Base
     tag_name_array = self.all.map {|tag| tag.name}
     tag_name_array.to_s
   end
+
+  def to_param
+    self.number.to_s
+  end
 end

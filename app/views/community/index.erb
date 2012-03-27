@@ -1,46 +1,38 @@
-<section class="box">
-  <h3><%= "应该放点啥呢"%></h3>
-  <ul>
-    <% @topics.each do |topic|%>
-      <li><a href=<%= topic_path topic%>><%= topic.name %></a></li>
-    <% end %>
-  </ul>
-  <%= will_paginate @topics, :class => ""%>
-</section>
-
-<section class="box no-padding">
-  <header>标签导航</header>
-  <table class="item-list">
-    <tbody>
-      <tr>
-        <td>开发</td>
-        <td class="tags">
-          <a href="/topics/tagged/ruby">Ruby</a>
-          <a href="/topics/tagged/ruby-on-rails">Ruby on Rails</a>
-          <a href="/topics/tagged/rubygems">RubyGems</a>
-          <a href="/topics/tagged/mongodb">MongoDB</a>
-          <a href="/topics/tagged/redis">Redis</a>
-          <a href="/topics/tagged/python">Python</a>
-          <a href="/topics/tagged/javascript">JavaScript</a>
-          <a href="/topics/tagged/jquery">jQuery</a>
-        </td>
-      </tr>
-      <tr>
-        <td>娱乐</td>
-        <td class="tags">
-          <a href="/topics/tagged/acg">ACG</a>
-          <a href="/topics/tagged/one-piece">One Piece</a>
-          <a href="/topics/tagged/%E8%BF%9B%E5%87%BB%E7%9A%84%E5%B7%A8%E4%BA%BA">进击的巨人</a>
-          <a href="/topics/tagged/ps3">PS3</a>
-        </td>
-      </tr>
-      <tr>
-        <td>站务</td>
-        <td class="tags">
-          <a href="/topics/tagged/codecampo">综合</a>
-          <a href="/topics/tagged/campo-feature">功能特性</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</section>
+<div class="box no-padding">
+<table class="item-list">
+<tbody>
+<% @topics.each do |topic|%>
+<tr id="topic">
+<td class="avatar">
+<%= link_to tag(:img, :alt => '', :src => gravatar(topic.fonder.email,48)), topic.fonder%>
+</td>
+<td>
+<h3>
+<%= link_to topic.name, topic%>
+</h3>
+<div class="info">
+<% topic.tags.each do |tag|%>
+<span class="tags">
+<%= link_to tag.name, tag %>
+</span>
+<% end %>
+<span class="author">
+<%= link_to topic.fonder.nickname, topic.fonder%>
+</span>
+<span class="time">
+创建于
+<%= time_ago(topic.created_at)%>
+</span>
+</div>
+</td>
+<td class="reply-count last">
+</td>
+</tr>
+<% end %>
+<tr><td>
+<%= will_paginate @topics, :class => ""%>
+</td></tr>
+</tbody>
+</table>
+</div>
+<%= render "community/tags"%>

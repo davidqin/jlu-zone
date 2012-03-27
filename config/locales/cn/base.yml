@@ -20,7 +20,8 @@ zh-CN:
   back_to_top: 返回顶部
   fogot_password: 忘记密码了？
   users_statistics: "会员: %{users}人"
-  entries_statistics: "词条: %{entries}词"
+  entries_statistics: "词条: %{entries}条"
+  topics_statistics: "社区帖子: %{topics}条"
   category: 分类目录
   share_to: 分享到：
 

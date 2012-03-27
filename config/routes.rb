@@ -29,7 +29,7 @@ Wiki::Application.routes.draw do
 
   scope :path => 'community' do
     get  '/'  => "community/community#index",     :as => :community
-
+    get  ':tag_id' => "community/tags#index",     :as => :tag
     resources :topics, :controller => "community/topics"
   end
 end

@@ -9,7 +9,8 @@ module SideBarHelper
     header = content_tag(:header, itext("info_statistics"))
     body = contents_tag :ul, :class => "nav nav-list" do |contents|
       contents << content_tag(:li, users_statistics)
-      contents << content_tag(:li, entries_statistics)        
+      contents << content_tag(:li, entries_statistics)
+      contents << content_tag(:li, topicss_statistics)      
     end
     header + body
   end
@@ -22,5 +23,9 @@ module SideBarHelper
 
   def entries_statistics
     itext("entries_statistics", :entries => Entry.all.size)
+  end
+
+  def topicss_statistics
+    itext("topics_statistics", :topics => Topic.all.size)
   end
 end
