@@ -5,6 +5,7 @@ class Community::CommunityController < ApplicationController
   def index
     @topics = Topic.order("updated_at desc").all.paginate(:page => params[:page], :per_page => 10)
     drop_breadcrumb(itext("navigation.community"), community_path)
+    drop_breadcrumb(itext("topic.active_topic"), community_path)
     #drop_breadcrumb(current_category.name)
     render "community/index"
   end
