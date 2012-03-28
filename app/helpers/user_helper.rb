@@ -24,6 +24,30 @@ module UserHelper
     tag(:img, :alt => '', :src => gravatar(user.email))
   end
 
+  def user_link(user)
+    content_tag :a, :href => user_path(user) do
+      user.nickname
+    end
+  end
+
+  def show_user_portrait_link(user)
+    if(user.idiograph == nil)
+      idiograph = itext("user.lazy")
+    else
+      idiograph = user.idiograph
+    end
+
+    if(user.campus == nil)
+      campus = itext("user.unkownpalce")
+    else
+      campus = user.campus
+    end
+
+    content_tag :a, :href => user_path(user), :rel => :userpopover, "data-content" => idiograph, :class => :user_avatar, "data-original-title" => "<i><span class='icon-map-marker'></span>#{campus}</i> #{user.nickname}" do
+      tag(:img, :alt => '', :src => gravatar(user.email))
+    end
+  end
+
   def show_user_number(user)
     user.id
   end
