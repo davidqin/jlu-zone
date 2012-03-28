@@ -8,12 +8,12 @@ david = User.create(
   password_confirmation: '123456',
   email: 'davidqhr@gmail.com')
 
-mario = User.create( 
-  nickname: 'mario',
+acool = User.create( 
+  nickname: 'Acool',
   password: '123456',
   level: 3,
   password_confirmation: '123456',
-  email: 'mario@gmail.com')
+  email: 'dujiakun@gmail.com')
 
 frank = User.create( 
   nickname: 'frank',
