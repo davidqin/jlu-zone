@@ -11,18 +11,19 @@
 <%= link_to topic.name, topic%>
 </h3>
 <div class="info">
-<% topic.tags.each do |tag|%>
-<span class="tags">
-<%= link_to tag.name, tag %>
-</span>
-<% end %>
-<span class="author">
-<%= link_to topic.fonder.nickname, topic.fonder%>
-</span>
-<span class="time">
-创建于
-<%= time_ago(topic.created_at)%>
-</span>
+  <% topic.tags.each do |tag|%>
+    <span class="tags">
+      <%= link_to tag.name, tag %>
+    </span>
+  <% end %>
+  <span class="author">
+  <%= link_to topic.fonder.nickname, topic.fonder%>
+  </span>
+  <span class="time">
+    创建于
+    <%= time_ago(topic.created_at)%>
+    <%= link_to topic.changes_after_user_last_read(current_user), ""%>
+  </span>
 </div>
 </td>
 <td class="reply-count last">

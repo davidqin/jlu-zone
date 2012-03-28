@@ -15,7 +15,7 @@ class Community::TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @topic.one_read
+    @topic.change_read_history(current_user)
     drop_breadcrumb(itext("navigation.community"), community_path)
     drop_breadcrumb(itext("topic.drop_breadcrumb_view", :topic => @topic.name))
   end
