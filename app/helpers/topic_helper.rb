@@ -8,4 +8,26 @@ module TopicHelper
     read_times_info = topic.read_times.to_s + "次阅读"
     base_info + reply_info + read_times_info
   end
+
+  def show_topic_tools_bar(topic)
+    html_contents do |contents|
+      contents << follow_button(topic)
+      #icon-remove
+      contents << link_to(unfollow_topic_path(topic), :id => "reply_button", :class => " btn btn-mini" , "data-remote" => true, :method => :post) do
+        content_tag(:i, "", :class => "icon-pencil") + itext("topic.make_reply")
+      end
+    end
+  end
+
+  def follow_button(topic)
+    link_to(follow_topic_path(topic), :id => "follow_button", :class => " btn btn-mini" , "data-remote" => true, :method => :post) do
+      content_tag(:i, "", :class => "icon-ok") + itext("topic.follow")
+    end
+  end
+
+  def unfollow_button(topic)
+    link_to(unfollow_topic_path(topic), :id => "unfollow_button", :class => " btn btn-mini" , "data-remote" => true, :method => :post) do
+      content_tag(:i, "", :class => "icon-remove") + itext("topic.unfollow")
+    end
+  end
 end

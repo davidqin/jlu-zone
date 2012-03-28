@@ -3,6 +3,8 @@
     = share_button
   %header
     %h1=@topic.name
+    #entry_toolbar.pull-right
+      = show_topic_tools_bar(@topic)
     #entry_info
       = show_topic_info(@topic)
   = markdown(@topic.content)
