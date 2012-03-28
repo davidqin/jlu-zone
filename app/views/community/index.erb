@@ -22,7 +22,12 @@
   <span class="time">
     创建于
     <%= time_ago(topic.created_at)%>
-    <%= link_to topic.changes_after_user_last_read(current_user), ""%>
+    <!-- 
+    topic.changes_after_user_last_read?  
+      the result is a boolean
+      true  -> there are changes
+      false -> there is no change
+    -->
   </span>
 </div>
 </td>

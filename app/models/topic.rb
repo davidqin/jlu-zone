@@ -45,23 +45,37 @@ class Topic < ActiveRecord::Base
     end    
   end
 
-  def changes_after_user_last_read(user)
-    unless self.last_reply
-      return 0
+  def change_after_user_last_read?(user)
+    unless user
+      return true
     end
 
     user_read_history = find_current_user_read_history(user)
-    if user_read_history
-      return self.replies.find(:all, :conditions => ["created_at >= ?", user_read_history.last_read_at]).count
-    end
 
-    if !user_read_history
-      return self.replies.count
-    end
-        
+    if user_read_history
+      new_replies_after_last_read?(user,user_read_history)
+    else
+      return false
+    end        
   end
 
   private
+
+  def new_replies_after_last_read?(user,history)
+    user_last_read_time = history.last_read_at
+    user_last_reply     = self.replies.order("created_at desc").find_by_user_id(user.id)
+
+    if user_last_reply
+      user_last_reply_time = user_last_reply.created_at 
+      last_time = [user_last_read_time, user_last_reply_time].max
+    else
+      last_time = user_last_read_time
+    end
+
+    count = self.replies.find(:all, :conditions => ["created_at > ?", last_time]).count
+    return true if count > 0
+    return false    
+  end
 
   def find_current_user_read_history(user)
     read_history = user.topic_read_histories.find_by_topic_id(self.id)
@@ -69,12 +83,10 @@ class Topic < ActiveRecord::Base
     return false
   end
 
-
   def add_one_read_times
     self.read_times += 1
     self.record_timestamps = false
     self.save
     self.record_timestamps = true
   end
-
 end
