@@ -24,6 +24,7 @@ module TopicHelper
   	content_tag :a, :href => topic_path(topic), :title => topic.name do
   		topic.name
   	end
+  end
 
   def show_topic_tools_bar(topic)
     html_contents do |contents|
