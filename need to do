@@ -1,12 +1,19 @@
 #notices页面，已经标记为已读的不显示“标记为已读”按钮
 
+没有登录的用户，对帖子浏览次数的影响，考虑ip，还是rails session
+
+发现helper里头有大量个content_tag(:a,...) 都应该改成 link_to 这个help方法
+eg: show_entry_tools_bar
+
+ 用observe实现 number和用户的声望
+
 评论form  id和type可改
 
 ajax提交
 
 头像显示慢
 
-回复（@xxx）
+回复（@xxx）,使用了新的插件，预览和实际不同步
 
 日期，几天前，几小时前。。。(完成 time_ago_in_words)
 
@@ -24,9 +31,7 @@ ajax提交
 
 目录的显示问题，布局
 
-ajax预览action单独出来
-
-楼层问题
+楼层js实现问题
 
 at 和 #floor 的跳转问题
 

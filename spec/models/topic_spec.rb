@@ -28,5 +28,11 @@ describe Topic do
       new_topic.save.should == false
     end
   end
-end
- 
+
+  describe 'changes_after_user_last_read' do
+    it 'should be 0 when no user login' do
+      result = topic.get_changes_after_user_last_read(nil)
+      result.should == 0
+    end
+  end
+end 
