@@ -4,7 +4,9 @@
   .right_info
     .pull-right.repiles
       = "1"
+      = topic_replies_info(topic)
     .infos
       .title= show_topic_title_link(topic)
-      .topic_leader= show_topic_leader(topic)
-      .topic_time= "16"
+      = topic_tags_link(topic)
+      .topic_leader= show_topic_leader(topic)      
+      .topic_reply= topic_last_reply(topic)

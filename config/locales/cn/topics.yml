@@ -6,6 +6,8 @@ zh-CN:
     follow: 收藏
     unfollow: 收藏收藏
     make_reply: 回复
+    tags: "所属标签："
+    no_one_reply: 尚无人回复
     drop_breadcrumb_new: 创建话题
     drop_breadcrumb_view: "浏览 %{topic} 话题"
     drop_breadcrumb_edit: "修改 %{topic} 话题"

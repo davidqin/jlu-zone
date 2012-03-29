@@ -44,7 +44,7 @@ module UserHelper
     end
 
     content_tag :a, :href => user_path(user), :rel => :userpopover, "data-content" => idiograph, :class => :user_avatar, "data-original-title" => "<i><span class='icon-map-marker'></span>#{campus}</i> #{user.nickname}" do
-      tag(:img, :alt => '', :src => gravatar(user.email))
+      tag(:img, :alt => '', :src => gravatar(user.email, 48))
     end
   end
 

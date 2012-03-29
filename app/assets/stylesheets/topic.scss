@@ -35,6 +35,36 @@
 		}
 		.infos{
 			padding-right: 74px;
+			.tags{
+				a{
+					line-height: 22px;
+					color: white;
+					font-weight: bold;
+					font-size: 11px;
+					padding: 1px 4px;
+					background-color: #2D6987;
+					border-radius: 3px;
+					-moz-border-radius: 3px;
+					text-decoration: none;
+					&:hover {
+						text-decoration: none;
+						background-color: #3A87AD;
+					}
+				}
+			}
+			.topic_reply{
+				padding-left: 10px;
+				color: #999;
+				margin-bottom: 2px;
+			}
+			.topic_leader{
+				color: #999;
+				margin-bottom: 2px;
+			}
+			.topic_reply a, .topic_leader a{
+				color: #999;
+				text-decoration: underline;
+			}
 		}
 	}
 }

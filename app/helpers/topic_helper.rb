@@ -10,14 +10,44 @@ module TopicHelper
   end
 
   def show_topic_leader(topic)
-  	base_info = " 由 " + user_link(topic.fonder) + " 在节点 " + node_link(topic.tags) + " 中发起 "
+  	base_info = " 由 " + user_link(topic.fonder) + " 在 " + time_ago(topic.created_at) + " 发起 "
   	base_info.html_safe
   end
-  
-  def node_link(node)
-  	content_tag :a, :href => tag_path(node) do
-  		node.name
-  	end
+
+  def topic_last_reply(topic)
+    if (topic.last_reply != nil)
+      reply_info = " 最后由 " + user_link(topic.last_replier) + " 于 " + time_ago(topic.last_reply.created_at).to_s + " 回复 "
+    else
+      reply_info = itext("topic.no_one_reply")
+    end
+    reply_info.html_safe
+  end
+
+  def topic_tags_link(topic)
+    contents_tag :div, :class => :tags do |content|
+      content << itext("topic.tags")
+      topic.tags.each do |tag|
+        content << content_tag(:a, :href => tag_path(tag)) do
+          tag.name
+        end
+      end
+    end
+  end
+
+  def topic_replies_info(topic)
+    if topic.change_after_user_last_read? (current_user)
+      content_tag :span, :class => "badge badge-info" do
+        content_tag :a, :href => "#" do
+          "#{topic.replies.count}"
+        end
+      end
+    else
+      content_tag :span, :class => "badge" do
+        content_tag :a, :href => "#" do
+          "#{topic.replies.count}"
+        end
+      end
+    end
   end
 
   def show_topic_title_link(topic)
