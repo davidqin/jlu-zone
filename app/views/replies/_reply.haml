@@ -1,4 +1,4 @@
-.reply
+.reply{:id => "reply" + reply.floor_num.to_s}
   .pull-left.face
     = reply_editor_avatar reply
   .reply_infos
@@ -9,8 +9,8 @@
         = time_ago reply.created_at
         = itext("reply.floor", :floor => reply.floor_num)
         - if can? :update, reply
-          = link_to content_tag(:i, "", :class => "icon-edit"), edit_reply_path(reply)
-        %a{:href => "#new_reply", :class => "at", "data-user-name" => "Rei"}
+          = link_to itext("edit"), edit_reply_path(reply)
+        = link_to "#new_reply", :class => "at", "data-user-name" => reply.replier.nickname, "data-reply-floor" => reply.floor_num do
           %i.icon-pencil
     .reply_body
       = markdown(reply.content)

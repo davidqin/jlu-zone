@@ -58,8 +58,11 @@ module TopicHelper
 
   def show_topic_tools_bar(topic)
     html_contents do |contents|
-      contents << follow_button(topic)
-      #icon-remove
+      if topic.am_i_followed_by?(current_user)
+        contents << unfollow_button(topic)
+      else 
+        contents << follow_button(topic)
+      end
       contents << link_to(unfollow_topic_path(topic), :id => "reply_button", :class => " btn btn-mini" , "data-remote" => true, :method => :post) do
         content_tag(:i, "", :class => "icon-pencil") + itext("topic.make_reply")
       end

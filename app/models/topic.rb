@@ -59,6 +59,13 @@ class Topic < ActiveRecord::Base
     end        
   end
 
+  def am_i_followed_by?(user)
+    return false unless user
+    history = self.topic_read_histories.find_by_user_id(user.id)
+    return false unless history
+    return history.followed
+  end
+
   private
 
   def new_replies_after_last_read?(user,history)

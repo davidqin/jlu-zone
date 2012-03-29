@@ -54,3 +54,7 @@
   color: #999;
   text-decoration: underline;
 }
+
+#replies .reply.light {
+ background:#F7F2FC;
+}
