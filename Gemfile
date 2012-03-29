@@ -11,7 +11,7 @@ gem 'simple_form', :git => "git://github.com/plataformatec/simple_form.git"
 
 gem 'paper_trail', '~> 2'
 
-gem 'twitter-bootstrap-rails', '2.0.2'
+gem 'twitter-bootstrap-rails', :git => "git://github.com/seyhunak/twitter-bootstrap-rails.git"
 
 gem 'acts_as_tree'
 

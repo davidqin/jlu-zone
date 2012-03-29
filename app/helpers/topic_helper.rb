@@ -35,17 +35,14 @@ module TopicHelper
   end
 
   def topic_replies_info(topic)
+    return unless topic.replies.count != 0
     if topic.change_after_user_last_read? (current_user)
-      content_tag :span, :class => "badge badge-info" do
-        content_tag :a, :href => "#" do
-          "#{topic.replies.count}"
-        end
+      content_tag :a, :href => "#", :class => "badge badge-info dynamic", :rel => "tooltip", "data-original-title" => itext("topic.new_reply") do
+        "#{topic.replies.count}"
       end
     else
-      content_tag :span, :class => "badge" do
-        content_tag :a, :href => "#" do
-          "#{topic.replies.count}"
-        end
+      content_tag :a, :href => "#", :class => "badge static", :rel => "tooltip", "data-original-title" => itext("topic.none_new_reply") do
+        "#{topic.replies.count}"
       end
     end
   end

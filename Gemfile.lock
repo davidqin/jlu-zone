@@ -7,6 +7,15 @@ GIT
       activemodel (~> 3.0)
 
 GIT
+  remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
+  revision: e234cf2d07219d8bd4ff1796ac0423502eeb8a26
+  specs:
+    twitter-bootstrap-rails (2.0.4)
+      actionpack (>= 3.1)
+      less-rails (~> 2.1.6)
+      railties (>= 3.1)
+
+GIT
   remote: git://github.com/sferik/rails_admin.git
   revision: 1180245282635e9bd18c4a01ce45bd9db9ad48c4
   specs:
@@ -88,8 +97,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
-    commonjs (0.2.0)
-      therubyracer (~> 0.9.9)
+    commonjs (0.2.5)
     database_cleaner (0.7.1)
     devise (2.0.4)
       bcrypt-ruby (~> 3.0)
@@ -124,10 +132,10 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
       railties (>= 3.0.0)
-    less (2.0.9)
+    less (2.0.13)
       commonjs (~> 0.2.0)
-      therubyracer (~> 0.9.9)
-    less-rails (2.1.6)
+      therubyracer (>= 0.9.9)
+    less-rails (2.1.8)
       actionpack (>= 3.1)
       less (~> 2.0.7)
     libv8 (3.3.10.4)
@@ -217,10 +225,6 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
-    twitter-bootstrap-rails (2.0.2)
-      actionpack (>= 3.1)
-      less-rails (~> 2.1.5)
-      railties (>= 3.1)
     tzinfo (0.3.31)
     uglifier (1.2.3)
       execjs (>= 0.3.0)
@@ -263,6 +267,6 @@ DEPENDENCIES
   spork
   sqlite3
   therubyracer
-  twitter-bootstrap-rails (= 2.0.2)
+  twitter-bootstrap-rails!
   uglifier (>= 1.0.3)
   wmd-rails

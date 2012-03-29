@@ -8,6 +8,8 @@ zh-CN:
     make_reply: 回复
     tags: "所属标签："
     no_one_reply: 尚无人回复
+    new_reply: 有新内容
+    none_new_reply: 在你读过以后还没有新变化
     drop_breadcrumb_new: 创建话题
     drop_breadcrumb_view: "浏览 %{topic} 话题"
     drop_breadcrumb_edit: "修改 %{topic} 话题"

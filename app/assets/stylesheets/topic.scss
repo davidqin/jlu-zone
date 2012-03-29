@@ -32,6 +32,19 @@
 			margin-right: 10px;
 			text-align: right;
 			vertical-align: middle;
+			a.dynamic{
+				background-color: #1C7FDB;
+				margin: 18px 12px 0px 0px;
+				&:hover{
+					background-color: #1F8AEE;
+				}
+			}
+			a.static{
+				margin: 18px 12px 0px 0px;
+				&:hover{
+					background: #BFBFBF;
+				}
+			}
 		}
 		.infos{
 			padding-right: 74px;
