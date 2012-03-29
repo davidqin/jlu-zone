@@ -31,7 +31,7 @@ class MarkDown
 
   def self.link_mention_floor(text)
     text.gsub!(/#(\d+)([楼Ff])/) { 
-    %(<a href="#reply#{$1}" class="at_floor" data-floor="#{$1}">##{$1}#{$2}</a>)}
+    %(<a href="#reply#{$1}" class="at_floor" data-reply-floor="#{$1}">##{$1}#{$2}</a>)}
   end
 
   # convert '@user' to link
