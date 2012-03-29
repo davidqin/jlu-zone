@@ -8,7 +8,7 @@ class Users::UserNoticesController < ApplicationController
     user = User.find_by_nickname(params[:id])
     @notices = user.notices.all.paginate(:page => params[:page], :per_page => 10)
     drop_breadcrumb(itext("notice.notice_center"), user_notices_path)
-    render "/users/notices"
+    render "/users/notices/notices"
   end
 
   def create
@@ -20,7 +20,7 @@ class Users::UserNoticesController < ApplicationController
     @notice.save!
     respond_with do |format|
       format.html { redirect_referrer_or_default user_notices_path }
-      format.js   { render "users/mark_one_read",:layout => false  }
+      format.js   { render "users/notices/mark_one_read",:layout => false  }
     end
   end
 
@@ -30,7 +30,7 @@ class Users::UserNoticesController < ApplicationController
     @notice.save!
     respond_with do |format|
       format.html { redirect_referrer_or_default user_notices_path }
-      format.js { render "users/mark_one_unread",:layout => false }
+      format.js { render "users/notices/mark_one_unread",:layout => false }
     end
   end
 
@@ -38,7 +38,7 @@ class Users::UserNoticesController < ApplicationController
     current_user.notices.update_all("read = 'true'", ['read = ?', false])
     respond_with do |format|
       format.html { redirect_referrer_or_default user_notices_path }
-      format.js   { render "users/mark_all_read",:layout => false  }
+      format.js   { render "users/notices/mark_all_read",:layout => false  }
     end
   end
 
@@ -47,7 +47,7 @@ class Users::UserNoticesController < ApplicationController
     @notice.destroy
     respond_with do |format|
       format.html { redirect_referrer_or_default user_notices_path }
-      format.js   { render "users/destroy", :layout => false       }
+      format.js   { render "users/notices/destroy", :layout => false       }
     end
   end
 

@@ -1,0 +1,14 @@
+.box
+  最近发帖
+  - @user.topics.order("created_at desc").each do |topic|
+    = topic.name
+
+.box
+  最近回复
+  - @user.replies.order("created_at desc").each do |reply|
+    = reply.resource.name
+
+.box
+  收藏帖子
+  - @user.topic_read_histories.find(:all, :conditions => ["followed = ?", true]).each do |followed_topic|
+    = followed_topic.topic.name

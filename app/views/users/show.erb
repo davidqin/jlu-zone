@@ -1,7 +1,7 @@
-<section class="box">
+<div class="box">
   <div class="userinfo">
     <div class="pull-right" style="text-align:center;">
-      <img src=<%= gravatar(@user.email)%> style="width:120px;height:120px;">
+      <img src=<%= gravatar(@user.email, 120)%> style="width:120px;height:120px;">
     </div>
     <ul>
       <li><span>&nbsp;</span>第 917 位会员</li>
@@ -12,16 +12,6 @@
       <li><span>加入时间:</span>2012年2月05日</li>
     </ul>
   </div>
-</section>
-
-<div class="box">
-
 </div>
 
-<div class="box">
-
-</div>
-
-<div class="box">
-
-</div>
+<%= render "users/user_activities"%>

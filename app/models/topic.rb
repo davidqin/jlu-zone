@@ -55,7 +55,7 @@ class Topic < ActiveRecord::Base
     if user_read_history
       new_replies_after_last_read?(user,user_read_history)
     else
-      return false
+      return true
     end        
   end
 

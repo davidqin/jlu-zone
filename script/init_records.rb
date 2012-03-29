@@ -91,12 +91,20 @@ Rails 3.1.1
     entry.save
   end
 end
-user = User.find_by_nickname("david")
 tags = Tag.all
 for i in 1..20 do
+  user = User.find(rand(4) + 1)
+
   topic = user.topics.new
   topic.name = "Topic_#{i}"
-  topic.tags << tags[i % 10]
+
+  tags_num = rand(3) + 1
+  topic_tag_array = []
+  tags_num.times do
+    topic_tag_array << tags[rand(9) + 1]
+  end
+  topic.tags = topic_tag_array.uniq
+  
   topic.content = "
 响应 @zw963 主席的号召，本帖传教Vim，愿造福Vim新人
 
