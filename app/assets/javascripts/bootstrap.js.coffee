@@ -6,3 +6,6 @@ jQuery ->
 	$("a[rel=userpopover]").popover({
 		placement:'bottom'
 		})
+	$("img[rel=userpopover]").popover({
+		placement:'bottom'
+		})

@@ -6,6 +6,8 @@ zh-CN:
     remember_me_detail: 记住我
     lazy: "这家伙很懒，什么都没留下"
     unkownpalce: 未知区域
+    user_number: "第 %{id} 位会员"
+    user_name: "昵称:"
 
     menu: 会员
     active_users_info: 活跃用户

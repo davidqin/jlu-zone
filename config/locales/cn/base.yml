@@ -24,6 +24,7 @@ zh-CN:
   topics_statistics: "社区帖子: %{topics}条"
   category: 分类目录
   share_to: 分享到：
+  admin_user: 管理员
 
   info_statistics: 信息统计
   time_ago: '%{time}前'

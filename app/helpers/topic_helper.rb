@@ -9,18 +9,22 @@ module TopicHelper
     base_info + reply_info + read_times_info
   end
 
-  def show_topic_leader(topic)
-  	base_info = " 由 " + user_link(topic.fonder) + " 在 " + time_ago(topic.created_at) + " 发起 "
-  	base_info.html_safe
+  def topic_header
+    if @tag == nil
+      itext("topic.active_topic")
+    else
+      "Tag: " + @tag.name
+    end
   end
 
-  def topic_last_reply(topic)
+  def show_topic_leader(topic)
+  	base_info = " 由 " + user_link(topic.fonder) + " 在 " + time_ago(topic.created_at) + " 发起， "
     if (topic.last_reply != nil)
       reply_info = " 最后由 " + user_link(topic.last_replier) + " 于 " + time_ago(topic.last_reply.created_at).to_s + " 回复 "
     else
       reply_info = itext("topic.no_one_reply")
     end
-    reply_info.html_safe
+    (base_info + reply_info).html_safe
   end
 
   def topic_tags_link(topic)

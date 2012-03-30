@@ -4,10 +4,10 @@ class Community::TagsController < ApplicationController
   include Wiki::Controllers::TabsHighLight::Community
 
   def index
-    tag = Tag.find_by_number(params[:tag_id])
-    @topics = tag.topics.order("updated_at desc").all.paginate(:page => params[:page], :per_page => 20)
+    @tag = Tag.find_by_number(params[:tag_id])
+    @topics = @tag.topics.order("updated_at desc").all.paginate(:page => params[:page], :per_page => 20)
     drop_breadcrumb(itext("navigation.community"), community_path)
-    drop_breadcrumb(tag.name)
+    drop_breadcrumb(@tag.name)
     render "community/index"
   end
 end

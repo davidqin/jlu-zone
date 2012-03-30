@@ -1,5 +1,5 @@
 %div{:id => "notice_#{notice.id}", :class => :notice}
-  .headimg.pull-left= show_user_portrait(notice.from_user)
+  .headimg.pull-left= show_user_portrait(notice.from_user, :size => 56, :link => true, :popdetail => true)
   .pull-right
     = new_notice?(notice)
     .notice_delete
@@ -12,7 +12,7 @@
   .notice_infos
     .notice_info
       %span.from_name
-        = from_user(notice)
+        = user_link(notice.from_user)
       = "在"
       %span.resource_title
         = link_to notice.notice_resource.resource.name, notice.notice_resource.resource
