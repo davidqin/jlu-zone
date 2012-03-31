@@ -5,7 +5,7 @@ class Users::UserNoticesController < ApplicationController
   respond_to :html, :js, :only => [:destroy, :mark_all_as_read]
 
   def index
-    user = User.find_by_nickname(params[:id])
+    user = User.find_by_number(params[:id])
     @notices = user.notices.all.paginate(:page => params[:page], :per_page => 10)
     drop_breadcrumb(itext("notice.notice_center"), user_notices_path)
     render "/users/notices/notices"

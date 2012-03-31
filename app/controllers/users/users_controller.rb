@@ -11,7 +11,7 @@ class Users::UsersController < ApplicationController
   end
   
   def show
-    @user = User.find_by_nickname(params[:id])
+    @user = User.find_by_number(params[:id])
     drop_breadcrumb(itext("user.menu"),users_path)
     drop_breadcrumb(@user.nickname)
     render "/users/show"    

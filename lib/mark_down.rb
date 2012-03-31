@@ -38,7 +38,7 @@ class MarkDown
   # match any user even not exist.
   def self.link_mention_user(text)
     text.gsub!(self.find_user_regexp) { 
-    %(#{$1}<a href="/users/#{$2}" class="at_user" title="@#{$2}"><i>@</i>#{$2}</a>)}
+    %(#{$1}<a href="/users/#{User.find_by_nickname($2).number}" class="at_user" title="@#{$2}"><i>@</i>#{$2}</a>)}
   end
 
   def self.find_user_regexp

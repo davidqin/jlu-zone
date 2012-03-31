@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :nickname, :level
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :nickname, :level, :number
 
   has_many :entries, :foreign_key => 'fonder_id'
   has_many :topics,  :foreign_key => 'fonder_id'
@@ -14,6 +14,6 @@ class User < ActiveRecord::Base
   has_many :topic_read_histories
 
   def to_param
-    self.nickname.to_s
+    self.number.to_s
   end
 end

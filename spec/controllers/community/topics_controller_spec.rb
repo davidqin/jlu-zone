@@ -2,8 +2,8 @@ require "spec_helper"
 
 describe Community::TopicsController do
   
-  let(:topic) { Factory :topic }
-  let(:user) { Factory :user }
+  let(:topic) { FactoryGirl.create :topic }
+  let(:user) { FactoryGirl.create :user }
 
   describe ":index" do
     it "should have an index action" do
@@ -63,7 +63,7 @@ describe Community::TopicsController do
 
     it "should have an create action, need user login in" do
       sign_in user
-      params = Factory.attributes_for(:topic)
+      params = FactoryGirl.attributes_for(:topic)
       post :create, :topic => params
 
       topic = Topic.find_by_name(params[:name])
@@ -72,7 +72,7 @@ describe Community::TopicsController do
 
     it "should not create new entry if name is not present" do
       sign_in user
-      params        = Factory.attributes_for(:topic)
+      params        = FactoryGirl.attributes_for(:topic)
       params[:name] = ""
       post :create, :entry => params
       response.should render_template(:new)
@@ -89,7 +89,7 @@ describe Community::TopicsController do
     it "should update entry if all is well" do
       sign_in user
 
-      params           = Factory.attributes_for(:topic)
+      params           = FactoryGirl.attributes_for(:topic)
       topic            = user.topics.create!(params)
       
       params[:name]    = "new title"
@@ -104,7 +104,7 @@ describe Community::TopicsController do
 
     it "should not update page if content is not present" do
       sign_in user
-      params           = Factory.attributes_for(:topic)
+      params           = FactoryGirl.attributes_for(:topic)
       topic            = user.topics.create!(params)
       params[:name]    = "new title"
       params[:content] = ""
@@ -121,7 +121,7 @@ describe Community::TopicsController do
     end
 
     it "should destroy entry if it is admin" do
-      admin = Factory(:user, :level => 3)
+      admin = FactoryGirl.create(:user, :level => 3)
       sign_in admin
       delete :destroy, :id => topic.id
       response.should redirect_to("/community")
