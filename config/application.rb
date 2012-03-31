@@ -26,6 +26,7 @@ module Wiki
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 
     # Activate observers that should always be running.
+    config.active_record.observers = :number_stamp
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.

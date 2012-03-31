@@ -2,10 +2,12 @@ Wiki::Application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  devise_for :users do
+  devise_for :users 
+
+  devise_scope :user do
     get "/login_dialog", :to => "sessions#new"
   end
-
+  
   root :to => 'home#index'
 
   get "/users/menu" => "users/users#menu", :as => :users

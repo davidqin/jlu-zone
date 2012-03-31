@@ -6,6 +6,7 @@ class CreateReplies < ActiveRecord::Migration
       t.integer  :user_id,          :null => false
       t.text     :content,          :null => false
       t.integer  :floor_num,        :null => false
+      t.string   :number,           :null => false
       t.timestamps
     end
     add_index :replies, [:resource_type, :resource_id]

@@ -1,9 +1,9 @@
 require "spec_helper"
 
 describe Wiki::EntriesController do
-  let(:category) { Factory :entry_category }
-  let(:entry) { Factory :entry , :category_number => category.number}
-  let(:user) { Factory :user }
+  let(:category) { FactoryGirl.create :entry_category }
+  let(:entry) { FactoryGirl.create :entry , :category_number => category.number}
+  let(:user) { FactoryGirl.create :user }
 
   describe ":index" do
     it "should have an index action" do
@@ -53,7 +53,7 @@ describe Wiki::EntriesController do
 
     it "should have an create action, need user login in" do
       sign_in user
-      params = Factory.attributes_for(:entry, :category_number => category.number)
+      params = FactoryGirl.attributes_for(:entry, :category_number => category.number)
       post :create, :entry => params
 
       entry = Entry.find_by_name(params[:name])
@@ -62,7 +62,7 @@ describe Wiki::EntriesController do
 
     it "should not create new entry if name is not present" do
       sign_in user
-      params = Factory.attributes_for(:entry, :category_number => category.number)
+      params = FactoryGirl.attributes_for(:entry, :category_number => category.number)
       params[:name] = ""
       post :create, :entry => params
       response.should render_template(:new)
@@ -70,7 +70,7 @@ describe Wiki::EntriesController do
 
     it "should create new entry if all is well" do
       sign_in user
-      params = Factory.attributes_for(:entry, :category_number => category.number)
+      params = FactoryGirl.attributes_for(:entry, :category_number => category.number)
       post :create, :entry => params
       entry = Entry.find_by_name(params[:name])
       response.should redirect_to entry_path(entry)
@@ -89,7 +89,7 @@ describe Wiki::EntriesController do
     it "should update entry if all is well" do
       sign_in user
 
-      params = Factory.attributes_for(:entry, :category_number => category.number)
+      params = FactoryGirl.attributes_for(:entry, :category_number => category.number)
       params[:last_editor_id] = user.id
       entry  = user.entries.create!(params)
       params[:name] = "new title"
@@ -102,7 +102,7 @@ describe Wiki::EntriesController do
 
     it "should not update page if content is not present" do
       sign_in user
-      params = Factory.attributes_for(:entry, :category_number => category.number)
+      params = FactoryGirl.attributes_for(:entry, :category_number => category.number)
       params[:fonder_id] = user.id
       params[:last_editor_id] = user.id
       entry  = user.entries.create!(params)
@@ -128,7 +128,7 @@ describe Wiki::EntriesController do
     end
     
     it "should destroy entry if it is admin" do
-      admin = Factory(:user, :level => 3)
+      admin = FactoryGirl.create(:user, :level => 3)
       sign_in admin
       category = entry.category.number
       delete :destroy, :id => entry.id
