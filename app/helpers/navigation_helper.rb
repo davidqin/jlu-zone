@@ -19,10 +19,13 @@ module NavigationHelper
 
   def modules_navigation
     render_list :class => 'nav' do |li|
-      li << content_tag(:a, itext("navigation.community"),  :href => community_path)
-      li << content_tag(:a, itext("navigation.wiki"),       :href => wiki_path)
-      li << content_tag(:a, itext("navigation.vote"),       :href => "")
-      li << content_tag(:a, itext("navigation.users"),      :href => users_path)
+      li << content_tag(:a, itext("navigation.community"),   :href => community_path)
+      li << content_tag(:a, itext("navigation.wiki"),        :href => wiki_path)
+      li << content_tag(:a, itext("navigation.vote"),        :href => "")
+      li << content_tag(:a, itext("navigation.show_photo"),        :href => "")
+      li << content_tag(:a, itext("navigation.second_hand"), :href => "")
+      li << content_tag(:a, itext("navigation.travel"),        :href => "")
+      li << content_tag(:a, itext("navigation.users"),       :href => users_path)
     end
   end
 end

@@ -21,7 +21,7 @@ module UserHelper
   end
 
   def show_user_portrait(user)
-    tag(:img, :alt => '', :src => gravatar(user.email))
+    tag(:img, :alt => '', :src => gravatar(user.email,48))
   end
 
   def user_link(user)
