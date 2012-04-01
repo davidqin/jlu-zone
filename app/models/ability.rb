@@ -24,8 +24,6 @@ class Ability
         can :update,  Topic do |topic|
           topic.fonder_id == user.id
         end
-
-        can [:follow, :unfollow], Topic
       when 3
         can :manage, :all
       end

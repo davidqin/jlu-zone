@@ -3,7 +3,6 @@ class CreateTopicReadHistories  < ActiveRecord::Migration
     create_table :topic_read_histories, :force => true do |t|
       t.integer    :user_id,      :null => false
       t.integer    :topic_id,     :null => false
-      t.boolean    :followed,     :null => false, :default => false
       t.datetime   :last_read_at, :null => false, :default => Time.now
     end
     add_index :topic_read_histories, [:user_id, :topic_id]

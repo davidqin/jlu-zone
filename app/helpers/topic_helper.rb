@@ -55,26 +55,10 @@ module TopicHelper
 
   def show_topic_tools_bar(topic)
     html_contents do |contents|
-      if topic.am_i_followed_by?(current_user)
-        contents << unfollow_button(topic)
-      else 
-        contents << follow_button(topic)
-      end
-      contents << link_to(unfollow_topic_path(topic), :id => "reply_button", :class => " btn btn-mini" , "data-remote" => true, :method => :post) do
+      contents << show_follow_button(topic)
+      contents << link_to("", :id => "reply_button", :class => " btn btn-mini" , "data-remote" => true, :method => :post) do
         content_tag(:i, "", :class => "icon-pencil") + itext("topic.make_reply")
       end
-    end
-  end
-
-  def follow_button(topic)
-    link_to(follow_topic_path(topic), :id => "follow_button", :class => " btn btn-mini" , "data-remote" => true, :method => :post) do
-      content_tag(:i, "", :class => "icon-ok") + itext("topic.follow")
-    end
-  end
-
-  def unfollow_button(topic)
-    link_to(unfollow_topic_path(topic), :id => "unfollow_button", :class => " btn btn-mini" , "data-remote" => true, :method => :post) do
-      content_tag(:i, "", :class => "icon-remove") + itext("topic.unfollow")
     end
   end
 end
