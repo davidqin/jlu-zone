@@ -5,41 +5,16 @@
 发现helper里头有大量个content_tag(:a,...) 都应该改成 link_to 这个help方法
 eg: show_entry_tools_bar
 
- 用observe实现 number和用户的声望
+实现用户的声望
 
 评论form  id和type可改
-
-ajax提交
 
 头像显示慢
 
 回复（@xxx）,使用了新的插件，预览和实际不同步
 
-日期，几天前，几小时前。。。(完成 time_ago_in_words)
-
 字符过多，使界面混乱
 
-改进textarea
-
-添加社区模块
-
-添加用户信息模块
-
-添加收藏功能
-
-添加消息提示（被@）
+改进用户信息模块
 
 目录的显示问题，布局
-
-楼层js实现问题
-
-at 和 #floor 的跳转问题
-
-被at的用户的通知问题
-
-tags
-
-Add Activity
-
-Add Community
-

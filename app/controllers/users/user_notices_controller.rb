@@ -6,7 +6,7 @@ class Users::UserNoticesController < ApplicationController
 
   def index
     user = User.find_by_number(params[:id])
-    @notices = user.notices.all.paginate(:page => params[:page], :per_page => 10)
+    @notices = user.notices.order("created_at desc").all.paginate(:page => params[:page], :per_page => 10)
     drop_breadcrumb(itext("notice.notice_center"), user_notices_path)
     render "/users/notices/notices"
   end

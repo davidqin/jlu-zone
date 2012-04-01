@@ -1,7 +1,7 @@
 %div{:id => "notice_#{notice.id}", :class => :notice}
   .headimg.pull-left= show_user_portrait(notice.from_user, :size => 56, :link => true, :popdetail => true)
   .pull-right
-    = new_notice?(notice)
+    = unread_notice?(notice)
     .notice_delete
       %a{:href => notice_destroy_path(notice), :class => "label delete_notice", "data-method" => "delete", "data-remote" => "true"}
         = "删除"
@@ -11,11 +11,6 @@
       = mark_one_unread_button(notice)
   .notice_infos
     .notice_info
-      %span.from_name
-        = user_link(notice.from_user)
-      = "在"
-      %span.resource_title
-        = link_to notice.notice_resource.resource.name, notice.notice_resource.resource
-      = "中提及你："
+      = notice_title_info(notice)
   .notice_content
-    = markdown(notice.notice_resource.content)
+    = notice_content(notice)
