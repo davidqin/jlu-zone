@@ -1,10 +1,7 @@
 class FollowedResource < ActiveRecord::Base
   belongs_to :user
   belongs_to :resource, :polymorphic => true
-  def self.create_followed_resource(params, user)
-    id             = params[:resource_id]
-    resource_model = (params[:resource_type]).constantize.find(id)
-
+  def self.create_followed_resource(resource_model, user)
     unless resource_model
       return false
     end
@@ -27,10 +24,7 @@ class FollowedResource < ActiveRecord::Base
     true    
   end
 
-  def self.destroy_followed_resource(params, user)
-    id             = params[:resource_id]
-    resource_model = (params[:resource_type]).constantize.find(id)
-
+  def self.destroy_followed_resource(resource_model, user)
     return false unless resource_model
 
     followed_resource = check_model_is_followed(user, resource_model)
