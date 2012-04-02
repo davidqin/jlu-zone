@@ -41,4 +41,14 @@ FactoryGirl.define do
     association :user
     content "I\'m a reply"
   end
+
+  factory :tag_category do
+    sequence(:name) { |n| "tag_category #{n}" }
+  end
+
+  factory :tag do
+    sequence(:name) { |n| "tag #{n}" }
+    sequence(:number) { |n| "tag number#{n}" }
+    association :tag_category
+  end
 end

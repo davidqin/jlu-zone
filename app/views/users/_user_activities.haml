@@ -10,5 +10,5 @@
 
 .box
   收藏帖子
-  - @user.topic_read_histories.find(:all, :conditions => ["followed = ?", true]).each do |followed_topic|
-    = followed_topic.topic.name
+  - @user.followed_topics.each do |topic|
+    = topic.name
