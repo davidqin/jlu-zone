@@ -28,6 +28,12 @@ module Wiki
           @current = ['/community']
         end
       end
+
+      module Pictures
+        def set_menu_active
+          @current = ['/pictures']
+        end
+      end
     end
   end
 end
