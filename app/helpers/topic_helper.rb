@@ -58,6 +58,7 @@ module TopicHelper
   end
 
   def show_topic_tools_bar(topic)
+    return unless current_user
     html_contents do |contents|
       contents << show_follow_button(topic)
       contents << link_to("", :id => "reply_button", :class => " btn btn-mini" , "data-remote" => true, :method => :post) do
