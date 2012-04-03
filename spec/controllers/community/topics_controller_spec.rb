@@ -81,9 +81,13 @@ describe Community::TopicsController do
 
   describe ":update" do
     it "should not allow anonymous access" do
-      put :update
+      put :update, :id => topic
       response.should_not be_success
       response.should redirect_to(new_user_session_path)
+
+      sign_in user
+      put :update, :id => topic
+      response.should_not be_success
     end
 
     it "should update entry if all is well" do

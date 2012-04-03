@@ -1,8 +1,9 @@
 class Topic < ActiveRecord::Base
-  belongs_to :fonder,       :class_name => "User"
-  has_many   :user_reply_notices, :as => :notice_resource, :class_name => "UserNotice"
-  has_many   :replies,      :as => :resource
+  belongs_to :fonder,               :class_name => "User"
+  has_many   :replies,              :as => :resource
+  has_many   :user_reply_notices,   :as => :notice_resource, :class_name => "UserNotice"
   has_many   :topic_read_histories, :class_name => "TopicReadHistory"
+  #has_many   :followed_resources, :as => :resource
   has_and_belongs_to_many :tags
   
   validates_presence_of   :name, :message => "can't be empty"

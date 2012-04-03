@@ -32,11 +32,11 @@ Wiki::Application.routes.draw do
   scope :path => 'community' do
     get  '/'  => "community/community#index",     :as => :community
     get  ':tag_id' => "community/tags#index",     :as => :tag
-    resources :topics, :controller => "community/topics" do
-      member do
-        post :follow
-        post :unfollow
-      end
-    end
+    resources :topics, :controller => "community/topics"
   end
+  
+  post "followed_resources" => "followed_resources#create", :as => :follow
+  delete "followed_resources" => "followed_resources#destroy", :as => :unfollow
+
+  resources :pictures, :only => [:index], :controller => 'pictures/pictures'
 end

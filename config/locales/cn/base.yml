@@ -5,11 +5,13 @@ zh-CN:
     vote: 投票
     second_hand: 二手商品交易
     users: 会员
-    show_photo: 晒图
+    pictures: 晒图
     travel: 旅行
 
   submit: 提交
   until: 截止
+  follow: 收藏
+  unfollow: 收藏收藏
    
   logo: "JLU-Zone"
   register: 注册
