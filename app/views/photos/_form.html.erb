@@ -1,0 +1,15 @@
+<%= form_for(@photo) do |f| %>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+
+  <%= f.fields_for :photo_line_items do |comment_form| %>
+    <%= comment_form.text_field :img_url  %>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

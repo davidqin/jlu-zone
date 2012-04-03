@@ -29,9 +29,9 @@ module Wiki
         end
       end
 
-      module Pictures
+      module Photos
         def set_menu_active
-          @current = ['/pictures']
+          @current = ['/photos']
         end
       end
     end

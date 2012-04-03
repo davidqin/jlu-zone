@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @photo.description %>
+</p>
+
+<ul>
+  <%= render @photo.photo_line_items %>
+</ul>

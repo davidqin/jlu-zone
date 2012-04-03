@@ -38,5 +38,5 @@ Wiki::Application.routes.draw do
   post "followed_resources" => "followed_resources#create", :as => :follow
   delete "followed_resources" => "followed_resources#destroy", :as => :unfollow
 
-  resources :pictures, :only => [:index], :controller => 'pictures/pictures'
+  resources :photos, :controller => 'photos/photos'
 end

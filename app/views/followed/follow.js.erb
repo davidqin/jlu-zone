@@ -1,3 +1,3 @@
 (function(){
-  $("#follow_button").replaceWith('<%= unfollow_button(@resource)%>')
+  $("#follow_button" + <%= @resource.id.to_s%>).replaceWith('<%= unfollow_button(@resource)%>')
 })();

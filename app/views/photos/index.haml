@@ -1,0 +1,17 @@
+.box
+  #photos
+    - @photos.each do |photo|
+      .item
+        .time
+          = link_to '@' + photo.user.nickname, photo.user
+          = time_ago photo.created_at
+          发布
+          %span.pull-right
+            - if photo.user == current_user
+            = link_to "编辑", edit_photo_path(photo)
+            - else
+              = show_follow_button(photo)
+        .description
+          = photo.description
+        - photo.photo_line_items.each do |item|
+          = link_to tag(:img, :src => item.img_url), item.img_url

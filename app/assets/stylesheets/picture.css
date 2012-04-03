@@ -1,23 +1,33 @@
-#pictures .item {
+#photos .item {
   margin: 8px;
   padding: 10px;
   color:#A4839E;
   width: 251px;
   background-color:#fff;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.4em;
   float: left;
-  box-shadow: 0 1px 3px rgba(34,25,25,.6);
-  -moz-box-shadow: 0 1px 3px rgba(34,25,25,.6);
-  -webkit-box-shadow: 0 1px 3px rgba(34,25,25,.6);
+  box-shadow: 0 1px 3px rgba(34,25,25,.8);
+  -moz-box-shadow: 0 1px 3px rgba(34,25,25,.8);
+  -webkit-box-shadow: 0 1px 3px rgba(34,25,25,.8);
+}
+#photos .item .time {
+  background-color: #F3F3F3;
+  margin: -10px -10px 10px -10px;
+  padding: 10px 10px 10px 10px;
 }
 
-#pictures .item h2 {
+#photos .item .description {
+  padding: 0px 0px 10px 0px;
+}
+
+
+#photos .item h2 {
   font-size: 14px;
   font-weight: 200;
 }
 
-#pictures .item img{
+#photos .item img{
   display: block;
   width: 100%;
   padding-bottom: 8px;

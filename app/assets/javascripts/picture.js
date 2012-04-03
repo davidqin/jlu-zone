@@ -1,5 +1,5 @@
 window.onload = function(){
-  var $container = $('#pictures');  
+  var $container = $('#photos');  
   $container.imagesLoaded( function(){
     $container.masonry({
       itemSelector    : '.item',
