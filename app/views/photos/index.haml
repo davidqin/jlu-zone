@@ -1,4 +1,6 @@
 .box
+  %h3
+    记录你我身边的吉大
   #photos
     - @photos.each do |photo|
       .item
@@ -14,4 +16,4 @@
         .description
           = photo.description
         - photo.photo_line_items.each do |item|
-          = link_to tag(:img, :src => item.img_url), item.img_url
+          = link_to tag(:img, :src => item.img_url), photo

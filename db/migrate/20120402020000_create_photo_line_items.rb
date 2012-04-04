@@ -3,6 +3,7 @@ class CreatePhotoLineItems < ActiveRecord::Migration
     create_table :photo_line_items, :force => true do |t|
       t.string  :img_url,  :null => false
       t.integer :photo_id, :null => false
+      t.boolean :upload,   :null => false, :default => false
       t.timestamps
     end
     add_index :photo_line_items, [:photo_id]

@@ -5,8 +5,12 @@
     <%= f.text_field :description %>
   </div>
 
-  <%= f.fields_for :photo_line_items do |comment_form| %>
-    <%= comment_form.text_field :img_url  %>
+  <%= f.fields_for :photo_line_items do |photo_line_item| %>
+    <%#= comment_form.text_field :img_url  %>
+    <%= image_tag(photo_line_item.object.img_url) if photo_line_item.object.img_url %>
+    <%= photo_line_item.text_field :img_url %>
+    <%= photo_line_item.file_field :img_url %>
+
   <% end %>
 
   <div class="actions">

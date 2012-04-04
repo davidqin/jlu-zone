@@ -17,7 +17,7 @@ gem 'acts_as_tree'
 
 gem 'bootstrap_helper', :git => "git://github.com/xdite/bootstrap-helper.git"
 
-gem 'acts-as-taggable-on', '~> 2.2.2'
+gem 'carrierwave'
 
 #markdown
 gem "redcarpet", "~> 2.0.0"
