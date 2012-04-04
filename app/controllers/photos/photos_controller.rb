@@ -30,7 +30,7 @@ class Photos::PhotosController < ApplicationController
     render "photos/edit"
   end
 
-  def create
+  def create    
     @photo = current_user.photos.new(model_params)
     if @photo.save
       redirect_to_as_create_success photos_path
