@@ -1,0 +1,4 @@
+= render_list :class => "nav nav-tabs" do |li|
+  - li << link_to(t("user.menu_profile"), user_path(@user))
+  - li << link_to(t("user.menu_topics"), topics_user_path(@user))
+  - li << link_to(t("user.menu_follows"), follows_user_path(@user))

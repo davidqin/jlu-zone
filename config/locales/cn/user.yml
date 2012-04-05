@@ -8,7 +8,14 @@ zh-CN:
     unkownpalce: 未知区域
     user_number: "第 %{id} 位会员"
     user_name: "昵称:"
+    user_campus: "所在校区:"
+    user_join_time: "加入时间:"
+    user_idiograph: "签名:"
 
     menu: 会员
     active_users_info: 活跃用户
     new_users_info: 最新加入的用户
+
+    menu_profile: Profile
+    menu_topics: 帖子
+    menu_follows: 收藏

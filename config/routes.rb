@@ -12,7 +12,14 @@ Wiki::Application.routes.draw do
 
   get "/users/menu" => "users/users#menu", :as => :users
 
-  resources :users,  :only => [:show, :index],            :controller => 'users/users'
+  resources :users,  :only => [:show, :index],            :controller => 'users/users' do
+    member do
+      get :topics
+      get :follows
+    end
+  end
+  
+  get "campus/:campus" => 'users/users#location', :as => :location_users
   get "/users/:id/notices" => 'users/user_notices#index',         :as => :user_notices
   put "/users/:id/notices" => 'users/user_notices#mark_all_read', :as => :mark_all_notices_read
 

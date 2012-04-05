@@ -1,6 +1,23 @@
-%ul
-  %li
-    = itext("user.user_number", :id => @user.id)
-  %li
-    = itext("user.user_name")
-    = @user.nickname
+.userinfo
+  .pull-right
+    = show_user_portrait(@user, :size => 120, :popdetail => true)
+  = render_user_level_tag(@user)
+  %ul
+    %li
+      %span
+      = itext("user.user_number", :id => @user.id)
+    %li
+      %span= itext("user.user_name")
+      %strong= @user.nickname
+    %li
+      %span= itext("user.user_campus")
+      = link_to @user.campus, location_users_path(@user.campus)
+    %li
+      %span= itext("user.user_join_time")
+      = I18n.l(@user.created_at.to_date, :format => :long)
+    %li
+      %span= itext("user.user_idiograph")
+      - if @user.idiograph
+        = @user.idiograph
+      - else
+        = itext("user.lazy")

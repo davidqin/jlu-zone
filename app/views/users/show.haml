@@ -1,6 +1,3 @@
 .box
-  .userinfo
-    .pull-right
-      = show_user_portrait(@user, :size => 120, :popdetail => true)
-    = render_user_level_tag(@user)
-    = render :partial => "users/info", :locals => {:user => @user}
+  = render "users/menu"
+  = render :partial => "users/info", :locals => {:user => @user}

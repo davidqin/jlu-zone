@@ -1,13 +1,13 @@
 #user_menu .info {
-  padding: 0 10px 10px 10px;
-  border-bottom: 1px solid #DDD;
-  margin: 0 -10px;
-  margin-bottom: 20px;
+	padding: 0 10px 10px 10px;
+	border-bottom: 1px solid #DDD;
+	margin: 0 -10px;
+	margin-bottom: 20px;
 }
 .popup_tab_portrait {
-  width: 64px;
-  height: 64px;
-  padding: 5% 0 0 5%;
+	width: 64px;
+	height: 64px;
+	padding: 5% 0 0 5%;
 }
 
 .users-list{line-height:18px;text-align:left;overflow:hidden;_zoom:1}
@@ -22,3 +22,27 @@
 .users-list a:hover img{opacity:.6;margin-left:0}
 .users-list a:hover em{color:#EE8B17;font:bold 12px/36px microsoft yahei}
 .users-list a:hover strong{color:#EE8B17;right:150px;top:0;text-align:center;border-right:#ccc 1px solid;height:44px;line-height:40px}
+
+.userinfo span.role{
+	font-weight: normal;
+}
+
+.userinfo ul{
+	list-style: none;
+}
+
+.userinfo ul li{
+	font-size: 14px;
+	line-height: 180%;
+	border-bottom: 1px dashed #EEE;
+	color: gray;
+}
+
+.userinfo ul li span{
+	color: #999;
+	font-size: 12px;
+	margin-right: 8px;
+	display: inline-block;
+	width: 100px;
+	text-align: right;
+}
