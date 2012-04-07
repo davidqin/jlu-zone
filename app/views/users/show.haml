@@ -2,4 +2,4 @@
   = render "users/menu"
   = render :partial => "users/info", :locals => {:user => @user}
 = render :partial => "users/reputation", :locals => {:user => @user}
-= render :partial => "users/recent_replies", :locals => {:user => @user}
+= render :partial => "users/recent_replies", :locals => {:replies => @replies}

@@ -11,7 +11,10 @@
       %strong= @user.nickname
     %li
       %span= itext("user.user_campus")
-      = link_to @user.campus, location_users_path(@user.campus)
+      - if @user.campus
+        = link_to @user.campus, location_users_path(@user.campus)
+      - else
+        = link_to itext("user.unkownpalce"), location_users_path(itext("user.unkownpalce"))
     %li
       %span= itext("user.user_join_time")
       = I18n.l(@user.created_at.to_date, :format => :long)

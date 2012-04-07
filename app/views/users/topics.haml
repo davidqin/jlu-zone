@@ -1,3 +1,16 @@
 .box
   = render "users/menu"
-  %h1="TOPICS TEST"
+  %h1.title
+    = itext("topic.recent_publish")
+  %table.table.table-striped
+    %tr.head
+      %td.reply_count=t("reply.reply_count")
+      %td.title=t("topic.title")
+      %td.reply_at=t("topic.publish_at")
+    - @topics.each do |topic|
+      - next if topic.blank?
+      %tr
+        %td.reply_count= topic.replies.count
+        %td.title= link_to(topic.name, topic_path(topic))
+        %td.reply_at= time_ago(topic.created_at)
+  = will_paginate(@topics)

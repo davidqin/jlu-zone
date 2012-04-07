@@ -1,2 +1,14 @@
 .box
-  = "RECENT REPLIES"
+  %h2.title
+    = itext("user.recent_replies")
+  %table.table.table-striped
+    %tr.head
+      %td.reply_count=t("reply.reply_count")
+      %td.title=t("topic.title")
+      %td.reply_at=t("reply.replied_at")
+    - replies.each do |reply|
+      - next if reply.resource.blank?
+      %tr
+        %td.reply_count= reply.resource.replies.count
+        %td.title= link_to(reply.resource.name, topic_path(reply.resource))
+        %td.reply_at= time_ago(reply.created_at)

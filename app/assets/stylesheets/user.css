@@ -46,3 +46,11 @@
 	width: 100px;
 	text-align: right;
 }
+
+.reply_count{
+	width:50px;
+}
+
+.reply_at{
+	width:100px;
+}

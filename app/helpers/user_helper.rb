@@ -19,13 +19,14 @@ module UserHelper
   end
 
   def render_user_reputation_bar
-    next_level_exp = 10000
-    percent = @user.reputation * 100 / next_level_exp
-    content_tag :div, :class => "progress progress-striped active" do
-      content_tag :div, :class => :bar, :style => "width: #{percent}%" do
-        "#{@user.reputation} / #{next_level_exp}"
-      end
-    end  
+    next_level_exp = 5000
+    # percent = @user.reputation * 100 / next_level_exp
+    # content_tag :div, :class => "progress progress-striped active exp" do
+    #   content_tag :div, :class => :bar, :style => "width: #{percent}%" do
+    #     "#{percent}%"
+    #   end
+    # end
+    "#{@user.reputation} / #{next_level_exp}"
   end
 
   def user_link(user, options = {})

@@ -11,3 +11,6 @@ zh-CN:
     drop_breadcrumb_new: 创建话题
     drop_breadcrumb_view: "浏览 %{topic} 话题"
     drop_breadcrumb_edit: "修改 %{topic} 话题"
+    title: 标题
+    recent_publish: 最近发布的帖子
+    publish_at: 发表于

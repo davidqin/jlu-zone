@@ -53,6 +53,16 @@ code{
   padding-bottom: 8px;
 }
 
+.box h1.title{
+  font-size: 15px;
+  padding: 0 10px;
+  margin-bottom: 8px;
+  color: #999;
+  line-height: 100%;
+  border-bottom: 1px solid #DDD;
+  padding-bottom: 8px;
+}
+
 .no-padding{
   padding: 0;
 }
