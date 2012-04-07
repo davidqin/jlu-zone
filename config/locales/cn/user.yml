@@ -11,6 +11,10 @@ zh-CN:
     user_campus: "所在校区:"
     user_join_time: "加入时间:"
     user_idiograph: "签名:"
+    user_reputation: "声望信息"
+    user_honor: "头衔:"
+    user_exp: "经验值:"
+    user_level_up: "距离下次升级还差 %{diff}"
 
     menu: 会员
     active_users_info: 活跃用户

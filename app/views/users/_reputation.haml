@@ -1,0 +1,11 @@
+.box.reputation_info
+  %h2.title
+    = itext("user.user_reputation")
+  %ul
+    %li
+      %span=itext("user.user_honor")
+      %strong= render_user_honor
+    %li
+      %span=itext("user.user_exp")
+      = render_user_reputation_bar
+      %stong=itext("user.user_level_up", :diff => "#{10000-@user.reputation}")

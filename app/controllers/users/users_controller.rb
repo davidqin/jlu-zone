@@ -19,14 +19,13 @@ class Users::UsersController < ApplicationController
 
   def topics
     @user = User.find_by_number(params[:id])
-    @topics = @user.topics.paginate(:page => params[:page], :per_page => 30)
+    @topics = @user.topics.all.paginate(:page => params[:page], :per_page => 30)
     render "/users/topics"
   end
 
   def follows
     @user = User.find_by_number(params[:id])
-    binding.pry
-    @follows = @user.followed_resources.topics.paginate(:page => params[:page], :per_page => 30)
+    @follows = @user.followed_topics.all.paginate(:page => params[:page], :per_page => 30)
     render "/users/follows"
   end
 

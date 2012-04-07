@@ -27,18 +27,18 @@
 	font-weight: normal;
 }
 
-.userinfo ul{
+.reputation_info ul, .userinfo ul{
 	list-style: none;
 }
 
-.userinfo ul li{
+.reputation_info ul li, .userinfo ul li{
 	font-size: 14px;
 	line-height: 180%;
 	border-bottom: 1px dashed #EEE;
 	color: gray;
 }
 
-.userinfo ul li span{
+.reputation_info ul li span, .userinfo ul li span{
 	color: #999;
 	font-size: 12px;
 	margin-right: 8px;
