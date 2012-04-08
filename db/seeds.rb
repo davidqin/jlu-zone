@@ -84,31 +84,31 @@ Tag.create(name: 'PS3',           number: "PS3", tag_category: category_entertai
 Tag.create(name: '综合',           number: "综合", tag_category: category_manage)
 Tag.create(name: '功能特性',       number: "功能特性", tag_category: category_manage)
 
-## Generate photos
-def create_photo(creater,*urls)
+## Generate albums
+def create_album(creater,*urls)
   url_hash = {}
   urls.each do |url|
     index = urls.index(url)
     url_hash[index.to_s] = {:img_url => url}
   end
-  Photo.create(
+  Album.create(
   :description => "这仅仅就是个照片，看什么看，再看就把你吃掉", 
   :user => creater,
-  :photo_line_items_attributes => url_hash
+  :photos_attributes => url_hash
   )  
 end
-create_photo(david,"http://ww3.sinaimg.cn/mw205/a01660e0jw1drd404g3gcj.jpg")
+create_album(david,"http://ww3.sinaimg.cn/mw205/a01660e0jw1drd404g3gcj.jpg")
 
-create_photo(david, "http://img.spriteapp.com/si/59/72/87acae83jw1drljvn12n6j_2.jpg")
-create_photo(david, "http://img.spriteapp.com/si/1e/e9/87bee8eejw1drm59rtxsxj_2.jpg", 
+create_album(david, "http://img.spriteapp.com/si/59/72/87acae83jw1drljvn12n6j_2.jpg")
+create_album(david, "http://img.spriteapp.com/si/1e/e9/87bee8eejw1drm59rtxsxj_2.jpg", 
                     "http://ww3.sinaimg.cn/mw205/a01660e0jw1drd404g3gcj.jpg", 
                     "http://img.spriteapp.com/si/0a/7e/63943f51gw1drl908s0zmj_2.jpg")
-create_photo(david, "http://www.865q.cn/qqfzl/UploadPic/2009-8/2009831134032200.jpg")
-create_photo(david, "http://img.spriteapp.com/si/3f/b6/9770ce78jw1drlmc0rlxyj.jpg")
-create_photo(david, "http://ww3.sinaimg.cn/mw205/a01660e0jw1drd404g3gcj.jpg")
-create_photo(david, "http://img.spriteapp.com/si/f8/35/87acae83jw1drlm1njspcg.gif")
-create_photo(david, "http://img.spriteapp.com/si/dd/a6/633f6f25jw1drlkvt0thij.jpg")
-create_photo(david, "http://img.spriteapp.com/si/04/49/63943f51jw1drlk3wmrqqj_2.jpg")
-create_photo(david, "http://img.spriteapp.com/si/48/76/92c9aa30jw1drlf6ezbbdj.jpg")
-create_photo(david, "http://img.spriteapp.com/si/0a/7e/63943f51gw1drl908s0zmj_2.jpg")
-create_photo(david, "http://img.spriteapp.com/si/22/54/9770ce78jw1drliv6gimsj.jpg")
+create_album(david, "http://www.865q.cn/qqfzl/UploadPic/2009-8/2009831134032200.jpg")
+create_album(david, "http://img.spriteapp.com/si/3f/b6/9770ce78jw1drlmc0rlxyj.jpg")
+create_album(david, "http://ww3.sinaimg.cn/mw205/a01660e0jw1drd404g3gcj.jpg")
+create_album(david, "http://img.spriteapp.com/si/f8/35/87acae83jw1drlm1njspcg.gif")
+create_album(david, "http://img.spriteapp.com/si/dd/a6/633f6f25jw1drlkvt0thij.jpg")
+create_album(david, "http://img.spriteapp.com/si/04/49/63943f51jw1drlk3wmrqqj_2.jpg")
+create_album(david, "http://img.spriteapp.com/si/48/76/92c9aa30jw1drlf6ezbbdj.jpg")
+create_album(david, "http://img.spriteapp.com/si/0a/7e/63943f51gw1drl908s0zmj_2.jpg")
+create_album(david, "http://img.spriteapp.com/si/22/54/9770ce78jw1drliv6gimsj.jpg")

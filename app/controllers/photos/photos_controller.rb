@@ -6,33 +6,33 @@ class Photos::PhotosController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @photos = Photo.order("created_at desc").all
+    @albums = Album.order("created_at desc").all
     drop_breadcrumb(itext("navigation.photos"), photos_path)
     do_not_use_sidebar
     render "photos/index"
   end
 
   def new
-    @photo = current_user.photos.new
+    @album = current_user.albums.new
     5.times do 
-      @photo.photo_line_items.build
+      @album.photos.build
     end
     render "photos/new"
   end
 
   def show
-    @photo = Photo.find(params[:id])
+    @album = Album.find(params[:id])
     render "photos/show"
   end
 
   def edit
-    @photo = current_user.photos.find(params[:id])
+    @album = current_user.albums.find(params[:id])
     render "photos/edit"
   end
 
   def create    
-    @photo = current_user.photos.new(model_params)
-    if @photo.save
+    @album = current_user.albums.new(model_params)
+    if @album.save
       redirect_to_as_create_success photos_path
     else
       render_as_create_fail :new
@@ -40,8 +40,8 @@ class Photos::PhotosController < ApplicationController
   end
 
   def update
-    @photo = current_user.photos.find(params[:id])
-    if @photo.update_attributes(model_params)
+    @album = current_user.albums.find(params[:id])
+    if @album.update_attributes(model_params)
       redirect_to_as_update_success photos_path
     else
       render_as_update_fail :edit
@@ -49,7 +49,7 @@ class Photos::PhotosController < ApplicationController
   end
 
   def destroy
-    Photo.find(params[:id]).destroy
+    Album.find(params[:id]).destroy
     redirect_to_as_destroy_success "/photos"
   end
 end

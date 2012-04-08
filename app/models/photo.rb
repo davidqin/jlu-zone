@@ -1,6 +1,12 @@
 class Photo < ActiveRecord::Base
-  belongs_to :user
-  has_many :photo_line_items, :dependent => :destroy
-  has_many   :followed_resources, :as => :resource
-  accepts_nested_attributes_for :photo_line_items, :allow_destroy => true,:reject_if => :all_blank
+  mount_uploader :img_url, AvatarUploader
+  belongs_to :album
+
+  def img_url=(arg)
+    if arg.is_a? String
+      self.send :remote_img_url_url=, arg
+    else
+      super(arg)
+    end
+  end
 end

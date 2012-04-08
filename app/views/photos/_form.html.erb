@@ -1,15 +1,15 @@
-<%= form_for(@photo) do |f| %>
+<%= form_for@album, :url => "photos/" do |f| %>
 
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </div>
 
-  <%= f.fields_for :photo_line_items do |photo_line_item| %>
+  <%= f.fields_for :photos do |photo| %>
     
     <% if params[:action] != "edit" %>
-    <%= photo_line_item.text_field :img_url %>
-    <%= photo_line_item.file_field :img_url %>
+    <%= photo.text_field :img_url %>
+    <%= photo.file_field :img_url %>
     <% end %>
 
   <% end %>

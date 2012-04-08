@@ -2,18 +2,18 @@
   %h3
     记录你我身边的吉大
   #photos
-    - @photos.each do |photo|
+    - @albums.each do |album|
       .item
         .time
-          = link_to '@' + photo.user.nickname, photo.user
-          = time_ago photo.created_at
+          = link_to '@' + album.user.nickname, album.user
+          = time_ago album.created_at
           发布
           %span.pull-right
-            - if photo.user == current_user
-            = link_to "编辑", edit_photo_path(photo)
+            - if album.user == current_user
+            = link_to "编辑", edit_photo_path(album)
             - else
-              = show_follow_button(photo)
+              = show_follow_button(album)
         .description
-          = photo.description
-        - photo.photo_line_items.each do |item|
-          = link_to tag(:img, :src => item.img_url), photo
+          = album.description
+        - album.photos.each do |item|
+          = link_to tag(:img, :src => item.img_url), photo_path(album)
