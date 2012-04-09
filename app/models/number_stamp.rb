@@ -1,17 +1,3 @@
-PREFIX_USER  = 'user'
-PREFIX_TOPIC = 'topic'
-PREFIX_ENTRY = 'entry'
-PREFIX_TAG   = 'tag'
-PREFIX_REPLY = 'reply'
-
-NUMBER_STAMP_CONFIG = {
-PREFIX_USER  => User,
-PREFIX_TAG   => Tag,
-PREFIX_ENTRY => Entry,
-PREFIX_REPLY => Reply,
-PREFIX_TOPIC => Topic
-}
-
 class NumberStamp < ActiveRecord::Observer
  
   class << self
@@ -39,8 +25,21 @@ class NumberStamp < ActiveRecord::Observer
       self.number_prefix_list[number_prefix] = model_class
     end
 
-    def setup_number_stamp_config(config)
-      config.each do |number_prefix, settings|
+    def setup_number_stamp_config
+      prefix_user  = 'user'
+      prefix_topic = 'topic'
+      prefix_entry = 'entry'
+      prefix_tag   = 'tag'
+      prefix_reply = 'reply'
+
+      number_stamp_config = {
+        prefix_user  => User,
+        prefix_tag   => Tag,
+        prefix_entry => Entry,
+        prefix_reply => Reply,
+        prefix_topic => Topic
+      }
+      number_stamp_config.each do |number_prefix, settings|
         case settings
         when Class
           model_class = settings
@@ -61,7 +60,7 @@ class NumberStamp < ActiveRecord::Observer
 
   end
 
-  setup_number_stamp_config NUMBER_STAMP_CONFIG
+  setup_number_stamp_config
 
   def before_create(model)
     set_model_number_with_new_number model

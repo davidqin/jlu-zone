@@ -6,7 +6,7 @@ module  Wiki::Models::Scores::AfterCreate
   def change_user_score
     return if score_reach_the_standard_grade?
     user = self.fonder
-    user.score += self.create_score
+    user.score += self.class.create_score
 
     self.fonder.send(time_method_name + "=", self.created_at)
     count = self.fonder.send(count_method_name)
@@ -20,7 +20,7 @@ module  Wiki::Models::Scores::AfterCreate
       return false
     end
 
-    if self.fonder.send(time_method_name).today? and self.fonder.send(count_method_name) < self.score_times
+    if self.fonder.send(time_method_name).today? and self.fonder.send(count_method_name) < self.class.score_times
       return false
     end
 

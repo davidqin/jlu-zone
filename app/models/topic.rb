@@ -69,11 +69,11 @@ class Topic < ActiveRecord::Base
     return history.followed
   end
 
-  def create_score
+  def self.create_score
     10
   end
 
-  def score_times
+  def self.score_times
     5
   end
 

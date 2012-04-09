@@ -20,6 +20,16 @@ class Entry < ActiveRecord::Base
     return entry
   end
 
+  def self.list_all(user, page)
+    if user and user.level == 3
+      conditions = {}
+    else
+      conditions = {:check => true}
+    end
+
+    find(:all, :conditions => conditions).paginate(:page => page, :per_page => 10)
+  end
+
   def update_entry(params, user)
     self.last_editor = user
     self.update_attributes(params)

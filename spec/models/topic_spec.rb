@@ -35,7 +35,7 @@ describe Topic do
         FactoryGirl.create(:topic, :fonder => user)
       end
       user.reload
-      user.score.should == score_before + topic.create_score * 5
+      user.score.should == score_before + Topic.create_score * 5
     end
   end
 end 

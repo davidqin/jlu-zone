@@ -14,11 +14,11 @@ class Reply < ActiveRecord::Base
   validates_presence_of :content, :message => "can't be empty"
 
 
-  def create_score
+  def self.create_score
     5
   end
 
-  def score_times
+  def self.score_times
     10
   end
 
