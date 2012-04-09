@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :nickname, :level, :number
 
+  #before_save :full_info_score
+
   has_many :entries, :foreign_key => 'fonder_id'
   has_many :albums
   has_many :topics,  :foreign_key => 'fonder_id'
@@ -19,5 +21,25 @@ class User < ActiveRecord::Base
 
   def to_param
     self.number.to_s
+  end
+
+  def self.full_info_score
+    50
+  end
+  
+  def full_info_score
+    binding.pry
+    if self.full_info == false and self.full_info?
+      self.score += User.full_info_score
+      self.full_info = true
+    end
+  end
+
+  def full_info?
+    attribute_array = %w(nickname email level number)
+    attribute_array.each do |attribute|
+      return false if self.send(attribute).blank?
+    end
+    return true
   end
 end

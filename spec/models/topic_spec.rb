@@ -26,4 +26,16 @@ describe Topic do
       new_topic.save.should == false
     end
   end
+
+  describe "add_user_score" do
+    it "should only add 5 times score when create more than 5 topics" do
+      user = FactoryGirl.create(:user)
+      score_before = user.score
+      10.times do
+        FactoryGirl.create(:topic, :fonder => user)
+      end
+      user.reload
+      user.score.should == score_before + topic.create_score * 5
+    end
+  end
 end 

@@ -1,4 +1,4 @@
-module  Wiki::Models::Scores::Core
+module  Wiki::Models::Scores::AfterCreate
   def self.included(base)
     base.after_create :change_user_score
   end
@@ -15,16 +15,17 @@ module  Wiki::Models::Scores::Core
     user.save
   end
 
-  def give_user_base_info_score
-    self.score += 1000
-  end
-
   def score_reach_the_standard_grade?
     if !self.fonder.send(time_method_name)
       return false
     end
 
     if self.fonder.send(time_method_name).today? and self.fonder.send(count_method_name) < self.score_times
+      return false
+    end
+
+    if not self.fonder.send(time_method_name).today?
+      self.fonder.send(count_method_name + "=", 0)
       return false
     end
 
@@ -38,5 +39,4 @@ module  Wiki::Models::Scores::Core
   def count_method_name
     "today_#{self.model_type.to_s}_count"
   end
-
 end
