@@ -9,23 +9,38 @@ class Ability
       can :read, Topic
       can :read, User
     else
-      case user.level
-      when 0,1,2
-        can :read,   [Entry, EntryCategory, User, Version, Topic]
-
-        can :create, [Entry, Version, Reply, Topic]
-
-        can :update,  Entry
-
-        can :update,  Reply do |reply|
-          reply.user_id == user.id
-        end
-
-        can :update,  Topic do |topic|
-          topic.fonder_id == user.id
-        end
-      when 3
+      if user.admin_permission
         can :manage, :all
+      end
+
+      can :read,    Entry do |entry|
+        entry.check == true
+      end
+
+      can :read,   [EntryCategory, User, Version, Topic]
+
+      can :create, [Entry, Version, Reply, Topic]
+
+      can :update,  Entry
+
+      can :update,  Reply do |reply|
+        reply.user_id == user.id
+      end
+
+      can :update,  Topic do |topic|
+        topic.fonder_id == user.id
+      end
+
+      if user.community_permission
+
+      end
+
+      if user.wiki_permission
+
+      end
+
+      if user.photo_permission
+
       end
     end
   end

@@ -125,7 +125,7 @@ describe Community::TopicsController do
     end
 
     it "should destroy entry if it is admin" do
-      admin = FactoryGirl.create(:user, :level => 3)
+      admin = FactoryGirl.create(:user, :admin_permission => true)
       sign_in admin
       delete :destroy, :id => topic.id
       response.should redirect_to("/community")

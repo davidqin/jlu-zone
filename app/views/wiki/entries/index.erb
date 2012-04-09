@@ -2,6 +2,7 @@
   <h3><%= itext("entry.index", :category => current_category.name)%></h3>
   <ul>
     <% @entries.each do |entry|%>
+    <% next if !can? :read, entry%>
       <li>
       <%= link_to entry.name, entry_path(entry)%>
       <%if entry.check == false%>

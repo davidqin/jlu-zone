@@ -37,5 +37,18 @@ describe Entry do
       entry.versions.last.reify.content.should == old_content
     end
   end
+
+  describe "add_user_score" do
+    it "add one entry add one time score" do
+      user = FactoryGirl.create(:user)
+      score_before = user.score
+      times = rand(10) + 1
+      times.times do
+        FactoryGirl.create(:entry, :fonder => user, :category_number => category.number)
+      end
+      user.reload
+      user.score.should == score_before + Entry.create_score * times
+    end
+  end
 end
  

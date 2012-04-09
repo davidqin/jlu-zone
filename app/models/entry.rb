@@ -1,5 +1,6 @@
 class Entry < ActiveRecord::Base
   include Wiki::Models::IdNumberExchange::EntryCategoryNumberIdExchange
+  include Wiki::Models::Scores::NoLimitPerDay
 
   has_paper_trail :skip => [:replies_num]
   
@@ -20,14 +21,8 @@ class Entry < ActiveRecord::Base
     return entry
   end
 
-  def self.list_all(user, page)
-    if user and user.level == 3
-      conditions = {}
-    else
-      conditions = {:check => true}
-    end
-
-    find(:all, :conditions => conditions).paginate(:page => page, :per_page => 10)
+  def self.create_score
+    10
   end
 
   def update_entry(params, user)

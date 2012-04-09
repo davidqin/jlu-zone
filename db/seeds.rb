@@ -4,35 +4,32 @@
 david = User.create( 
   nickname: 'david',
   password: '123456',
-  level: 3,
+  admin_permission: true,
   password_confirmation: '123456',
   email: 'davidqhr@gmail.com')
 
 acool = User.create( 
   nickname: 'Acool',
   password: '123456',
-  level: 3,
+  admin_permission: true,
   password_confirmation: '123456',
   email: 'dujiakun@gmail.com')
 
 frank = User.create( 
   nickname: 'frank',
   password: '123456',
-  level: 2,
   password_confirmation: '123456',
   email: 'frank@gmail.com')
 
 kevin = User.create( 
   nickname: 'kevin',
   password: '123456',
-  level: 1,
   password_confirmation: '123456',
   email: 'kevin@gmail.com')
 
 nevermore = User.create( 
   nickname: 'nevermore',
   password: '123456',
-  level: 0,
   password_confirmation: '123456',
   email: 'nevermore@gmail.com')
 

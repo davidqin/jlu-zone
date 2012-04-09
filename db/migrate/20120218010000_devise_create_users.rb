@@ -38,7 +38,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.string :authentication_token
       t.integer :score,           :default => 1000
       t.integer :gender,               :default => 0
-      t.integer :level,                :default => 0
       t.string  :nickname
       t.string  :campus
       t.string  :department
@@ -53,6 +52,11 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.datetime :today_last_topic_time
       t.integer  :today_reply_count, :null => false, :default => 0
       t.datetime :today_last_reply_time
+
+      t.boolean   :admin_permission,     :null => false, :default => false
+      t.boolean   :wiki_permission,      :null => false, :default => false
+      t.boolean   :community_permission, :null => false, :default => false
+      t.boolean   :photo_permission,     :null => false, :default => false
 
 
       t.timestamps

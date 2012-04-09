@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :nickname, :level, :number
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :nickname, :level, :number, :admin_permission
 
   #before_save :full_info_score
 
@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   end
 
   def full_info?
-    attribute_array = %w(nickname email level number)
+    attribute_array = %w(nickname email number)
     attribute_array.each do |attribute|
       return false if self.send(attribute).blank?
     end

@@ -68,7 +68,7 @@ module UserHelper
   end
 
   def render_user_level_tag(user)
-    if(user.level == 3)
+    if(user.admin_permission)
       content_tag(:span, itext("admin_user"), :class => "label label-warning role")
     end
   end

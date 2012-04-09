@@ -1,5 +1,5 @@
 class Topic < ActiveRecord::Base
-  include Wiki::Models::Scores::AfterCreate
+  include Wiki::Models::Scores::LimitPerDay
   belongs_to :fonder,               :class_name => "User"
   has_many   :replies,              :as => :resource
   has_many   :user_reply_notices,   :as => :notice_resource, :class_name => "UserNotice"

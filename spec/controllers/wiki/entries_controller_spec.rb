@@ -128,7 +128,7 @@ describe Wiki::EntriesController do
     end
     
     it "should destroy entry if it is admin" do
-      admin = FactoryGirl.create(:user, :level => 3)
+      admin = FactoryGirl.create(:user, :admin_permission => true)
       sign_in admin
       category = entry.category.number
       delete :destroy, :id => entry.id

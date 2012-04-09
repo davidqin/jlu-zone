@@ -1,5 +1,5 @@
 class Reply < ActiveRecord::Base
-  include Wiki::Models::Scores::AfterCreate
+  include Wiki::Models::Scores::LimitPerDay
   has_many   :notices_to_users, :as => :notice_resource, :class_name => "UserNotice"
   belongs_to :resource,     :polymorphic => true
   belongs_to :fonder,      :class_name  => "User", :foreign_key => "user_id"

@@ -13,13 +13,13 @@ class Wiki::EntriesController < ApplicationController
   helper_method :current_category
 
   def index
-    @entries = current_category.entries.list_all(current_user, params[:page])
+    @entries = current_category.entries.all.paginate(:page => params[:page], :per_page => 10)
     drop_breadcrumb(itext("navigation.wiki"), wiki_path)
     drop_breadcrumb(current_category.name)
   end
 
   def show
-    @entry = Entry.find(params[:id], :conditions => {:check => true})
+    @entry = Entry.find(params[:id])
     do_not_use_sidebar
     drop_breadcrumb(itext("navigation.wiki"), wiki_path)
     drop_breadcrumb(@entry.category.name,category_entries_path(@entry.category))
@@ -27,7 +27,7 @@ class Wiki::EntriesController < ApplicationController
   end
 
   def edit
-    @entry = Entry.find(params[:id], :conditions => {:check => true})
+    @entry = Entry.find(params[:id])
     do_not_use_sidebar
     drop_breadcrumb(itext("navigation.wiki"), wiki_path)
     drop_breadcrumb(@entry.category.name,category_entries_path(@entry.category))
@@ -51,7 +51,7 @@ class Wiki::EntriesController < ApplicationController
   end
   
   def update
-    @entry = Entry.find(params[:id], :conditions => {:check => true})
+    @entry = Entry.find(params[:id])
     if @entry.update_entry(model_params, current_user)
       redirect_to_as_update_success [current_category, @entry]
     else
