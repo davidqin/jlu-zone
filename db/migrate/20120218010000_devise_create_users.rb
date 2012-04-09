@@ -36,7 +36,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       ## Token authenticatable
       # t.string :authentication_token
-      t.integer :reputation,           :default => 1000
+      t.integer :score,           :default => 1000
       t.integer :gender,               :default => 0
       t.integer :level,                :default => 0
       t.string  :nickname
@@ -47,6 +47,12 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string  :renren
       t.string  :qq
       t.string  :idiograph
+
+      t.boolean  :full_info,         :null => false, :default => false
+      t.integer  :today_topic_count, :null => false, :default => 0
+      t.datetime :today_last_topic_time
+      t.integer  :today_reply_count, :null => false, :default => 0
+      t.datetime :today_last_reply_time
 
 
       t.timestamps

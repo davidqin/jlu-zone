@@ -1,5 +1,5 @@
 .box
   = render "users/menu"
   = render :partial => "users/info", :locals => {:user => @user}
-= render :partial => "users/reputation", :locals => {:user => @user}
+= render :partial => "users/score", :locals => {:user => @user}
 = render :partial => "users/recent_replies", :locals => {:replies => @replies}

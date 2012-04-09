@@ -1,4 +1,5 @@
 class Topic < ActiveRecord::Base
+  include Wiki::Models::Scores::Core
   belongs_to :fonder,               :class_name => "User"
   has_many   :replies,              :as => :resource
   has_many   :user_reply_notices,   :as => :notice_resource, :class_name => "UserNotice"
@@ -26,7 +27,7 @@ class Topic < ActiveRecord::Base
   end
 
   def last_replier
-    last_reply.replier
+    last_reply.fonder
   end
 
   def change_read_history(user)
@@ -66,6 +67,14 @@ class Topic < ActiveRecord::Base
     history = self.topic_read_histories.find_by_user_id(user.id)
     return false unless history
     return history.followed
+  end
+
+  def create_score
+    10
+  end
+
+  def score_times
+    5
   end
 
   private

@@ -27,18 +27,18 @@
 	font-weight: normal;
 }
 
-.reputation_info ul, .userinfo ul{
+.score_info ul, .userinfo ul{
 	list-style: none;
 }
 
-.reputation_info ul li, .userinfo ul li{
+.score_info ul li, .userinfo ul li{
 	font-size: 14px;
 	line-height: 180%;
 	border-bottom: 1px dashed #EEE;
 	color: gray;
 }
 
-.reputation_info ul li span, .userinfo ul li span{
+.score_info ul li span, .userinfo ul li span{
 	color: #999;
 	font-size: 12px;
 	margin-right: 8px;

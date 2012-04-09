@@ -59,6 +59,6 @@ module NoticeHelper
   end
 
   def notice_from_user(notice)
-    content_tag(:span, from_user(notice), :class => :from_name)
+    content_tag(:span, user_link(notice.from_user), :class => :from_name)
   end
 end

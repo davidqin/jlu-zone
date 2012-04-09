@@ -4,13 +4,13 @@
   .reply_infos
     .reply_info
       %span.name
-        = link_to reply.replier.nickname, user_path(reply.replier)
+        = link_to reply.fonder.nickname, user_path(reply.fonder)
       %span.time
         = time_ago reply.created_at
         = itext("reply.floor", :floor => reply.floor_num)
         - if can? :update, reply
           = link_to itext("edit"), edit_reply_path(reply)
-        = link_to "#new_reply", :class => "at", "data-user-name" => reply.replier.nickname, "data-reply-floor" => reply.floor_num do
+        = link_to "#new_reply", :class => "at", "data-user-name" => reply.fonder.nickname, "data-reply-floor" => reply.floor_num do
           %i.icon-pencil
     .reply_body
       = markdown(reply.content)

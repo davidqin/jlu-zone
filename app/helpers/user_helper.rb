@@ -18,15 +18,15 @@ module UserHelper
     "Xinshou"
   end
 
-  def render_user_reputation_bar
+  def render_user_score_bar
     next_level_exp = 5000
-    # percent = @user.reputation * 100 / next_level_exp
+    # percent = @user.score * 100 / next_level_exp
     # content_tag :div, :class => "progress progress-striped active exp" do
     #   content_tag :div, :class => :bar, :style => "width: #{percent}%" do
     #     "#{percent}%"
     #   end
     # end
-    "#{@user.reputation} / #{next_level_exp}"
+    "#{@user.score} / #{next_level_exp}"
   end
 
   def user_link(user, options = {})
