@@ -13,7 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require_tree .
+//= require accounttab
+//= require colorbox
+//= require dialog
+//= require entry
+//= require hotkeys
+//= require masonry
+//= require tagEditor
+//= require pagescroller
+//= require picture
+//= require reply
+//= require reply
 Application = {
   initBackToTopButton: function(){
     //首先将#back-to-top隐藏
@@ -47,7 +57,7 @@ Application = {
   }
 }
 
-$(function(){
+$(function(){  
   Application.initBackToTopButton();
   Application.initHelpModal();
 });

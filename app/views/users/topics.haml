@@ -1,8 +1,8 @@
 .box
-  = render "users/menu"
   %h1.title
     = itext("topic.recent_publish")
-  %table.table.table-striped
+  = render "users/menu"
+  %table.table.table-striped.recent_topics
     %tr.head
       %td.reply_count=t("reply.reply_count")
       %td.title=t("topic.title")

@@ -23,6 +23,10 @@
 .users-list a:hover em{color:#EE8B17;font:bold 12px/36px microsoft yahei}
 .users-list a:hover strong{color:#EE8B17;right:150px;top:0;text-align:center;border-right:#ccc 1px solid;height:44px;line-height:40px}
 
+.userinfo{
+	margin-top: -15px;
+}
+
 .userinfo span.role{
 	font-weight: normal;
 }
@@ -53,4 +57,20 @@
 
 .reply_at{
 	width:100px;
+}
+
+table.recent_topics{
+	margin-top: -15px;
+}
+
+table.recent_topics tr.head td, table.recent_reply tr.head td{
+	border-top: none;
+	color: #CCC;
+	font-weight: bold;
+	font-size: 12px;
+	background-color: #FFF;
+}
+
+table.recent_topics tr td, table.recent_reply tr td{
+	border-bottom: 1px solid #DDD;
 }

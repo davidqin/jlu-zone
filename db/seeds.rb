@@ -109,3 +109,4 @@ create_album(david, "http://img.spriteapp.com/si/04/49/63943f51jw1drlk3wmrqqj_2.
 create_album(david, "http://img.spriteapp.com/si/48/76/92c9aa30jw1drlf6ezbbdj.jpg")
 create_album(david, "http://img.spriteapp.com/si/0a/7e/63943f51gw1drl908s0zmj_2.jpg")
 create_album(david, "http://img.spriteapp.com/si/22/54/9770ce78jw1drliv6gimsj.jpg")
+create_album(acool, "http://cdn.duitang.com/uploads/people/201203/30/20120330110303_sEneY.jpeg")
