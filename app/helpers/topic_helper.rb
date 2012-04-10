@@ -64,6 +64,7 @@ module TopicHelper
     hot_topics = Topic.order("replies_num desc").limit(10)
     contents_tag(:ul) do |contents|
       hot_topics.each do |topic|
+        next if resource_lock?(topic)
         contents << link_to(content_tag(:li, topic.name), topic)
       end
     end
@@ -73,6 +74,7 @@ module TopicHelper
     top_topics = Topic.order("created_at desc").find_all_by_move_to_top(true)
     contents_tag(:ul) do |contents|
       top_topics.each do |topic|
+        next if resource_lock?(topic)
         contents << link_to(content_tag(:li, topic.name), topic)
       end
     end

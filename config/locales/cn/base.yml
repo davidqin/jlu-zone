@@ -10,8 +10,12 @@ zh-CN:
 
   submit: 提交
   until: 截止
+
   follow: 收藏
-  unfollow: 收藏收藏
+  unfollow: 取消收藏
+
+  lock: 锁定
+  unlock: 解除锁定
    
   logo: "JLU-Zone"
   register: 注册

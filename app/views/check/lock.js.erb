@@ -1,0 +1,3 @@
+(function(){
+  $("#lock_button" + <%= @resource.id.to_s%>).replaceWith('<%= unlock_button(@resource)%>')
+})();

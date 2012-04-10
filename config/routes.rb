@@ -31,14 +31,24 @@ Wiki::Application.routes.draw do
   scope :path => 'wiki' do
     get  '/'                         => "wiki/wiki#index",     :as => :wiki
 
-    resources :entries, :except => [:index],      :controller => 'wiki/entries'
+    resources :entries, :except => [:index],      :controller => 'wiki/entries' do
+      member do
+        post :lock
+        post :unlock
+      end
+    end
     get  'category/:category_number' => "wiki/entries#index",  :as => :category_entries
   end
 
   resources :replies,  :only => [:create, :edit, :update], :controller => 'replies/replies'
 
   scope :path => 'community' do
-    resources :topics, :controller => "community/topics"
+    resources :topics, :controller => "community/topics" do
+      member do
+        post :lock
+        post :unlock
+      end
+    end
     get  '/'  => "community/community#index",     :as => :community
     get  ':tag_id' => "community/tags#index",     :as => :tag
   end
@@ -46,5 +56,10 @@ Wiki::Application.routes.draw do
   post "followed_resources" => "followed_resources#create", :as => :follow
   delete "followed_resources" => "followed_resources#destroy", :as => :unfollow
 
-  resources :photos, :controller => 'photos/photos'
+  resources :photos, :controller => 'photos/photos' do
+    member do
+      post :lock
+      post :unlock
+    end
+  end
 end

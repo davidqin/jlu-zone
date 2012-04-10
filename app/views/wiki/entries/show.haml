@@ -4,7 +4,7 @@
   %header
     %h1=@entry.name
     #entry_toolbar.pull-right
-      = show_entry_tools_bar(@ntry)
+      = show_entry_tools_bar(@entry)
     #entry_info
       = show_entry_version_info(@entry)
   = markdown(@entry.content)

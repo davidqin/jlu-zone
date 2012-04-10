@@ -3,7 +3,7 @@ class CreateReplies < ActiveRecord::Migration
     create_table :replies, :force => true do |t|
       t.integer  :resource_id,      :null => false, :limit => 100
       t.string   :resource_type,    :null => false, :limit => 100
-      t.integer  :user_id,          :null => false
+      t.integer  :fonder_id,       :null => false
       t.text     :content,          :null => false
       t.integer  :floor_num,        :null => false
       t.string   :number,           :null => false

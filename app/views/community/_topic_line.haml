@@ -5,6 +5,8 @@
     .pull-right.replies
       = topic_replies_info(topic)
     .infos
-      .title= show_topic_title_link(topic)
+      .title
+        = show_topic_title_link(topic)
+        = "(LOCK)" if topic.lock
       = topic_tags_link(topic)
       .topic_leader= show_topic_leader(topic)

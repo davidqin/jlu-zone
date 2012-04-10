@@ -17,6 +17,7 @@ module EntryHelper
 
   def show_entry_tools_bar(entry)
     html_contents do |contents|
+      contents << show_buttons_for_manager(entry)
       contents << content_tag(:a, :class => " btn btn-mini", :href => "//") do
         content_tag(:i, "", :class => "icon-list-alt") + itext("entry.list_versions")
       end

@@ -2,6 +2,7 @@
 class Photos::PhotosController < ApplicationController
   include Wiki::Controllers::TabsHighLight::Base
   include Wiki::Controllers::TabsHighLight::Photos
+  include Wiki::Controllers::Check
   before_filter :authenticate_user!,    :except => [:show, :index]
   load_and_authorize_resource
 

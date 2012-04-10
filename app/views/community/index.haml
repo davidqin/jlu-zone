@@ -8,6 +8,7 @@
       #logo.pull-right= itext("logo")
   .topics
     - @topics.each do |topic|
+      - next if resource_lock?(topic)
       = render :partial => "community/topic_line", :locals => {:topic => topic}
     = link_to "More~", topics_path
 = render :partial => "community/tag_nav"

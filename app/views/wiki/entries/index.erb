@@ -4,10 +4,7 @@
     <% @entries.each do |entry|%>
     <% next if !can? :read, entry%>
       <li>
-      <%= link_to entry.name, entry_path(entry)%>
-      <%if entry.check == false%>
-      <%= "(uncheck)"%>
-      <%end%>
+      <%= link_to entry.name, entry_path(entry)%>      
       </li>
     <% end %>
   </ul>

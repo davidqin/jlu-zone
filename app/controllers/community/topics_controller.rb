@@ -2,6 +2,7 @@ class Community::TopicsController < ApplicationController
   include Wiki::Controllers::Sidebar::CommunitySidebar
   include Wiki::Controllers::TabsHighLight::Base
   include Wiki::Controllers::TabsHighLight::Community
+  include Wiki::Controllers::Check
 
   before_filter :authenticate_user!,    :except => [:show, :index]
   load_and_authorize_resource
