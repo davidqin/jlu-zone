@@ -52,6 +52,7 @@ module TopicHelper
   def show_topic_tools_bar(topic)
     return unless current_user
     html_contents do |contents|
+      contents << show_buttons_for_manager(topic)
       contents << show_follow_button(topic)
       contents << link_to("", :id => "reply_button", :class => " btn btn-mini" , "data-remote" => true, :method => :post) do
         content_tag(:i, "", :class => "icon-pencil") + itext("topic.make_reply")
@@ -67,4 +68,14 @@ module TopicHelper
       end
     end
   end
+
+  def top_topics
+    top_topics = Topic.order("created_at desc").find_all_by_move_to_top(true)
+    contents_tag(:ul) do |contents|
+      top_topics.each do |topic|
+        contents << link_to(content_tag(:li, topic.name), topic)
+      end
+    end
+  end
+
 end

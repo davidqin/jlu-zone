@@ -104,6 +104,8 @@ for i in 1..20 do
     topic_tag_array << tags[rand(9) + 1]
   end
   topic.tags = topic_tag_array.uniq
+
+  topic.move_to_top = true if (rand(9) + 1 > 8)
   
   topic.content = "
 响应 @zw963 主席的号召，本帖传教Vim，愿造福Vim新人

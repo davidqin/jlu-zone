@@ -7,6 +7,8 @@ class CreateTopics < ActiveRecord::Migration
       t.string      :number,       :null => false
       t.integer     :replies_num,  :null => false, :default => 0
       t.integer     :read_times,   :null => false, :default => 0
+      t.boolean     :move_to_top,  :null => false, :default => false
+      t.boolean     :lock,         :null => false, :default => false
       t.timestamps
     end
     add_index :topics, :fonder_id, :name => :index_find_topic_by_fonder_id

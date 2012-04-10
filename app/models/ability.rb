@@ -15,7 +15,7 @@ class Ability
       end
 
       can :read,    Entry do |entry|
-        entry.check == true
+        entry.lock == false
       end
 
       can :read,   [EntryCategory, User, Version, Topic, Photo]

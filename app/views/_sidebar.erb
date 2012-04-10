@@ -1,10 +1,6 @@
 <div class="box">
-<header>置顶话题</header>
-<ul>
-<% @top_topics.each do |topic| %>
-<li><%= link_to topic.name, topic %></li>
-<% end %>
-</ul>
+<h4>置顶话题</h4>
+<%= top_topics%>
 </div>
 
 <div class="box">
