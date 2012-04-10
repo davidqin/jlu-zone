@@ -1,0 +1,5 @@
+zh-CN:
+  header:
+    communities_index: 活跃帖子
+    topics_index: 所有帖子
+    tags_index: "Tag: %{tag}"

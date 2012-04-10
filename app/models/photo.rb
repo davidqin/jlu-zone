@@ -1,6 +1,9 @@
 class Photo < ActiveRecord::Base
+  include Wiki::Models::Scores::LimitPerDay
+
   mount_uploader :img_url, AvatarUploader
   belongs_to :album
+  belongs_to :fonder, :class_name => "User"
 
   def img_url=(arg)
     if arg.is_a? String
@@ -8,5 +11,13 @@ class Photo < ActiveRecord::Base
     else
       super(arg)
     end
+  end
+
+  def self.create_score
+    10
+  end
+
+  def self.score_times
+    3
   end
 end

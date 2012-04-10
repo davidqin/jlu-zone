@@ -1,18 +1,14 @@
-<%= form_for @album, :url => "/photos" do |f| %>
+<%= form_for @photo do |f| %>
 
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </div>
-
-  <%= f.fields_for :photos do |photo| %>
     
     <% if params[:action] != "edit" %>
-    <%= photo.text_field :img_url %>
-    <%= photo.file_field :img_url %>
+    <%= f.text_field :img_url %>
+    <%= f.file_field :img_url %>
     <% end %>
-
-  <% end %>
 
   <div class="actions">
     <%= f.submit %>

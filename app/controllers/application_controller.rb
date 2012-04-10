@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   include Wiki::Controllers::ActionResult
   include Wiki::Controllers::Sidebar::CommonSidebar
 
+  helper_method :controller_model_type
+
   protected
 
   def model_params

@@ -9,14 +9,6 @@ module TopicHelper
     base_info + reply_info + read_times_info
   end
 
-  def topic_header
-    if @tag == nil
-      itext("topic.active_topic")
-    else
-      "Tag: " + @tag.name
-    end
-  end
-
   def show_topic_leader(topic)
   	base_info = " 由 " + user_link(topic.fonder) + " 在 " + time_ago(topic.created_at) + " 发起， "
     if (topic.last_reply != nil)
@@ -63,6 +55,15 @@ module TopicHelper
       contents << show_follow_button(topic)
       contents << link_to("", :id => "reply_button", :class => " btn btn-mini" , "data-remote" => true, :method => :post) do
         content_tag(:i, "", :class => "icon-pencil") + itext("topic.make_reply")
+      end
+    end
+  end
+
+  def hot_topics
+    hot_topics = Topic.order("replies_num desc").limit(10)
+    contents_tag(:ul) do |contents|
+      hot_topics.each do |topic|
+        contents << link_to(content_tag(:li, topic.name), topic)
       end
     end
   end

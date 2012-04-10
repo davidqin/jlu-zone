@@ -38,9 +38,9 @@ Wiki::Application.routes.draw do
   resources :replies,  :only => [:create, :edit, :update], :controller => 'replies/replies'
 
   scope :path => 'community' do
+    resources :topics, :controller => "community/topics"
     get  '/'  => "community/community#index",     :as => :community
     get  ':tag_id' => "community/tags#index",     :as => :tag
-    resources :topics, :controller => "community/topics"
   end
   
   post "followed_resources" => "followed_resources#create", :as => :follow

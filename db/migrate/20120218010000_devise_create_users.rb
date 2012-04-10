@@ -52,6 +52,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.datetime :today_last_topic_time
       t.integer  :today_reply_count, :null => false, :default => 0
       t.datetime :today_last_reply_time
+      t.integer  :today_photo_count, :null => false, :default => 0
+      t.datetime :today_last_photo_time
 
       t.boolean   :admin_permission,     :null => false, :default => false
       t.boolean   :wiki_permission,      :null => false, :default => false

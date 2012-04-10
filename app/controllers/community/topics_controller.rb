@@ -5,6 +5,13 @@ class Community::TopicsController < ApplicationController
 
   before_filter :authenticate_user!,    :except => [:show, :index]
   load_and_authorize_resource
+
+  def index
+    @topics = Topic.all.paginate(:page => params[:page], :per_page => 10)
+    drop_breadcrumb(itext("navigation.community"), community_path)
+    drop_breadcrumb(itext("topic.drop_breadcrumb_all"), topics_path)
+    render "community/topics/index"
+  end
   
   def new
     @topic = Topic.new

@@ -8,6 +8,7 @@ class Ability
       can :read, Entry
       can :read, Topic
       can :read, User
+      can :read, Photo
     else
       if user.admin_permission
         can :manage, :all
@@ -17,7 +18,7 @@ class Ability
         entry.check == true
       end
 
-      can :read,   [EntryCategory, User, Version, Topic]
+      can :read,   [EntryCategory, User, Version, Topic, Photo]
 
       can :create, [Entry, Version, Reply, Topic]
 

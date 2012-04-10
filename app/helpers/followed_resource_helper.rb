@@ -1,5 +1,6 @@
 module FollowedResourceHelper
   def show_follow_button(resource)
+    return unless current_user
     if FollowedResource.check_model_is_followed(current_user, resource)
       unfollow_button(resource)
     else 
