@@ -16,3 +16,6 @@ zh-CN:
     recent_publish: 最近发布的帖子
     publish_at: 发表于
     tag_nav: 标签导航
+
+    move_to_top: 话题置顶
+    cancel_move_to_top: 取消置顶

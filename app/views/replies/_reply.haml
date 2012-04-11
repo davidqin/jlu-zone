@@ -11,6 +11,6 @@
         - if can? :update, reply
           = link_to itext("edit"), edit_reply_path(reply)
         = link_to "#new_reply", :class => "at", "data-user-name" => reply.fonder.nickname, "data-reply-floor" => reply.floor_num do
-          %i.icon-pencil
+          %i.icon-share-alt
     .reply_body
       = markdown(reply.content)

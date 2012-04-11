@@ -48,6 +48,7 @@ zh-CN:
 
   edit_model: 编辑
   preview_model: 预览
+  more: "查看更多～~"
 
   will_paginate:
     next_label: "下一页 &#8594;"

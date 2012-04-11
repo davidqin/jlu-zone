@@ -47,6 +47,8 @@ Wiki::Application.routes.draw do
       member do
         post :lock
         post :unlock
+        post :move_to_top
+        post :cancel_move_to_top
       end
     end
     get  '/'  => "community/community#index",     :as => :community

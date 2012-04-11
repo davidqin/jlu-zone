@@ -10,18 +10,19 @@ module TopicHelper
   end
 
   def show_topic_leader(topic)
-  	base_info = " 由 " + user_link(topic.fonder) + " 在 " + time_ago(topic.created_at) + " 发起， "
+  	base_info = time_ago(topic.created_at) + " " + user_link(topic.fonder) + " 发起  "
     if (topic.last_reply != nil)
-      reply_info = " 最后由 " + user_link(topic.last_replier) + " 于 " + time_ago(topic.last_reply.created_at).to_s + " 回复 "
+      reply_info = "，" + user_link(topic.last_replier) + " 最后回复于" + time_ago(topic.last_reply.created_at).to_s
     else
-      reply_info = itext("topic.no_one_reply")
+      reply_info = ""
     end
-    (base_info + reply_info).html_safe
+    content_tag :span, :class => :topic_leader do
+      (base_info + reply_info).html_safe  
+    end
   end
 
-  def topic_tags_link(topic)
-    contents_tag :div, :class => :tags do |content|
-      content << itext("topic.tags")
+  def show_topic_tags(topic)
+    contents_tag :span, :class => :tags do |content|
       topic.tags.each do |tag|
         content << content_tag(:a, :href => tag_path(tag)) do
           tag.name
@@ -52,6 +53,7 @@ module TopicHelper
   def show_topic_tools_bar(topic)
     return unless current_user
     html_contents do |contents|
+      contents << move_and_cancel_to_top_button(topic)
       contents << show_buttons_for_manager(topic)
       contents << show_follow_button(topic)
       contents << link_to("", :id => "reply_button", :class => " btn btn-mini" , "data-remote" => true, :method => :post) do
@@ -59,6 +61,28 @@ module TopicHelper
       end
     end
   end
+
+  def move_and_cancel_to_top_button(topic)
+    return if cannot? :move_to_top, topic
+    return if cannot? :unmove_to_top, topic
+    if topic.move_to_top
+      cancel_move_to_top_button(topic)
+    else
+      move_to_top_button(topic)
+    end
+  end
+
+  def move_to_top_button(topic)
+    link_to( move_to_top_topic_path(topic) ,:id => "move_to_top_button#{topic.id}", :class => " btn btn-mini btn-info" , "data-remote" => true, :method => :post) do
+      content_tag(:i, "", :class => "icon-arrow-up") + itext("topic.move_to_top")
+    end
+  end
+
+  def cancel_move_to_top_button(topic)
+    link_to( cancel_move_to_top_topic_path(topic) ,:id => "cancel_move_to_top_button#{topic.id}", :class => " btn btn-mini btn-info" , "data-remote" => true, :method => :post) do
+      content_tag(:i, "", :class => "icon-repeat") + itext("topic.cancel_move_to_top")
+    end
+  end  
 
   def hot_topics
     hot_topics = Topic.order("replies_num desc").limit(10)

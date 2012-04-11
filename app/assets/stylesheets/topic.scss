@@ -14,7 +14,7 @@
 .topics{
 	.topic_line{
 		border-bottom: 1px solid #DDD;
-		padding: 10px 0;
+		padding: 10px 0px 10px;
 		margin: 0 -10px;
 		vertical-align: top;
 	}
@@ -55,7 +55,7 @@
 					font-weight: bold;
 					font-size: 11px;
 					padding: 1px 4px;
-					background-color: #2D6987;
+					background-color: #AAA;
 					border-radius: 3px;
 					-moz-border-radius: 3px;
 					text-decoration: none;
@@ -65,13 +65,15 @@
 					}
 				}
 			}
-			.topic_leader{
+			.title{
+				margin-bottom: 10px;
+			}
+			.topic_leader{				
 				color: #999;
-				margin-bottom: 2px;
 			}
 			.topic_leader a{
-				color: #999;
-				text-decoration: underline;
+				color: #08C;
+				text-decoration: none;
 			}
 		}
 	}

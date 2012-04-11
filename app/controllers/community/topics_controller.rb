@@ -8,7 +8,7 @@ class Community::TopicsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @topics = Topic.all.paginate(:page => params[:page], :per_page => 10)
+    @topics = Topic.order("created_at desc").all.paginate(:page => params[:page], :per_page => 10)
     drop_breadcrumb(itext("navigation.community"), community_path)
     drop_breadcrumb(itext("topic.drop_breadcrumb_all"), topics_path)
     render "community/topics/index"
@@ -56,6 +56,26 @@ class Community::TopicsController < ApplicationController
   def destroy
     Topic.find(params[:id]).destroy
     redirect_to_as_destroy_success "/community"
+  end
+
+  def move_to_top
+    @topic  = Topic.find(params[:id])
+    @topic.record_timestamps = false
+    @topic.update_attribute(:move_to_top, true)
+    @topic.record_timestamps = true
+    respond_to do |format|
+      format.js { render "community/topics/move_to_top", :layout => false}
+    end
+  end
+
+  def cancel_move_to_top
+    @topic  = Topic.find(params[:id])
+    @topic.record_timestamps = false
+    @topic.update_attribute(:move_to_top, false)
+    @topic.record_timestamps = true
+    respond_to do |format|
+      format.js { render "community/topics/cancel_move_to_top", :layout => false}
+    end
   end
 end
   
