@@ -34,6 +34,12 @@ module Wiki
           @current = ['/photos']
         end
       end
+
+      module Home
+        def set_menu_active
+          @current = ['/']
+        end
+      end
     end
   end
 end

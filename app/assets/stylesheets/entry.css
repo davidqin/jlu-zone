@@ -11,11 +11,16 @@
   border-radius: 3px;
 }
 
-#show_entry header{
+#show_entry .entry-header{
   margin-bottom: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid #DDD;
   font-weight: bold;
+  padding-right: 74px;
+}
+
+#show_entry .entry-content{
+  margin-bottom: 20px;
 }
 
 #entry_toolbar{

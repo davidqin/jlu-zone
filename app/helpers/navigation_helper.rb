@@ -19,6 +19,7 @@ module NavigationHelper
 
   def modules_navigation
     render_list :class => 'nav' do |li|
+      li << content_tag(:a, itext("navigation.home"),     :href => root_path)
       li << content_tag(:a, itext("navigation.community"),   :href => community_path)
       li << content_tag(:a, itext("navigation.wiki"),        :href => wiki_path)
       li << content_tag(:a, itext("navigation.photos"),    :href => photos_path)

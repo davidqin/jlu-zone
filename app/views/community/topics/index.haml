@@ -1,8 +1,4 @@
-.box
-  #tag_info
-    %h1
-      = index_header
-      #logo.pull-right= itext("logo")
+.box.no-padding
   .topics
     - @topics.each do |topic|
       - next if resource_lock?(topic)
