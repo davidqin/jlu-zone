@@ -81,12 +81,15 @@ Tag.create(name: 'PS3',           number: "PS3", tag_category: category_entertai
 Tag.create(name: '综合',           number: "综合", tag_category: category_manage)
 Tag.create(name: '功能特性',       number: "功能特性", tag_category: category_manage)
 
+test_album = Album.create(name: '测试', description: '测试', fonder: acool)
+
 ## Generate albums
-def create_photo(creater,url)
+def create_photo(creater,url, album = nil)
   Photo.create(
   :description => "这仅仅就是个照片，看什么看，再看就把你吃掉", 
   :fonder => creater,
-  :img_url => url
+  :img_url => url,
+  :album => album
   )  
 end
 create_photo(david,"http://ww3.sinaimg.cn/mw205/a01660e0jw1drd404g3gcj.jpg")
@@ -103,4 +106,4 @@ create_photo(david, "http://img.spriteapp.com/si/04/49/63943f51jw1drlk3wmrqqj_2.
 create_photo(david, "http://img.spriteapp.com/si/48/76/92c9aa30jw1drlf6ezbbdj.jpg")
 create_photo(david, "http://img.spriteapp.com/si/0a/7e/63943f51gw1drl908s0zmj_2.jpg")
 create_photo(david, "http://img.spriteapp.com/si/22/54/9770ce78jw1drliv6gimsj.jpg")
-create_photo(acool, "http://cdn.duitang.com/uploads/people/201203/30/20120330110303_sEneY.jpeg")
+create_photo(acool, "http://cdn.duitang.com/uploads/people/201203/30/20120330110303_sEneY.jpeg", test_album)

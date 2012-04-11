@@ -1,21 +1,6 @@
-.box
-  %h3
-    记录你我身边的吉大
-    #photos
-      - @photos.each do |photo|
-        - next if resource_lock?(photo)
-        .item
-          .time
-            = link_to '@' + photo.fonder.nickname, photo.fonder
-            = time_ago photo.created_at
-            发布
-            %span.pull-right
-              - if can? :lock, photo
-                = show_buttons_for_manager(photo)
-              - if photo.fonder == current_user
-                = link_to "编辑", edit_photo_path(photo)
-              - else
-                = show_follow_button(photo)
-          .description
-            = photo.description
-            = link_to tag(:img, :src => photo.img_url), photo
+
+.indexcarousel
+  .carousel.clr
+    .left
+      = index_pic
+    .right

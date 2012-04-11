@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   #before_save :full_info_score
 
   has_many :entries, :foreign_key => 'fonder_id'
+  has_many :albums, :foreign_key => 'fonder_id'
   has_many :photos,  :foreign_key => 'fonder_id'
   has_many :topics,  :foreign_key => 'fonder_id'
   has_many :replies, :foreign_key => 'fonder_id'

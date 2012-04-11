@@ -62,4 +62,6 @@ Wiki::Application.routes.draw do
       post :unlock
     end
   end
+
+  resources :albums, :controller => 'photos/albums'
 end
