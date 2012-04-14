@@ -33,13 +33,17 @@ code{
 .box{
   background-color: white;
   padding: 10px;
-  margin: 0 0 20px 0;
+  margin: 0 0 12px 0;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
   box-shadow: 0 0 0 1px #DDD;
   -moz-box-shadow: 0 0 0 1px #DDD;
   -webkit-box-shadow: 0 0 0 1px #DDD;
+}
+.box .box-footer{
+  margin-top: 0;
+  padding: 10px;
 }
 
 .box h2.title{
@@ -198,4 +202,8 @@ p#back-to-top a span{
 .notifications.unread a .count{
   background-color: #C43C35;
   color: white;
+}
+
+#ckepop{
+  margin-top: -5px;
 }

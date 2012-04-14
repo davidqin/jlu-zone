@@ -1,0 +1,3 @@
+(function(){
+  $("#move_to_top_button" + <%= @topic.id.to_s%>).replaceWith('<%= cancel_move_to_top_button(@topic)%>')
+})();

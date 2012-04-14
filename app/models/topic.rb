@@ -81,7 +81,7 @@ class Topic < ActiveRecord::Base
 
   def new_replies_after_last_read?(user,history)
     user_last_read_time = history.last_read_at
-    user_last_reply     = self.replies.order("created_at desc").find_by_user_id(user.id)
+    user_last_reply     = self.replies.order("created_at desc").find_by_fonder_id(user.id)
 
     if user_last_reply
       user_last_reply_time = user_last_reply.created_at 

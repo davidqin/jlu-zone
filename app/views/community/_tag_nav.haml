@@ -1,0 +1,11 @@
+.box.no-padding
+  .tag-nav
+    .tag-nav-header
+      %h4= itext("topic.tag_navigation")
+    - TagCategory.all.each do |category|
+      .tag-nav-line
+        .tag-category.pull-left
+          = category.name
+        .tag-category-items.tags
+          - category.tags.each do |tag|
+            = link_to tag.name, tag
