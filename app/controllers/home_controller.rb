@@ -4,7 +4,12 @@ class HomeController < ApplicationController
   include Wiki::Controllers::TabsHighLight::Base
   include Wiki::Controllers::TabsHighLight::Home
   def index
-    @topics = Topic.order("updated_at desc").limit(10)
-    render "/index"
+    @page_title = "Home"
+    do_not_use_sidebar
+  end
+
+  def about
+    do_not_use_sidebar
+    @page_title = itext("navigation.about_me")
   end
 end
