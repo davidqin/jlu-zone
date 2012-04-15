@@ -9,6 +9,7 @@ class HomeController < ApplicationController
   end
 
   def about
+    drop_breadcrumb(itext("navigation.about_me"), about_path)
     do_not_use_sidebar
     @page_title = itext("navigation.about_me")
   end
