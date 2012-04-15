@@ -26,6 +26,7 @@ module ButtonsToManagerHelper
   def resource_lock?(resource)
     return false if can?(:lock, resource)
     return false if can?(:unlock, resource)
-    return resource.lock
+    return resource.lock if resource.respond_to? :lock
+    return false
   end
 end

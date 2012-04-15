@@ -33,53 +33,38 @@ nevermore = User.create(
   password_confirmation: '123456',
   email: 'nevermore@gmail.com')
 
-## Generate categories
-
-category_education     = EntryCategory.create(name: '教学', number: 'education')
-category_courses       = EntryCategory.create(name: '选修课', number: 'courses')
-category_teacher       = EntryCategory.create(name: '老师', number: 'teacher')
-category_association   = EntryCategory.create(name: '社团', number: 'association')
-category_cinema        = EntryCategory.create(name: '电影院', number: 'cinema')
-category_internet_bar  = EntryCategory.create(name: '网吧', number: 'internet_bar')
-category_billiards     = EntryCategory.create(name: '台球厅', number: 'billiards')
-category_ktv           = EntryCategory.create(name: 'KTV', number: 'ktv')
-category_mess          = EntryCategory.create(name: '食堂', number: 'mess')
-
-## Generate entries
-
 entry_dota = Entry.create(
   name: "dota",
   fonder: david,
   last_editor: david,
-  category_number: category_courses.number,
   content: "I\'m the 3th version")
 
 ## Generate tag categories
-category_notice        = TagCategory.create(name: '公告')
-category_development   = TagCategory.create(name: '开发')
+category_notice        = TagCategory.create(name: '活动')
+category_campu         = TagCategory.create(name: '校区')
 category_entertainment = TagCategory.create(name: '娱乐')
 category_manage        = TagCategory.create(name: '站务')
 
 ## Generate tags
-Tag.create(name: '活动通知',       number: "activity", tag_category: category_notice) #Hard Tag
 
-Tag.create(name: 'Ruby',          number: "Ruby", tag_category: category_development)
-Tag.create(name: 'Ruby-on-Rails', number: "Ruby-on-Rails", tag_category: category_development)
-Tag.create(name: 'RubyGems',      number: "RubyGems", tag_category: category_development)
-Tag.create(name: 'MongoDB',       number: "MongoDB", tag_category: category_development)
-Tag.create(name: 'Redis',         number: "Redis", tag_category: category_development)
-Tag.create(name: 'Python',        number: "Python", tag_category: category_development)
-Tag.create(name: 'JavaScript',    number: "JavaScript", tag_category: category_development)
-Tag.create(name: 'jQuery',        number: "jQuery", tag_category: category_development)
+Tag.create(name: '文体活动',        number: "c-s-sports",    tag_category: category_notice) #Hard Tag
+Tag.create(name: '电竞比赛',        number: "E-sports",      tag_category: category_notice) #Hard Tag
+Tag.create(name: '活动通知',        number: "sports-notice", tag_category: category_notice) #Hard Tag
 
-Tag.create(name: 'ACG',           number: "ACG", tag_category: category_entertainment)
-Tag.create(name: 'One',           number: "One", tag_category: category_entertainment)
-Tag.create(name: 'Piece',         number: "Piece", tag_category: category_entertainment)
-Tag.create(name: '进击的巨人',     number: "进击的巨人", tag_category: category_entertainment)
-Tag.create(name: 'PS3',           number: "PS3", tag_category: category_entertainment)
+Tag.create(name: '前卫校区',        number: "qianwei", tag_category: category_campu)
+Tag.create(name: '南岭校区',        number: "nanling", tag_category: category_campu)
+Tag.create(name: '新民校区',        number: "xinmin", tag_category: category_campu)
+Tag.create(name: '朝阳校区',        number: "chaoyang", tag_category: category_campu)
+Tag.create(name: '南湖校区',        number: "nanhu", tag_category: category_campu)
+Tag.create(name: '和平校区',        number: "heping", tag_category: category_campu)
 
-Tag.create(name: '综合',           number: "综合", tag_category: category_manage)
-Tag.create(name: '功能特性',       number: "功能特性", tag_category: category_manage)
+Tag.create(name: '打游戏',          number: "E-games", tag_category: category_entertainment)
+Tag.create(name: '看电影',          number: "movies", tag_category: category_entertainment)
+Tag.create(name: '听音乐',          number: "songs", tag_category: category_entertainment)
+  
+Tag.create(name: '公告',           number: "ACG", tag_category: category_manage)
+Tag.create(name: '反馈',           number: "One", tag_category: category_manage)
+Tag.create(name: '社区开发',        number: "Piece", tag_category: category_manage)
 
 ## Generate albums
 def create_photo(creater,url)

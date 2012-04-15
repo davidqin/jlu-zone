@@ -1,3 +1,4 @@
+# coding: utf-8
 module SideBarHelper
   def render_controller_sidebar
     path = self.controller_sidebar_path
@@ -32,5 +33,19 @@ module SideBarHelper
 
   def photos_statistics
     itext("photos_statistics", :photos => Photo.all.size)
+  end
+
+  def side_bar_items_list(items, title)
+    return unless items
+    return unless items.size != 0
+    contents_tag :div, :class => :box do |c|
+      c << content_tag(:h4, title)
+      c << contents_tag(:ul) do |ul|
+        items.each do |item|
+          next if resource_lock?(item)
+          ul << content_tag(:li, link_to(item.name, item))
+        end
+      end
+    end
   end
 end
