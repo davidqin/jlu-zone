@@ -50,8 +50,9 @@ module ApplicationHelper
 		end
 	end
 
-	def time_ago(time)
-		itext("time_ago", :time => time_ago_in_words(time))
+	def time_ago(time, options = {})
+		options[:class] ||= "timeago"
+		content_tag(:abbr, "", options.merge(:title => time.iso8601)).html_safe if time
 	end
 end
 

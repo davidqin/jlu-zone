@@ -1,6 +1,9 @@
-
 .indexcarousel
   .carousel.clr
     .left
       = index_pic
     .right
+      .social
+        = link_to(itext("register_now"), :id => :banreglink, :class => :imdreg, :href => user_registration_path)
+        %div= itext('other_login')
+        %p= itext('now_share')

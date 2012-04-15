@@ -23,7 +23,7 @@
 //= require pagescroller
 //= require picture
 //= require reply
-//= require reply
+//= require timeago
 Application = {
   initBackToTopButton: function(){
     //首先将#back-to-top隐藏
@@ -54,10 +54,14 @@ Application = {
         show: true
       });
     })
+  },
+  initTimeAgo: function(){
+    $("abbr.timeago").timeago();
   }
 }
 
 $(function(){  
   Application.initBackToTopButton();
   Application.initHelpModal();
+  Application.initTimeAgo();
 });
