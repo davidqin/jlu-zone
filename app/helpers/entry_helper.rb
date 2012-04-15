@@ -30,15 +30,4 @@ module EntryHelper
   def show_entry_version_info(entry)
     itext("entry.entry_info", :versions => entry.history_versions_size, :gap => entry.updated_at.strftime("%Y-%m-%d"))
   end
-  
-  def render_entry_categories
-    categories = EntryCategory.all
-    header =  content_tag(:header, itext("entry.category"))
-    body = contents_tag :ul, :class => "nav nav-list" do |contents|
-      categories.each do |category|
-        contents << content_tag(:a, category.name, :href => category_entries_path(category), :class => "each_category")
-      end
-    end
-    header + body
-  end
 end

@@ -4,7 +4,6 @@ class CreateEntries < ActiveRecord::Migration
       t.string      :name,         :limit   => 64,   :null => false
       t.references  :fonder,       :null    => false
       t.references  :last_editor,  :null    => false
-      t.references  :category,     :null    => false
       t.text        :content
       t.boolean     :catalog,      :null    => false, :default => false
       t.boolean     :lock,         :default => false

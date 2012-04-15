@@ -1,5 +1,5 @@
-<section class="box">
-  <h3><%= itext("entry.index", :category => current_category.name)%></h3>
+<a class="btn btn-success" href=<%= new_entry_path%>><%= itext('entry.new')%></a>
+<div class="box">
   <ul>
     <% @entries.each do |entry|%>
     <% next if !can? :read, entry%>
@@ -8,5 +8,5 @@
       </li>
     <% end %>
   </ul>
-  <%= will_paginate @entries, :class => ""%>
-</section>
+</div>
+<%= will_paginate @entries%>

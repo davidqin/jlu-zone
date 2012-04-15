@@ -1,0 +1,7 @@
+.box.no-padding
+  .topics
+    - @topics.each do |topic|
+      - next if resource_lock?(topic)
+      = render :partial => "community/topic_line", :locals => {:topic => topic}
+    .box-footer= link_to itext("more"), topics_path
+= render :partial => "community/tag_nav"

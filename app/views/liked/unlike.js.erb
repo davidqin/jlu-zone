@@ -1,0 +1,3 @@
+(function(){
+  $("#unlike_button" + <%= @resource.id.to_s%>).replaceWith('<%= like_button(@resource)%>')
+})();

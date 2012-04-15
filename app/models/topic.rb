@@ -4,13 +4,22 @@ class Topic < ActiveRecord::Base
   has_many   :replies,              :as => :resource
   has_many   :user_reply_notices,   :as => :notice_resource, :class_name => "UserNotice"
   has_many   :topic_read_histories, :class_name => "TopicReadHistory"
-  has_many   :followed_resources, :as => :resource
+  has_many   :followed_resources,   :as => :followed_resource
+  has_many   :liked_resources,      :as => :liked_resource
   has_and_belongs_to_many :tags
   
   validates_presence_of   :name, :message => "can't be empty"
   validates_uniqueness_of :name, :message => "can't be unique" 
 
   validates_presence_of   :content, :message => "can't be empty"
+
+  def followed_times
+    self.followed_resources.size
+  end
+
+  def liked_times
+    self.liked_resources.size
+  end
   
   def tag_string=(string)
     tags_names = string.to_s.split(/[,\s]+/).uniq

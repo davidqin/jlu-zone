@@ -10,6 +10,8 @@ Wiki::Application.routes.draw do
   
   root :to => 'home#index'
 
+  get "/search" => "search#index", :as => :search
+
   get "/users/menu" => "users/users#menu", :as => :users
   
   get "campus/:campus" => 'users/users#location', :as => :location_users
@@ -29,15 +31,13 @@ Wiki::Application.routes.draw do
   delete "/notices/:id" => 'users/user_notices#destroy', :as => :notice_destroy
 
   scope :path => 'wiki' do
-    get  '/'                         => "wiki/wiki#index",     :as => :wiki
-
-    resources :entries, :except => [:index],      :controller => 'wiki/entries' do
+    get  '/'                         => "wiki/entries#index",     :as => :wiki
+    resources :entries, :controller => 'wiki/entries' do
       member do
         post :lock
         post :unlock
       end
     end
-    get  'category/:category_number' => "wiki/entries#index",  :as => :category_entries
   end
 
   resources :replies,  :only => [:create, :edit, :update], :controller => 'replies/replies'
@@ -57,6 +57,9 @@ Wiki::Application.routes.draw do
   
   post "followed_resources" => "followed_resources#create", :as => :follow
   delete "followed_resources" => "followed_resources#destroy", :as => :unfollow
+
+  post "liked_resources" => "liked_resources#create", :as => :like
+  delete "liked_resources" => "liked_resources#destroy", :as => :unlike
 
   resources :photos, :controller => 'photos/photos' do
     member do

@@ -2,16 +2,8 @@
   <a class="btn btn-success" href=<%= new_topic_path%>><%= itext('topic.new')%></a>
 </div>
 
-<div class="box">
-<h4>置顶话题</h4>
-<%= top_topics%>
-</div>
-
-<div class="box">
-<h4>热门帖子</h4>
-<%= hot_topics%>
-</div>
-
+<%= side_bar_items_list(Topic.order("created_at desc").find_all_by_move_to_top(true), "置顶话题")%>
+<%= side_bar_items_list(Topic.order("replies_num desc").limit(10), "热门帖子")%>
 
 <div class="box">
   <%= render_info_statistics%>

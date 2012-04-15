@@ -20,7 +20,7 @@ class Ability
       read_unlock Topic
       read_unlock Photo
 
-      can :read,   [EntryCategory, User]
+      can :read,   [User]
 
       can :create, [Entry, Reply, Topic]
 

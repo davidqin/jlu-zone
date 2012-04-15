@@ -2,20 +2,19 @@ require 'spec_helper'
 
 describe Entry do
 
-  let(:category) { FactoryGirl.create(:entry_category) }
-  let(:entry) { FactoryGirl.create(:entry, :category_number => category.number) }
+  
+  let(:entry) { FactoryGirl.create(:entry) }
   describe 'Validates' do
     it 'should fail saving without a name' do
       entry                 = Entry.new
       entry.name            = ""
       entry.fonder          = FactoryGirl.create(:user)
       entry.last_editor     = FactoryGirl.create(:user)
-      entry.category_number = category.number
       entry.save.should     == false
     end
 
     it 'should fail saving uniqueness a name' do
-      new_entry = FactoryGirl.build(:entry, :name => entry.name, :category_number => category.number)
+      new_entry = FactoryGirl.build(:entry, :name => entry.name)
       new_entry.save.should == false
     end
   end
@@ -44,7 +43,7 @@ describe Entry do
       score_before = user.score
       times = rand(10) + 1
       times.times do
-        FactoryGirl.create(:entry, :fonder => user, :category_number => category.number)
+        FactoryGirl.create(:entry, :fonder => user)
       end
       user.reload
       user.score.should == score_before + Entry.create_score * times

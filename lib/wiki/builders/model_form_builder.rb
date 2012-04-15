@@ -19,16 +19,6 @@ class Wiki::Builders::ModelFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
-  def show_category_field(method, options = {})
-    category_names = EntryCategory.all.collect do |category|
-      [category.name, category.number]
-    end
-    options = {}
-    options[:class] = ""
-    self.show_select_by_number_field_core(:category, category_names, false, options)
-  end
-
-
   def show_select_by_number_field_core(method, choices, include_blank = false, html_options = nil)
     method_for_number = "#{method}_number"
     label_text = show_current_itext("#{method}")

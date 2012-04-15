@@ -6,16 +6,10 @@ FactoryGirl.define do
     password_confirmation { |u| u.password }
   end
 
-  factory :entry_category do
-    sequence(:name) { |n| "category #{n}" }
-    sequence(:number) { |n| "category number#{n}" }
-  end
-
   factory :entry do
     sequence(:name) { |n| "Entry #{n}" }
     association :fonder,      :factory => :user
     association :last_editor, :factory => :user
-    category_number nil
     content "I\'m the first version"
   end
 

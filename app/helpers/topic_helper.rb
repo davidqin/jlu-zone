@@ -55,6 +55,7 @@ module TopicHelper
     html_contents do |contents|
       contents << move_and_cancel_to_top_button(topic)
       contents << show_buttons_for_manager(topic)
+      contents << show_like_button(topic)
       contents << show_follow_button(topic)
       contents << link_to("", :id => "reply_button", :class => " btn btn-mini" , "data-remote" => true, :method => :post) do
         content_tag(:i, "", :class => "icon-pencil") + itext("topic.make_reply")
@@ -83,25 +84,4 @@ module TopicHelper
       content_tag(:i, "", :class => "icon-repeat") + itext("topic.cancel_move_to_top")
     end
   end  
-
-  def hot_topics
-    hot_topics = Topic.order("replies_num desc").limit(10)
-    contents_tag(:ul) do |contents|
-      hot_topics.each do |topic|
-        next if resource_lock?(topic)
-        contents << link_to(content_tag(:li, topic.name), topic)
-      end
-    end
-  end
-
-  def top_topics
-    top_topics = Topic.order("created_at desc").find_all_by_move_to_top(true)
-    contents_tag(:ul) do |contents|
-      top_topics.each do |topic|
-        next if resource_lock?(topic)
-        contents << link_to(content_tag(:li, topic.name), topic)
-      end
-    end
-  end
-
 end
