@@ -64,6 +64,33 @@
 			float: right;
 			width: 276px;
 			margin: 0 24px 0 0;
+			.social{
+				height: 70px;
+				padding: 24px 0 0 0;
+				border-bottom: 1px solid #EBEBEB;
+				a{
+					float: left;
+				}
+				.btn-large{
+					padding: 15px 20px;
+					font-size: 20px;
+				}
+				div{
+					float: left;
+					line-height: 21px;
+					padding: 0 0 8px 0;
+					margin: 0 0 0 6px;
+					color: #BBB;
+				}
+			}
+			p{
+				border-top: 1px solid white;
+				padding: 8px 0 0 4px;
+				letter-spacing: 2px;
+				color: #88B3D8;
+				font-family: '微软雅黑E\8F6F\96C5\9ED1';
+				font-size: 16px;
+			}
 		}
 	}
 }

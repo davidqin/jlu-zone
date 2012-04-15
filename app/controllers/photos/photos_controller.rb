@@ -6,6 +6,8 @@ class Photos::PhotosController < ApplicationController
   before_filter :authenticate_user!,    :except => [:show, :index]
   load_and_authorize_resource
 
+  respond_to :html, :js, :only => [:recent_photos]
+
   def index
     @photos = Photo.order("created_at desc").all
     drop_breadcrumb(itext("navigation.photos"), photos_path)
@@ -46,6 +48,14 @@ class Photos::PhotosController < ApplicationController
       redirect_to_as_update_success photos_path
     else
       render_as_update_fail :edit
+    end
+  end
+
+  def recent_photos
+    @photos = Photo.order("created_at desc").limit(10)
+    respond_with do |format|
+      format.html { redirect_referrer_or_default recent_photos_path }
+      format.js   { render "photos/recent_photos",:layout => false  }
     end
   end
 

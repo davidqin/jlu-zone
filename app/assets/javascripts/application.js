@@ -24,6 +24,7 @@
 //= require picture
 //= require reply
 //= require timeago
+//= require timeago.setting
 Application = {
   initBackToTopButton: function(){
     //首先将#back-to-top隐藏

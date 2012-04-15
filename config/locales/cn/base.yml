@@ -23,6 +23,7 @@ zh-CN:
   unlock: 解除锁定
    
   logo: "JLU-Zone"
+  welcome_share: "快来分享吧~!"
   register: 注册
   register_now: 立即注册
   other_login: "使用已有帐号登录："
@@ -44,7 +45,6 @@ zh-CN:
   admin_user: 管理员
 
   info_statistics: 信息统计
-  time_ago: '%{time}前'
 
   create_fail: 创建失败了
   create_success: 创建成功

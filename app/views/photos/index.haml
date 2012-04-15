@@ -4,6 +4,14 @@
       = index_pic
     .right
       .social
-        = link_to(itext("register_now"), :id => :banreglink, :class => :imdreg, :href => user_registration_path)
-        %div= itext('other_login')
-        %p= itext('now_share')
+        - if current_user
+          .userme
+            = show_user_portrait(current_user)
+            %div
+              = user_link(current_user)
+              %br
+              = itext("welcome_share")
+        - else
+          = link_to(itext("register_now"), new_user_registration_path, :id => :banreglink, :class => "imdreg btn btn-success btn-large")
+          %div= itext('other_login')
+      %p= itext('now_share')
