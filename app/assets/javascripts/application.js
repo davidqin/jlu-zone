@@ -22,9 +22,11 @@
 //= require tagEditor
 //= require pagescroller
 //= require picture
+//= require agile_carousel.alpha
 //= require reply
 //= require timeago
 //= require timeago.setting
+//= require jcarousellite
 Application = {
   initBackToTopButton: function(){
     //首先将#back-to-top隐藏
@@ -58,6 +60,24 @@ Application = {
   },
   initTimeAgo: function(){
     $("abbr.timeago").timeago();
+  },
+  initAgileCarousel: function(){
+    $.getJSON("/recent_photos", function(data) {
+      $(document).ready(function(){
+        $("#multiple_slides_visible").agile_carousel({
+          carousel_data: data,
+          carousel_outer_height: 230,
+          carousel_height: 200,
+          slide_height: 200,
+          carousel_outer_width: 480,
+          slide_width: 160,
+          number_slides_visible: 2,
+          transition_time: 330,
+          timer:3000 
+        });
+      });
+      $("abbr.timeago").timeago();
+    });
   }
 }
 
@@ -65,4 +85,5 @@ $(function(){
   Application.initBackToTopButton();
   Application.initHelpModal();
   Application.initTimeAgo();
+  Application.initAgileCarousel();
 });
