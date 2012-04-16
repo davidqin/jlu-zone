@@ -84,4 +84,16 @@ module TopicHelper
       content_tag(:i, "", :class => "icon-repeat") + itext("topic.cancel_move_to_top")
     end
   end  
+
+  def hot_topics
+    Topic.order("replies_num desc").limit(5)
+  end
+
+  def top_topics
+    Topic.order("created_at desc").limit(10).find_all_by_move_to_top(true)
+  end
+
+  def no_reply_topics
+    Topic.order("created_at desc").limit(5).find_all_by_replies_num(0)
+  end
 end

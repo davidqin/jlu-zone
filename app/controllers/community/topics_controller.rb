@@ -9,6 +9,7 @@ class Community::TopicsController < ApplicationController
 
   def index
     @topics = Topic.order("created_at desc").all.paginate(:page => params[:page], :per_page => 10)
+    @page_title = itext("navigation.community")
     drop_breadcrumb(itext("navigation.community"), community_path)
     drop_breadcrumb(itext("topic.drop_breadcrumb_all"), topics_path)
     render "community/topics/index"

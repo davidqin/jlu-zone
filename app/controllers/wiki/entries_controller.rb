@@ -10,7 +10,7 @@ class Wiki::EntriesController < ApplicationController
   def index
     @entries = Entry.all.paginate(:page => params[:page], :per_page => 10)
     do_not_use_sidebar
-    @page_title = "Wiki"
+    @page_title = itext("navigation.wiki")
     drop_breadcrumb(itext("navigation.wiki"), wiki_path)
   end
 

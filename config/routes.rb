@@ -10,6 +10,8 @@ Wiki::Application.routes.draw do
   
   root :to => 'home#index'
 
+  get "/about" => 'home#about', :as => :about
+
   get "/search" => "search#index", :as => :search
 
   get "/users/menu" => "users/users#menu", :as => :users
