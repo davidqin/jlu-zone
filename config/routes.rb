@@ -1,8 +1,14 @@
 Wiki::Application.routes.draw do
 
+  scope :path => "/admin", :as => :admin do
+    get "/"      => "admin/admin#index", :as => :index
+    get "/users" => "admin/admin#users", :as => :users
+    get "/tags"  => "admin/admin#tags", :as => :tags
+    get "/topics"  => "admin/admin#topics", :as => :topics
+    get "/entries"  => "admin/admin#entries", :as => :entries
+    resources :tags, :except => [:index ,:show]
+  end
   
-
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users 
 

@@ -10,9 +10,9 @@ module TopicHelper
   end
 
   def show_topic_leader(topic)
-  	base_info = time_ago(topic.created_at) + " " + user_link(topic.fonder) + " 发起  "
+  	base_info = time_ago(topic.created_at) + " " + user_link(topic.fonder) + " 发起. "
     if (topic.last_reply != nil)
-      reply_info = "，" + user_link(topic.last_replier) + " 最后回复于" + time_ago(topic.last_reply.created_at).to_s
+      reply_info = user_link(topic.last_replier) + " 最后回复于" + time_ago(topic.last_reply.created_at).to_s
     else
       reply_info = ""
     end

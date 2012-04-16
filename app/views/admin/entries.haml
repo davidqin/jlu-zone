@@ -1,0 +1,4 @@
+.box
+  = generate_models_table(@entries, [:id, :name, :fonder], {:edit => :on, :destroy => :on, :lock_or_unlock => :on})
+= will_paginate @entries
+    

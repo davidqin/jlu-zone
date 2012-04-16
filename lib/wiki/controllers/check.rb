@@ -5,6 +5,7 @@ module Wiki::Controllers::Check
     @resource.update_attribute(:lock, true)
     @resource.record_timestamps = true
     respond_to do |format|
+      format.html { redirect_to({ :controller => "admin/admin", :action => "#{@resource.model_type.pluralize}" }) }
       format.js { render "check/lock", :layout => false}
     end
   end
@@ -15,6 +16,7 @@ module Wiki::Controllers::Check
     @resource.update_attribute(:lock, false)
     @resource.record_timestamps = true
     respond_to do |format|
+      format.html { redirect_to({:controller => "admin/admin", :action => "#{@resource.model_type.pluralize}" }) }
       format.js { render "check/unlock", :layout => false}
     end
   end

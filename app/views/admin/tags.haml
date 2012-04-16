@@ -1,0 +1,4 @@
+.box
+  = generate_models_table(@tags, [:id,:name], {:edit => :on, :destroy => :on})
+= will_paginate @tags
+    

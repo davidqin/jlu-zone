@@ -56,7 +56,7 @@ class Community::TopicsController < ApplicationController
 
   def destroy
     Topic.find(params[:id]).destroy
-    redirect_to_as_destroy_success "/community"
+    redirect_to_as_destroy_success admin_topics_path
   end
 
   def move_to_top

@@ -59,6 +59,12 @@ module Wiki
           'community'
         end
       end
+
+      module AdminSidebar
+        def sidebar_folder
+          'admin'
+        end
+      end
     end
   end
 end
