@@ -5,6 +5,7 @@ gem 'rails', '3.2.1'
 gem 'sqlite3'
 gem 'cancan'
 gem 'devise'
+
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 gem 'simple_form', :git => "git://github.com/plataformatec/simple_form.git"
