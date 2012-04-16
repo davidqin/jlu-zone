@@ -1,0 +1,4 @@
+zh-CN:
+  photo:
+    share_to_album: "收集在 %{album} 专辑中"
+    share_to: "由 %{user} 收集"

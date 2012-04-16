@@ -12,6 +12,7 @@ zh-CN:
 
   submit: 提交
   until: 截止
+  psindex: 分享你的发现
 
   follow: 收藏
   unfollow: 取消收藏
@@ -23,7 +24,10 @@ zh-CN:
   unlock: 解除锁定
    
   logo: "JLU-Zone"
+  welcome_share: "快来分享吧~!"
   register: 注册
+  register_now: 立即注册
+  other_login: "使用已有帐号登录："
   login: 登录  
   loging: 登录中...
   welcome: "您好，%{name}"
@@ -42,7 +46,6 @@ zh-CN:
   admin_user: 管理员
 
   info_statistics: 信息统计
-  time_ago: '%{time}前'
 
   create_fail: 创建失败了
   create_success: 创建成功
@@ -54,6 +57,8 @@ zh-CN:
   edit_model: 编辑
   preview_model: 预览
   more: ">> 查看更多"
+
+  now_share: "这一刻，他们分享了..."
 
   will_paginate:
     next_label: "下一页 &#8594;"

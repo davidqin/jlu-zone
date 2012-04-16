@@ -66,12 +66,15 @@ Tag.create(name: '公告',           number: "ACG", tag_category: category_manag
 Tag.create(name: '反馈',           number: "One", tag_category: category_manage)
 Tag.create(name: '社区开发',        number: "Piece", tag_category: category_manage)
 
+test_album = Album.create(name: '测试', description: '测试', fonder: acool)
+
 ## Generate albums
-def create_photo(creater,url)
+def create_photo(creater,url, album = nil)
   Photo.create(
   :description => "这仅仅就是个照片，看什么看，再看就把你吃掉", 
   :fonder => creater,
-  :img_url => url
+  :img_url => url,
+  :album => album
   )  
 end
 create_photo(david,"http://ww3.sinaimg.cn/mw205/a01660e0jw1drd404g3gcj.jpg")

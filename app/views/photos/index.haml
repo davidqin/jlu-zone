@@ -1,21 +1,37 @@
-.box
-  %h3
-    记录你我身边的吉大
-    #photos
-      - @photos.each do |photo|
-        - next if resource_lock?(photo)
-        .item
-          .time
-            = link_to '@' + photo.fonder.nickname, photo.fonder
-            = time_ago photo.created_at
-            发布
-            %span.pull-right
-              - if can? :lock, photo
-                = show_buttons_for_manager(photo)
-              - if photo.fonder == current_user
-                = link_to "编辑", edit_photo_path(photo)
-              - else
-                = show_follow_button(photo)
-          .description
-            = photo.description
-            = link_to tag(:img, :src => photo.img_url), photo
+.indexcarousel
+  .carousel.clr
+    .left
+      = index_pic
+    .right
+      .social
+        - if current_user
+          .userme
+            = show_user_portrait(current_user)
+            %div
+              = user_link(current_user)
+              %br
+              = itext("welcome_share")
+        - else
+          = link_to(itext("register_now"), new_user_registration_path, :id => :banreglink, :class => "imdreg btn btn-success btn-large")
+          %div= itext('other_login')
+      %p= itext('now_share')
+      #multiple_slides_visible
+.tagcarousel
+#photos
+  - @photos.each do |photo|
+    - next if resource_lock?(photo)
+    .item
+      .time
+        = link_to '@' + photo.fonder.nickname, photo.fonder
+        = time_ago photo.created_at
+        发布
+        %span.pull-right
+          - if can? :lock, photo
+            = show_buttons_for_manager(photo)
+          - if photo.fonder == current_user
+            = link_to "编辑", edit_photo_path(photo)
+          - else
+            = show_follow_button(photo)
+      .description
+        = photo.description
+        = link_to tag(:img, :src => photo.img_url), photo

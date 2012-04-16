@@ -71,4 +71,8 @@ Wiki::Application.routes.draw do
       post :unlock
     end
   end
+
+  get '/recent_photos' => 'photos/photos#recent_photos', :as => :recent_photos
+
+  resources :albums, :controller => 'photos/albums'
 end
