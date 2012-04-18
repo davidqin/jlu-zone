@@ -1,0 +1,63 @@
+<table>
+<tr>
+<td  rowspan='2'>
+<div class="container_6 clearfix">
+<div class="main-section grid_6">
+<div class="main-content">
+<div class="clearfix">
+<div>
+<ul id="uslider" class="uslider">
+<% [].each do |photo|%>
+<li>
+<%= tag(:img, :alt => '', :src => photo.img_url, :width => 500) %>
+<% if not photo.description.blank? %>
+  <div>
+    <div class="slide-widget-caption">
+      <%= photo.description %>
+    </div>
+  </div>
+<% end %>
+</li>
+<% end %>
+
+<li>
+<img src="assets/sample1.jpg" />
+</li>
+<li>
+<img src="assets/sample2.jpg" />
+</li>
+<li>
+<img src="assets/sample3.jpg" />
+</li>
+<li>
+<img src="assets/sample4.jpg" />
+<div>
+<div class="slide-widget-caption">
+the Trial of Champion
+</div>
+</div>
+</li>
+<li>
+<img src="assets/sample5.jpg" />
+</li>
+
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+记录你我身边的每一刻
+</td>
+</tr>
+<tr>
+<td>
+<%= link_to "上传图片", new_photo_path, :class => "btn btn-success" %>
+</td>
+</tr>
+</table>

@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.uslider
 //= require twitter/bootstrap
 //= require accounttab
 //= require colorbox
@@ -22,7 +23,6 @@
 //= require tagEditor
 //= require pagescroller
 //= require picture
-//= require agile_carousel.alpha
 //= require reply
 //= require timeago
 //= require timeago.setting
@@ -70,7 +70,7 @@ Application = {
           carousel_height: 200,
           slide_height: 200,
           carousel_outer_width: 480,
-          slide_width: 160,
+          slide_width: 150,
           number_slides_visible: 2,
           transition_time: 330,
           timer:3000 

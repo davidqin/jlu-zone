@@ -4,14 +4,14 @@
 david = User.create( 
   nickname: 'david',
   password: '123456',
-  admin_permission: true,
+  #admin_permission: true,
   password_confirmation: '123456',
   email: 'davidqhr@gmail.com')
 
 acool = User.create( 
   nickname: 'Acool',
   password: '123456',
-  admin_permission: true,
+  #admin_permission: true,
   password_confirmation: '123456',
   email: 'dujiakun@gmail.com')
 
