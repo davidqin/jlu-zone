@@ -4,7 +4,7 @@ module TopicHelper
     # 节点那需要重构
     base_info       = time_ago(topic.created_at) + " 由 " + topic.fonder.nickname + " 在节点 " + topic.tag_string + " 中发起, " 
     reply_info      = ""
-    reply_info      = " 最后由 " + topic.last_replier.nickname + " 于 " + time_ago(topic.last_reply.created_at).to_s + "回复, "  if topic.last_reply
+    reply_info      = time_ago(topic.last_reply.created_at).html_safe.to_s + " 由 " + topic.last_replier.nickname + " 最后回复, "  if topic.last_reply
     read_times_info = topic.read_times.to_s + "次阅读"
     base_info + reply_info + read_times_info
   end
@@ -83,17 +83,5 @@ module TopicHelper
     link_to( cancel_move_to_top_topic_path(topic) ,:id => "cancel_move_to_top_button#{topic.id}", :class => " btn btn-mini btn-info" , "data-remote" => true, :method => :post) do
       content_tag(:i, "", :class => "icon-repeat") + itext("topic.cancel_move_to_top")
     end
-  end  
-
-  def hot_topics
-    Topic.order("replies_num desc").limit(5)
-  end
-
-  def top_topics
-    Topic.order("created_at desc").limit(10).find_all_by_move_to_top(true)
-  end
-
-  def no_reply_topics
-    Topic.order("created_at desc").limit(5).find_all_by_replies_num(0)
   end
 end

@@ -37,5 +37,5 @@
 }
 
 $(function(){
-  Dialog.initTopBarLoginButton();
+  //Dialog.initTopBarLoginButton();
 });

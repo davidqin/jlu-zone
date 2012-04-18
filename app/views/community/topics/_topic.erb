@@ -1,10 +1,12 @@
 <%= javascript_include_tag    "editor" %>
 <%= form_for @topic, :html => {:class => "form-horizontal"} do |form|%>
   <div class="control-group">
+    标题：
     <%= form.text_field :name %>
   </div>
   <div class="control-group">
     <div class="text-content-area">
+      节点：（输入与话题相关的节点名字，比如“校区”）
       <%= form.text_field :tag_string, :data => {:suggest => Tag.suggest_tags} %>
     </div>  
   </div>

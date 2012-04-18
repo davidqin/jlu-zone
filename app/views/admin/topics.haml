@@ -1,4 +1,4 @@
 .box
-  = generate_models_table(@topics, [:id, :name, :replies_num, :fonder, :tag_string], {:edit => :on, :destroy => :on, :lock_or_unlock => :on})
+  = generate_models_table(@topics, [:id, :name, :replies_num, :fonder, :tag_string], {:edit => :on, :destroy => :on, :lock_or_unlock => :on, :move_to_top => :on})
 = will_paginate @topics
     

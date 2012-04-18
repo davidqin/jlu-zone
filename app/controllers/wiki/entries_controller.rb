@@ -8,8 +8,7 @@ class Wiki::EntriesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @entries = Entry.all.paginate(:page => params[:page], :per_page => 10)
-    do_not_use_sidebar
+    @entries = Entry.all.paginate(:page => params[:page], :per_page => 50)
     @page_title = itext("navigation.wiki")
     drop_breadcrumb(itext("navigation.wiki"), wiki_path)
   end
@@ -56,6 +55,6 @@ class Wiki::EntriesController < ApplicationController
   def destroy
     entry = Entry.find(params[:id])
     entry.destroy
-    redirect_to_as_destroy_success entries_path
+    redirect_to_as_destroy_success admin_entries_path
   end
 end

@@ -23,6 +23,10 @@ module ApplicationHelper
 		end
 	end
 
+	def user_avatar(user, size = nil)
+		tag(:img, :alt => user.nickname, :src => gravatar(user.email, size))
+	end
+
 	def back_to_top
 		content_tag :p, :id => "back-to-top" do
 			contents_tag :a, :href => "#top" do |contents|
@@ -33,7 +37,7 @@ module ApplicationHelper
 	end
 
 	def markdown(text)
-		MarkDown.format(text).html_safe
+		MarkDown.format(h(text)).html_safe
 	end
 
 	def share_button

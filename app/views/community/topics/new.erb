@@ -1,4 +1,6 @@
 <div class="box" id="editor">
-  <%= content_tag :h3, itext("topic.new") %>
+  <%= render_breadcrumb %><br>
   <%= render "topic"%>
 </div>
+
+<%= render "/community/tag_nav"%>

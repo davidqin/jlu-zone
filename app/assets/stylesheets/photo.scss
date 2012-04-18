@@ -1,5 +1,5 @@
 .indexcarousel{
-	margin-bottom: 20px;
+	margin-bottom: -10px;
 	zoom: 1;
 	width: 100%;
 	line-height: 1.5;
@@ -11,7 +11,7 @@
 		.left{
 			position: relative;
 			float: left;
-			width: 628px;
+			width: 600px;
 			height: 300px;
 			img{
 				position: absolute;
@@ -62,7 +62,7 @@
 		}
 		.right{
 			float: right;
-			width: 276px;
+			width: 260px;
 			margin: 0 24px 0 0;
 			.social{
 				height: 70px;

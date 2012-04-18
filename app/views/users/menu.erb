@@ -3,7 +3,7 @@
     <%= show_active_users_info%>
   </header> 
   <ul class="users-list">
-    <% @users.each do |user| %>
+    <% @active_users.each do |user| %>
     <%= show_user_tag(user)%>
     <% end %>
   </ul>
@@ -14,7 +14,7 @@
     <%= show_new_users_info%>
   </header>
     <ul class = "users-list">
-    <% @users.each do |user| %>
+    <% @new_users.each do |user| %>
     <%= show_user_tag(user)%>
     <% end %>
   </ul>

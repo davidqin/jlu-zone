@@ -1,0 +1,3 @@
+(function(){
+  $('<%= "#set_user_permission_button" + @user.number.to_s + @permission.to_s %>').replaceWith('<%= cancel_user_permission_button(@user,@permission)%>')
+})();

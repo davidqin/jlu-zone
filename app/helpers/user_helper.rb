@@ -100,5 +100,25 @@ module UserHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
-  
+
+  def set_user_permission(user, permission)
+    return if cannot? :manager, user
+    if user.send(permission)
+      cancel_user_permission_button(user, permission)
+    else
+      set_user_permission_button(user, permission)
+    end
+  end
+
+  def cancel_user_permission_button(user, permission)
+    link_to( cancel_user_permission_path(user, :permission => permission) ,:id => "cancel_user_permission_button#{user.number}#{permission}", :class => " btn btn-mini btn-success" , "data-remote" => true, :method => :delete) do
+      content_tag(:i, "", :class => "icon-ok")
+    end
+  end
+
+  def set_user_permission_button(user, permission)
+    link_to( set_user_permission_path(user, :permission => permission) ,:id => "set_user_permission_button#{user.number}#{permission}", :class => " btn btn-mini btn-danger" , "data-remote" => true, :method => :post) do
+      content_tag(:i, "", :class => "icon-remove")
+    end
+  end  
 end

@@ -17,9 +17,6 @@ class Photos::PhotosController < ApplicationController
 
   def new
     @photo = current_user.photos.new
-    # 5.times do 
-    #   @photo.photos.build
-    # end
     render "photos/new"
   end
 

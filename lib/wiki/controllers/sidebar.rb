@@ -38,7 +38,7 @@ module Wiki
 
       module WikiSidebar
         def sidebar_folder
-          'wiki'
+          'wiki/entries'
         end
       end
 

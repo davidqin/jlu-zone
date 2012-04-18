@@ -1,5 +1,7 @@
 class Admin::AdminController < ApplicationController
   include Wiki::Controllers::Sidebar::AdminSidebar
+  before_filter :check_permission
+
   def index
     render 'admin/index'
   end
@@ -24,4 +26,10 @@ class Admin::AdminController < ApplicationController
     render 'admin/entries'
   end
 
+  private
+
+  def check_permission
+    redirect_to :root unless current_user
+    redirect_to :root unless current_user.admin_permission
+  end
 end

@@ -5,13 +5,19 @@ class Ability
 
     if user.blank?
       cannot :manage, :all
-
       read_unlock Entry
       read_unlock Topic
       can :read, User
       can :read, Photo
     else
+
+      if user.lock
+        cannot :manage, :all
+        return
+      end
+
       cannot :manage, :all
+
       if user.admin_permission
         can :manage, :all
       end
