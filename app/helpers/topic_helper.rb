@@ -57,6 +57,15 @@ module TopicHelper
       contents << show_buttons_for_manager(topic)
       contents << show_like_button(topic)
       contents << show_follow_button(topic)
+      if can? :update, topic
+        contents << show_edit_button(topic)
+      end
+    end
+  end
+
+  def show_edit_button(topic)
+    link_to(edit_topic_path(topic), :class => " btn btn-mini") do
+      content_tag(:i, "", :class => "icon-edit") + itext("edit")
     end
   end
 

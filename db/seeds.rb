@@ -61,7 +61,7 @@ Tag.create(name: '和平校区',        number: "heping", tag_category: category
 Tag.create(name: '打游戏',          number: "E-games", tag_category: category_entertainment)
 Tag.create(name: '看电影',          number: "movies", tag_category: category_entertainment)
 Tag.create(name: '听音乐',          number: "songs", tag_category: category_entertainment)
-Tag.create(name: '扯淡',            number: "songs", tag_category: category_entertainment)
+Tag.create(name: '扯淡',            number: "chat", tag_category: category_entertainment)
   
 Tag.create(name: '公告',           number: "notices", tag_category: category_manage)
 Tag.create(name: '反馈',           number: "feedback", tag_category: category_manage)
