@@ -1,4 +1,5 @@
 .box.no-padding
+  = render_breadcrumb
   .topics
     - @topics.each do |topic|
       - next if resource_lock?(topic)

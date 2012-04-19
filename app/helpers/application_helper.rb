@@ -23,6 +23,10 @@ module ApplicationHelper
 		end
 	end
 
+	def user_avatar(user, size = nil)
+		tag(:img, :alt => user.nickname, :src => gravatar(user.email, size))
+	end
+
 	def back_to_top
 		content_tag :p, :id => "back-to-top" do
 			contents_tag :a, :href => "#top" do |contents|
@@ -33,7 +37,7 @@ module ApplicationHelper
 	end
 
 	def markdown(text)
-		MarkDown.format(text).html_safe
+		MarkDown.format(h(text)).html_safe
 	end
 
 	def share_button
@@ -53,6 +57,23 @@ module ApplicationHelper
 	def time_ago(time, options = {})
 		options[:class] ||= "timeago"
 		content_tag(:abbr, "", options.merge(:title => time.iso8601)).html_safe if time
+	end
+
+	def form_error_messages(resource)
+		return "" if resource.errors.empty?
+		messages = resource.errors.full_messages.map { |msg| content_tag(:li, msg, :class => "") }.join
+		sentence = itext("form_error",
+		:count => resource.errors.count,
+		:resource => resource.class.model_name.human.downcase)
+
+		html = <<-HTML
+		<div class="alert fade in alert-error">
+			<h3>#{sentence}</h3>
+			<ul>#{messages}</ul>
+		</div>
+		HTML
+
+		html.html_safe
 	end
 end
 

@@ -4,14 +4,14 @@
 david = User.create( 
   nickname: 'david',
   password: '123456',
-  admin_permission: true,
+  #admin_permission: true,
   password_confirmation: '123456',
   email: 'davidqhr@gmail.com')
 
 acool = User.create( 
   nickname: 'Acool',
   password: '123456',
-  admin_permission: true,
+  #admin_permission: true,
   password_confirmation: '123456',
   email: 'dujiakun@gmail.com')
 
@@ -61,12 +61,13 @@ Tag.create(name: '和平校区',        number: "heping", tag_category: category
 Tag.create(name: '打游戏',          number: "E-games", tag_category: category_entertainment)
 Tag.create(name: '看电影',          number: "movies", tag_category: category_entertainment)
 Tag.create(name: '听音乐',          number: "songs", tag_category: category_entertainment)
+Tag.create(name: '扯淡',            number: "chat", tag_category: category_entertainment)
   
-Tag.create(name: '公告',           number: "ACG", tag_category: category_manage)
-Tag.create(name: '反馈',           number: "One", tag_category: category_manage)
-Tag.create(name: '社区开发',        number: "Piece", tag_category: category_manage)
+Tag.create(name: '公告',           number: "notices", tag_category: category_manage)
+Tag.create(name: '反馈',           number: "feedback", tag_category: category_manage)
+Tag.create(name: '社区开发',        number: "development", tag_category: category_manage)
 
-test_album = Album.create(name: '测试', description: '测试', fonder: acool)
+#test_album = Album.create(name: '测试', description: '测试', fonder: acool)
 
 ## Generate albums
 def create_photo(creater,url, album = nil)
@@ -77,18 +78,18 @@ def create_photo(creater,url, album = nil)
   :album => album
   )  
 end
-create_photo(david,"http://ww3.sinaimg.cn/mw205/a01660e0jw1drd404g3gcj.jpg")
-create_photo(david, "http://img.spriteapp.com/si/59/72/87acae83jw1drljvn12n6j_2.jpg")
-create_photo(david, "http://img.spriteapp.com/si/1e/e9/87bee8eejw1drm59rtxsxj_2.jpg")
-create_photo(david, "http://ww3.sinaimg.cn/mw205/a01660e0jw1drd404g3gcj.jpg")
-create_photo(david, "http://img.spriteapp.com/si/0a/7e/63943f51gw1drl908s0zmj_2.jpg")
-create_photo(david, "http://www.865q.cn/qqfzl/UploadPic/2009-8/2009831134032200.jpg")
-create_photo(david, "http://img.spriteapp.com/si/3f/b6/9770ce78jw1drlmc0rlxyj.jpg")
-create_photo(david, "http://ww3.sinaimg.cn/mw205/a01660e0jw1drd404g3gcj.jpg")
-create_photo(david, "http://img.spriteapp.com/si/f8/35/87acae83jw1drlm1njspcg.gif")
-create_photo(david, "http://img.spriteapp.com/si/dd/a6/633f6f25jw1drlkvt0thij.jpg")
-create_photo(david, "http://img.spriteapp.com/si/04/49/63943f51jw1drlk3wmrqqj_2.jpg")
-create_photo(david, "http://img.spriteapp.com/si/48/76/92c9aa30jw1drlf6ezbbdj.jpg")
-create_photo(david, "http://img.spriteapp.com/si/0a/7e/63943f51gw1drl908s0zmj_2.jpg")
-create_photo(david, "http://img.spriteapp.com/si/22/54/9770ce78jw1drliv6gimsj.jpg")
-create_photo(acool, "http://cdn.duitang.com/uploads/people/201203/30/20120330110303_sEneY.jpeg")
+#create_photo(david,"http://ww3.sinaimg.cn/mw205/a01660e0jw1drd404g3gcj.jpg")
+#create_photo(david, "http://img.spriteapp.com/si/59/72/87acae83jw1drljvn12n6j_2.jpg")
+#create_photo(david, "http://img.spriteapp.com/si/1e/e9/87bee8eejw1drm59rtxsxj_2.jpg")
+#create_photo(david, "http://ww3.sinaimg.cn/mw205/a01660e0jw1drd404g3gcj.jpg")
+#create_photo(david, "http://img.spriteapp.com/si/0a/7e/63943f51gw1drl908s0zmj_2.jpg")
+#create_photo(david, "http://www.865q.cn/qqfzl/UploadPic/2009-8/2009831134032200.jpg")
+#create_photo(david, "http://img.spriteapp.com/si/3f/b6/9770ce78jw1drlmc0rlxyj.jpg")
+#create_photo(david, "http://ww3.sinaimg.cn/mw205/a01660e0jw1drd404g3gcj.jpg")
+#create_photo(david, "http://img.spriteapp.com/si/f8/35/87acae83jw1drlm1njspcg.gif")
+#create_photo(david, "http://img.spriteapp.com/si/dd/a6/633f6f25jw1drlkvt0thij.jpg")
+#create_photo(david, "http://img.spriteapp.com/si/04/49/63943f51jw1drlk3wmrqqj_2.jpg")
+#create_photo(david, "http://img.spriteapp.com/si/48/76/92c9aa30jw1drlf6ezbbdj.jpg")
+#create_photo(david, "http://img.spriteapp.com/si/0a/7e/63943f51gw1drl908s0zmj_2.jpg")
+#create_photo(david, "http://img.spriteapp.com/si/22/54/9770ce78jw1drliv6gimsj.jpg")
+#create_photo(acool, "http://cdn.duitang.com/uploads/people/201203/30/20120330110303_sEneY.jpeg")

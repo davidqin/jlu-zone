@@ -6,6 +6,7 @@
         %img{:src => gravatar(current_user.email, 120)}
       .span6
         = simple_form_for @reply do |f|
+          = form_error_messages(@reply)
           .control-group
             #editor-button-bar
             .text-content-area

@@ -194,6 +194,7 @@ GEM
       json (~> 1.4)
     redcarpet (2.0.1)
     remotipart (1.0.2)
+    rmagick (2.13.1)
     rspec (2.9.0)
       rspec-core (~> 2.9.0)
       rspec-expectations (~> 2.9.0)
@@ -269,6 +270,7 @@ DEPENDENCIES
   rails-i18n (= 0.5.1)
   rails_admin!
   redcarpet (~> 2.0.0)
+  rmagick
   rspec-rails
   sass-rails (~> 3.2.3)
   simple_form!

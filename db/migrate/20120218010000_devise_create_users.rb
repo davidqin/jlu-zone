@@ -47,6 +47,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string  :qq
       t.string  :idiograph
 
+      t.boolean  :lock, :null => false, :default => false
+
       t.boolean  :full_info,         :null => false, :default => false
       t.integer  :today_topic_count, :null => false, :default => 0
       t.datetime :today_last_topic_time

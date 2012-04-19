@@ -12,17 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.uslider
 //= require twitter/bootstrap
 //= require accounttab
 //= require colorbox
 //= require dialog
 //= require entry
+//= require photos
 //= require hotkeys
 //= require masonry
 //= require tagEditor
 //= require pagescroller
 //= require picture
-//= require agile_carousel.alpha
 //= require reply
 //= require timeago
 //= require timeago.setting
@@ -70,10 +71,10 @@ Application = {
           carousel_height: 200,
           slide_height: 200,
           carousel_outer_width: 480,
-          slide_width: 160,
+          slide_width: 140,
           number_slides_visible: 2,
-          transition_time: 330,
-          timer:3000 
+          transition_time: 100,
+          timer:3000
         });
       });
       $("abbr.timeago").timeago();

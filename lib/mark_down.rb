@@ -20,7 +20,7 @@ class MarkDown
 
   def self.formater
     Redcarpet::Markdown.new(
-    Redcarpet::Render::HTML,
+    Redcarpet::Render::HTML.new(:hard_wrap => true, :no_styles => true),
     :autolink => true, 
     :space_after_headers => true, 
     :fenced_code_blocks => true,
@@ -42,6 +42,6 @@ class MarkDown
   end
 
   def self.find_user_regexp
-    /(^|[^a-zA-Z0-9_!#\$%&*@＠])@([a-zA-Z0-9_]{1,20})/io
+    /(^|[^a-zA-Z0-9_!#\$%&*@＠])@([\u4e00-\u9fa5_a-zA-Z0-9]{1,20})/io
   end
 end

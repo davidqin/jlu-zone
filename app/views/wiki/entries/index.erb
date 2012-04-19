@@ -1,6 +1,6 @@
-<a class="btn btn-success" href=<%= new_entry_path%>><%= itext('entry.new')%></a>
-<div class="box">
-  <ul>
+<div class="box no-padding">
+  <%= render_breadcrumb %>
+  <ul class="nav nav-list">
     <% @entries.each do |entry|%>
     <% next if !can? :read, entry%>
       <li>

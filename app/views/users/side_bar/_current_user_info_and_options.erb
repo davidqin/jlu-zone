@@ -1,0 +1,54 @@
+<div class="box no-padding">
+<div class="current-user-info">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+    <tr>
+      <td valign="top" width="48">
+        <%= link_to user_avatar(current_user, 48), current_user%>
+      </td>
+      <td valign="top" width="10"></td>
+      <td align="left" width="auto">
+        <span>
+        <%= link_to current_user.nickname, current_user%>
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody>
+    <tr>
+      <td align="center" width="33%">
+        <%= link_to topics_user_path(current_user) do %>
+          <%= current_user.topics.size %>
+          <div class="sep3"></div>
+          <span>我的话题</span>
+        <% end %>
+      </td>
+      <td align="center" class="with_separator" width="34%">
+        <%= link_to follows_user_path(current_user) do %>
+          <%= current_user.followed_resources.size %>
+          <div class="sep3"></div>
+          <span>我的收藏</span>
+        <% end %>
+      </td>
+      <td align="center" width="33%">
+        <%= link_to photos_path do %>
+          <%= current_user.photos.size %>
+          <div class="sep3"></div>
+          <span>我的图片</span>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+<div class="current-user-options">
+  <span>没有头像？<a href="https://cn.gravatar.com/site/signup/">立刻修改头像 →</a></span>
+</div>
+<div class="current-user-options">
+<span>资料不对？<%= link_to "立刻编辑资料 →", edit_user_registration_path%></span>
+</div>
+</div>

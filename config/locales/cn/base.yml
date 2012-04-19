@@ -41,6 +41,7 @@ zh-CN:
   entries_statistics: "词条: %{entries}条"
   topics_statistics: "社区帖子: %{topics}条"
   photos_statistics: "靓图: %{photos}张"
+  replies_statistics: "回复: %{replies}条"
   category: 分类目录
   share_to: 分享到：
   admin_user: 管理员
@@ -64,3 +65,6 @@ zh-CN:
     next_label: "下一页 &#8594;"
     previous_label: "&#8592; 上一页"
     page_gap: "&hellip;"
+
+  form_error: "有%{count}处出错啦，%{resource}无法被保存!"
+

@@ -1,3 +1,4 @@
+# coding: utf-8
 class Reply < ActiveRecord::Base
   include Wiki::Models::Scores::LimitPerDay
   has_many   :notices_to_users, :as => :notice_resource, :class_name => "UserNotice"
@@ -11,7 +12,7 @@ class Reply < ActiveRecord::Base
   
   attr_accessible :content, :user_id
 
-  validates_presence_of :content, :message => "can't be empty"
+  validates_presence_of :content, :message => "内容不能空着～"
 
 
   def self.create_score

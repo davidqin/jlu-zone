@@ -38,7 +38,7 @@ module Wiki
 
       module WikiSidebar
         def sidebar_folder
-          'wiki'
+          'wiki/entries'
         end
       end
 
@@ -57,6 +57,18 @@ module Wiki
       module CommunitySidebar
         def sidebar_folder
           'community'
+        end
+      end
+
+      module PhotoSidebar
+        def sidebar_folder
+          'photos'
+        end
+      end
+
+      module AdminSidebar
+        def sidebar_folder
+          'admin'
         end
       end
     end

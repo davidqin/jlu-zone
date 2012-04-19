@@ -15,3 +15,23 @@ background-color: whiteSmoke;
   margin: 0 -10px 10px -10px;
   padding-bottom: 8px;
 }
+
+#sidebar .box .side_bar_title{
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #DDD;
+  font-weight: bold;  
+}
+
+#sidebar .box .current-user-info{
+  padding: 10px;
+  border-bottom: 1px solid #E2E2E2
+}
+
+#sidebar .box .current-user-info table{
+  margin-bottom: 10px; 
+}
+#sidebar .box .current-user-options{
+  padding: 5px;
+}
+

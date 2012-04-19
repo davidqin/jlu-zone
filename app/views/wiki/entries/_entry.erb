@@ -1,11 +1,13 @@
 <%= javascript_include_tag    "editor" %>
 <%= form_for @entry, :html => {:class => "form-horizontal"} do |form|%>
+  <%= form_error_messages(@entry)%>
   <div class="control-group">
+    词条标题：
     <%= form.text_field :name %>
   </div>
-  <div class="control-group">
+  <!-- <div class="control-group">
     <%= form.check_box :catalog %>
-  </div>
+  </div> -->
   <div class="control-group">
     <div id="editor-button-bar"></div>
     <div class="text-content-area">

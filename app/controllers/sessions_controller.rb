@@ -1,3 +1,3 @@
 class SessionsController < Devise::SessionsController
-  layout false
+  include Wiki::Controllers::Sidebar::CommonSidebar
 end

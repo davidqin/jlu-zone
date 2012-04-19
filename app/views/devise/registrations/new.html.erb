@@ -1,22 +1,40 @@
-<h2>Sign up</h2>
-
+<div class="box">
+<%= render_breadcrumb %><br>
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_error_messages(resource) %>
+<table cellpadding="5" cellspacing="0" border="0">
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+<tr>
+<td width="80" align="right">邮箱</td>
+<td width="400" align="left"><%= f.email_field :email %></td>
+</tr>
 
+<tr>
+<td width="80" align="right">昵称</td>
+<td width="400" align="left"><%= f.text_field :nickname %></td>
+</tr>
 
-  <div><%= f.label :nickname %><br />
-  <%= f.text_field :nickname %></div>
+<tr>
+<td width="80" align="right">校区</td>
+<td width="400" align="left"><%= f.select :campus, %w(前卫校区 南岭校区 新民校区 朝阳校区 南湖校区 和平校区) %></td>
+</tr>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+<tr>
+<td width="80" align="right">密码</td>
+<td width="400" align="left"><%= f.password_field :password, :size => 30%></td>
+</tr>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+<tr>
+<td width="80" align="right">确认密码</td>
+<td width="400" align="left"><%= f.password_field :password_confirmation %></td>
+</tr>
+<tr>
+<td width="80" align="right"></td>
+<td width="400" align="left"><%= f.submit "注册" %></td>
+</tr>
 
-  <div><%= f.submit "Sign up" %></div>
+</table>
 <% end %>
 
 <%= render "links" %>
+</div>
