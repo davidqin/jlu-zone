@@ -1,8 +1,9 @@
-source 'http://ruby.taobao.org'
+source 'http://rubygems.org'
 
 gem 'haml'
 gem 'rails', '3.2.1'
 gem 'sqlite3'
+gem "mysql"
 gem 'cancan'
 gem 'devise'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
