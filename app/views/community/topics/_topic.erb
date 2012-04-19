@@ -1,5 +1,6 @@
 <%= javascript_include_tag    "editor" %>
-<%= form_for @topic, :html => {:class => "form-horizontal"} do |form|%>
+<%= simple_form_for @topic, :html => {:class => "form-horizontal"} do |form|%>
+  <%= form_error_messages(@topic)%>
   <div class="control-group">
     标题：
     <%= form.text_field :name %>

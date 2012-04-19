@@ -1,6 +1,6 @@
 class Ability
   include CanCan::Ability
-
+  #alias_action :index, :show, :recent_photos, :to => :read
   def initialize(user)
 
     if user.blank?
@@ -9,6 +9,7 @@ class Ability
       read_unlock Topic
       can :read, User
       can :read, Photo
+      can :recent_photos, Photo
     else
 
       if user.lock
@@ -17,6 +18,7 @@ class Ability
       end
 
       cannot :manage, :all
+      can :recent_photos, Photo
 
       if user.admin_permission
         can :manage, :all
@@ -26,14 +28,15 @@ class Ability
       read_unlock Topic
       read_unlock Photo
 
-      can :read,   [User]
+      can :read,   [User, Topic]
 
-      can :create, [Entry, Reply, Topic]
+      can :create, [Entry, Reply, Topic, Photo]
 
       can :update,  Entry
 
       update_self user, Reply
       update_self user, Topic
+      update_self user, Photo
 
       if user.community_permission
 

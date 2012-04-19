@@ -57,9 +57,6 @@ module TopicHelper
       contents << show_buttons_for_manager(topic)
       contents << show_like_button(topic)
       contents << show_follow_button(topic)
-      contents << link_to("", :id => "reply_button", :class => " btn btn-mini" , "data-remote" => true, :method => :post) do
-        content_tag(:i, "", :class => "icon-pencil") + itext("topic.make_reply")
-      end
     end
   end
 

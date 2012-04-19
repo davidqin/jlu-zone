@@ -1,7 +1,7 @@
 <div class="box">
 <%= render_breadcrumb %><br>
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_error_messages(resource) %>
 <table cellpadding="5" cellspacing="0" border="0">
 
 <tr>

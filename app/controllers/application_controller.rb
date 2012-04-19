@@ -1,3 +1,4 @@
+# coding: utf-8
 class ApplicationController < ActionController::Base
   protect_from_forgery
   include Wiki::Controllers::ActionResult
@@ -16,6 +17,6 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :alert => exception.message
+    redirect_to root_url, :alert => "出错啦！你貌似没有权限这么做！请联系管理员～"
   end
 end

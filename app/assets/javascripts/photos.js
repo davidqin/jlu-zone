@@ -909,21 +909,3 @@
         }); // each
     }; // function
 })(jQuery);
-
-$.getJSON("agile_carousel/agile_carousel_data.php", function(data) {
-    $(document).ready(function(){
-        $("#multiple_slides_visible").agile_carousel({
-            carousel_data: data,
-            carousel_outer_height: 230,
-            carousel_height: 200,
-            slide_height: 200,
-            carousel_outer_width: 480,
-            slide_width: 160,
-            number_slides_visible: 3,
-            transition_time: 330,
-            control_set_1: "previous_button,next_button",
-            control_set_2: "group_numbered_buttons",
-            persistent_content: "<p class='persistent_content'>Agile Carousel Example: Multiple Slides Visible</p>"       
-        });
-    });
-});

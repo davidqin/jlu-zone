@@ -1,12 +1,11 @@
 # coding: utf-8
 class Photos::PhotosController < ApplicationController
+  include Wiki::Controllers::Sidebar::PhotoSidebar
   include Wiki::Controllers::TabsHighLight::Base
   include Wiki::Controllers::TabsHighLight::Photos
   include Wiki::Controllers::Check
   before_filter :authenticate_user!,    :except => [:show, :index]
   load_and_authorize_resource
-
-  respond_to :html, :js, :only => [:recent_photos]
 
   def index
     @photos = Photo.order("created_at desc").all
@@ -36,7 +35,7 @@ class Photos::PhotosController < ApplicationController
     if @photo.save
       redirect_to_as_create_success photos_path
     else
-      render_as_create_fail :new
+      render_as_create_fail
     end
   end
 
@@ -49,27 +48,13 @@ class Photos::PhotosController < ApplicationController
     end
   end
 
-  def recent_photos
-    @photos = Photo.order("created_at desc").limit(10)
-    respond_with do |format|
-      format.json { render :json => all_to_json(@photos)}
-    end
-  end
 
   def destroy
     Photo.find(params[:id]).destroy
     redirect_to_as_destroy_success "/photos"
   end
 
-  def all_to_json(photos)
-    json_array = []
-    photos.each do |photo|
-      json_array << {
-        :content => "<div class='slide_inner'><a target='_blank' class='photo_link' href=\"#{photo_path(photo)}\"><img class='photo' src=\"#{photo.img_url}\" alt='Bike'></a>#{time_ago(photo.created_at)}</div>",
-      }
-    end
-    json_array
-  end
+  private
 
   def time_ago(time, options = {})
     options[:class] ||= "timeago"

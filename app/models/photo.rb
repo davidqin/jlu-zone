@@ -1,3 +1,4 @@
+# coding: utf-8
 class Photo < ActiveRecord::Base
   include Wiki::Models::Scores::LimitPerDay
 

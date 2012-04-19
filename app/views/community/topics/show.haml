@@ -3,7 +3,7 @@
     %h1=@topic.name
     #entry_info
       = show_topic_info(@topic)
-    .avatar.pull-right
+    .topic-avatar.pull-right
       = show_user_portrait(@topic.fonder, :link => true, :popdetail => true)
   .entry-content
     = markdown(@topic.content)

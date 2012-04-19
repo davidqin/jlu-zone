@@ -58,6 +58,23 @@ module ApplicationHelper
 		options[:class] ||= "timeago"
 		content_tag(:abbr, "", options.merge(:title => time.iso8601)).html_safe if time
 	end
+
+	def form_error_messages(resource)
+		return "" if resource.errors.empty?
+		messages = resource.errors.full_messages.map { |msg| content_tag(:li, msg, :class => "") }.join
+		sentence = itext("form_error",
+		:count => resource.errors.count,
+		:resource => resource.class.model_name.human.downcase)
+
+		html = <<-HTML
+		<div class="alert fade in alert-error">
+			<h3>#{sentence}</h3>
+			<ul>#{messages}</ul>
+		</div>
+		HTML
+
+		html.html_safe
+	end
 end
 
 module BootstrapHelper

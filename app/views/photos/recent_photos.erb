@@ -1,0 +1,10 @@
+[
+<% @photos.each do |photo| %>
+{
+  "content": "<div class='coslider-item'><a href='#'><img class='coslidpp' width='24' height='24' src='<%= gravatar(photo.fonder.email, 24)%>'><%= photo.fonder.nickname%></a><div class='img-content'><a href='#'><img src='<%= photo.img_url.thumb%>'></a></div></div>"
+}
+  <%if photo != @photos.last%>
+  ,
+  <% end %>  
+<% end %>
+]

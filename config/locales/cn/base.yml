@@ -66,3 +66,5 @@ zh-CN:
     previous_label: "&#8592; 上一页"
     page_gap: "&hellip;"
 
+  form_error: "有%{count}处出错啦，%{resource}无法被保存!"
+

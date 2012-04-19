@@ -60,6 +60,12 @@ module Wiki
         end
       end
 
+      module PhotoSidebar
+        def sidebar_folder
+          'photos'
+        end
+      end
+
       module AdminSidebar
         def sidebar_folder
           'admin'

@@ -1,3 +1,4 @@
+# coding: utf-8
 class Entry < ActiveRecord::Base
   include Wiki::Models::Scores::NoLimitPerDay
 
@@ -7,10 +8,9 @@ class Entry < ActiveRecord::Base
   belongs_to :last_editor, :class_name => "User"
   has_many   :replies,     :as => :resource
 
-  validates_presence_of   :name, :message => "can't be empty"
-  validates_uniqueness_of :name, :message => "can't be unique" 
-
-  validates_presence_of   :content, :message => "can't be empty"
+  validates_presence_of   :name, :message => "标题不能空着啊！"
+  validates_uniqueness_of :name, :message => "标题不能相同啊！" 
+  validates_presence_of   :content, :message => "内容不能空着～"
 
   def self.create_entry(params, user)
     entry             = self.new(params)

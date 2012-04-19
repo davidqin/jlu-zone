@@ -1,0 +1,33 @@
+<div class="box no-padding" style="height: 300px;">
+  <%= render :partial => "photos/test", :locals => { :photos => @hot_photos}%>
+</div>
+
+<div class="box">
+  <div id="photos">
+  <% @photos.each do |photo|  %>
+  <% next if resource_lock?(photo)%>
+    <div class="item">
+      <div class="time">
+        <%= link_to '@' + photo.fonder.nickname, photo.fonder %>
+        <%= time_ago photo.created_at %>
+        发布
+        <span class="pull-right">
+          <% if can?(:lock, photo) %>
+            <%= show_buttons_for_manager(photo) %>
+          <% end %>
+          <% if photo.fonder == current_user%>
+            <%= link_to "编辑", edit_photo_path(photo)%>
+          <% else %>
+            <%= show_follow_button(photo)%>
+          <% end %>
+        </span>
+      </div>
+      <div class="description">
+        <%= photo.description %>
+        <%= tag(:img, :src => photo.img_url) %>
+        <%#= link_to tag(:img, :src => photo.img_url), photo %>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>

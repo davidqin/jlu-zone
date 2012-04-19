@@ -1,52 +1,27 @@
+
 <div id="photo-index-show">
   <div class="left">
-    <img src="http://cdn.duitang.com/uploads/people/201204/10/20120410151739_CtNsE.jpeg" width="628" height="300">
-    <a class="cov" href="http://www.duitang.com/album/836110/?from=home_top">堆糖，堆我的美好生活</a>
-    <a class="idxalowner" href="/people/52671/" title="有趣的設計"><img width="48" height="48" src="http://img2.duitang.com/uploads/people/201109/04/20110904114718_seuUz.thumb.48_48_c.png" align="middle">Tramy <br> 收集到 有趣的設計 专辑</a>
+    <img src="assets/photo_index.jpeg" width="628" height="300">
+    <a class="cov" href="">时光停摆，糖浆般的回忆</a>
+    <a class="idxalowner" href="/people/52671/">
+      <!-- <img width="48" height="48" src="" align="middle"> -->
+    <!-- JLU-team <br> 收集</a> -->
   </div>
 
 
   <div class="right">
     <div class="social">
-      <a id="banreglink" class="btn btn-success btn-large" href="/reg/">立即注册</a>
-      <div>
-        使用已有帐号登录：
+    <%= link_to "立即上传我的图片", new_photo_path, :class => "btn btn-success btn-large", :id => "banreglink"%>
+      <div style="margin-top:7px;">
+        记录身边的点滴
       </div>
     </div>
-    <p>这一刻，糖友正在收集...</p>
+    <p>这一刻，朋友们的分享...</p>
     <div id="costat">
       <div id="coslider" class="clr">
-        <div class="coslider-item">
-          <a href="/people/147095/">
-            <img class="coslidpp" width="24" height="24" src="http://cdn.duitang.com/uploads/people/201111/03/20111103225701_iwZSM.thumb.24_24_c.jpeg">9秒之前
-          </a>
-          <div class="img-content">
-            <a href="/people/mblog/25267918/detail/">
-              <img src="http://cdn.duitang.com/uploads/item/201204/07/20120407175619_h3sKu.thumb.80_80_c.jpeg">
-            </a>
-          </div>
-        </div>
-        <div class="coslider-item">
-          <a href="/people/147095/">
-            <img class="coslidpp" width="24" height="24" src="http://cdn.duitang.com/uploads/people/201111/03/20111103225701_iwZSM.thumb.24_24_c.jpeg">9秒之前
-          </a>
-          <div class="img-content">
-            <a href="/people/mblog/25267918/detail/">
-              <img src="http://cdn.duitang.com/uploads/item/201204/07/20120407175619_h3sKu.thumb.80_80_c.jpeg">
-            </a>
-          </div>
-        </div>
-        <div class="coslider-item">
-          <a href="/people/147095/">
-            <img class="coslidpp" width="24" height="24" src="http://cdn.duitang.com/uploads/people/201111/03/20111103225701_iwZSM.thumb.24_24_c.jpeg">9秒之前
-          </a>
-          <div class="img-content">
-            <a href="/people/mblog/25267918/detail/">
-              <img src="http://cdn.duitang.com/uploads/item/201204/07/20120407175619_h3sKu.thumb.80_80_c.jpeg">
-            </a>
-          </div>
-        </div>
+        <div id="multiple_slides_visible"></div>
       </dl>
     </div>
   </div>
+</div>
 </div>
