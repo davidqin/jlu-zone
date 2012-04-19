@@ -32,3 +32,157 @@
   width: 100%;
   padding-bottom: 8px;
 }
+
+#photo-index-show .left{
+  position:relative;
+  float:left;
+  +display:inline;
+  width:628px;
+  height:300px;
+}
+#photo-index-show .right{
+  float:right;
+  +display:inline;
+  width:276px;
+  margin:0 24px 0 0;
+}
+.imdreg{
+  float:left;
+  +display:inline;
+}
+#photo-index-show .social{
+  height:50px;
+  padding:24px 0 0 0;border-bottom:1px solid #ebebeb;
+}
+#photo-index-show .social div{
+  float:left;
+  +display:inline;width:110px;
+  line-height:21px;
+  padding:0 0 8px 0;
+  margin:0 0 0 6px;
+  color:#bbb;
+}
+#photo-index-show .social a{
+  margin:0 0 0 6px;
+}
+#photo-index-show .left:hover{
+  opacity:.9;
+  filter:alpha(opacity=90);
+}
+#photo-index-show .left img{
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  position:absolute;
+  z-index:1;
+  top:0;
+  left:0;
+}
+#photo-index-show .left .cov{
+  position:absolute;
+  z-index:2;
+  top:0;
+  left:0;
+  width:604px;
+  height:280px;
+  padding:20px 0 0 24px;
+  letter-spacing:1px;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://cdn.duitang.com/uploads/people/201201/16/20120116194236_yKETE.png',sizingMethod='crop');background:url(http://cdn.duitang.com/uploads/people/201201/16/20120116194236_yKETE.png) 0 0 no-repeat;_background:none;font-family:'\5FAE\8F6F\96C5\9ED1';
+  font-size:30px;
+  font-weight:normal;
+  text-shadow:2px 2px 3px rgba(0,0,0,.3);
+}
+#photo-index-show .left .cov:link,#photo-index-show .left .cov:visited{
+  text-decoration:none;color:#fff;
+}
+#photo-index-show .left .cov:hover{
+  text-decoration:none;color:#fff;
+}
+#photo-index-show .idxalowner{
+  position:absolute;z-index:3;top:auto;left:24px;
+  bottom:24px;width:410px;height:48px;line-height:25px;
+  text-shadow:1px 1px 2px rgba(0,0,0,.3);
+}
+#photo-index-show .idxalowner img{position:static;
+  float:left;+display:inline;margin-right:8px;
+}
+#photo-index-show .idxalowner:link,#photo-index-show .idxalowner:visited{
+  color:#fff;
+}
+#photo-index-show .idxalowner:hover{
+  color:#fff;text-decoration:none;
+}
+#costat{
+  width:100%;overflow:hidden;
+}
+#photo-index-show .right p{
+  border-top:1px solid #fff;
+  padding:8px 0 0 4px;
+  letter-spacing:2px;
+  color:#88b3d8;
+  font-family:'\5FAE\8F6F\96C5\9ED1';
+  font-size:16px;
+}
+#coslider{
+  width:99999px;
+  margin:18px 0 0;
+}
+#coslider .coslider-item{
+  float:left;
+  +display:inline;
+  width:130px;
+  line-height:23px;
+  margin-left:10px;
+  padding:0;
+}
+#coslider .coslider-item a:link,#coslider .coslider-item a:visited{
+  color:#bbb;
+  text-decoration:none;
+}
+#coslider .coslider-item a:hover{
+  color:#f21664;
+  text-decoration:none;
+}
+#coslider .coslider-item a:hover img{
+  opacity:.9 !important;
+  filter:alpha(opacity=90) !important;
+}
+#coslider .coslider-item img.coslidpp{
+  float:left;
+  +display:inline;
+  margin-left:4px;
+  margin-right:4px;
+}
+#coslider .coslider-item .img-content{
+  clear:both;
+  width:100px;
+  height:100px;
+  padding:10px;
+  margin:10px 0px 0px 0px;
+  border:1px solid #ebebeb;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+#coslider .coslider-item .img-content img{
+  width: 100%;
+  height: 100%;  
+}
+.userme{
+  height:70px;
+  padding:24px 0 0;
+  border-bottom:1px solid #ebebeb;
+}
+.userme img{
+  float:left;
+  +display:inline;
+  margin-right:8px;
+  _margin-right:5px;
+}
+.userme div{
+  line-height:25px;
+}
+.userme u{
+  background:url("../../../../img/0/main.gif?20120208") no-repeat scroll -80px -1214px #F7F7F7;
+  font-size:16px;line-height:25px;padding:0 12px 0 0;
+}

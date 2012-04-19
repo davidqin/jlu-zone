@@ -6,6 +6,9 @@ gem 'sqlite3'
 gem 'cancan'
 gem 'devise'
 
+gem 'rmagick'
+#sudo apt-get install libmagick9-dev
+
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 gem 'simple_form', :git => "git://github.com/plataformatec/simple_form.git"

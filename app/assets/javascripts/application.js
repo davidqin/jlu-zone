@@ -18,6 +18,7 @@
 //= require colorbox
 //= require dialog
 //= require entry
+//= require photos
 //= require hotkeys
 //= require masonry
 //= require tagEditor

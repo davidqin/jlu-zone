@@ -1,63 +1,52 @@
-<table>
-<tr>
-<td  rowspan='2'>
-<div class="container_6 clearfix">
-<div class="main-section grid_6">
-<div class="main-content">
-<div class="clearfix">
-<div>
-<ul id="uslider" class="uslider">
-<% [].each do |photo|%>
-<li>
-<%= tag(:img, :alt => '', :src => photo.img_url, :width => 500) %>
-<% if not photo.description.blank? %>
-  <div>
-    <div class="slide-widget-caption">
-      <%= photo.description %>
+<div id="photo-index-show">
+  <div class="left">
+    <img src="http://cdn.duitang.com/uploads/people/201204/10/20120410151739_CtNsE.jpeg" width="628" height="300">
+    <a class="cov" href="http://www.duitang.com/album/836110/?from=home_top">堆糖，堆我的美好生活</a>
+    <a class="idxalowner" href="/people/52671/" title="有趣的設計"><img width="48" height="48" src="http://img2.duitang.com/uploads/people/201109/04/20110904114718_seuUz.thumb.48_48_c.png" align="middle">Tramy <br> 收集到 有趣的設計 专辑</a>
+  </div>
+
+
+  <div class="right">
+    <div class="social">
+      <a id="banreglink" class="btn btn-success btn-large" href="/reg/">立即注册</a>
+      <div>
+        使用已有帐号登录：
+      </div>
+    </div>
+    <p>这一刻，糖友正在收集...</p>
+    <div id="costat">
+      <div id="coslider" class="clr">
+        <div class="coslider-item">
+          <a href="/people/147095/">
+            <img class="coslidpp" width="24" height="24" src="http://cdn.duitang.com/uploads/people/201111/03/20111103225701_iwZSM.thumb.24_24_c.jpeg">9秒之前
+          </a>
+          <div class="img-content">
+            <a href="/people/mblog/25267918/detail/">
+              <img src="http://cdn.duitang.com/uploads/item/201204/07/20120407175619_h3sKu.thumb.80_80_c.jpeg">
+            </a>
+          </div>
+        </div>
+        <div class="coslider-item">
+          <a href="/people/147095/">
+            <img class="coslidpp" width="24" height="24" src="http://cdn.duitang.com/uploads/people/201111/03/20111103225701_iwZSM.thumb.24_24_c.jpeg">9秒之前
+          </a>
+          <div class="img-content">
+            <a href="/people/mblog/25267918/detail/">
+              <img src="http://cdn.duitang.com/uploads/item/201204/07/20120407175619_h3sKu.thumb.80_80_c.jpeg">
+            </a>
+          </div>
+        </div>
+        <div class="coslider-item">
+          <a href="/people/147095/">
+            <img class="coslidpp" width="24" height="24" src="http://cdn.duitang.com/uploads/people/201111/03/20111103225701_iwZSM.thumb.24_24_c.jpeg">9秒之前
+          </a>
+          <div class="img-content">
+            <a href="/people/mblog/25267918/detail/">
+              <img src="http://cdn.duitang.com/uploads/item/201204/07/20120407175619_h3sKu.thumb.80_80_c.jpeg">
+            </a>
+          </div>
+        </div>
+      </dl>
     </div>
   </div>
-<% end %>
-</li>
-<% end %>
-
-<li>
-<img src="assets/sample1.jpg" />
-</li>
-<li>
-<img src="assets/sample2.jpg" />
-</li>
-<li>
-<img src="assets/sample3.jpg" />
-</li>
-<li>
-<img src="assets/sample4.jpg" />
-<div>
-<div class="slide-widget-caption">
-the Trial of Champion
 </div>
-</div>
-</li>
-<li>
-<img src="assets/sample5.jpg" />
-</li>
-
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</td>
-<td>
-记录你我身边的每一刻
-</td>
-</tr>
-<tr>
-<td>
-<%= link_to "上传图片", new_photo_path, :class => "btn btn-success" %>
-</td>
-</tr>
-</table>

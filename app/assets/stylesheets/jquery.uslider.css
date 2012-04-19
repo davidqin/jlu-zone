@@ -1,7 +1,7 @@
 .slide-wrapper {
     border:0px;
     padding:0px;
-    margin:auto;
+    margin:0px;
 }
 .uslider-vertical-slider {
     margin:0px;
@@ -11,7 +11,7 @@
     display:block;
     position:relative;
     overflow:hidden;
-    height:300px;
+    height:250px;
 }
 .uslider-vertical-slider > li {
     list-style:none;
@@ -23,11 +23,14 @@
     padding-bottom:0px;
     background:white;
     width:500px;
+    max-height:250px;
+    overflow:hidden; 
 }
 .uslider-vertical-slider > li img {
     border:0px;
     margin:0px;
     padding:0px;
+    max-width: 500px;  
 }
 .uslider-vertical-slider > li > div {
     position:absolute;
@@ -64,4 +67,8 @@ a.control-link {
     display:block;
     vertical-align:middle;
     padding:0px;
+}
+
+#photo_index_td{
+    width: 620px;
 }

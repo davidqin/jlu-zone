@@ -10,7 +10,7 @@ class Photos::PhotosController < ApplicationController
 
   def index
     @photos = Photo.order("created_at desc").all
-    @hot_photos = Photo.order("created_at desc").limit(5)
+    @hot_photos = Photo.order("created_at desc").limit(4)
     drop_breadcrumb(itext("navigation.photos"), photos_path)
     do_not_use_sidebar
     render "photos/index"
