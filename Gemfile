@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'haml'
 gem 'rails', '3.2.1'
 gem 'sqlite3'
-gem "mysql"
+gem 'mysql2',                   '0.3.11'
 gem 'cancan'
 gem 'devise'
 

@@ -26,8 +26,18 @@ class Topic < ActiveRecord::Base
   end
   
   def tag_string=(string)
+    tag_array = []
     tags_names = string.to_s.split(/[,\s]+/).uniq
-    self.tags = tags_names.map {|name| Tag.find_by_name(name)}
+    tags_names.each_with_index do |name, index|
+      tag = Tag.find_by_name(name)
+      unless tag
+        tag = Tag.create({ :name => name, :number => name})
+        raise "create_tag_failed!" unless tag
+      end
+      tag_array << tag
+    end
+
+    self.tags = tag_array
   end
 
   def tag_string

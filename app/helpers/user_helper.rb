@@ -11,7 +11,7 @@ module UserHelper
   end
 
   def unread_count
-    current_user.notices.find(:all, :conditions => ['read = ?', false]).size 
+    current_user.notices.find_all_by_read(false).size
   end
 
   def render_user_honor

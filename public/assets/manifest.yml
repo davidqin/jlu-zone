@@ -1,8 +1,5 @@
 ---
 arrow-up.png: arrow-up-14a55a1c4602417b6005ffd0b215b5e0.png
-banner_bike.jpg: banner_bike-0184e0171d2c3e9bd9934399597293ed.jpg
-banner_paint.jpg: banner_paint-2388451c166bbb5dc93b058dc72aa5fa.jpg
-banner_tunnel.jpg: banner_tunnel-f2b59f76e9d5e8484e0559fc6132a4e0.jpg
 bg.gif: bg-a0566192abb581e8df856975cc67d3ea.gif
 colorbox/border.png: colorbox/border-040529b1758bba9d31ae56dd5287f7c5.png
 colorbox/controls.png: colorbox/controls-e648327ada6618ac98639b18d35e3969.png
@@ -19,11 +16,10 @@ colorbox/loading_background.png: colorbox/loading_background-81cbf73ad6666dfab35
 colorbox/overlay.png: colorbox/overlay-417d79438848643798d38eb52d43eaac.png
 foot_logo.jpg: foot_logo-63847de7b4675bba8668105385c056e3.jpg
 like.gif: like-c2ebe4acc645b06b488101c3b595bdea.gif
-sprite_ac_disabled.png: sprite_ac_disabled-97a72b906b6f78042949a4afa4f28278.png
-sprite_ac_hover.png: sprite_ac_hover-8c658730da74ac59c0930b94c1a3022d.png
-sprite_ac_normal.png: sprite_ac_normal-bb74c88321415d862bcaa4d11483c2cb.png
-application.js: application-639e13b43e853b884c2661d8bd0701a5.js
-application.css: application-4f9c30c89c0519e9a1f3dd65e8004b97.css
+photo_index.jpeg: photo_index-a395e26cee873ca7b682a481c0f0f555.jpeg
+application.js: application-3921ace606a5cc97f3cff82041001c78.js
+editor.js: editor-bee5d2ffa39c22729e50332c9eabf69b.js
+application.css: application-c658ede5556fb97b84531eeca7da5140.css
 wmd/wmd-buttons.png: wmd/wmd-buttons-ce6ac0679251db154c42430770ecb500.png
 twitter/bootstrap/glyphicons-halflings-white.png: twitter/bootstrap/glyphicons-halflings-white-4fbb6a0b9b4e61912f486ac494a858f1.png
 twitter/bootstrap/glyphicons-halflings.png: twitter/bootstrap/glyphicons-halflings-2ed0cba6eca0f44737ab78f1e58bc11e.png
