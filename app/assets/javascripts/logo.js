@@ -78,8 +78,10 @@ $(function() {
 	};
 	
 	function onMove(e) {
+		 var positionX=e.originalEvent.x-canvas.offset().left||e.originalEvent.layerX-canvas.offset().left;
+		 var positionY=e.originalEvent.y-canvas.offset().top||e.originalEvent.layerY-canvas.offset().top;
 		if (pointCollection)
-			pointCollection.mousePos.set((e.pageX-(940/2)), (e.pageY-(250/2)));
+		  pointCollection.mousePos.set(positionX, positionY);
 	};
 	
 	function timeout() {
