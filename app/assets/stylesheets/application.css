@@ -68,6 +68,12 @@ code{
   padding-bottom: 8px;
 }
 
+#index_logo{
+  margin-left: -10px;
+  margin-bottom: -10px;
+  margin-top: -5px;
+}
+
 .no-padding{
   padding: 0;
 }
