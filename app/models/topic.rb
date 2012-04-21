@@ -9,8 +9,8 @@ class Topic < ActiveRecord::Base
   has_many   :liked_resources,      :as => :liked_resource
   has_and_belongs_to_many :tags
   
-  validates_presence_of   :name, :message => "标题不能空着啊！"
-  validates_uniqueness_of :name, :message => "标题不能相同啊！"
+  validates_presence_of   :name,    :message => "标题不能空着啊！"
+  validates_uniqueness_of :name,    :message => "标题不能相同啊！"
   validates_presence_of   :content, :message => "内容不能空着～"
 
   #validates :tag_string, :tag_string => true, :format => { :with => /\A[^\/]+\z/, :message => "eee", :allow_blank => true}
