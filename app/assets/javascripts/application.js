@@ -15,6 +15,8 @@
 //= require jquery.uslider
 //= require twitter/bootstrap
 //= require accounttab
+//= require alphabet
+//= require logo
 //= require colorbox
 //= require dialog
 //= require entry
@@ -28,6 +30,7 @@
 //= require timeago
 //= require timeago.setting
 //= require jcarousellite
+
 Application = {
   initBackToTopButton: function(){
     //首先将#back-to-top隐藏

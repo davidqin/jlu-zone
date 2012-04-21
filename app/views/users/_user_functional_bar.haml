@@ -16,7 +16,7 @@
               = content_tag(:li, content_tag(:span, current_user.email))
               = content_tag(:li, content_tag(:a, itext("edit_profile"), :href => edit_user_registration_path))
               - if current_user.admin_permission
-                = content_tag(:li, content_tag(:a, itext("admin_panel"), :href => "rails_admin_path"))
+                = content_tag(:li, content_tag(:a, itext("admin_panel"), :href => "admin_index_path"))
               = content_tag(:li, content_tag(:a, itext("logout"), :href => destroy_user_session_path, "data-method" => :delete))
   - else
     = content_tag(:li, content_tag(:a, itext("register"), :href => new_user_registration_path))
