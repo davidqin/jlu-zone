@@ -15,8 +15,6 @@
 //= require jquery.uslider
 //= require twitter/bootstrap
 //= require accounttab
-//= require alphabet
-//= require logo
 //= require colorbox
 //= require dialog
 //= require entry
