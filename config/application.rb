@@ -65,6 +65,5 @@ module Wiki
       g.template_engine :haml
     end
 
-    WillPaginate::ViewHelpers.pagination_options[:renderer] = 'BootstrapHelper::PaginateRenderer'
   end
 end
