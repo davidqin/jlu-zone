@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'http://ruby.taobao.org'
 
 gem 'haml'
 gem 'rails', '3.2.1'
@@ -7,10 +7,11 @@ gem 'mysql2',                   '0.3.11'
 gem 'cancan'
 gem 'devise'
 
-gem 'rmagick'
-#sudo apt-get install libmagick9-dev
-
-gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+# 这个gem在mac开发下安装可能会出现问题
+# sudo apt-get install libmagick9-dev
+# brew install imagemagick
+# http://blog.paulopoiati.com/2013/01/28/installing-rmagick-in-mac-os-x-mountain-lion-with-homebrew/
+gem 'rmagick', '2.13.1'
 
 gem 'simple_form', :git => "git://github.com/plataformatec/simple_form.git"
 
@@ -25,7 +26,7 @@ gem 'bootstrap_helper', :git => "git://github.com/xdite/bootstrap-helper.git"
 gem 'carrierwave'
 
 #markdown
-gem "redcarpet", "~> 2.0.0"
+gem "redcarpet"
 gem "wmd-rails"
 gem 'hpricot', '~> 0.8.5'
 

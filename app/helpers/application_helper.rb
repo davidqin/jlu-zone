@@ -14,10 +14,10 @@ module ApplicationHelper
 	end
 
 	def gravatar(email, size = nil)
-		gravatar_id = Digest::MD5.hexdigest(email.downcase)   
-		base_url = "http://www.gravatar.com/avatar/#{gravatar_id}" 
+		gravatar_id = Digest::MD5.hexdigest(email.downcase)
+		base_url = "http://www.gravatar.com/avatar/#{gravatar_id}"
 		if size
-			base_url + "?r=G&s=#{size}" 
+			base_url + "?r=G&s=#{size}"
 		else
 			base_url
 		end
@@ -82,7 +82,7 @@ module BootstrapHelper
 		module InstanceMethods
 			protected
 			def set_breadcrumbs
-				@breadcrumbs = [(content_tag(:a, content_tag(:i, '', :class => "icon-home") + "Home", :href => "/")).html_safe]
+				# @breadcrumbs = [(content_tag(:a, content_tag(:i, '', :class => "icon-home") + "Home", :href => "/")).html_safe]
 			end
 		end
 	end
