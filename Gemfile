@@ -21,8 +21,6 @@ gem 'twitter-bootstrap-rails', :git => "git://github.com/seyhunak/twitter-bootst
 
 gem 'acts_as_tree'
 
-gem 'bootstrap_helper', :git => "git://github.com/xdite/bootstrap-helper.git"
-
 gem 'carrierwave'
 
 #markdown

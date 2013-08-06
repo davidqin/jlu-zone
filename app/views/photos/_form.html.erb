@@ -1,11 +1,12 @@
 <div class="box">
-<%= render_breadcrumb %><br>
+
+
 <%= simple_form_for @photo do |f| %>
   <%= form_error_messages(@photo)%>
   <div class="control-group">
     图片描述：
     <%= f.text_field :description %>
-  </div>  
+  </div>
     <% if params[:action] != "edit" %>
     <%= f.file_field :img_url %>
     <% end %>

@@ -15,11 +15,11 @@ Wiki::Application.routes.draw do
   end
 
   ## routes for users
-  devise_for :users, :controllers => {:sessions => "sessions", :registrations => "registrations"}
+  devise_for :users
 
   get "/users/menu" => "users/users#menu", :as => :users
   get "campus/:campus" => 'users/users#location', :as => :location_users
-  
+
   resources :users,  :only => [:show, :index],            :controller => 'users/users' do
     member do
       post :lock
@@ -30,7 +30,7 @@ Wiki::Application.routes.draw do
   end
   post   "/users/:id" => 'users/users#set_permission',    :as => :set_user_permission
   delete "/users/:id" => 'users/users#cancel_permission', :as => :cancel_user_permission
-  
+
   get "/users/:id/notices" => 'users/user_notices#index',         :as => :user_notices
   put "/users/:id/notices" => 'users/user_notices#mark_all_read', :as => :mark_all_notices_read
 
@@ -65,7 +65,7 @@ Wiki::Application.routes.draw do
     get  '/'  => "community/community#index",     :as => :community
     get  ':tag_id' => "community/tags#index",     :as => :tag
   end
-  
+
   #routes for followed_resources and liked_resources
   post "followed_resources" => "followed_resources#create", :as => :follow
   delete "followed_resources" => "followed_resources#destroy", :as => :unfollow
