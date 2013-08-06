@@ -24,9 +24,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.string :password_salt
 
       ## Confirmable
-      # t.string   :confirmation_token
-      # t.datetime :confirmed_at
-      # t.datetime :confirmation_sent_at
+      t.string   :confirmation_token
+      t.datetime :confirmed_at
+      t.datetime :confirmation_sent_at
       # t.string   :unconfirmed_email # Only if using reconfirmable
 
       ## Lockable
@@ -36,8 +36,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       ## Token authenticatable
       # t.string :authentication_token
-      t.integer :score,           :default => 1000
-      t.integer :gender,               :default => 0
+      t.integer :score, :default => 1000
+      t.integer :gender, :default => 0
       t.string  :nickname
       t.string  :campus
       t.string  :department

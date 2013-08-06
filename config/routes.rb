@@ -14,7 +14,11 @@ Wiki::Application.routes.draw do
     resources :tags, :except => [:index ,:show]
   end
 
-  ## routes for users
+  ## 用户的注册由输入吉大邮箱开始
+  get '/start' => 'start#form'
+  post '/start' => 'start#send_email'
+
+  ## devise的路由
   devise_for :users
 
   get "/users/menu" => "users/users#menu", :as => :users
