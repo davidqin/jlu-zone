@@ -15,11 +15,11 @@ Wiki::Application.routes.draw do
   end
 
   ## 用户的注册由输入吉大邮箱开始
-  get '/start' => 'start#form'
-  post '/start' => 'start#send_email', as: :start
+  get '/start' => 'start#form', as: :start
+  post '/start' => 'start#send_email', as: :start_send_email
 
   ## devise的路由
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
 
   get "/users/menu" => "users/users#menu", :as => :users
   get "campus/:campus" => 'users/users#location', :as => :location_users

@@ -3,11 +3,13 @@
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= form_error_messages(resource) %>
+  <%= text_field_tag :email, nil, type: :hidden, value: @email %>
+  <%= text_field_tag :token, nil, type: :hidden, value: @token %>
 <table cellpadding="5" cellspacing="0" border="0">
 
 <tr>
 <td width="80" align="right">邮箱</td>
-<td width="400" align="left"><%= f.email_field :email %></td>
+<td width="400" align="left"><%= @email%></td>
 </tr>
 
 <tr>
