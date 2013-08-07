@@ -20,6 +20,10 @@ Wiki::Application.routes.draw do
 
   ## devise的路由
   devise_for :users, :controllers => { :registrations => "registrations" }
+  devise_scope :user do
+    get '/users/edit_password' => 'registrations#edit_password'
+    put '/users/edit_password' => 'registrations#update_password'
+  end
 
   get "/users/menu" => "users/users#menu", :as => :users
   get "campus/:campus" => 'users/users#location', :as => :location_users

@@ -1,14 +1,19 @@
+# coding: utf-8
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :trackable, :validatable
 
-  attr_accessible :nickname, :campus, :password, :password_confirmation, :email
+  attr_accessible :nickname, :campus, :password, :password_confirmation, :email, :remember_me
+
+  validates :nickname,
+    :presence     => { :message => '昵称不能空着阿' },
+    :length       => { :message => '名字长度2-10个字符', :in => 2..10}
 
   #before_save :full_info_score
   has_many :entries, :foreign_key => 'fonder_id'
-  has_many :albums, :foreign_key => 'fonder_id'
+  has_many :albums,  :foreign_key => 'fonder_id'
   has_many :photos,  :foreign_key => 'fonder_id'
   has_many :topics,  :foreign_key => 'fonder_id'
   has_many :replies, :foreign_key => 'fonder_id'
@@ -21,6 +26,7 @@ class User < ActiveRecord::Base
   has_many :followed_resources
   has_many :followed_topics, :class_name => 'Topic', :through => :followed_resources, :source => :followed_resource, :source_type => :Topic
   has_many :followed_photos, :class_name => 'Album', :through => :followed_resources, :source => :followed_resource, :source_type => :Album
+
 
   def email=(address)
     write_attribute(:email, address) if new_record?
@@ -48,5 +54,10 @@ class User < ActiveRecord::Base
       return false if self.send(attribute).blank?
     end
     return true
+  end
+
+  def update_password params
+    params.select! { |key| [:current_password, :password, :password_confirmation]}
+    update_with_password params
   end
 end

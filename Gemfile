@@ -35,7 +35,7 @@ gem 'pry',            '0.9.8.2'
 gem "rails-i18n",               '0.5.1'
 
 group :development, :test do
-  gem "factory_girl_rails", :require => false
+  gem 'factory_girl_rails', '3.5.0'
 end
 
 group :assets do
