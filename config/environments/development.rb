@@ -1,3 +1,5 @@
+require 'yaml'
+
 Wiki::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -36,4 +38,15 @@ Wiki::Application.configure do
   config.assets.debug = true
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => 'smtp.exmail.sina.com',
+    :port => 25,
+    :domain => 'www.jlu-zone.com',
+    :authentication => :login,
+    :user_name => YAML.load_file('config/config.yml')['no-reply-email']['username'],
+    :password => YAML.load_file('config/config.yml')['no-reply-email']['password']
+  }
+
 end

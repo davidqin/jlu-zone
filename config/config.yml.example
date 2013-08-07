@@ -1,1 +1,5 @@
-user_start_email_salt: abcdefg 
+user_start_email_salt: abcdefg
+
+no-reply-email:
+  username: XXX
+  password: XXX
