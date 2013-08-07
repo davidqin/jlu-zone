@@ -35,13 +35,7 @@ gem 'pry',            '0.9.8.2'
 gem "rails-i18n",               '0.5.1'
 
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'spork'
-  gem 'guard-rspec'
-  gem 'capybara'
   gem "factory_girl_rails", :require => false
-  gem "database_cleaner"
-  #gem 'rb-fsevent'
 end
 
 group :assets do
