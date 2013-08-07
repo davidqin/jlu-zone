@@ -20,3 +20,6 @@ public/assets/
 tags
 .idea/
 db/schema.rb
+
+# Ignore real config
+config/config.yml
