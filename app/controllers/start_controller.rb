@@ -15,6 +15,7 @@ class StartController < ApplicationController
   def send_email
     @email_address = params[:email]
     email_token = StartController.generate_email_token(@email_address)
+    NoReplyMailer.confirm(@email_address, email_token).deliver
     render "sent_email"
   end
 end

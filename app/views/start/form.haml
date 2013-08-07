@@ -1,5 +1,9 @@
 .box
-  只能用吉大邮箱注册
+  只能用吉大邮箱注册，我们不会泄漏您的邮箱，请放心。
+  不知道吉大邮箱，少侠，你弱爆了。赶紧去
+  %a{href: "abc"}
+    这里
+  看看吧
   = form_tag start_send_email_path, method: :post do
     // 此处需要自定义浏览器检验信息的文案
     = text_field_tag :email, nil, placeholder: :请输入你的吉大邮箱, required: :required#, pattern: '\w+[0-9]{4}'

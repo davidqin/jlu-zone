@@ -20,6 +20,7 @@ public/assets/
 tags
 .idea/
 db/schema.rb
+.DS_Store
 
 # Ignore real config
 config/config.yml

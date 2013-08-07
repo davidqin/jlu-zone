@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :trackable, :validatable
 
-  attr_accessible :password
+  attr_accessible :nickname, :campus, :password, :password_confirmation, :email
 
   #before_save :full_info_score
   has_many :entries, :foreign_key => 'fonder_id'
@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
   has_many :followed_resources
   has_many :followed_topics, :class_name => 'Topic', :through => :followed_resources, :source => :followed_resource, :source_type => :Topic
   has_many :followed_photos, :class_name => 'Album', :through => :followed_resources, :source => :followed_resource, :source_type => :Album
+
+  def email=(address)
+    write_attribute(:email, address) if new_record?
+  end
 
   def to_param
     self.number.to_s
