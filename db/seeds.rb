@@ -27,6 +27,12 @@ kevin = User.create(
   password_confirmation: '123456',
   email: 'kevin@gmail.com')
 
+lulu = User.create(
+  nickname: 'lulu',
+  password: '123456',
+  password_confirmation: '123456',
+  email: '129.911@gmail.com')
+
 # nevermore = User.create(
 #   nickname: 'nevermore',
 #   password: '123456',

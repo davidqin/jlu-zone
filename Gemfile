@@ -5,7 +5,7 @@ gem 'rails', '3.2.1'
 gem 'sqlite3'
 gem 'mysql2',                   '0.3.11'
 gem 'cancan'
-gem 'devise'
+gem 'devise', '2.0.4'
 
 # 这个gem在mac开发下安装可能会出现问题
 # sudo apt-get install libmagick9-dev
