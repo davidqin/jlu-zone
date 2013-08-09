@@ -23,6 +23,9 @@ Wiki::Application.routes.draw do
   devise_scope :user do
     get '/users/edit_password' => 'registrations#edit_password'
     put '/users/edit_password' => 'registrations#update_password'
+
+    get '/users/edit_avatar' => 'registrations#edit_avatar', as: :edit_avatar
+    put '/users/edit_avatar' => 'registrations#update_avatar', as: :update_avatar
   end
 
   get "/users/menu" => "users/users#menu", :as => :users

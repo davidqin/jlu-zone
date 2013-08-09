@@ -10,32 +10,24 @@ class Community::TopicsController < ApplicationController
   def index
     @topics = Topic.order("created_at desc").all.paginate(:page => params[:page], :per_page => 10)
     @page_title = itext("navigation.community")
-    drop_breadcrumb(itext("navigation.community"), community_path)
-    drop_breadcrumb(itext("topic.drop_breadcrumb_all"), topics_path)
     render "community/topics/index"
   end
-  
+
   def new
     @topic = Topic.new
     do_not_use_sidebar
-    drop_breadcrumb(itext("navigation.community"), community_path)
-    drop_breadcrumb(itext('topic.drop_breadcrumb_new'))
   end
 
   def show
     @topic = Topic.find(params[:id])
     @topic.change_read_history(current_user)
-    drop_breadcrumb(itext("navigation.community"), community_path)
-    drop_breadcrumb(itext("topic.drop_breadcrumb_view", :topic => @topic.name))
   end
 
   def edit
     @topic = Topic.find(params[:id])
     do_not_use_sidebar
-    drop_breadcrumb(itext("navigation.community"), community_path)
-    drop_breadcrumb(itext("topic.drop_breadcrumb_edit", :topic => @topic.name))
   end
-  
+
   def create
     @topic = current_user.topics.new(model_params)
     if @topic.save
@@ -79,4 +71,3 @@ class Community::TopicsController < ApplicationController
     end
   end
 end
-  

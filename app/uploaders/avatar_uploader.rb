@@ -1,12 +1,33 @@
-require 'carrierwave/processing/rmagick'
 # encoding: utf-8
+
 class AvatarUploader < CarrierWave::Uploader::Base
-   include CarrierWave::RMagick
+  include CarrierWave::MiniMagick
 
-  process :resize_to_fit => [800, 800]
+  process :convert => 'jpg'
+  process :crop
 
-  version :thumb do
-    process :resize_to_fill => [100,100]
+  version :size64 do
+    process :resize_to_fill => [64, 64]
+  end
+
+  version :size48 do
+    process :resize_to_fill => [48, 48]
+  end
+
+  version :size18 do
+    process :resize_to_fill => [18, 18]
+  end
+
+  def crop
+    width = model.a_x2.to_i - model.a_x1.to_i
+    height= model.a_y2.to_i - model.a_y1.to_i
+
+    geometry = "#{width}x#{height}+#{model.a_x1.to_i}+#{model.a_y1.to_i}"
+
+    manipulate! do |img|
+      img.crop(geometry)
+      img
+    end
   end
 
   # process :resize_to_fit => [200, 200]
@@ -51,8 +72,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+  def filename
+    'avatar.jpg'
+  end
 
 end

@@ -2,7 +2,6 @@
 class Photo < ActiveRecord::Base
   include Wiki::Models::Scores::LimitPerDay
 
-  mount_uploader :img_url, AvatarUploader
   belongs_to :album
   belongs_to :fonder, :class_name => "User"
 

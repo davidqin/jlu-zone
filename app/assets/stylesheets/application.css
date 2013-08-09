@@ -22,14 +22,19 @@ html{
 
 body{
   padding-top: 48px;
-  background: #fff url("bg.gif"); 
-  color: #666; 
-  font: 0.75em/1.5 "Arial", "Helvetica", sans-serif; 
+  background: #fff url("bg.gif");
+  color: #666;
+  font: 0.75em/1.5 "Arial", "Helvetica", sans-serif;
 }
 
 code{
   background:none;
 }
+
+.hide {
+  display: none;
+}
+
 .box{
   background-color: white;
   padding: 10px;

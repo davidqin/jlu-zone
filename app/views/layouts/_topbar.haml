@@ -2,7 +2,8 @@
   .navbar-inner
     .container
       = navigation_for_device
-      = wiki_logo
+      = link_to 'JLU-Zone', '/', class: :brand
       .nav-collapse
-        = modules_navigation
+        %ul.nav
+          %li= link_to '社区', community_path
         = render "users/user_functional_bar"

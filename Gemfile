@@ -12,6 +12,7 @@ gem 'devise', '2.0.4'
 # brew install imagemagick
 # http://blog.paulopoiati.com/2013/01/28/installing-rmagick-in-mac-os-x-mountain-lion-with-homebrew/
 gem 'rmagick', '2.13.1'
+gem 'mini_magick'
 
 gem 'simple_form', :git => "git://github.com/plataformatec/simple_form.git"
 

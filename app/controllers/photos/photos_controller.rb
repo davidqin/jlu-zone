@@ -10,7 +10,6 @@ class Photos::PhotosController < ApplicationController
   def index
     @photos = Photo.order("created_at desc").all
     @hot_photos = Photo.order("created_at desc").limit(4)
-    drop_breadcrumb(itext("navigation.photos"), photos_path)
     do_not_use_sidebar
     render "photos/index"
   end
@@ -30,7 +29,7 @@ class Photos::PhotosController < ApplicationController
     render "photos/edit"
   end
 
-  def create    
+  def create
     @photo = current_user.photos.new(model_params)
     if @photo.save
       redirect_to_as_create_success photos_path

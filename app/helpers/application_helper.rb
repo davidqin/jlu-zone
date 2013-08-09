@@ -9,10 +9,6 @@ module ApplicationHelper
     end
   end
 
-  def wiki_logo
-    content_tag(:a, itext('logo'), :href => "/", :class => :brand)
-  end
-
   def gravatar(email, size = nil)
     gravatar_id = Digest::MD5.hexdigest(email.downcase)
     base_url = "http://www.gravatar.com/avatar/#{gravatar_id}"
