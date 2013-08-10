@@ -48,24 +48,4 @@ class TopicsController < ApplicationController
     Topic.find(params[:id]).destroy
     redirect_to_as_destroy_success admin_topics_path
   end
-
-  def move_to_top
-    @topic  = Topic.find(params[:id])
-    @topic.record_timestamps = false
-    @topic.update_attribute(:move_to_top, true)
-    @topic.record_timestamps = true
-    respond_to do |format|
-      format.js { render "community/topics/move_to_top", :layout => false}
-    end
-  end
-
-  def cancel_move_to_top
-    @topic  = Topic.find(params[:id])
-    @topic.record_timestamps = false
-    @topic.update_attribute(:move_to_top, false)
-    @topic.record_timestamps = true
-    respond_to do |format|
-      format.js { render "community/topics/cancel_move_to_top", :layout => false}
-    end
-  end
 end

@@ -27,8 +27,6 @@ gem 'will_paginate', '~> 3.0'
 gem 'carrierwave'
 
 #markdown
-gem "redcarpet"
-gem "wmd-rails"
 gem 'hpricot', '~> 0.8.5'
 
 gem 'pry',            '0.9.8.2'
