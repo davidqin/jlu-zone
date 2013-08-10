@@ -1,0 +1,18 @@
+.box.no-padding
+  .topics
+    - @topics.each do |topic|
+      - next if resource_lock?(topic)
+      .topic.topic_line
+        .pull-left.avatar
+          = show_user_portrait(topic.fonder, :link => true, :popdetail => true)
+        .right_info
+          .pull-right.replies
+            = topic_replies_info(topic)
+          .infos
+            .title
+              = show_topic_title_link(topic)
+              = "(LOCK)" if topic.lock
+            = show_topic_tags(topic)
+            = show_topic_leader(topic)
+= will_paginate(@topics)
+/ = render :partial => "community/tag_nav"

@@ -1,0 +1,17 @@
+<%= form_for @topic, :html => {:class => "form-horizontal"} do |form|%>
+  <%= form_error_messages(@topic)%>
+  <div class="control-group">
+    <%= form.text_field :name, placeholder: '标题' %>
+  </div>
+  <div class="control-group">
+    <div class="text-content-area">
+      <%= form.text_field :tag_string, :data => {:suggest => Tag.suggest_tags}, placeholder: '节点：（输入与话题相关的节点名字，比如“校区”）'%>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="text-content-area">
+      <%= form.text_area :content, :rows => 10, :style => "height: 370px;"%>
+    </div>
+  </div>
+  <%= content_tag(:button, '发表', :class => "btn btn-success", :type => :submit) %>
+<% end %>

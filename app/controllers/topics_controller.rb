@@ -1,21 +1,20 @@
-class Community::TopicsController < ApplicationController
-  include Wiki::Controllers::Sidebar::CommunitySidebar
-  include Wiki::Controllers::TabsHighLight::Base
-  include Wiki::Controllers::TabsHighLight::Community
-  include Wiki::Controllers::Check
+class TopicsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:show, :index, :tag_index]
 
-  before_filter :authenticate_user!,    :except => [:show, :index]
   load_and_authorize_resource
 
+  def tag_index
+    tag = Tag.find_by_id!(params[:tag_id])
+    @topics = tag.topics.order("created_at desc").paginate(:page => params[:page], :per_page => 10)
+    render :index
+  end
+
   def index
-    @topics = Topic.order("created_at desc").all.paginate(:page => params[:page], :per_page => 10)
-    @page_title = itext("navigation.community")
-    render "community/topics/index"
+    @topics = Topic.order("created_at desc").paginate(:page => params[:page], :per_page => 10)
   end
 
   def new
     @topic = Topic.new
-    do_not_use_sidebar
   end
 
   def show
@@ -25,7 +24,6 @@ class Community::TopicsController < ApplicationController
 
   def edit
     @topic = Topic.find(params[:id])
-    do_not_use_sidebar
   end
 
   def create

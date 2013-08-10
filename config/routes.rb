@@ -39,6 +39,7 @@ Wiki::Application.routes.draw do
       get :follows
     end
   end
+
   post   "/users/:id" => 'users/users#set_permission',    :as => :set_user_permission
   delete "/users/:id" => 'users/users#cancel_permission', :as => :cancel_user_permission
 
@@ -64,18 +65,19 @@ Wiki::Application.routes.draw do
   resources :replies,  :only => [:create, :edit, :update], :controller => 'replies/replies'
 
   #routes for community
-  scope :path => 'community' do
-    resources :topics, :controller => "community/topics" do
-      member do
-        post :lock
-        post :unlock
-        post :move_to_top
-        post :cancel_move_to_top
-      end
-    end
-    get  '/'  => "community/community#index",     :as => :community
-    get  ':tag_id' => "community/tags#index",     :as => :tag
-  end
+  # scope :path => 'community' do
+
+  get 'topics/tags/:tag_id' => 'topics#tag_index', as: :tag_topics
+  resources :topics
+    # member do
+      # post :lock
+      # post :unlock
+      # post :move_to_top
+      # post :cancel_move_to_top
+    # end
+  # end
+  # get  ':tag_id' => "community/tags#index",     :as => :tag
+  # end
 
   #routes for followed_resources and liked_resources
   post "followed_resources" => "followed_resources#create", :as => :follow

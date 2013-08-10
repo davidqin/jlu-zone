@@ -22,7 +22,7 @@ gem 'twitter-bootstrap-rails', :git => "git://github.com/seyhunak/twitter-bootst
 
 gem 'acts_as_tree'
 
-gem 'will_paginate',            '3.0.pre4'
+gem 'will_paginate', '~> 3.0'
 
 gem 'carrierwave'
 

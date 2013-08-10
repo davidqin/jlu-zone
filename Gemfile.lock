@@ -164,7 +164,7 @@ GEM
       multi_json (>= 1.0.2)
     warden (1.1.1)
       rack (>= 1.0)
-    will_paginate (3.0.pre4)
+    will_paginate (3.0.4)
     wmd-rails (0.0.7)
       rails (>= 3.1.1)
 
@@ -196,5 +196,5 @@ DEPENDENCIES
   therubyracer
   twitter-bootstrap-rails!
   uglifier (>= 1.0.3)
-  will_paginate (= 3.0.pre4)
+  will_paginate (~> 3.0)
   wmd-rails

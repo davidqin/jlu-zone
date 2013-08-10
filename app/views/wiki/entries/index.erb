@@ -1,10 +1,9 @@
 <div class="box no-padding">
-  <%= render_breadcrumb %>
   <ul class="nav nav-list">
     <% @entries.each do |entry|%>
     <% next if !can? :read, entry%>
       <li>
-      <%= link_to entry.name, entry_path(entry)%>      
+      <%= link_to entry.name, entry_path(entry)%>
       </li>
     <% end %>
   </ul>
