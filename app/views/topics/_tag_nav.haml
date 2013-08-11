@@ -8,4 +8,4 @@
           = category.name
         .tag-category-items.tags
           - category.tags.each do |tag|
-            = link_to tag.name, tag
+            = link_to tag.name, tag_topics_path(tag)

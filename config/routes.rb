@@ -62,7 +62,7 @@ Wiki::Application.routes.draw do
   end
 
   #routes for replies
-  resources :replies,  :only => [:create, :edit, :update], :controller => 'replies/replies'
+  resources :replies,  :only => [:create, :edit, :update]
 
   #routes for community
   # scope :path => 'community' do

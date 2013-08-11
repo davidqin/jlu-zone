@@ -1,8 +1,8 @@
 # coding: utf-8
 class MarkDown
   def self.format(text)
-    self.link_mention_user(text)
-    self.link_mention_floor(text)
+    # self.link_mention_user(text)
+    # self.link_mention_floor(text)
     return text
   end
 

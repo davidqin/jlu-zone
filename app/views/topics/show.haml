@@ -1,18 +1,19 @@
+= content_for :more_header do
+  / = javascript_include_tag "http://v2.jiathis.com/code/jia.js?uid=1562818"
+
 .box#show_entry
   .entry-header
-    %h1=@topic.name
+    %h1= @topic.name
     #entry_info
       = show_topic_info(@topic)
     .topic-avatar.pull-right
       = show_user_portrait(@topic.fonder, :link => true, :popdetail => true)
   .entry-content
     = markdown(@topic.content)
-    - @resource = @topic
   .box-footer
     .pull-left
       = share_button
     .topic-tools-bar.pull-right
       = show_topic_tools_bar(@topic)
-= render "/replies/replies"
-= render "/replies/reply_field"
-= javascript_include_tag "http://v2.jiathis.com/code/jia.js?uid=1562818"
+= render partial: "replies/replies", locals: { subject: @topic }
+= render partial: "replies/reply_form", locals: { subject: @topic }

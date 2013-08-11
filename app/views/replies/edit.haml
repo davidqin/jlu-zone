@@ -1,19 +1,13 @@
-= javascript_include_tag    "editor"
 .box
   - if current_user
     .row
       .span2
         %img{:src => gravatar(current_user.email, 120)}
       .span6
-        = simple_form_for @reply do |f|
+        = form_for @reply do |f|
           = form_error_messages(@reply)
           .control-group
-            #editor-button-bar
             .text-content-area
-              = f.input :content, :label => false, :input_html => { :id => "editor-input" }
-            #editor-preview
+              = f.text_area :content
           .control-group
-            = content_tag(:button, itext("submit"), :class => "btn btn-success", :type => :submit) 
-        =render "/replies/edit_help"
-  - else
-    = need_login_in_field
+            = content_tag(:button, itext("submit"), :class => "btn btn-success", :type => :submit)

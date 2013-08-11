@@ -25,6 +25,7 @@
 //= require pagescroller
 //= require picture
 //= require reply
+//= require follow
 //= require timeago
 //= require timeago.setting
 //= require jcarousellite
