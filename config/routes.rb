@@ -79,6 +79,8 @@ Wiki::Application.routes.draw do
   # get  ':tag_id' => "community/tags#index",     :as => :tag
   # end
 
+  resources :prints
+
   #routes for followed_resources and liked_resources
   post "followed_resources" => "followed_resources#create", :as => :follow
   delete "followed_resources" => "followed_resources#destroy", :as => :unfollow

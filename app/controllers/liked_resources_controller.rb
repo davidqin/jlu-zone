@@ -1,6 +1,6 @@
 class LikedResourcesController < ApplicationController
   before_filter :authenticate_user!
-  #load_and_authorize_resource
+
   def create
     id        = params[:resource_id]
     @resource = (params[:resource_type]).constantize.find(id)
