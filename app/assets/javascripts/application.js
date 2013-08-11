@@ -26,12 +26,14 @@
 //= require picture
 //= require reply
 //= require follow
+//= require print
 //= require timeago
 //= require timeago.setting
 //= require jcarousellite
 //= require jquery.Jcrop.min
 //= require jquery.color
 //= require edit_avatar
+//= require jquery-fileupload
 
 Application = {
   initBackToTopButton: function(){

@@ -5,7 +5,7 @@ class PrintHouses < ActiveRecord::Migration
       t.string :name, :limit => 20, :null => false
       t.string :phone, :limit => 20, :null => false
       t.string :description, :limit => 200, :null => false
-      t.strint :ip, :limit => 30, :null => false
+      t.string :ip, :limit => 30, :null => false
 
       t.timestamps
     end

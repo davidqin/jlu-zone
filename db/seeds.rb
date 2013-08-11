@@ -58,6 +58,9 @@ Tag.create(name: '公告', number: "notices", tag_category: category_manage)
 Tag.create(name: '反馈', number: "feedback", tag_category: category_manage)
 Tag.create(name: '社区开发', number: "development", tag_category: category_manage)
 
+PrintHouse.create(name: '泰安和书屋', phone: '123456', description: "哥打印的是寂寞，你懂么？", ip: '1.1.1.1')
+PrintHouse.create(name: '经心食杂店', phone: '123456', description: "哥打印的是寂寞，你懂么？", ip: '1.1.1.1')
+PrintHouse.create(name: '奔腾打印', phone: '123456', description: "哥打印的是寂寞，你懂么？", ip: '1.1.1.1')
 
 tags = Tag.all
 for i in 1..20 do

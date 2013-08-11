@@ -79,7 +79,12 @@ Wiki::Application.routes.draw do
   # get  ':tag_id' => "community/tags#index",     :as => :tag
   # end
 
-  resources :prints
+  resources :prints do
+    resources :print_items, as: :items do
+    end
+  end
+
+  resources :print_files
 
   #routes for followed_resources and liked_resources
   post "followed_resources" => "followed_resources#create", :as => :follow

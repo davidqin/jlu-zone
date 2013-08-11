@@ -8,7 +8,7 @@ class Prints < ActiveRecord::Migration
       t.boolean :is_completed, :null => false, :default => false
 
       t.timestamp :completed_at, :null => true
-      t.timestamp :dead_line, :null => false
+      t.timestamp :deadline, :null => false
 
       t.timestamps
     end

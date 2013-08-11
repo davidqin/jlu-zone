@@ -14,6 +14,8 @@ gem 'devise', '2.0.4'
 gem 'rmagick', '2.13.1'
 gem 'mini_magick'
 
+gem "jquery-fileupload-rails"
+
 gem 'simple_form', :git => "git://github.com/plataformatec/simple_form.git"
 
 gem 'paper_trail', '~> 2'

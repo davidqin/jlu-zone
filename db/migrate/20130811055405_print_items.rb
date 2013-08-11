@@ -3,8 +3,7 @@ class PrintItems < ActiveRecord::Migration
     create_table :print_items, :force => true do |t|
 
       t.references :print, :null => false
-      t.strint :file, :null => false
-      t.strint :format, :null => false
+      t.string :format, :null => false, :default => ''
 
       t.timestamps
     end

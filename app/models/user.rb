@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   has_many :photos,  :foreign_key => 'fonder_id'
   has_many :topics,  :foreign_key => 'fonder_id'
   has_many :replies, :foreign_key => 'fonder_id'
+  has_many :prints,  :foreign_key => 'fonder_id'
   has_many :notices, :foreign_key => 'to_user_id', :class_name => "UserNotice"
   has_many :topic_read_histories
 
