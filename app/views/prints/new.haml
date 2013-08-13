@@ -4,15 +4,3 @@
 
 
     = f.submit '提交'
-
-  /   / #print_items
-
-  /   / .template.hide
-  /   /   = f.fields_for :print_items, @print.items.new, :child_index => 'new_print_item_index' do |item|
-  /   /     = item.text_field :format
-  /   /     = item.fields_for :files, :child_index => 'new_print_file_index' do |file|
-  /   /       = file.file_field :file
-  /   /       = file.file_field :file
-
-  / %button.btn#add_button{:type => :button}
-  /   添加

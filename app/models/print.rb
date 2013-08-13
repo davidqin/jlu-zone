@@ -4,7 +4,7 @@ class Print < ActiveRecord::Base
   belongs_to :fonder, :class_name => "User"
   belongs_to :print_house
 
-  has_many :items, :class_name => 'PrintItem'
+  has_many :items, :class_name => 'PrintItem', :dependent => :destroy
 
   after_create :generate_first_print_item
 

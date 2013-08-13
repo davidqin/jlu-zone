@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+require 'digest'
+
 class PrintFileUploader < CarrierWave::Uploader::Base
 
   # process :resize_to_fit => [200, 200]
@@ -21,9 +23,13 @@ class PrintFileUploader < CarrierWave::Uploader::Base
     "uploads/print_item_files/#{model.print_item.id}.#{Time.now.strftime('%Y-%m-%d')}"
   end
 
-  # def extension_white_list
-    # %w(jpg jpeg gif png)
-  # end
+  def extension_white_list
+    %w(ods doc pdf ppt pptx txt exl html)
+  end
+
+  def cache_dir
+    "#{Rails.root}/tmp/uploads"
+  end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
@@ -44,8 +50,12 @@ class PrintFileUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-    # 'avatar.jpg'
-  # end
+  def filename
+    if original_filename
+      # current_path 是 Carrierwave 上传过程临时创建的一个文件，有时间标记，所以它将是唯一的
+      name ||= Digest::MD5.hexdigest(File.dirname(current_path))
+      "#{name}.#{file.extension}"
+    end
+  end
 
 end

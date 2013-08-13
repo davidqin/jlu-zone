@@ -1,21 +1,37 @@
+get_template = ->
+    $("#print_form .template").clone()
+
+initialize_print_item_file_uploader = (form) ->
+    # Initialize the jQuery File Upload widget:
+
+    form.fileupload
+        acceptFileTypes: /(\.|\/)(ods|doc|pdf|ppt|pptx|txt|exl|html)$/i
+        maxFileSize: 10000000 # 10M
+        autoUpload: true
+        maxNumberOfFiles: 5
+
+    # Load existing files:
+    $.getJSON form.prop('action'), (files) ->
+        fu = form.data('blueimpFileupload')
+
+        fu._adjustMaxNumberOfFiles(-files.length)
+
+        template = fu._renderDownload(files).appendTo(form.find('.files'))
+
+        # Force reflow:
+        fu._reflow = fu._transition && template.length && template[0].offsetWidth
+        template.addClass('in')
+        $('#loading').remove()
 $ ->
-    get_template = ->
-        $("#print_form .template").clone()
+    # 初始化 /prints/123 中已有items的uploader
 
-    button = $("#print_form #add_button")
-
-    button.click ->
-        template = get_template().removeClass('hide').removeClass('template')
-        print_item_index = new RegExp("new_print_item_index", "g")
-
-        timeStamp = new Date().getTime()
-        index = "#{timeStamp}"
-
-        template.html(template.html().replace(print_item_index, index))
-        $('#print_items').append(template)
+    $('.fileupload').each (i, element) ->
+        initialize_print_item_file_uploader($(element))
 
     $('#add_print_item').live 'ajax:success', (evt, data, status, xhr) ->
-        $('#print_items').append(xhr.responseText)
+        print_item = $(data)
+        initialize_print_item_file_uploader(print_item.find('.fileupload'))
+        $('#print_items').append(print_item)
 
     $('#add_print_item').live 'ajax:error', (evt, xhr, status, error) ->
         alert "error"
@@ -43,5 +59,3 @@ $ ->
         event.preventDefault()
         $(this).parents('.print_item').find('.print_format_edit').hide()
         $(this).parents('.print_item').find('.print_format_show').show()
-
-

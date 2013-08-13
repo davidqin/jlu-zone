@@ -18,8 +18,8 @@ class PrintFilesController < ApplicationController
     print_file = print_item.files.new(params[:print_file])
 
     # geek
-    print_file.size = 100
-    print_file.name = 'david'
+    print_file.size = print_file.url.file.size
+    print_file.name = params[:print_file][:url].original_filename
 
     respond_to do |format|
       if print_file.save
