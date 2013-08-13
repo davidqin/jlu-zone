@@ -1,0 +1,400 @@
+@import "./mixins.css.less";
+
+#index a{
+  color: #fff;
+  text-decoration: none;
+  .transition;
+}
+
+#index a:hover,
+#index a:active{
+  color: @color-blue;
+}
+
+form{
+  color: #fff;
+}
+
+input{
+  padding: 10px 10px 10px 10px;
+  margin: 0 0 10px 20px;
+  width: 355px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+  -webkit-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+  box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+  &:focus{
+    background-color: #fff;
+    border-color: #6FD0ED;
+    outline: none;
+    -moz-box-shadow: 0 0 0 1px #6FD0ED inset;
+    -webkit-box-shadow: 0 0 0 1px #6FD0ED inset;
+    box-shadow: 0 0 0 1px #6FD0ED inset;
+  }
+}
+
+.control-group{
+  width: 700px;
+  clear: both;
+  margin-bottom: 70px;
+  margin-left: 50px;
+  label{
+    width: 130px;
+    float: left;
+    font-size: 25px;
+    padding-top: 5px;
+    margin-right: -15px;
+  }
+  input{
+    float: left;
+  }
+}
+
+.btn{
+  background-color: #6FD0ED;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border-style: solid;
+  border-color: #6FD0ED;
+  border-width: 1px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  float: left;
+  height: 35px;
+  padding: 0;
+  width: 120px;
+  cursor: pointer;
+  font: bold 15px Arial, Helvetica;
+  color: #fff;
+  margin-left: 20px;
+  margin-top: 10px;
+  &:hover, &:focus{
+    outline: none;
+    background-color: rgb(0, 175, 228);
+  }
+  &:active{
+    outline: none;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+  }
+  &:disabled{
+    background-color: #C5EDEF;
+    color: grey;
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+  }
+  &::-moz-focus-inner{
+    border: none;
+  }
+}
+
+#bg-container{
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  .transition;
+  background-attachment:fixed;
+  background-repeat:no-repeat;
+  -moz-background-size:cover;
+  -webkit-background-size:cover;
+  -o-background-size:cover;
+  background-size:cover;
+}
+#bg-images{
+  overflow:hidden;
+}
+
+#bg-extra{
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+  z-index: 100;
+}
+
+#bg-info{
+  margin: 0;
+  color: #fff;
+  padding-bottom: 5px;
+  width: 150px;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  .transition;
+}
+
+#bg-toolbar{
+  padding: 0;
+  margin: 0 0 -7px -3px;
+  width: 150px;
+  border-top: 1px solid #fff;
+  list-style-type: none;
+}
+
+#bg-toolbar li{
+  display: inline;
+  font-size: 25px;
+  margin-right: -5px;
+}
+
+#bg-toolbar li.active{
+  color: @color-blue;
+}
+
+footer,
+#footer{
+  font-size: 14px;
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  border-top: 1px solid #fff;
+  color: #fff;
+  padding: 5px 20px 0 20px;
+}
+
+#footer span{
+  padding-right: 10px;
+}
+
+#footer a{
+  display: inline;
+  padding-right: 10px;
+}
+
+#content{
+  width: auto;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  margin-top: -250px;
+  overflow: hidden;
+  #container{
+    position: absolute;
+    .inner{
+      width: 1001px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #main{
+      float: left;
+      text-align: center;
+      #logo{
+        float: left;
+        width: 500px;
+        height: 500px;
+        border-right: 1px solid #fff;
+        color: #fff;
+        a{
+          display: block;
+          margin-top: 150px;
+          font-size: 80px;
+          text-shadow: 5px 5px 10px #000;
+        }
+        p{
+          font-size: 40px;
+        }
+      }
+      #nav-button{
+        width: 500px;
+        height: 500px;
+        float: left;
+        position: relative;
+        .nav{
+          width: 100px;
+          height: 58px;
+          background-color: @color-deepblue;
+          display: inline-block;
+          position: relative;
+          line-height: 58px;
+          text-align: center;
+          color: #ffffff;
+          font-size: 20px;
+          text-decoration: none;
+          margin-top: 100px;
+          margin-right: 1px;
+          &:before{
+            width: 0;
+            height: 0;
+            display: block;
+            overflow: hidden;
+            position: absolute;
+            border-left: 50px dotted transparent;
+            border-right: 50px dotted transparent;
+            border-bottom: 30px solid @color-deepblue;
+            left: 0px;
+            top: -30px;
+            content: '';
+            .transition;
+          }
+          &:after{
+            width: 0;
+            height: 0;
+            display: block;
+            overflow: hidden;
+            position: absolute;
+            border-left: 50px dotted transparent;
+            border-right: 50px dotted transparent;
+            border-top: 30px solid @color-deepblue;
+            bottom: -30px;
+            left: 0px;
+            content: '';
+            .transition;
+          }
+          &:hover{
+            background-color: rgba(38, 168, 236, 1);
+            -moz-transform: translateX(-3px) translateY(-3px);
+            -webkit-transform: translateX(-3px) translateY(-3px);
+            -o-transform: translateX(-3px) translateY(-3px);
+            -ms-transform: translateX(-3px) translateY(-3px);
+            transform: translateX(-3px) translateY(-3px);
+          }
+          &:hover:before{
+            border-bottom-color: rgba(38, 168, 236, 1);
+          }
+          &:hover:after{
+            border-top-color: rgba(38, 168, 236, 1);
+          }
+        }
+        #bbs{
+          position: absolute;
+          left: 40px;
+          top: 0;
+        }
+        #market{
+          position: absolute;
+          left: 197px;
+          top: 92px;
+        }
+        #print{
+          position: absolute;
+          left: 248px;
+          top: 184px;
+        }
+        #blank-one{
+          position: absolute;
+          left: 92px;
+          top: 92px;
+          background-color: rgba(255, 255, 255, 0.5);
+          &:after{
+            border-top-color: rgba(255, 255, 255, 0.5);
+          }
+          &:before{
+            border-bottom-color: rgba(255, 255, 255, 0.5);
+          }
+        }
+        #blank-two{
+          position: absolute;
+          left: 302px;
+          top: 92px;
+          background-color: rgba(255, 255, 255, 0.5);
+          &:after{
+            border-top-color: rgba(255, 255, 255, 0.5);
+          }
+          &:before{
+            border-bottom-color: rgba(255, 255, 255, 0.5);
+          }
+        }
+        #login{
+          position: absolute;
+          left: 355px;
+          top: 0;
+        }
+        #register{
+          position: absolute;
+          left: 406px;
+          top: 92px;
+        }
+      }
+    }
+    #login-page{
+      float: left;
+      #login-text{
+        float: left;
+        width: 300px;
+        height: 500px;
+        border-right: 1px solid #fff;
+        a{
+          display: block;
+          margin-top: 150px;
+          font-size: 80px;
+          text-shadow: 5px 5px 10px #000;
+        }
+      }
+      #login-form{
+        width: 700px;
+        height: 500px;
+        float: left;
+        position: relative;
+        form{
+          position: absolute;
+          left: 40px;
+          top: 150px;
+        }
+        #right-return{
+          width: 48px;
+          height: 48px;
+          display: block;
+          position: absolute;
+          bottom: 0px;
+          right: 0px;
+          background: url('round_arrow_right.png');
+        }
+        #login-button{
+          position: absolute;
+          left: 290px;
+        }
+        #other{
+          position: absolute;
+          left: 290px;
+        }
+      }
+    }
+    #register-page{
+      float: left;
+      #register-form{
+        width: 700px;
+        height: 500px;
+        float: left;
+        position: relative;
+        form{
+          position: absolute;
+          left: 40px;
+          top: 150px;
+          #register-button{
+            position: absolute;
+            left: 290px;
+          }
+        }
+        #left-return{
+          width: 48px;
+          height: 48px;
+          display: block;
+          position: absolute;
+          bottom: 0px;
+          left: 0px;
+          background: url('round_arrow_left.png');
+        }
+      }
+      #register-text{
+        float: left;
+        width: 300px;
+        height: 500px;
+        border-left: 1px solid #fff;
+        a{
+          display: block;
+          margin-top: 150px;
+          padding-left: 100px;
+          font-size: 80px;
+          text-shadow: 5px 5px 10px #000;
+        }
+      }
+    }
+  }
+}
