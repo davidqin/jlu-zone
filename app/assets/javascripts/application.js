@@ -25,9 +25,15 @@
 //= require pagescroller
 //= require picture
 //= require reply
+//= require follow
+//= require print
 //= require timeago
 //= require timeago.setting
 //= require jcarousellite
+//= require jquery.Jcrop.min
+//= require jquery.color
+//= require edit_avatar
+//= require jquery-fileupload
 
 Application = {
   initBackToTopButton: function(){
@@ -83,9 +89,18 @@ Application = {
   }
 }
 
-$(function(){  
+$(function(){
   Application.initBackToTopButton();
   Application.initHelpModal();
   Application.initTimeAgo();
   Application.initAgileCarousel();
+
+  // $('#jcrop_target').Jcrop({
+    // onChange: showPreview,
+    // onSelect: showPreview,
+    // aspectRatio: 1
+  // });
+
+
+
 });

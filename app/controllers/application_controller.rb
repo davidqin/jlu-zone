@@ -10,13 +10,13 @@ class ApplicationController < ActionController::Base
 
   def model_params
     self.params[self.controller_model_type] || {}
-  end  
+  end
 
   def controller_model_type
     self.controller_name.singularize.to_s
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :alert => "出错啦！你貌似没有权限这么做！请联系管理员～"
+    render :file => "public/401", :status => :unauthorized, :layout => false
   end
 end

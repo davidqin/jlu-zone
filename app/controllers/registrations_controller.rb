@@ -3,7 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
   before_filter :set_params, only: :create
 
   def update
-    @user = User.find(current_user.id)
+    @user = current_user
     params[:user].delete(:current_password)
 
     if @user.update_without_password(params[:user])
@@ -22,14 +22,31 @@ class RegistrationsController < Devise::RegistrationsController
   def update_password
     authenticate_scope!
 
-    @user = User.find(current_user.id)
+    @user = current_user
 
     if @user.update_password(params[:user])
       set_flash_message :notice, :updated
       sign_in @user, :bypass => true
       redirect_to after_update_path_for(@user)
     else
-      render "edit_password"
+      render :edit_password
+    end
+  end
+
+  def edit_avatar
+    authenticate_scope!
+  end
+
+  def update_avatar
+    authenticate_scope!
+    %w(a_x1 a_x2 a_y1 a_y2).each do |m|
+      current_user.send("#{m}=", params[:user][m])
+    end
+
+    if current_user.update_attribute('avatar', params[:user][:avatar])
+      redirect_to after_update_path_for(@user)
+    else
+      render :edit_avatar
     end
   end
 

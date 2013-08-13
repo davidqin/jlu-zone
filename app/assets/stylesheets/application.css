@@ -11,6 +11,7 @@
 *= require_self
 *= require bootstrap_and_overrides
 *= require_tree .
+*= require jquery.fileupload-ui
 */
 html{
   width: 100%;
@@ -22,14 +23,19 @@ html{
 
 body{
   padding-top: 48px;
-  background: #fff url("bg.gif"); 
-  color: #666; 
-  font: 0.75em/1.5 "Arial", "Helvetica", sans-serif; 
+  background: #fff url("bg.gif");
+  color: #666;
+  font: 0.75em/1.5 "Arial", "Helvetica", sans-serif;
 }
 
 code{
   background:none;
 }
+
+.hide {
+  display: none;
+}
+
 .box{
   background-color: white;
   padding: 10px;

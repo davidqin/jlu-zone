@@ -5,13 +5,16 @@ gem 'rails', '3.2.1'
 gem 'sqlite3'
 gem 'mysql2',                   '0.3.11'
 gem 'cancan'
-gem 'devise'
+gem 'devise', '2.0.4'
 
 # 这个gem在mac开发下安装可能会出现问题
 # sudo apt-get install libmagick9-dev
 # brew install imagemagick
 # http://blog.paulopoiati.com/2013/01/28/installing-rmagick-in-mac-os-x-mountain-lion-with-homebrew/
 gem 'rmagick', '2.13.1'
+gem 'mini_magick'
+
+gem "jquery-fileupload-rails"
 
 gem 'simple_form', :git => "git://github.com/plataformatec/simple_form.git"
 
@@ -21,13 +24,11 @@ gem 'twitter-bootstrap-rails', :git => "git://github.com/seyhunak/twitter-bootst
 
 gem 'acts_as_tree'
 
-gem 'will_paginate',            '3.0.pre4'
+gem 'will_paginate', '~> 3.0'
 
 gem 'carrierwave'
 
 #markdown
-gem "redcarpet"
-gem "wmd-rails"
 gem 'hpricot', '~> 0.8.5'
 
 gem 'pry',            '0.9.8.2'

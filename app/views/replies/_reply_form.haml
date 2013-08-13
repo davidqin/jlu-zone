@@ -1,0 +1,14 @@
+.box
+  - if current_user
+    .row
+      .span2
+        %img{:src => gravatar(current_user.email, 120)}
+      .span6
+        = form_for subject.replies.new, :url => replies_path(:subject_id => subject.id, :subject_type => subject.model_type), :remote => true, id: :new_reply do |f|
+          .control-group
+            .text-content-area
+              = f.text_area :content
+          .control-group
+            = content_tag(:button, itext("submit"), :class => "btn btn-success", :type => :submit)
+  - else
+    = need_login_in_field

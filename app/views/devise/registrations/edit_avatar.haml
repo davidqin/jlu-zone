@@ -1,0 +1,14 @@
+= content_for :more_header do
+  %script
+
+= form_for resource, url: update_avatar_path, :as => resource_name, :html => { :method => :put, enctype: "multipart/form-data"} do |f|
+  .box
+    = f.file_field :avatar, id: :avatar_file_input
+    %button.btn.btn-success 提交
+    = f.hidden_field :a_x1, id: :x1
+    = f.hidden_field :a_x2, id: :x2
+    = f.hidden_field :a_y1, id: :y1
+    = f.hidden_field :a_y2, id: :y2
+    %div{style: "width:100px;height:100px;overflow:hidden;"}
+      %img{id: :preview}
+    #jcrop_target

@@ -1,15 +1,15 @@
 # coding: utf-8
 class Reply < ActiveRecord::Base
   include Wiki::Models::Scores::LimitPerDay
-  has_many   :notices_to_users, :as => :notice_resource, :class_name => "UserNotice"
-  belongs_to :resource,     :polymorphic => true
-  belongs_to :fonder,      :class_name  => "User"
+  has_many :notices_to_users, :as => :notice_resource, :class_name => "UserNotice"
+  belongs_to :subject, :polymorphic => true
+  belongs_to :fonder, :class_name  => "User"
 
 
   before_create :set_floor_number_and_update_entry #need to refactor
   after_create  :give_the_ated_users_messages
   after_create  :give_the_topic_fonder_message
-  
+
   attr_accessible :content, :user_id
 
   validates_presence_of :content, :message => "内容不能空着～"
@@ -26,10 +26,10 @@ class Reply < ActiveRecord::Base
   private
 
   def set_floor_number_and_update_entry
-    resource        = self.resource
-    new_replies_num = resource.replies_num + 1
+    subject        = self.subject
+    new_replies_num = subject.replies_num + 1
     self.floor_num  = new_replies_num
-    resource.update_attribute(:replies_num, new_replies_num)
+    subject.update_attribute(:replies_num, new_replies_num)
   end
 
   def give_the_ated_users_messages
@@ -41,7 +41,7 @@ class Reply < ActiveRecord::Base
       users << user if user
     end
     users.each do |user|
-      next if user == self.resource.fonder
+      next if user == self.subject.fonder
       notice = self.notices_to_users.new
       notice.to_user   = user
       notice.from_user = self.fonder
@@ -50,11 +50,11 @@ class Reply < ActiveRecord::Base
   end
 
   def give_the_topic_fonder_message
-    return unless self.resource.is_a? Topic
-    topic = self.resource
+    return unless self.subject.is_a? Topic
+    topic = self.subject
     return if topic.fonder == self.fonder
     notice           = self.notices_to_users.new
-    notice.to_user   = self.resource.fonder
+    notice.to_user   = self.subject.fonder
     notice.from_user = self.fonder
     notice.save
   end

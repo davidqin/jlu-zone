@@ -1,19 +1,22 @@
 # coding: utf-8
 class Topic < ActiveRecord::Base
   include Wiki::Models::Scores::LimitPerDay
+
   belongs_to :fonder,               :class_name => "User"
-  has_many   :replies,              :as => :resource
-  has_many   :user_reply_notices,   :as => :notice_resource, :class_name => "UserNotice"
-  has_many   :topic_read_histories, :class_name => "TopicReadHistory"
-  has_many   :followed_resources,   :as => :followed_resource
-  has_many   :liked_resources,      :as => :liked_resource
+
+  has_many :replies, :as => :subject
+
+  has_many :user_reply_notices,   :as => :notice_resource, :class_name => "UserNotice"
+  has_many :topic_read_histories, :class_name => "TopicReadHistory"
+  has_many :followed_resources,   :as => :followed_resource
+  has_many :liked_resources,      :as => :liked_resource
+
   has_and_belongs_to_many :tags
-  
+
   validates_presence_of   :name,    :message => "标题不能空着啊！"
   validates_uniqueness_of :name,    :message => "标题不能相同啊！"
   validates_presence_of   :content, :message => "内容不能空着～"
-
-  #validates :tag_string, :tag_string => true, :format => { :with => /\A[^\/]+\z/, :message => "eee", :allow_blank => true}
+  # validates :tag_string, :tag_string => true, :format => { :with => /\A[^\/]+\z/, :message => "eee", :allow_blank => true}
 
   attr_accessible :name, :content, :tag_string
 
@@ -24,17 +27,13 @@ class Topic < ActiveRecord::Base
   def liked_times
     self.liked_resources.size
   end
-  
+
   def tag_string=(string)
     tag_array = []
     tags_names = string.to_s.split(/[,\s]+/).uniq
-    tags_names.each_with_index do |name, index|
-      tag = Tag.find_by_name(name)
-      unless tag
-        tag = Tag.create({ :name => name, :number => name})
-        raise "create_tag_failed!" unless tag
-      end
-      tag_array << tag
+
+    tags_names.each do |name|
+      tag_array << Tag.find_or_create_by_name(name)
     end
 
     self.tags = tag_array
@@ -60,7 +59,7 @@ class Topic < ActiveRecord::Base
     end
 
     read_history = find_current_user_read_history(user)
-    
+
     if read_history
       read_history.update_attribute(:last_read_at, Time.now)
     else
@@ -68,7 +67,7 @@ class Topic < ActiveRecord::Base
       read_history.topic = self
       read_history.save
       add_one_read_times
-    end    
+    end
   end
 
   def change_after_user_last_read?(user)
@@ -82,7 +81,7 @@ class Topic < ActiveRecord::Base
       new_replies_after_last_read?(user,user_read_history)
     else
       return true
-    end        
+    end
   end
 
   def am_i_followed_by?(user)
@@ -107,7 +106,7 @@ class Topic < ActiveRecord::Base
     user_last_reply     = self.replies.order("created_at desc").find_by_fonder_id(user.id)
 
     if user_last_reply
-      user_last_reply_time = user_last_reply.created_at 
+      user_last_reply_time = user_last_reply.created_at
       last_time = [user_last_read_time, user_last_reply_time].max
     else
       last_time = user_last_read_time
@@ -115,7 +114,7 @@ class Topic < ActiveRecord::Base
 
     count = self.replies.find(:all, :conditions => ["created_at > ?", last_time]).count
     return true if count > 0
-    return false    
+    return false
   end
 
   def find_current_user_read_history(user)

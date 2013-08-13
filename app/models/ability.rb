@@ -1,12 +1,44 @@
 class Ability
   include CanCan::Ability
   #alias_action :index, :show, :recent_photos, :to => :read
-  def initialize(user)
+  def initialize user
+    @user = user
 
+    if user.blank?
+      user_blank_permission
+    else
+      common_user_permission
+    end
+
+  end
+
+  def user_blank_permission
+    can [:read, :tag_index], Topic
+  end
+
+  def common_user_permission
+
+    # Topic
+    can [:read, :tag_index], Topic
+    can :create, Topic
+    can :update, Topic do |t|
+      t.fonder_id == @user.id
+    end
+
+    # Reply
+    can :create, Reply
+    can :update, Reply do |r|
+      r.fonder_id == @user.id
+    end
+
+  end
+
+  def foo user
     if user.blank?
       cannot :manage, :all
       read_unlock Entry
       read_unlock Topic
+      can :tag_index, Topic
       can :read, User
       can :read, Photo
       can :recent_photos, Photo
@@ -16,6 +48,8 @@ class Ability
         cannot :manage, :all
         return
       end
+
+      can :tag_index, Topic
 
       cannot :manage, :all
       can :recent_photos, Photo
@@ -58,6 +92,7 @@ class Ability
     can :read, klass do |i|
       i.lock == false
     end
+
   end
 
   def update_self(user, klass)

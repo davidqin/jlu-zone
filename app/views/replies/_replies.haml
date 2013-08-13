@@ -1,7 +1,7 @@
 .box#replies
-  = render :partial => "replies/replies_status"
-  - if @resource.replies.size == 0
+  = render :partial => "replies/replies_status", :locals => { subject: subject }
+  - if subject.replies.size == 0
     #no-reply
       = itext("reply.no_replies")
-  - @resource.replies.each do |reply|
-    = render :partial => "replies/reply", :locals => {:reply => reply}
+  - subject.replies.each do |reply|
+    = render :partial => "replies/reply", :locals => { :reply => reply }

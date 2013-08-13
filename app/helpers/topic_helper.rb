@@ -2,7 +2,7 @@
 module TopicHelper
 	def show_topic_info(topic)
     # 节点那需要重构
-    base_info       = time_ago(topic.created_at) + " 由 " + topic.fonder.nickname + " 在节点 " + topic.tag_string + " 中发起, " 
+    base_info       = time_ago(topic.created_at) + " 由 " + topic.fonder.nickname + " 在节点 " + topic.tag_string + " 中发起, "
     reply_info      = ""
     reply_info      = time_ago(topic.last_reply.created_at).html_safe.to_s + " 由 " + topic.last_replier.nickname + " 最后回复, "  if topic.last_reply
     read_times_info = topic.read_times.to_s + "次阅读"
@@ -17,14 +17,14 @@ module TopicHelper
       reply_info = ""
     end
     content_tag :span, :class => :topic_leader do
-      (base_info + reply_info).html_safe  
+      (base_info + reply_info).html_safe
     end
   end
 
   def show_topic_tags(topic)
     contents_tag :span, :class => :tags do |content|
       topic.tags.each do |tag|
-        content << content_tag(:a, :href => tag_path(tag)) do
+        content << content_tag(:a, :href => tag_topics_path(tag)) do
           tag.name
         end
       end

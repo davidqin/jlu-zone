@@ -23,6 +23,9 @@ Wiki::Application.routes.draw do
   devise_scope :user do
     get '/users/edit_password' => 'registrations#edit_password'
     put '/users/edit_password' => 'registrations#update_password'
+
+    get '/users/edit_avatar' => 'registrations#edit_avatar', as: :edit_avatar
+    put '/users/edit_avatar' => 'registrations#update_avatar', as: :update_avatar
   end
 
   get "/users/menu" => "users/users#menu", :as => :users
@@ -36,6 +39,7 @@ Wiki::Application.routes.draw do
       get :follows
     end
   end
+
   post   "/users/:id" => 'users/users#set_permission',    :as => :set_user_permission
   delete "/users/:id" => 'users/users#cancel_permission', :as => :cancel_user_permission
 
@@ -58,21 +62,29 @@ Wiki::Application.routes.draw do
   end
 
   #routes for replies
-  resources :replies,  :only => [:create, :edit, :update], :controller => 'replies/replies'
+  resources :replies,  :only => [:create, :edit, :update]
 
   #routes for community
-  scope :path => 'community' do
-    resources :topics, :controller => "community/topics" do
-      member do
-        post :lock
-        post :unlock
-        post :move_to_top
-        post :cancel_move_to_top
-      end
+  # scope :path => 'community' do
+
+  get 'topics/tags/:tag_id' => 'topics#tag_index', as: :tag_topics
+  resources :topics
+    # member do
+      # post :lock
+      # post :unlock
+      # post :move_to_top
+      # post :cancel_move_to_top
+    # end
+  # end
+  # get  ':tag_id' => "community/tags#index",     :as => :tag
+  # end
+
+  resources :prints do
+    resources :print_items, as: :items do
     end
-    get  '/'  => "community/community#index",     :as => :community
-    get  ':tag_id' => "community/tags#index",     :as => :tag
   end
+
+  resources :print_files
 
   #routes for followed_resources and liked_resources
   post "followed_resources" => "followed_resources#create", :as => :follow

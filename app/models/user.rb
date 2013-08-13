@@ -2,10 +2,16 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
+
+  mount_uploader :avatar, AvatarUploader
+
   devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :trackable, :validatable
 
-  attr_accessible :nickname, :campus, :password, :password_confirmation, :email, :remember_me
+  attr_accessible :nickname, :campus, :password, :password_confirmation, :email, :remember_me, :avatar,
+                  :a_x1, :a_x2, :a_y1, :a_y2
+
+  attr_accessor :a_x1, :a_y1, :a_y2, :a_x2
 
   validates :nickname,
     :presence     => { :message => '昵称不能空着阿' },
@@ -17,6 +23,7 @@ class User < ActiveRecord::Base
   has_many :photos,  :foreign_key => 'fonder_id'
   has_many :topics,  :foreign_key => 'fonder_id'
   has_many :replies, :foreign_key => 'fonder_id'
+  has_many :prints,  :foreign_key => 'fonder_id'
   has_many :notices, :foreign_key => 'to_user_id', :class_name => "UserNotice"
   has_many :topic_read_histories
 

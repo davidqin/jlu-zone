@@ -1,8 +1,8 @@
 #reply_total
   = t("until")
-  - @resource.reload
-  = time_ago(@resource.created_at)
-  - if @resource.replies.size != 0
-    = itext("reply.received", :count => @resource.replies_num)
+  - subject.reload
+  = time_ago(subject.created_at)
+  - if subject.replies.size != 0
+    = itext("reply.received", :count => subject.replies_num)
   - else
     = itext("reply.unreceived")

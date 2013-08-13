@@ -1,7 +1,0 @@
-(function(){
-  $('#no-reply').hide();
-  var tr_template = '<%= escape_javascript(render :partial => 'replies/reply', :object => @reply) %>';
-  $(tr_template).hide().appendTo($('#replies')).fadeIn('slow');
-})();
-
-$("#reply_total").replaceWith("<%=escape_javascript (render :partial => "replies/replies_status") %>");

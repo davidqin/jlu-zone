@@ -54,4 +54,13 @@ class RegistrationsControllerTest < ActionController::TestCase
     get :edit_password
     assert_template :edit_password
   end
+
+  test 'edit_avatar' do
+    get :edit_avatar
+    assert_response 302
+
+    sign_in @user
+    get :edit_avatar
+    assert_template :edit_avatar
+  end
 end
