@@ -63,6 +63,7 @@ module Wiki
 
     config.generators do |g|
       g.template_engine :haml
+      g.stylesheet_engine :less
     end
 
   end
