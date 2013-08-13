@@ -1,7 +1,106 @@
-= javascript_include_tag "alphabet"
-= javascript_include_tag "logo"
-.box
-  我们致力于建立一个内容自由，方便广大吉大学子参与和交流的网络平台，丰富大家的生活和娱乐。
-.box
-  %canvas{"id" => "index_logo"}
-= render :partial => "community/tag_nav"
+!!! 5
+%html
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
+    %title= "JLU Zone"
+    = stylesheet_link_tag "normalize"
+    = stylesheet_link_tag "index"
+    = javascript_include_tag "jquery.min"
+    = javascript_include_tag "acool"
+    = javascript_include_tag "img.ready"
+    = javascript_include_tag "img.autoSize"
+    = javascript_include_tag "util.stringWidth"
+    = javascript_include_tag "index"
+
+  %body#index
+    #bg-container
+      #bg-images
+        = image_tag 'index.jpg'
+      #bg-extra
+        %p#bg-info
+          = "testtesttesttesttesttesttesttest"
+        %ul#bg-toolbar
+          %li
+            %a{:href => "javascript:void(0);"}="•"
+          %li
+            %a{:href => "javascript:void(0);"}="•"
+          %li
+            %a{:href => "javascript:void(0);"}="•"
+          %li
+            %a{:href => "javascript:void(0);"}="•"
+          %li
+            %a{:href => "javascript:void(0);"}="•"
+    %section#content
+      %section#container
+        %section#login-page
+          .inner
+            #login-text
+              %a{:href => '#login-page'}="登录"
+            #login-form
+              = form_tag '/' do
+                .control-group
+                  = label_tag(:email, "电子邮箱：")
+                  = email_field(:user, :email)
+                .control-group
+                  = label_tag(:password, "密码：")
+                  = password_field(:user, :password)
+                .control-group
+                  %button{:id=> "login-button", :class=>:btn}="登录"
+                #other
+                  %a{:href=>'/forgot_password'}="忘记密码？"
+                  %a{:href=>'#register-page'}="还没有账号？"
+              %a{:href=>'/', :id=>"right-return"}
+        %section#main
+          .inner
+            #logo
+              = link_to "JLU-Zone", '/'
+              %p="XXX"
+            #nav-button
+              %a.nav#bbs{:href=>'/'}
+                %s
+                = "社区"
+                %b
+              %a.nav#market{:href=>'/'}
+                %s
+                = "跳蚤市场"
+                %b
+              %a.nav#print{:href=>'#'}
+                %s
+                = "打印"
+                %b
+              %a.nav#blank-one{:href=>'/'}
+                %s
+                = " "
+                %b
+              %a.nav#blank-two{:href=>'/'}
+                %s
+                = " "
+                %b
+              %a.nav#login{:href=>'#login-page'}
+                %s
+                = "登录"
+                %b
+              %a.nav#register{:href=>'#register-page'}
+                %s
+                = "注册"
+                %b
+        %section#register-page
+          .inner
+            #register-form
+              = form_tag '/' do
+                .control-group
+                  = label_tag(:email, "电子邮箱：")
+                  = email_field(:user, :email)
+                .control-group
+                  %button{:id=> "register-button", :class=>:btn}="注册"
+              %a{:href=>'/', :id=>"left-return"}
+            #register-text
+              %a{:href => '#login-page'}="注册"
+    %footer#footer
+      %a{:href => "/"}="JLU-Zone"
+      %span= raw("Copyright &copy; 2013-2014 ")
+      %a{:href => "/about"}="关于我们"
+      %a{:href => "/join"}="加入我们"
+      %a{:href => "/feedback"}="反馈"
+
+
