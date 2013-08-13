@@ -1,9 +1,0 @@
-.box
-  %h2= @print.print_house.name
-  截至日期
-  = @print.deadline
-  #print_items
-    - @print.print_items.each do |item|
-      = render partial: 'prints/print_item', locals: { print_item: item }
-
-  = link_to '添加一组文件以及打印格式', print_items_path(@print), id: :add_print_item, class: 'btn btn-success', :remote => true, method: :post

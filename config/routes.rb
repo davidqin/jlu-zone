@@ -81,10 +81,11 @@ Wiki::Application.routes.draw do
 
   resources :prints do
     resources :print_items, as: :items do
+      resources :print_files, as: :files
     end
   end
 
-  resources :print_files
+
 
   #routes for followed_resources and liked_resources
   post "followed_resources" => "followed_resources#create", :as => :follow
