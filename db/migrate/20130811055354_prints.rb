@@ -6,6 +6,7 @@ class Prints < ActiveRecord::Migration
       t.references :fonder, :null => false
 
       t.boolean :is_completed, :null => false, :default => false
+      t.boolean :is_printed, :null => false, :default => false
 
       t.timestamp :completed_at, :null => true
       t.timestamp :deadline, :null => false

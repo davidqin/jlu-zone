@@ -67,4 +67,8 @@ class User < ActiveRecord::Base
     params.select! { |key| [:current_password, :password, :password_confirmation]}
     update_with_password params
   end
+
+  def uncompleted_print
+    self.prints.where(is_completed: false).all.first
+  end
 end
