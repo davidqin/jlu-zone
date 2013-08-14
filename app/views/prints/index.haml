@@ -1,2 +1,17 @@
 .box
-  = link_to "新的打印任务", new_print_path
+  - @prints.each do |print|
+    .p
+      = print.print_house
+      %br
+      = print.completed_at
+      %br
+
+- if @uncompleted_print
+  .box
+    %h2
+      尚未完成的打印订单，在完成次打印订单之前，您无法创建新的打印订单
+    = link_to @uncompleted_print.print_house, @uncompleted_print
+    = link_to @uncompleted_print.deadline, @uncompleted_print
+- else
+  .box
+    = link_to "新的打印任务", new_print_path

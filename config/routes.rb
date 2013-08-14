@@ -80,6 +80,11 @@ Wiki::Application.routes.draw do
   # end
 
   resources :prints do
+
+    member do
+      put :complete
+    end
+
     resources :print_items, as: :items do
       resources :print_files, as: :files
     end
