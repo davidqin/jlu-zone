@@ -18,11 +18,11 @@ class RepliesController < ApplicationController
   end
 
   def edit
-    @reply = Reply.find(params[:id])
+    @reply = current_user.replies.find(params[:id])
   end
 
   def update
-    @reply = Reply.find(params[:id])
+    @reply = current_user.replies.find(params[:id])
     if @reply.update_attributes(params[:reply])
       redirect_to_as_update_success @reply.subject
     else

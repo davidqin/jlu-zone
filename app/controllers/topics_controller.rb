@@ -23,7 +23,7 @@ class TopicsController < ApplicationController
   end
 
   def edit
-    @topic = Topic.find(params[:id])
+    @topic = current_user.topics.find(params[:id])
   end
 
   def create
@@ -36,7 +36,7 @@ class TopicsController < ApplicationController
   end
 
   def update
-    @topic = Topic.find(params[:id])
+    @topic = current_user.topics.find(params[:id])
     if @topic.update_attributes(model_params)
       redirect_to_as_update_success @topic
     else
@@ -45,7 +45,7 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    Topic.find(params[:id]).destroy
+    current_user.topics.find(params[:id]).destroy
     redirect_to_as_destroy_success admin_topics_path
   end
 end

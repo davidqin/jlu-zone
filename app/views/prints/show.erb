@@ -10,7 +10,7 @@
     <%= link_to '添加一组文件以及打印格式', print_items_path(@print), id: :add_print_item, class: 'btn btn-success', :remote => true, method: :post %>
 </div>
 
-<%= link_to '提交打印订单', complete_print_path(@print), class: 'btn btn-success', confirm: "请确认打印信息，一旦提交，便不可再修改", method: :put %>
+<%= link_to '提交打印订单', complete_print_path(@print), class: 'btn btn-success', confirm: "请确认打印信息，一旦提交，便不可再修改。不包含打印文件的打印项，将会被移除。确定要提交订单么？", method: :put %>
 <%= link_to '删除打印订单', print_path(@print), class: 'btn btn-success', confirm: "确认删除？", method: :delete %>
 
 <script>

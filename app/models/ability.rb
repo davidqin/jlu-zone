@@ -21,15 +21,11 @@ class Ability
     # Topic
     can [:read, :tag_index], Topic
     can :create, Topic
-    can :update, Topic do |t|
-      t.fonder_id == @user.id
-    end
+    can :update, Topic
 
     # Reply
     can :create, Reply
-    can :update, Reply do |r|
-      r.fonder_id == @user.id
-    end
+    can :update, Reply
 
   end
 

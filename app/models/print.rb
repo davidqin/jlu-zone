@@ -31,12 +31,11 @@ class Print < ActiveRecord::Base
   end
 
   def complete
-    no_file = true
     self.items.each do |item|
-      no_file = false if no_file and item.files.present?
+      item.destroy if item.files.blank?
     end
 
-    if no_file
+    if self.items(true).blank?
       self.errors[:base] << "没有任何可以打印的文件，无法完成打印订单"
       return false
     end
