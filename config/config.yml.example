@@ -1,5 +1,10 @@
 user_start_email_salt: abcdefg
 
 no-reply-email:
-  username: XXX
-  password: XXX
+  production:
+    username: XXX
+    password: XXX
+
+  development:
+    username: XXX
+    password: XXX

@@ -43,10 +43,10 @@ Wiki::Application.configure do
     :enable_starttls_auto => true,
     :address => 'smtp.exmail.sina.com',
     :port => 25,
-    :domain => 'www.jlu-zone.com',
+    :domain => 'localhost:3000',
     :authentication => :login,
-    :user_name => YAML.load_file('config/config.yml')['no-reply-email']['username'],
-    :password => YAML.load_file('config/config.yml')['no-reply-email']['password']
+    :user_name => YAML.load_file('config/config.yml')['no-reply-email']['development']['username'],
+    :password => YAML.load_file('config/config.yml')['no-reply-email']['development']['password']
   }
 
 end
