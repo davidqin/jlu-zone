@@ -1,14 +1,6 @@
 require "digest/md5"
 
 module ApplicationHelper
-  def render_main
-    if self.controller.use_sidebar?
-      render "layouts/body_main_layouts/with_side_bar"
-    else
-      render "layouts/body_main_layouts/without_side_bar"
-    end
-  end
-
   def gravatar(email, size = nil)
     gravatar_id = Digest::MD5.hexdigest(email.downcase)
     base_url = "http://www.gravatar.com/avatar/#{gravatar_id}"

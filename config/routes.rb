@@ -51,14 +51,14 @@ Wiki::Application.routes.draw do
   # get "/users/menu" => "users/users#menu", :as => :users
   # get "campus/:campus" => 'users/users#location', :as => :location_users
 
-  # resources :users,  :only => [:show, :index],            :controller => 'users/users' do
+  resources :users,  :only => [:show, :index],            :controller => 'users/users' do
   #   member do
   #     post :lock
   #     post :unlock
   #     get :topics
   #     get :follows
   #   end
-  # end
+  end
 
   # post   "/users/:id" => 'users/users#set_permission',    :as => :set_user_permission
   # delete "/users/:id" => 'users/users#cancel_permission', :as => :cancel_user_permission

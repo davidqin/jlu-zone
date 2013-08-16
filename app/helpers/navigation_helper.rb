@@ -13,7 +13,7 @@ module NavigationHelper
     notification_class << "active" if ["users/user_notices"].index(params[:controller])
 
     content_tag :li, :class => notification_class do
-      link_to content_tag(:span, unread_count, :class => :count), user_notices_path(current_user)
+      link_to content_tag(:span, unread_count, :class => :count), "user_notices_path(current_user)"
     end
   end
 

@@ -11,7 +11,9 @@
   </head>
   <body>
     <%= render :partial => 'layouts/topbar' %>
-    <%= render_main %>
+    <div class="container">
+      <%= yield %>
+    </div>
     <%= render :partial => 'layouts/foot' %>
   </body>
 </html>
