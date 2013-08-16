@@ -24,4 +24,3 @@ db/schema.rb
 
 # Ignore real config
 config/config.yml
-config/initializers/email.rb
