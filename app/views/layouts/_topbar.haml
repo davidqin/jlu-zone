@@ -1,10 +1,7 @@
-.navbar.navbar-inverse
-  .navbar-inner
-    .container
-      = navigation_for_device
-      = link_to 'JLU-Zone', '/', class: :brand
-      .nav-collapse
-        %ul.nav
-          %li= link_to '社区', topics_path
-          %li= link_to '我要打印', prints_path
-        = render "users/user_functional_bar"
+.navbar.navbar-default
+  .collapse.navbar-collapse.navbar-ex1-collapse
+    = link_to 'JLU-Zone', '/', :class => "navbar-brand"
+    %ul.nav.navbar-nav
+      %li= link_to '社区', topics_path
+      %li= link_to '我要打印', prints_path
+    / = render "users/user_functional_bar"
