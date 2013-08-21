@@ -7,6 +7,9 @@ class PrintHouses < ActiveRecord::Migration
       t.string :description, :limit => 200, :null => false
       t.string :ip, :limit => 30, :null => false
 
+      #t.string :login_name, :null => false, :default => ""
+      #t.string :encrypted_password, :null => false, :default => ""
+
       t.timestamps
     end
   end
