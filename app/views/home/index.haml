@@ -45,7 +45,7 @@
                   = label_tag(:password, "密码：")
                   = password_field(:user, :password)
                 .control-group
-                  %button{:id=> "login-button", :class=>:btn}="登录"
+                  %button{:id=> "login-button", :class=>"index-btn"}="登录"
                 #other
                   %a{:href=>'/forgot_password'}="忘记密码？"
                   %a{:href=>'#register-page'}="还没有账号？"
@@ -92,7 +92,7 @@
                   = label_tag(:email, "电子邮箱：")
                   = email_field(:user, :email)
                 .control-group
-                  %button{:id=> "register-button", :class=>:btn}="注册"
+                  %button{:id=> "register-button", :class=>"index-btn"}="注册"
               %a{:href=>'/', :id=>"left-return"}
             #register-text
               %a{:href => '#login-page'}="注册"
