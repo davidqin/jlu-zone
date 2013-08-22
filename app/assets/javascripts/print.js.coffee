@@ -1,6 +1,3 @@
-get_template = ->
-    $("#print_form .template").clone()
-
 initialize_print_item_file_uploader = (form) ->
     # Initialize the jQuery File Upload widget:
 

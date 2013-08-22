@@ -37,7 +37,7 @@ Wiki::Application.routes.draw do
 
 
   ## 我要打印
-  resources :prints do
+  resources :prints, except: :new do
 
     member do
       put :complete

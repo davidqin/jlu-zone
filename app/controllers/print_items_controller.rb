@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class PrintItemsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_print

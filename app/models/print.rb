@@ -1,4 +1,5 @@
-# coding: utf-8
+# encoding: utf-8
+
 class Print < ActiveRecord::Base
 
   class CompletedPrintCanNotDestroy < Exception
@@ -23,7 +24,7 @@ class Print < ActiveRecord::Base
   end
 
   def generate_first_print_item
-    self.items.create!
+    # self.items.create!
   end
 
   def check_is_completed

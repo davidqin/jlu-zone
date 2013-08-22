@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class PrintsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :check_uncompleted_print, only: [:new, :create]
@@ -6,10 +8,6 @@ class PrintsController < ApplicationController
   def index
     @prints = current_user.prints.where(is_completed: true).order("completed_at desc").limit(10)
     @uncompleted_print = current_user.uncompleted_print
-  end
-
-  def new
-    @print = current_user.prints.new
   end
 
   def show

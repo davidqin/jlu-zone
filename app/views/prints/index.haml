@@ -1,17 +1,61 @@
-.box
-  - @prints.each do |print|
-    .p
-      = print.print_house
-      %br
-      = print.completed_at
-      %br
-
+.page-header
+  %h3
+    新的打印订单
 - if @uncompleted_print
-  .box
-    %h2
-      尚未完成的打印订单，在完成次打印订单之前，您无法创建新的打印订单
-    = link_to @uncompleted_print.print_house, @uncompleted_print
-    = link_to @uncompleted_print.deadline, @uncompleted_print
+  %p
+    少侠！发现您有尚未完成的打印订单！
+  %p
+    .panel.panel-default
+      .panel-heading
+        = @uncompleted_print.print_house
+        ，最迟完成时间
+        = @uncompleted_print.deadline
+      .panel-body
+        - if @uncompleted_print.items.blank?
+          没有任何打印条目
+
+        - @uncompleted_print.items.each do |item|
+          %h4= item.format
+          %ul
+            - item.files.each do |file|
+              %li
+                %span.glyphicon.glyphicon-file
+                = file.name
+
+  %p
+    你可以选择，继续
+    = link_to @uncompleted_print, class: "btn btn-primary btn-xs" do
+      %span.glyphicon.glyphicon-edit
+      编辑
+    这个订单，或者不想要了，
+    = link_to @uncompleted_print, class: "btn btn-danger btn-xs", confirm: "确认删除？", method: :delete do
+      %span.glyphicon.glyphicon-trash
+      删除
+    之
+
 - else
-  .box
-    = link_to "新的打印任务", new_print_path
+  = form_for current_user.prints.new, :html => { class: "form-inline" } do |f|
+    .form-group
+      = f.select :print_house_id, PrintHouse.all.collect {|p| [ p.name, p.id ] }, {}, class: 'form-control'
+    .form-group
+      %button.btn.btn-success{type: :submit} 提交
+
+.page-header
+  %h3
+    已经提交的打印订单
+%table.table.table-condensed
+  %thead
+    %th 打印社
+    %th 最迟完成时间
+    %th 打印状态
+  - @prints.each do |print|
+    %tr{class: print.is_printed ? "success" : "active"}
+      %td= print.print_house
+      %td= print.completed_at
+      %td= print.is_printed ? '已完成' : '待打印'
+
+
+/ <tr class="active">...</tr>
+/ <tr class="success">...</tr>
+/ <tr class="warning">...</tr>
+/ <tr class="danger">...</tr>

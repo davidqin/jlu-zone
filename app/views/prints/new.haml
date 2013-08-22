@@ -1,6 +1,0 @@
-.box#print_form
-  = form_for @print do |f|
-    = f.select :print_house_id, PrintHouse.all.collect {|p| [ p.name, p.id ] }
-
-
-    = f.submit '提交'

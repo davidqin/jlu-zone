@@ -1,4 +1,5 @@
-# coding: utf-8
+# encoding: utf-8
+
 class PrintFile < ActiveRecord::Base
   mount_uploader :url, PrintFileUploader
 

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class PrintFilesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_print_and_print_item
@@ -41,6 +43,8 @@ class PrintFilesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
 
   def find_print_and_print_item
     @print = current_user.prints.find(params[:print_id])

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class PrintItem < ActiveRecord::Base
   # attr_accessible :name, :number, :tag_category
   belongs_to :print
