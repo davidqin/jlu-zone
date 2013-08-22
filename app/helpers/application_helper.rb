@@ -1,14 +1,9 @@
 require "digest/md5"
 
 module ApplicationHelper
-  def gravatar(email, size = nil)
-    gravatar_id = Digest::MD5.hexdigest(email.downcase)
-    base_url = "http://www.gravatar.com/avatar/#{gravatar_id}"
-    if size
-      base_url + "?r=G&s=#{size}"
-    else
-      base_url
-    end
+
+  def short_time t
+    l t, :format => :short
   end
 
   def user_avatar(user, size = nil)

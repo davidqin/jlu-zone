@@ -1,6 +1,6 @@
 .page-header
   %h3
-    新的打印订单
+    新建打印订单
 - if @uncompleted_print
   %p
     少侠！发现您有尚未完成的打印订单！
@@ -9,7 +9,7 @@
       .panel-heading
         = @uncompleted_print.print_house
         ，最迟完成时间
-        = @uncompleted_print.deadline
+        = short_time @uncompleted_print.deadline
       .panel-body
         - if @uncompleted_print.items.blank?
           没有任何打印条目
@@ -38,6 +38,8 @@
     .form-group
       = f.select :print_house_id, PrintHouse.all.collect {|p| [ p.name, p.id ] }, {}, class: 'form-control'
     .form-group
+      = f.text_field :deadline, class: 'form-control', readonly: :readonly, placeholder: "选择最后截止日期", style: "cursor: pointer;"
+    .form-group
       %button.btn.btn-success{type: :submit} 提交
 
 .page-header
@@ -53,9 +55,3 @@
       %td= print.print_house
       %td= print.completed_at
       %td= print.is_printed ? '已完成' : '待打印'
-
-
-/ <tr class="active">...</tr>
-/ <tr class="success">...</tr>
-/ <tr class="warning">...</tr>
-/ <tr class="danger">...</tr>

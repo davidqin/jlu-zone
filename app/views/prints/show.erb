@@ -1,7 +1,7 @@
 <div class="box">
     <h2><%= @print.print_house.name %></h2>
     截至日期
-    <%= @print.deadline %>
+    <%= short_time @print.deadline %>
     <div id="print_items">
         <% @print.items.each do |item| %>
             <%= render partial: 'prints/print_item', locals: { print_item: item } %>

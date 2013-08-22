@@ -9,7 +9,7 @@
         <%= link_to "点击此处修改打印格式", '#', class: :edit_print_format %>
     </div>
 
-    <div class="print_format_edit hide">
+    <div class="print_format_edit" style="display: none;">
         <%= form_for print_item, :url => print_item_path(print_item.print, print_item), remote: true, method: :put do |f| %>
             <%= f.text_field :format %>
             <%= f.submit '修改', class: 'btn' %>

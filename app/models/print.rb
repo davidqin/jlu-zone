@@ -5,7 +5,7 @@ class Print < ActiveRecord::Base
   class CompletedPrintCanNotDestroy < Exception
   end
 
-  attr_accessible :print_house_id
+  attr_accessible :print_house_id, :deadline
 
   belongs_to :fonder, :class_name => "User"
   belongs_to :print_house
@@ -25,6 +25,11 @@ class Print < ActiveRecord::Base
 
   def generate_first_print_item
     # self.items.create!
+  end
+
+  def deadline= time_str
+    time = Time.strptime(time_str, "%Y-%m-%d %H:%M")
+    super time
   end
 
   def check_is_completed

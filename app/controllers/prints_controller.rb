@@ -16,7 +16,6 @@ class PrintsController < ApplicationController
 
   def create
     @print = current_user.prints.new(params[:print])
-    @print.deadline = Time.new + 10.days
 
     if @print.save
       redirect_to @print

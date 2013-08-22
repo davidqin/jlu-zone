@@ -34,6 +34,8 @@
 //= require jquery.color
 //= require edit_avatar
 //= require jquery-fileupload
+//= require bootstrap-datetimepicker.min
+//= require bootstrap-datetimepicker.zh-CN
 
 $(function(){
   $("abbr.timeago").timeago();

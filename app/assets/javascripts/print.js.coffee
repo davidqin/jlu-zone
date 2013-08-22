@@ -56,3 +56,12 @@ $ ->
         event.preventDefault()
         $(this).parents('.print_item').find('.print_format_edit').hide()
         $(this).parents('.print_item').find('.print_format_show').show()
+
+    $('#print_deadline').datetimepicker({
+        format: 'yyyy-mm-dd hh:ii',
+        autoclose: true,
+        todayHighlight: true,
+        language: 'zh-CN',
+        startDate: '+0d',
+        endDate: '+5d'
+    });
