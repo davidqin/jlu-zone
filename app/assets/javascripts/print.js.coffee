@@ -34,28 +34,28 @@ $ ->
         alert "error"
 
     $('#delete_print_item').live 'ajax:success', (evt, data, status, xhr) ->
-        $(this).parents('.print_item').remove()
+        $(this).parents('.panel').remove()
 
     $('#delete_print_item').live 'ajax:error', (evt, xhr, status, error) ->
         alert "error"
 
     $('.print_format_edit form').live 'ajax:success', (evt, data, status, xhr) ->
-        $(this).parents('.print_item').find('.print_format_show span').html(data.format)
-        $(this).parents('.print_item').find('.print_format_edit').hide()
-        $(this).parents('.print_item').find('.print_format_show').show()
+        $(this).parents('.panel-heading').find('.print_format_show span').html(data.format)
+        $(this).parents('.panel-heading').find('.print_format_edit').hide()
+        $(this).parents('.panel-heading').find('.print_format_show').show()
 
     $('.print_format_edit form').live 'ajax:error', (evt, xhr, status, error) ->
         alert "error"
 
     $('.edit_print_format').live 'click', (event) ->
         event.preventDefault()
-        $(this).parents('.print_item').find('.print_format_edit').show()
-        $(this).parents('.print_item').find('.print_format_show').hide()
+        $(this).parents('.panel-heading').find('.print_format_edit').show()
+        $(this).parents('.panel-heading').find('.print_format_show').hide()
 
     $('.print_format_edit .cancel_edit').live 'click', (event) ->
         event.preventDefault()
-        $(this).parents('.print_item').find('.print_format_edit').hide()
-        $(this).parents('.print_item').find('.print_format_show').show()
+        $(this).parents('.panel-heading').find('.print_format_edit').hide()
+        $(this).parents('.panel-heading').find('.print_format_show').show()
 
     $('#print_deadline').datetimepicker({
         format: 'yyyy-mm-dd hh:ii',

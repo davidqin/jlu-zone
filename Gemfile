@@ -11,7 +11,7 @@ gem 'devise', '2.0.4'
 # sudo apt-get install libmagick9-dev
 # brew install imagemagick
 # http://blog.paulopoiati.com/2013/01/28/installing-rmagick-in-mac-os-x-mountain-lion-with-homebrew/
-gem 'rmagick', '2.13.1'
+
 gem 'mini_magick'
 
 gem "jquery-fileupload-rails"

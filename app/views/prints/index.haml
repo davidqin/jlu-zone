@@ -17,6 +17,8 @@
         - @uncompleted_print.items.each do |item|
           %h4= item.format
           %ul
+            - if item.files.blank?
+              没有文件
             - item.files.each do |file|
               %li
                 %span.glyphicon.glyphicon-file
@@ -38,7 +40,7 @@
     .form-group
       = f.select :print_house_id, PrintHouse.all.collect {|p| [ p.name, p.id ] }, {}, class: 'form-control'
     .form-group
-      = f.text_field :deadline, class: 'form-control', readonly: :readonly, placeholder: "选择最后截止日期", style: "cursor: pointer;"
+      = f.text_field :deadline, class: 'form-control', required: true, placeholder: "选择最后截止日期", style: "cursor: pointer;"
     .form-group
       %button.btn.btn-success{type: :submit} 提交
 
@@ -50,8 +52,12 @@
     %th 打印社
     %th 最迟完成时间
     %th 打印状态
-  - @prints.each do |print|
-    %tr{class: print.is_printed ? "success" : "active"}
-      %td= print.print_house
-      %td= print.completed_at
-      %td= print.is_printed ? '已完成' : '待打印'
+  %tboday
+    - if @prints.blank?
+      %tr
+        %td 暂无记录
+    - @prints.each do |print|
+      %tr{class: print.is_printed ? "success" : "active"}
+        %td= print.print_house
+        %td= print.completed_at
+        %td= print.is_printed ? '已完成' : '待打印'

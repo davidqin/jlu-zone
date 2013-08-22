@@ -29,7 +29,7 @@ class PrintsController < ApplicationController
     if @print.complete
       redirect_to action: :index
     else
-      render :show
+      redirect_to action: :show
     end
   end
 

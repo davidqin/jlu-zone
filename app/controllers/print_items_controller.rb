@@ -13,9 +13,9 @@ class PrintItemsController < ApplicationController
 
   def update
     print_item = @print.items.find(params[:id])
-    print_item.update_attribute('format', params[:print_item][:format])
+    print_item.update_attributes(params[:print_item])
     respond_to do |format|
-      format.json { render json: { result: :success, format: params[:print_item][:format]} }
+      format.json { render json: { result: :success, format: print_item.format } }
     end
   end
 

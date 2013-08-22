@@ -1,26 +1,41 @@
-<div class="box">
-    <h2><%= @print.print_house.name %></h2>
-    截至日期
-    <%= short_time @print.deadline %>
-    <div id="print_items">
-        <% @print.items.each do |item| %>
-            <%= render partial: 'prints/print_item', locals: { print_item: item } %>
-        <% end %>
-    </div>
-    <%= link_to '添加一组文件以及打印格式', print_items_path(@print), id: :add_print_item, class: 'btn btn-success', :remote => true, method: :post %>
+<div class="page-header">
+  <h3><%= @print.print_house.name %>，截至日期<%= short_time @print.deadline %></h3>
 </div>
 
-<%= link_to '提交打印订单', complete_print_path(@print), class: 'btn btn-success', confirm: "请确认打印信息，一旦提交，便不可再修改。不包含打印文件的打印项，将会被移除。确定要提交订单么？", method: :put %>
-<%= link_to '删除打印订单', print_path(@print), class: 'btn btn-success', confirm: "确认删除？", method: :delete %>
+<div id="print_items">
+    <% @print.items.each do |item| %>
+        <%= render partial: 'prints/print_item', locals: { print_item: item } %>
+    <% end %>
+</div>
+<%= link_to '添加一组文件', print_items_path(@print), id: :add_print_item, class: 'btn btn-default', :remote => true, method: :post %>
+
+<div class="pull-right">
+  <%= link_to '提交订单', complete_print_path(@print), class: 'btn btn-success', confirm: "请确认打印信息，一旦提交，便不可再修改。不包含打印文件的打印项，将会被移除。确定要提交订单么？", method: :put %>
+  <%= link_to '删除订单', print_path(@print), class: 'btn btn-danger', confirm: "确认删除？", method: :delete %>
+</div>
+
+<div class="page-header">
+  <h3>使用帮助</h3>
+</div>
+
+<div class="bs-callout bs-callout-info">
+  <h4>什么是一组文件</h4>
+  <p>每组文件对应着一种打印格式。打印社会按照这个打印格式打印这个组下所有的文件。</p>
+</div>
+
+<div class="bs-callout bs-callout-info">
+  <h4>为什么我提交了订单，还是返回了这里？</h4>
+  <p>您有可能提交了一个没有任何有效打印文件的订单，所以请查看您是否上传了有效的文件。</p>
+</div>
 
 <script>
   var fileUploadErrors = {
-  maxFileSize: '文件大小限制为10M',
-  minFileSize: 'File is too small',
-  acceptFileTypes: 'Filetype not allowed',
-  maxNumberOfFiles: 'Max number of files exceeded',
-  uploadedBytes: 'Uploaded bytes exceed file size',
-  emptyResult: 'Empty file upload result'
+    maxFileSize: '文件大小限制为10M',
+    minFileSize: 'File is too small',
+    acceptFileTypes: 'Filetype not allowed',
+    maxNumberOfFiles: 'Max number of files exceeded',
+    uploadedBytes: 'Uploaded bytes exceed file size',
+    emptyResult: 'Empty file upload result'
   };
 </script>
 
