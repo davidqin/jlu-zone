@@ -13,43 +13,39 @@
 
         <div class="print_format_edit" style="display: none;">
             <%= form_for print_item, :url => print_item_path(print_item.print, print_item), remote: true, method: :put do |f| %>
-                <div class="form-group">
-                    <label for="print_item_paper_size">纸张大小</label>
-                    <%= f.select :paper_size, PrintItem::PAPER_SIZE %>
-                    <p class="help-block">Example block-level help text here.</p>
+                <div class="row">
+                    <div class="form-group col-md-2">
+                        <label for="print_item_paper_size">纸张大小</label>
+                        <%= f.select :paper_size, PrintItem::PAPER_SIZE, {}, class: "form-control" %>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="exampleInputPassword1">起始页</label>
+                        <%= f.text_field :start_page, class: "form-control" %>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="exampleInputPassword1">结束页</label>
+                        <%= f.text_field :end_page, class: "form-control" %>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="exampleInputPassword1">板式</label>
+                        <%= f.text_field :style, class: "form-control" %>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="exampleInputPassword1">单面/反正面</label>
+                        <%= f.text_field :single_page, class: "form-control" %>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="exampleInputPassword1">份数</label>
+                        <%= f.text_field :copies, class: "form-control"%>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">起始页</label>
-                    <%= f.text_field :start_page, class: "form-control"%>
-                    <p class="help-block">Example block-level help text here.</p>
+                    <%= f.text_field :memo, class: "form-control", placeholder: "其他要求请在这里填写" %>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">结束页</label>
-                    <%= f.text_field :end_page, class: "form-control"%>
-                    <p class="help-block">Example block-level help text here.</p>
+                    <button type="submit" class="btn btn-default">修改</button>
+                    <button type="button" class="btn btn-default cancel_edit">取消</button>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">style</label>
-                    <%= f.text_field :style, class: "form-control"%>
-                    <p class="help-block">Example block-level help text here.</p>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">single_page</label>
-                    <%= f.text_field :single_page, class: "form-control"%>
-                    <p class="help-block">Example block-level help text here.</p>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">copies</label>
-                    <%= f.text_field :copies, class: "form-control"%>
-                    <p class="help-block">Example block-level help text here.</p>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">copies</label>
-                    <%= f.text_field :memo, class: "form-control"%>
-                    <p class="help-block">Example block-level help text here.</p>
-                </div>
-                <button type="submit" class="btn btn-default">修改</button>
-                <button type="button" class="btn btn-default cancel_edit">取消</button>
             <% end %>
         </div>
 
