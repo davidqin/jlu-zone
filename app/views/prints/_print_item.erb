@@ -8,7 +8,10 @@
                 <% end %>
             </span>
             <%= link_to "修改打印格式", '#', class: "edit_print_format btn btn-link" %>
-            <%= link_to "移除", print_item_path(print_item.print, print_item), id: :delete_print_item, method: :delete, remote: true, class: "btn btn-danger pull-right"%>
+            <div class="pull-right">
+                <%= link_to "-", print_item_path(print_item.print, print_item), class: "btn btn-default"%>
+                <%= link_to "X", print_item_path(print_item.print, print_item), id: :delete_print_item, method: :delete, remote: true, class: "btn btn-danger"%>
+            </div>
         </div>
 
         <div class="print_format_edit" style="display: none;">
