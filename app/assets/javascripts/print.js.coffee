@@ -19,6 +19,15 @@ initialize_print_item_file_uploader = (form) ->
         fu._reflow = fu._transition && template.length && template[0].offsetWidth
         template.addClass('in')
         $('#loading').remove()
+
+window.fileUploadErrors =
+    "maxFileSize": "文件不能超过10M",
+    "minFileSize": "文件太小了",
+    "Filetype not allowed": "无效文件类型",
+    "Maximum number of files exceeded": "最多只能有5个文件",
+    "uploadedBytes": "Uploaded bytes exceed file size",
+    "emptyResult": "Empty file upload result"
+
 $ ->
     # 初始化 /prints/123 中已有items的uploader
 
@@ -40,7 +49,7 @@ $ ->
         alert "error"
 
     $('.print_format_edit form').live 'ajax:success', (evt, data, status, xhr) ->
-        $(this).parents('.panel-heading').find('.print_format_show span').html(data.format)
+        $(this).parents('.panel-heading').find('.print_format_show > span').html(data.format)
         $(this).parents('.panel-heading').find('.print_format_edit').hide()
         $(this).parents('.panel-heading').find('.print_format_show').show()
 
@@ -65,3 +74,11 @@ $ ->
         startDate: '+0d',
         endDate: '+5d'
     });
+
+    $('.select-print-scope').live 'change', (event) ->
+        if $(this).val() == "all"
+            $(this).parents('.print_format_edit').find('.input-print-scope').attr('readonly', 'readonly')
+            $(this).parents('.print_format_edit').find('.input-print-scope:eq(0)').val(1)
+            $(this).parents('.print_format_edit').find('.input-print-scope:eq(1)').val(0)
+        else if $(this).val() == "customizing"
+            $(this).parents('.print_format_edit').find('.input-print-scope').removeAttr('readonly')

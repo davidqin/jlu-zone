@@ -7,11 +7,20 @@
         <%= render partial: 'prints/print_item', locals: { print_item: item } %>
     <% end %>
 </div>
-<%= link_to '添加一组文件', print_items_path(@print), id: :add_print_item, class: 'btn btn-default', :remote => true, method: :post %>
+<%= link_to print_items_path(@print), id: :add_print_item, class: 'btn btn-default', :remote => true, method: :post do %>
+    <span class="glyphicon glyphicon-plus-sign"></span>
+    添加一组文件
+<% end %>
 
 <div class="pull-right">
-  <%= link_to '提交订单', complete_print_path(@print), class: 'btn btn-success', confirm: "请确认打印信息，一旦提交，便不可再修改。不包含打印文件的打印项，将会被移除。确定要提交订单么？", method: :put %>
-  <%= link_to '删除订单', print_path(@print), class: 'btn btn-danger', confirm: "确认删除？", method: :delete %>
+    <%= link_to complete_print_path(@print), class: 'btn btn-success', confirm: "请确认打印信息，一旦提交，便不可再修改。不包含打印文件的打印项，将会被移除。确定要提交订单么？", method: :put do %>
+        <span class="glyphicon glyphicon-ok-circle"></span>
+        提交订单
+    <% end %>
+    <%= link_to print_path(@print), class: 'btn btn-danger', confirm: "确认删除？", method: :delete do %>
+        <span class="glyphicon glyphicon-remove-sign"></span>
+        删除订单
+    <% end %>
 </div>
 
 <div class="page-header">
@@ -28,73 +37,70 @@
   <p>您有可能提交了一个没有任何有效打印文件的订单，所以请查看您是否上传了有效的文件。</p>
 </div>
 
-<script>
-  var fileUploadErrors = {
-    maxFileSize: '文件大小限制为10M',
-    minFileSize: 'File is too small',
-    acceptFileTypes: 'Filetype not allowed',
-    maxNumberOfFiles: 'Max number of files exceeded',
-    uploadedBytes: 'Uploaded bytes exceed file size',
-    emptyResult: 'Empty file upload result'
-  };
-</script>
-
 <!-- The template to display files available for upload -->
 <script id="template-upload" type="text/x-tmpl">
-  {% for (var i=0, file; file=o.files[i]; i++) { %}
-  <tr class="template-upload fade">
-    <td class="preview"><span class="fade"></span></td>
-    <td class="name"><span>{%=file.name%}</span></td>
-    <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
-    {% if (file.error) { %}
-    <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
-    {% } else if (o.files.valid && !i) { %}
-    <td>
-      <div class="progress progress-success progress-striped active"><div class="bar" style="width:0%;"></div></div>
-    </td>
-    <td class="start">{% if (!o.options.autoUpload) { %}
-      <button class="btn btn-primary">
-        <i class="icon-upload icon-white"></i>
-        <span>{%=locale.fileupload.start%}</span>
-      </button>
-      {% } %}</td>
-    {% } else { %}
-    <td colspan="2"></td>
+    {% for (var i=0, file; file=o.files[i]; i++) { %}
+        <tr class="template-upload fade {% if (file.error) { %} danger {% } %}">
+            <td class="preview"><span class="glyphicon glyphicon-file"></span></td>
+            <td class="name"><span>{%=file.name%}</span></td>
+            <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
+            <td colspan="2">
+                {% if (file.error) { %}
+                    {%= fileUploadErrors[file.error] || file.error%}
+                {% } else if (o.files.valid && !i) { %}
+                    <div class="progress progress-striped active">
+                        <div class="bar" style="width:0%;"></div>
+                    </div>
+                {% } %}
+            </td>
+            <td class="cancel">
+                {% if (!i) { %}
+                    <button class="btn btn-warning">
+                        <i class="icon-ban-circle icon-white"></i>
+                        <span>取消</span>
+                    </button>
+                {% } %}
+            </td>
+        </tr>
     {% } %}
-    <td class="cancel">{% if (!i) { %}
-      <button class="btn btn-warning">
-        <i class="icon-ban-circle icon-white"></i>
-        <span>{%=locale.fileupload.cancel%}</span>
-      </button>
-      {% } %}</td>
-  </tr>
-  {% } %}
 </script>
+
 <!-- The template to display files available for download -->
 <script id="template-download" type="text/x-tmpl">
-  {% for (var i=0, file; file=o.files[i]; i++) { %}
-    <tr class="template-download fade">
-      {% if (file.error) { %}
-        <td></td>
-        <td class="name"><span>{%=file.name%}</span></td>
-        <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
-        <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
-        {% } else { %}
-        <td class="preview">{% if (file.thumbnail_url) { %}
-          <img src="{%=file.thumbnail_url%}">
-          {% } %}</td>
-        <td class="name">
-          {%=file.name%}
-        </td>
-        <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
-        <td colspan="2"></td>
-        {% } %}
-      <td class="delete">
-        <button class="btn btn-danger" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}">
-          <i class="icon-trash icon-white"></i>
-          <span>{%=locale.fileupload.destroy%}</span>
-        </button>
-      </td>
-    </tr>
+    {% for (var i=0, file; file=o.files[i]; i++) { %}
+        <tr class="template-download fade">
+             {% if (file.error) { %}
+                <td>
+                    <span class="glyphicon glyphicon-file"></span>
+                </td>
+                <td class="name">
+                    <span>{%=file.name%}</span>
+                </td>
+                <td class="size">
+                    <span>{%=o.formatFileSize(file.size)%}</span>
+                </td>
+                <td class="error" colspan="2">
+                    <span class="label label-important">{%= locale.fileupload.error%}</span>
+                    {%= file.error%}
+                </td>
+            {% } else { %}
+                <td class="preview">
+                    <span class="glyphicon glyphicon-file"></span>
+                </td>
+                <td class="name">
+                    {%=file.name%}
+                </td>
+                <td class="size">
+                    <span>{%=o.formatFileSize(file.size)%}</span>
+                </td>
+                <td colspan="2"></td>
+            {% } %}
+            <td class="delete">
+                <button class="btn btn-danger" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}">
+                    <i class="icon-trash icon-white"></i>
+                    <span>删除</span>
+                </button>
+            </td>
+        </tr>
     {% } %}
 </script>

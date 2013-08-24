@@ -4,6 +4,11 @@ class PrintItem < ActiveRecord::Base
 
   PAPER_SIZE = %w(A4 B5)
 
+  PAPER_STYLE = [['每页1版(适合.doc/.pdf)', '1'],
+                 ['每页8版(适合.ppt)', '8'],
+                 ['每页9版(适合.ppt)', '9']]
+
+
   attr_accessible :paper_size, :start_page, :end_page, :style, :single_page, :copies, :memo
   belongs_to :print
 

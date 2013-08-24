@@ -9,8 +9,9 @@
             </span>
             <%= link_to "修改打印格式", '#', class: "edit_print_format btn btn-link" %>
             <div class="pull-right">
-                <%= link_to "-", print_item_path(print_item.print, print_item), class: "btn btn-default"%>
-                <%= link_to "X", print_item_path(print_item.print, print_item), id: :delete_print_item, method: :delete, remote: true, class: "btn btn-danger"%>
+                <%= link_to print_item_path(print_item.print, print_item), id: :delete_print_item, confirm: "确认删除？", method: :delete, remote: true, class: "btn btn-danger" do %>
+                    <span class="glyphicon glyphicon-remove"></span>
+                <% end %>
             </div>
         </div>
 
@@ -22,24 +23,43 @@
                         <%= f.select :paper_size, PrintItem::PAPER_SIZE, {}, class: "form-control" %>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="exampleInputPassword1">起始页</label>
-                        <%= f.text_field :start_page, class: "form-control" %>
+                        <label for="select-print-scope">打印范围</label>
+                        <select class="form-control select-print-scope">
+                            <% if f.object.end_page == 0 %>
+                                <option value="all" selected="selected">全部</option>
+                                <option value="customizing">自定义</option>
+                            <% else %>
+                                <option value="all">全部</option>
+                                <option value="customizing" selected="selected">自定义</option>
+                            <% end %>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label>起始页</label>
+                        <%= f.text_field :start_page, type: :number, min: 1, class: "form-control input-print-scope", readonly: f.object.end_page == 0 %>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label>结束页</label>
+                        <%= f.text_field :end_page, type: :number, class: "form-control input-print-scope", readonly: f.object.end_page == 0 %>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>板式</label>
+                        <%= f.select :style, PrintItem::PAPER_STYLE, {}, class: "form-control" %>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="exampleInputPassword1">结束页</label>
-                        <%= f.text_field :end_page, class: "form-control" %>
+                        <div>
+                            <label style="margin-bottom: 10px;">单面/反正面</label>
+                        </div>
+                        <label class="radio-inline">
+                            <%= f.radio_button :single_page, "true" %> 单面
+                        </label>
+                        <label class="radio-inline">
+                            <%= f.radio_button :single_page, "false" %> 反正面
+                        </label>
                     </div>
-                    <div class="form-group col-md-2">
-                        <label for="exampleInputPassword1">板式</label>
-                        <%= f.text_field :style, class: "form-control" %>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="exampleInputPassword1">单面/反正面</label>
-                        <%= f.text_field :single_page, class: "form-control" %>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="exampleInputPassword1">份数</label>
-                        <%= f.text_field :copies, class: "form-control"%>
+                    <div class="form-group col-md-1">
+                        <label>份数</label>
+                        <%= f.text_field :copies, class: "form-control", type: "number", max: 50, min: 1%>
                     </div>
                 </div>
                 <div class="form-group">
@@ -61,6 +81,7 @@
                 <!-- The fileinput-button span is used to style the file input field as button -->
                     <span class="btn btn-default fileinput-button">
                         <i class="icon-plus icon-white"></i>
+                        <span class="glyphicon glyphicon-list"></span>
                         <span>添加文件</span>
                         <input id="print_file_url" multiple="multiple" name="print_file[url]" type="file">
                     </span>
@@ -76,7 +97,9 @@
             <div class="fileupload-loading"></div>
             <br>
             <!-- The table listing the files available for upload/download -->
-            <table class="table table-striped"><tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody>
+            <table class="table table-condensed">
+                <tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery">
+                </tbody>
             </table>
         <% end %>
     </div>
